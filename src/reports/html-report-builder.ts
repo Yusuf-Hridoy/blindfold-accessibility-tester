@@ -1,6 +1,6 @@
 // report.html: one self-contained, offline, accessible page. Every value that
 // came from the scanned page is HTML-escaped, so a hostile page can't inject
-// markup or script into the report.
+// markup or script into the report. Shared by scan and journey reports.
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -13,8 +13,25 @@ import type {
   TranscriptLine,
   WalkStopReason,
 } from "../types/scan-result-types.ts";
+import type { AnnouncerEngineName } from "../types/scan-result-types.ts";
 
 const TEMPLATE_PATH = path.join(import.meta.dirname, "html-report-template.html");
+
+export interface ReportSection {
+  id: string;
+  title: string;
+  html: string;
+}
+
+export interface ReportPage {
+  pageTitle: string;
+  verdictText: string;
+  passed: boolean;
+  /** Already-escaped HTML lines under the verdict heading. */
+  verdictDetails: string;
+  sections: ReportSection[];
+  runDetails: [string, string][];
+}
 
 export function escapeHtml(value: string): string {
   return value
@@ -25,10 +42,14 @@ export function escapeHtml(value: string): string {
     .replaceAll("'", "&#39;");
 }
 
-export function describeEngine(result: ScanResult): string {
-  return result.engine.name === "guidepup-virtual-screen-reader"
+export function pluralize(count: number, singular: string, plural: string): string {
+  return `${count} ${count === 1 ? singular : plural}`;
+}
+
+export function describeEngine(engine: { name: AnnouncerEngineName; fallbackReason?: string }): string {
+  return engine.name === "guidepup-virtual-screen-reader"
     ? "Guidepup virtual screen reader"
-    : `Accessibility snapshot fallback (${result.engine.fallbackReason ?? "Guidepup unavailable"})`;
+    : `Accessibility snapshot fallback (${engine.fallbackReason ?? "Guidepup unavailable"})`;
 }
 
 export function describeStopReason(reason: WalkStopReason, maxTabs: number): string {
@@ -46,40 +67,30 @@ export function describeStopReason(reason: WalkStopReason, maxTabs: number): str
   }
 }
 
+export function readableDate(isoDate: string): string {
+  return new Date(isoDate).toUTCString();
+}
+
 function describeFocusVisibility(value: FocusVisibility): string {
   return value === "unknown" ? "unknown" : value ? "yes" : "no";
 }
 
-function pluralize(count: number, singular: string, plural: string): string {
-  return `${count} ${count === 1 ? singular : plural}`;
+export function buildSummaryNumbers(numbers: [string, number | string][]): string {
+  const items = numbers.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(String(value))}</dd></div>`).join("");
+  return `<dl class="summary-numbers">${items}</dl>`;
 }
 
-function buildSummary(result: ScanResult): string {
-  const rulesFailed = new Set(result.findings.map((finding) => finding.ruleId)).size;
-  const numbers = [
-    ["Barriers", result.findings.length],
-    ["Rules failed", rulesFailed],
-    ["Focus stops", result.focusStops.length],
-  ] as const;
-  const items = numbers.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join("");
-  const stopNote =
-    result.stoppedBecause === "max-tabs"
-      ? `<p class="note">${escapeHtml(describeStopReason(result.stoppedBecause, result.maxTabs))}</p>`
-      : "";
-  return `<dl class="summary-numbers">${items}</dl>${stopNote}`;
-}
-
-function buildTranscriptExcerpt(lines: TranscriptLine[], highlightStep: number | null): string {
+function buildTranscriptExcerpt(lines: TranscriptLine[], highlightStep: number | null, caption: string): string {
   if (lines.length === 0) return "";
   const rows = lines
     .map((line) => {
-      const rowClass = line.step === highlightStep ? ' class="highlight-row"' : "";
+      const rowClass = line.step === highlightStep && highlightStep !== null ? ' class="highlight-row"' : "";
       return `<tr${rowClass}><th scope="row">${line.step}</th><td>${escapeHtml(line.description)}</td><td>${escapeHtml(line.announcement)}</td></tr>`;
     })
     .join("");
   return `<div class="table-wrapper"><table>
-    <caption>Transcript around step ${highlightStep ?? ""}</caption>
-    <thead><tr><th scope="col">Step</th><th scope="col">Element</th><th scope="col">Screen reader said</th></tr></thead>
+    <caption>${escapeHtml(caption)}</caption>
+    <thead><tr><th scope="col">Step</th><th scope="col">Element or key</th><th scope="col">Screen reader said</th></tr></thead>
     <tbody>${rows}</tbody></table></div>`;
 }
 
@@ -87,23 +98,37 @@ function buildFinding(finding: Finding, screenshot: string | undefined): string 
   const image = screenshot
     ? `<img src="data:image/png;base64,${screenshot}" alt="Screenshot of ${escapeHtml(finding.description)}">`
     : "";
-  const stepText = finding.step === null ? "Never reached by the keyboard." : `Focus stop ${finding.step}.`;
+  const where =
+    finding.journeyStep !== undefined
+      ? `<p>Journey <a href="#step-${finding.journeyStep}">step ${finding.journeyStep}</a>.</p>`
+      : `<p>${finding.step === null ? "Never reached by the keyboard." : `Focus stop ${finding.step}.`}</p>`;
+  const message = finding.message ? `<p>${escapeHtml(finding.message)}</p>` : "";
+  const confidence = finding.confidenceNote ? `<p class="confidence-note">${escapeHtml(finding.confidenceNote)}</p>` : "";
   const cycle = finding.trapCycle
     ? `<p>Focus cycles between: ${finding.trapCycle.map((element) => `<code>${escapeHtml(element.selector)}</code>`).join(" → ")}</p>`
     : "";
+  const overlayControls = finding.overlayControls
+    ? `<p>Controls in the overlay that the keyboard can't reach:</p><ul>${finding.overlayControls
+        .map((control) => `<li>${escapeHtml(control.description)} (<code>${escapeHtml(control.selector)}</code>)</li>`)
+        .join("")}</ul>`
+    : "";
+  const excerptCaption = finding.journeyStep !== undefined ? `What happened in step ${finding.journeyStep}` : `Transcript around step ${finding.step ?? ""}`;
   return `<article class="finding">
     <h4>${escapeHtml(finding.description)}</h4>
     <p>Selector: <code>${escapeHtml(finding.selector)}</code></p>
-    <p>${stepText}</p>
+    ${where}
+    ${message}
+    ${confidence}
     ${cycle}
+    ${overlayControls}
     ${image}
-    ${buildTranscriptExcerpt(finding.transcriptExcerpt, finding.step)}
+    ${buildTranscriptExcerpt(finding.transcriptExcerpt, finding.journeyStep === undefined ? finding.step : null, excerptCaption)}
   </article>`;
 }
 
-function buildFindings(result: ScanResult, screenshots: Map<Finding, string>): string {
-  if (result.findings.length === 0) return "<p>No barriers found by the rules in this version.</p>";
-  return groupFindings(result.findings)
+export function buildFindingsSection(findings: Finding[], screenshots: Map<Finding, string>): string {
+  if (findings.length === 0) return "<p>No barriers found by the rules in this version.</p>";
+  return groupFindings(findings)
     .map(
       (group) => `<section class="rule" aria-labelledby="rule-${group.key}">
       <h3 id="rule-${group.key}">${group.ruleId} · ${escapeHtml(group.title)} (${pluralize(group.findings.length, "element", "elements")})</h3>
@@ -116,6 +141,60 @@ function buildFindings(result: ScanResult, screenshots: Map<Finding, string>): s
     </section>`,
     )
     .join("");
+}
+
+/** A table inside a keyboard-reachable scroll region (it scrolls on narrow screens). */
+export function buildScrollableTable(captionId: string, caption: string, headers: string[], rows: string): string {
+  const headerCells = headers.map((header) => `<th scope="col">${escapeHtml(header)}</th>`).join("");
+  return `<div class="table-wrapper" role="region" aria-labelledby="${captionId}" tabindex="0"><table>
+    <caption id="${captionId}">${escapeHtml(caption)}</caption>
+    <thead><tr>${headerCells}</tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
+}
+
+export function renderReportPage(page: ReportPage): string {
+  const sectionLinks = [...page.sections, { id: "run-details", title: "Run details" }]
+    .map((section) => `<li><a href="#${section.id}">${escapeHtml(section.title)}</a></li>`)
+    .join("");
+  const sections = page.sections
+    .map(
+      (section) => `<section id="${section.id}" aria-labelledby="${section.id}-heading"${section.id === "findings" ? ' tabindex="-1"' : ""}>
+      <h2 id="${section.id}-heading">${escapeHtml(section.title)}</h2>
+      ${section.html}
+    </section>`,
+    )
+    .join("\n");
+  const runDetails = `<dl class="rule-facts">${page.runDetails
+    .map(([term, value]) => `<dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd>`)
+    .join("")}</dl>`;
+  const values: Record<string, string> = {
+    PAGE_TITLE: escapeHtml(page.pageTitle),
+    VERDICT_CLASS: page.passed ? "verdict-pass" : "verdict-fail",
+    VERDICT_TEXT: escapeHtml(page.verdictText),
+    VERDICT_DETAILS: page.verdictDetails,
+    SECTION_LINKS: sectionLinks,
+    SECTIONS: sections,
+    RUN_DETAILS: runDetails,
+  };
+  // A replacer function, so "$" in page text is never treated as a pattern.
+  return readFileSync(TEMPLATE_PATH, "utf8").replace(/\{\{([A-Z_]+)\}\}/g, (placeholder, key: string) => values[key] ?? placeholder);
+}
+
+// ---- Scan report ----
+
+function buildScanSummary(result: ScanResult): string {
+  const rulesFailed = new Set(result.findings.map((finding) => finding.ruleId)).size;
+  const stopNote =
+    result.stoppedBecause === "max-tabs"
+      ? `<p class="note">${escapeHtml(describeStopReason(result.stoppedBecause, result.maxTabs))}</p>`
+      : "";
+  return (
+    buildSummaryNumbers([
+      ["Barriers", result.findings.length],
+      ["Rules failed", rulesFailed],
+      ["Focus stops", result.focusStops.length],
+    ]) + stopNote
+  );
 }
 
 function buildNotTested(result: ScanResult): string {
@@ -133,7 +212,7 @@ function buildNotTested(result: ScanResult): string {
     <tbody>${rows}</tbody></table></div>`;
 }
 
-function buildTranscript(focusStops: FocusStop[]): string {
+function buildScanTranscript(focusStops: FocusStop[]): string {
   if (focusStops.length === 0) return "<p>The keyboard never reached any element.</p>";
   const rows = focusStops
     .map((stop) => {
@@ -142,46 +221,32 @@ function buildTranscript(focusStops: FocusStop[]): string {
       return `<tr><th scope="row">${stop.step}</th><td>${escapeHtml(stop.description)}</td><td>${escapeHtml(stop.announcement)}</td>${visibilityCell}</tr>`;
     })
     .join("");
-  // The wrapper scrolls on narrow screens, so it must be reachable by keyboard too.
-  return `<div class="table-wrapper" role="region" aria-labelledby="transcript-caption" tabindex="0"><table>
-    <caption id="transcript-caption">Keyboard transcript</caption>
-    <thead><tr><th scope="col">Step</th><th scope="col">Element</th><th scope="col">Screen reader said</th><th scope="col">Focus visible</th></tr></thead>
-    <tbody>${rows}</tbody></table></div>`;
-}
-
-function buildRunDetails(result: ScanResult): string {
-  const details = [
-    ["Blindfold version", result.toolVersion],
-    ["Engine", describeEngine(result)],
-    ["Viewport", `${result.viewport.width} × ${result.viewport.height}`],
-    ["Keyboard walk", describeStopReason(result.stoppedBecause, result.maxTabs)],
-    ["Elements a mouse can use", String(result.mousePassElements.length)],
-    ["Duration", `${(result.durationMilliseconds / 1000).toFixed(1)} s`],
-  ];
-  const items = details.map(([term, value]) => `<dt>${escapeHtml(term ?? "")}</dt><dd>${escapeHtml(value ?? "")}</dd>`).join("");
-  return `<dl class="rule-facts">${items}</dl>`;
-}
-
-function fillTemplate(template: string, values: Record<string, string>): string {
-  // A replacer function, so "$" in page text is never treated as a pattern.
-  return template.replace(/\{\{([A-Z_]+)\}\}/g, (placeholder, key: string) => values[key] ?? placeholder);
+  return `<p>Every Tab key press that moved focus, and what the screen reader said.</p>
+    ${buildScrollableTable("transcript-caption", "Keyboard transcript", ["Step", "Element", "Screen reader said", "Focus visible"], rows)}`;
 }
 
 export function buildHtmlReport(result: ScanResult, screenshots: Map<Finding, string>): string {
   const barrierCount = result.findings.length;
   const verdictText = barrierCount === 0 ? "No barriers found" : `${pluralize(barrierCount, "barrier", "barriers")} found`;
-  const template = readFileSync(TEMPLATE_PATH, "utf8");
-  return fillTemplate(template, {
-    PAGE_TITLE: escapeHtml(`${verdictText} · Blindfold report · ${result.url}`),
-    VERDICT_CLASS: barrierCount === 0 ? "verdict-pass" : "verdict-fail",
-    VERDICT_TEXT: escapeHtml(verdictText),
-    SCANNED_URL: escapeHtml(result.url),
-    SCANNED_AT_ISO: escapeHtml(result.scannedAt),
-    SCANNED_AT_READABLE: escapeHtml(new Date(result.scannedAt).toUTCString()),
-    SUMMARY: buildSummary(result),
-    FINDINGS: buildFindings(result, screenshots),
-    NOT_TESTED: buildNotTested(result),
-    TRANSCRIPT: buildTranscript(result.focusStops),
-    RUN_DETAILS: buildRunDetails(result),
+  return renderReportPage({
+    pageTitle: `${verdictText} · Blindfold report · ${result.url}`,
+    verdictText,
+    passed: barrierCount === 0,
+    verdictDetails: `<p>Page: <a href="${escapeHtml(result.url)}">${escapeHtml(result.url)}</a></p>
+      <p>Scanned: <time datetime="${escapeHtml(result.scannedAt)}">${escapeHtml(readableDate(result.scannedAt))}</time></p>`,
+    sections: [
+      { id: "summary", title: "Summary", html: buildScanSummary(result) },
+      { id: "findings", title: "Findings", html: buildFindingsSection(result.findings, screenshots) },
+      { id: "not-tested", title: "Not tested", html: buildNotTested(result) },
+      { id: "transcript", title: "Full transcript", html: buildScanTranscript(result.focusStops) },
+    ],
+    runDetails: [
+      ["Blindfold version", result.toolVersion],
+      ["Engine", describeEngine(result.engine)],
+      ["Viewport", `${result.viewport.width} × ${result.viewport.height}`],
+      ["Keyboard walk", describeStopReason(result.stoppedBecause, result.maxTabs)],
+      ["Elements a mouse can use", String(result.mousePassElements.length)],
+      ["Duration", `${(result.durationMilliseconds / 1000).toFixed(1)} s`],
+    ],
   });
 }

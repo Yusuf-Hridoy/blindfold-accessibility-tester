@@ -77,3 +77,8 @@ export async function readAnnouncement(page: Page): Promise<string> {
   }, ANNOUNCEMENT_WAIT_MILLISECONDS);
   return phrases.length > 0 ? phrases.join(" | ") : NOTHING_ANNOUNCED;
 }
+
+/** Everything spoken since the last clear, without waiting. */
+export async function readAllAnnouncements(page: Page): Promise<string[]> {
+  return page.evaluate(async () => (await window.__blindfoldScreenReader?.spokenPhraseLog()) ?? []);
+}

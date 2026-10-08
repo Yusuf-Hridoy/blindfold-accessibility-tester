@@ -5,6 +5,8 @@ import { createServer } from "node:http";
 import type { AddressInfo } from "node:net";
 import type { Browser, Page } from "playwright";
 import { createScanContext, launchBrowser } from "../../src/browser/browser-launcher.ts";
+import type { JourneyStep } from "../../src/journeys/journey-file-schema.ts";
+import { runJourney, type JourneyRunOutcome } from "../../src/journeys/journey-runner.ts";
 import { scanPage, type ScanOutcome } from "../../src/scan/page-scanner.ts";
 
 export interface SnippetScanner {
@@ -12,6 +14,10 @@ export interface SnippetScanner {
   scan(bodyHtml: string, options?: { maxTabs?: number }): Promise<ScanOutcome>;
   /** Opens the snippet in a scan context (helpers installed) without scanning. */
   open(bodyHtml: string): Promise<Page>;
+  /** Serves a snippet and returns its URL (e.g. a second page to navigate to). */
+  pageUrl(bodyHtml: string): string;
+  /** Runs a journey whose start page is the snippet. Steps need no line numbers. */
+  runJourney(bodyHtml: string, steps: Omit<JourneyStep, "line">[]): Promise<JourneyRunOutcome>;
   close(): Promise<void>;
 }
 
@@ -41,6 +47,20 @@ export async function startSnippetScanner(): Promise<SnippetScanner> {
   return {
     scan: (bodyHtml, options) =>
       scanPage({ url: addSnippet(bodyHtml), browser, maxTabs: options?.maxTabs ?? 50, pageTimeoutSeconds: 10, screenshots: false }),
+    pageUrl: addSnippet,
+    runJourney: (bodyHtml, steps) =>
+      runJourney({
+        journey: {
+          filePath: "snippet-journey.yaml",
+          name: "Snippet journey",
+          startUrl: addSnippet(bodyHtml),
+          steps: steps.map((step, index) => ({ ...step, line: index + 1 })),
+        },
+        browser,
+        maxTabsPerStep: 30,
+        pageTimeoutSeconds: 10,
+        screenshots: false,
+      }),
     open: async (bodyHtml) => {
       const context = await createScanContext(browser);
       const page = await context.newPage();
@@ -58,6 +78,6 @@ export async function startSnippetScanner(): Promise<SnippetScanner> {
 }
 
 /** Selectors of the findings for one rule, for short assertions. */
-export function findingSelectors(outcome: ScanOutcome, ruleId: string): string[] {
+export function findingSelectors(outcome: ScanOutcome | JourneyRunOutcome, ruleId: string): string[] {
   return outcome.result.findings.filter((finding) => finding.ruleId === ruleId).map((finding) => finding.selector);
 }

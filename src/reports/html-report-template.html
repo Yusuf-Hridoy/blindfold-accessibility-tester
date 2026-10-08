@@ -181,6 +181,16 @@
       margin-top: 1rem;
       color: var(--muted);
     }
+
+    .confidence-note {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .status-failed, .status-passed-with-barriers { color: var(--fail); font-weight: 700; }
+    .status-passed { color: var(--pass); font-weight: 700; }
+    .status-not-run { color: var(--muted); }
+    .page-row th, .page-row td { background: var(--surface); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -188,40 +198,16 @@
   <main>
     <section class="verdict {{VERDICT_CLASS}}" aria-labelledby="verdict-heading">
       <h1 id="verdict-heading">{{VERDICT_TEXT}}</h1>
-      <p>Page: <a href="{{SCANNED_URL}}">{{SCANNED_URL}}</a></p>
-      <p>Scanned: <time datetime="{{SCANNED_AT_ISO}}">{{SCANNED_AT_READABLE}}</time></p>
+      {{VERDICT_DETAILS}}
     </section>
 
     <nav class="page-contents" aria-label="Report sections">
       <ul>
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#findings">Findings</a></li>
-        <li><a href="#not-tested">Not tested</a></li>
-        <li><a href="#transcript">Transcript</a></li>
-        <li><a href="#run-details">Run details</a></li>
+        {{SECTION_LINKS}}
       </ul>
     </nav>
 
-    <section id="summary" aria-labelledby="summary-heading">
-      <h2 id="summary-heading">Summary</h2>
-      {{SUMMARY}}
-    </section>
-
-    <section id="findings" aria-labelledby="findings-heading" tabindex="-1">
-      <h2 id="findings-heading">Findings</h2>
-      {{FINDINGS}}
-    </section>
-
-    <section id="not-tested" aria-labelledby="not-tested-heading">
-      <h2 id="not-tested-heading">Not tested</h2>
-      {{NOT_TESTED}}
-    </section>
-
-    <section id="transcript" aria-labelledby="transcript-heading">
-      <h2 id="transcript-heading">Full transcript</h2>
-      <p>Every Tab key press that moved focus, and what the screen reader said.</p>
-      {{TRANSCRIPT}}
-    </section>
+    {{SECTIONS}}
 
     <section id="run-details" aria-labelledby="run-details-heading">
       <h2 id="run-details-heading">Run details</h2>

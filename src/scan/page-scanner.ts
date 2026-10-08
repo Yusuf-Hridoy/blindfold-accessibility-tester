@@ -5,6 +5,7 @@ import type { Browser, Locator, Page } from "playwright";
 import { createScanContext, DESKTOP_VIEWPORT, launchBrowser } from "../browser/browser-launcher.ts";
 import { startScreenReaderAnnouncer } from "../announcer/screen-reader-announcer.ts";
 import { recordFocusStyleBaselines } from "../focus/focus-style-baseline.ts";
+import { detectOverlays } from "../overlays/blocking-overlay-detector.ts";
 import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pass-collector.ts";
 import { walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
 import { runRules } from "../rules/rule-engine.ts";
@@ -31,6 +32,10 @@ export class ScanFailedError extends Error {}
 
 const NETWORK_SETTLE_CAP_MILLISECONDS = 2_000;
 const SCREENSHOT_PADDING = 8;
+
+export function describeError(error: unknown): string {
+  return error instanceof Error ? (error.message.split("\n")[0] ?? error.message) : String(error);
+}
 
 export function parseScanUrl(url: string): URL {
   let parsed: URL;
@@ -65,7 +70,7 @@ function describeLoadFailure(url: string, error: unknown, timeoutSeconds: number
   return `Couldn't load ${url} (${message.split("\n")[0]}).`;
 }
 
-async function loadPage(page: Page, url: string, timeoutSeconds: number): Promise<void> {
+export async function loadPage(page: Page, url: string, timeoutSeconds: number): Promise<void> {
   let response;
   try {
     response = await page.goto(url, { waitUntil: "load", timeout: timeoutSeconds * 1000 });
@@ -96,7 +101,7 @@ function padToViewport(box: BoundingBox): BoundingBox {
 }
 
 /** Screenshot of an element plus a small margin, so focus rings drawn outside it show. */
-async function captureElementScreenshot(page: Page, locator: Locator, scrollIntoView: boolean): Promise<string | null> {
+export async function captureElementScreenshot(page: Page, locator: Locator, scrollIntoView: boolean): Promise<string | null> {
   try {
     if (scrollIntoView) await locator.scrollIntoViewIfNeeded({ timeout: 2_000 });
     const box = await locator.boundingBox({ timeout: 2_000 });
@@ -111,7 +116,7 @@ async function captureElementScreenshot(page: Page, locator: Locator, scrollInto
 }
 
 /** Selector of the smallest element containing every element of a trap cycle. */
-async function selectorContainingAll(page: Page, elementIds: number[]): Promise<string | null> {
+export async function selectorContainingAll(page: Page, elementIds: number[]): Promise<string | null> {
   return page.evaluate((ids) => {
     const helpers = window.__blindfoldElements;
     const elements = ids.map((id) => helpers.elementForId(id)).filter((element) => element !== undefined);
@@ -168,6 +173,8 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     await loadPage(page, url, options.pageTimeoutSeconds);
 
     const mousePassCandidates = await collectMousePassElements(page);
+    // At page load, before any key press: the overlay the user is faced with.
+    const blockingOverlays = await detectOverlays(page, mousePassCandidates.map((element) => element.elementId));
     await recordFocusStyleBaselines(page);
     const announcer = await startScreenReaderAnnouncer(page);
 
@@ -191,6 +198,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       focusStops: walk.focusStops,
       stoppedBecause: walk.stoppedBecause,
       trap: walk.trap,
+      blockingOverlays,
     });
     const screenshots = options.screenshots
       ? await captureFindingScreenshots(page, findings, focusTimeScreenshots)
@@ -209,6 +217,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       focusStops: walk.focusStops,
       mousePassElements,
       trap: walk.trap,
+      blockingOverlays,
       findings,
       notTested,
       durationMilliseconds: Date.now() - startedAt,

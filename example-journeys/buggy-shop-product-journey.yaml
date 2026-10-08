@@ -1,0 +1,14 @@
+# Add the tote bag to the cart, open the size guide, close it again.
+# Works against either demo shop: --base-url http://localhost:4000 (buggy) or :4001 (accessible).
+name: Product page, add to cart and size guide
+start_url: /product-linen-tote-bag.html?no-cookie-banner=1
+steps:
+  - reach: "Add to cart, button"
+    press: Enter
+    expect_announcement: "added to cart"
+  - reach: "Size guide, button"
+    press: Enter
+    expect_focus_inside: "Size guide"
+  - press: Escape
+    expect_closed: "Size guide"
+    expect_focus_on: "Size guide, button"

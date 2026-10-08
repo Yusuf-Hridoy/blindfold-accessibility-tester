@@ -33,9 +33,9 @@ afterAll(async () => {
   await accessibleServer.close();
 });
 
-function scanDemoPage(server: RunningDemoSiteServer, page: string): Promise<ScanOutcome> {
+function scanDemoPage(server: RunningDemoSiteServer, page: string, withCookieBanner = false): Promise<ScanOutcome> {
   return scanPage({
-    url: `${server.url}/${page}?no-cookie-banner=1`,
+    url: withCookieBanner ? `${server.url}/${page}` : `${server.url}/${page}?no-cookie-banner=1`,
     browser,
     maxTabs: 400,
     pageTimeoutSeconds: 30,
@@ -95,5 +95,23 @@ describe("accessible shop reports nothing", () => {
     expect(outcome.result.findings).toEqual([]);
     expect(outcome.result.notTested).toEqual([]);
     expect(outcome.result.engine.name).toBe("guidepup-virtual-screen-reader");
+  });
+});
+
+describe("cookie banner shown (index.html without the query parameter)", () => {
+  it("buggy shop reports exactly BF-008, listing Accept and Reject", async () => {
+    const outcome = await scanDemoPage(buggyServer, "index.html", true);
+    expect(outcome.result.findings.map((finding) => finding.ruleId)).toEqual(["BF-008"]);
+    const [overlayFinding] = outcome.result.findings;
+    expect(await selectorsMatchExactly(outcome.result.url, [overlayFinding?.selector ?? ""], ".cookie-banner")).toBe(true);
+    const controls = overlayFinding?.overlayControls?.map((control) => control.selector) ?? [];
+    expect(await selectorsMatchExactly(outcome.result.url, controls, ".cookie-choice")).toBe(true);
+    expect(outcome.result.notTested).toEqual([]);
+  });
+
+  it("accessible shop reports nothing", async () => {
+    const outcome = await scanDemoPage(accessibleServer, "index.html", true);
+    expect(outcome.result.findings).toEqual([]);
+    expect(outcome.result.notTested).toEqual([]);
   });
 });

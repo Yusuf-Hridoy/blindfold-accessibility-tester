@@ -10,13 +10,20 @@ import { findUnreachableByKeyboard } from "./bf001-unreachable-by-keyboard.ts";
 import { findUnnamedControls } from "./bf002-unnamed-control.ts";
 import { findFocusTraps } from "./bf003-focus-trap.ts";
 import { findInvisibleFocus } from "./bf004-invisible-focus.ts";
+import { findOverlaysBlockingKeyboard } from "./bf008-overlay-blocks-keyboard.ts";
 
 export interface RuleEngineResult {
   findings: Finding[];
   notTested: NotTestedElement[];
 }
 
-const RULES = [findUnreachableByKeyboard, findUnnamedControls, findFocusTraps, findInvisibleFocus];
+const SCAN_RULES = [
+  findUnreachableByKeyboard,
+  findUnnamedControls,
+  findFocusTraps,
+  findInvisibleFocus,
+  findOverlaysBlockingKeyboard,
+];
 const TRANSCRIPT_LINES_AROUND_STEP = 2;
 
 function transcriptAround(focusStops: FocusStop[], step: number | null): TranscriptLine[] {
@@ -43,17 +50,34 @@ function findNotTestedElements(data: CollectedScanData): NotTestedElement[] {
     .map(({ elementId, selector, description }) => ({ elementId, selector, description, reason }));
 }
 
-/** Runs every rule; one element can fail several rules, but never the same rule twice. */
+/**
+ * Controls inside a BF-008 overlay are reported once, under BF-008, so their
+ * BF-001 findings are dropped.
+ */
+export function dropFindingsCoveredByOverlays<T extends RuleFinding>(findings: T[]): T[] {
+  const overlayControlIds = new Set(
+    findings.flatMap((finding) => finding.overlayControls?.map((control) => control.elementId) ?? []),
+  );
+  return findings.filter((finding) => finding.ruleId !== "BF-001" || !overlayControlIds.has(finding.elementId));
+}
+
+/** Runs every scan rule; one element can fail several rules, but never the same rule twice. */
 export function runRules(data: CollectedScanData): RuleEngineResult {
   const seen = new Set<string>();
-  const findings: Finding[] = [];
-  for (const rule of RULES) {
-    for (const finding of rule(data) as RuleFinding[]) {
+  const ruleFindings: RuleFinding[] = [];
+  for (const rule of SCAN_RULES) {
+    for (const finding of rule(data)) {
       const key = `${finding.ruleId} ${finding.selector}`;
       if (seen.has(key)) continue;
       seen.add(key);
-      findings.push({ ...finding, transcriptExcerpt: transcriptAround(data.focusStops, finding.step) });
+      ruleFindings.push(finding);
     }
   }
-  return { findings, notTested: findNotTestedElements(data) };
+  const findings = dropFindingsCoveredByOverlays(ruleFindings).map((finding) => ({
+    ...finding,
+    transcriptExcerpt: transcriptAround(data.focusStops, finding.step),
+  }));
+  const overlayControlIds = new Set(findings.flatMap((finding) => finding.overlayControls?.map((control) => control.elementId) ?? []));
+  const notTested = findNotTestedElements(data).filter((element) => !overlayControlIds.has(element.elementId));
+  return { findings, notTested };
 }

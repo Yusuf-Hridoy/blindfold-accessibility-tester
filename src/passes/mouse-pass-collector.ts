@@ -12,7 +12,14 @@ const INTERACTIVE_ROLE_SELECTOR = ["button", "link", "checkbox", "menuitem", "ta
 
 type MousePassElementWithoutAccessibility = Omit<MousePassElement, "role" | "accessibleName" | "mouseTarget">;
 
-export async function collectMousePassElements(page: Page): Promise<MousePassElement[]> {
+/**
+ * `withAccessibleNames: false` skips the per-element ARIA snapshot (role and
+ * name stay empty); journeys use that for the quick overlay check after each action.
+ */
+export async function collectMousePassElements(
+  page: Page,
+  options: { withAccessibleNames: boolean } = { withAccessibleNames: true },
+): Promise<MousePassElement[]> {
   const elements = await page.evaluate(
     ({ nativeSelector, roleSelector }) => {
       const helpers = window.__blindfoldElements;
@@ -80,6 +87,9 @@ export async function collectMousePassElements(page: Page): Promise<MousePassEle
     { nativeSelector: NATIVE_INTERACTIVE_SELECTOR, roleSelector: INTERACTIVE_ROLE_SELECTOR },
   );
 
+  if (!options.withAccessibleNames) {
+    return elements.map((element) => ({ ...element, role: "", accessibleName: "", mouseTarget: "not-checked" }));
+  }
   const withAccessibility: MousePassElement[] = [];
   for (const element of elements) {
     const { role, name } = await readRoleAndName(page.locator(element.selector).first());

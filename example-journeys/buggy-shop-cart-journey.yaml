@@ -1,0 +1,10 @@
+# Remove an item from the cart, then go to checkout.
+# Works against either demo shop: --base-url http://localhost:4000 (buggy) or :4001 (accessible).
+name: Cart, remove an item and check out
+start_url: /cart.html?no-cookie-banner=1
+steps:
+  - reach: "Remove Linen tote bag, button"
+    press: Enter
+  - reach: "Checkout, button"
+    press: Enter
+    expect_url_contains: "/checkout.html"

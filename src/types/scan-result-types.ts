@@ -1,6 +1,6 @@
 // Shapes of the data Blindfold collects and the report.json it writes.
 
-export type RuleId = "BF-001" | "BF-002" | "BF-003" | "BF-004";
+export type RuleId = "BF-001" | "BF-002" | "BF-003" | "BF-004" | "BF-005" | "BF-006" | "BF-007" | "BF-008";
 
 /** Why a BF-002 finding fired; each reason has its own title and fix in the catalogue. */
 export type Bf002Reason = "missing-name" | "hidden-from-screen-readers";
@@ -53,7 +53,7 @@ export interface MousePassElement extends ElementIdentity {
 }
 
 export interface FocusStop extends ElementIdentity {
-  /** 1-based Tab press number that produced this stop. */
+  /** 1-based Tab press number that produced this stop; 0 for focus already there at page load. */
   step: number;
   /** What the screen reader said (Engine A, or Engine B text in fallback mode). */
   announcement: string;
@@ -74,6 +74,24 @@ export interface FocusTrap {
   cycle: ElementIdentity[];
 }
 
+/** A control inside an overlay, and whether the keyboard can reach it. */
+export interface OverlayControl extends ElementIdentity {
+  /** tabIndex >= 0, visible, not disabled, no inert/hidden ancestor or closed <details>. */
+  keyboardReachable: boolean;
+}
+
+/** A positioned element (fixed/absolute/sticky) holding mouse targets (BF-008 input). */
+export interface OverlayDetection {
+  container: ElementIdentity;
+  controls: OverlayControl[];
+  /** Share of the viewport the overlay covers, 0 to 1. */
+  viewportCoverage: number;
+  /** Everything else on the page is inert or aria-hidden. */
+  restOfPageBlocked: boolean;
+  /** Covers at least 25% of the viewport, or the rest of the page is blocked. */
+  blocksPage: boolean;
+}
+
 export interface TranscriptLine {
   step: number;
   description: string;
@@ -90,6 +108,14 @@ export interface Finding extends ElementIdentity {
   reason?: Bf002Reason;
   /** BF-003 only: every element in the trap cycle. */
   trapCycle?: ElementIdentity[];
+  /** BF-008 only: the overlay's controls, none reachable by keyboard. */
+  overlayControls?: ElementIdentity[];
+  /** Journeys only: the journey step the finding belongs to. */
+  journeyStep?: number;
+  /** One-line explanation, e.g. `"added to cart" shown but never announced`. */
+  message?: string;
+  /** Set when the result was decided without the screen-reader engine. */
+  confidenceNote?: string;
 }
 
 /** A finding as a rule produces it, before the rule engine adds the transcript excerpt. */
@@ -105,6 +131,8 @@ export interface CollectedScanData {
   focusStops: FocusStop[];
   stoppedBecause: WalkStopReason;
   trap: FocusTrap | null;
+  /** Overlays found at page load (BF-008). */
+  blockingOverlays: OverlayDetection[];
 }
 
 export interface ScanResult {
@@ -122,6 +150,7 @@ export interface ScanResult {
   focusStops: FocusStop[];
   mousePassElements: MousePassElement[];
   trap: FocusTrap | null;
+  blockingOverlays: OverlayDetection[];
   findings: Finding[];
   notTested: NotTestedElement[];
   durationMilliseconds: number;

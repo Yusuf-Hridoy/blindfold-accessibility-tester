@@ -104,14 +104,12 @@ export async function recordFocusStyleBaselines(page: Page): Promise<void> {
       }
 
       const baselines = new WeakMap<Element, FlatStyles>();
-      for (const element of document.querySelectorAll(focusableSelector)) {
-        baselines.set(element, readFullFocusStyles(element));
-      }
 
-      // New elements get the same full baseline when inserted. A baseline read
-      // while focus is inside the area it covers (element, parent, grandparent)
-      // could include focus styles, so such elements wait until focus is
-      // elsewhere. If focus reaches the element first, it stays "unknown".
+      // A baseline read while focus is inside the area it covers (element,
+      // parent, grandparent) could include focus styles. That happens at page
+      // load when a script has already focused something, and for elements
+      // inserted and focused in one go. Such elements wait until focus is
+      // elsewhere; if focus reaches the element first, it stays "unknown".
       const waitingForCleanBaseline = new Set<Element>();
 
       function focusIsInsideBaselineArea(element: Element): boolean {
@@ -131,6 +129,9 @@ export async function recordFocusStyleBaselines(page: Page): Promise<void> {
         baselines.set(element, readFullFocusStyles(element));
       }
 
+      for (const element of document.querySelectorAll(focusableSelector)) recordBaselineWhenClean(element);
+
+      // New elements get the same full baseline when inserted.
       const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
           for (const addedNode of mutation.addedNodes) {

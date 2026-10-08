@@ -46,9 +46,45 @@ export const RULE_CATALOG: Record<RuleId, RuleDescription> = {
     fixHint:
       "Don't remove the outline without a replacement. Add a :focus-visible style, such as an outline or box-shadow, that contrasts with the background.",
   },
+  "BF-005": {
+    id: "BF-005",
+    title: "Update is shown but not announced",
+    wcag: "4.1.3 Status Messages (Level AA)",
+    whyItMatters:
+      "Sighted users see the message appear. Screen reader users hear nothing, so they don't know whether their action worked.",
+    fixHint:
+      'Put the message in a container that exists before the message appears and has role="status" (or role="alert" for urgent errors), then change its text.',
+  },
+  "BF-006": {
+    id: "BF-006",
+    title: "Focus is lost after an action",
+    wcag: "2.4.3 Focus Order (Level A)",
+    whyItMatters:
+      "The focused control disappeared and focus fell back to the start of the page. Keyboard and screen reader users lose their place and must Tab all the way back.",
+    fixHint:
+      "When the focused element is removed or re-rendered, move focus to a sensible nearby element, e.g. the next item's control, or a heading with tabindex=\"-1\".",
+  },
+  "BF-007": {
+    id: "BF-007",
+    title: "Dialog opens without moving focus into it",
+    wcag: "2.4.3 Focus Order (Level A)",
+    whyItMatters:
+      "The dialog is on screen, but keyboard focus stays behind it. Screen reader users don't know it opened, and Tab moves through the page underneath.",
+    fixHint:
+      "When the dialog opens, move focus into it (its heading or first control). Let Escape close it and return focus to the control that opened it. A <dialog> opened with showModal() does this for you.",
+  },
+  "BF-008": {
+    id: "BF-008",
+    title: "Overlay blocks keyboard users",
+    wcag: "2.1.1 Keyboard (Level A)",
+    whyItMatters:
+      "An overlay covers the page, but none of its controls can be reached with the keyboard. Keyboard and screen reader users can't dismiss it, so they can't use the page at all.",
+    fixHint:
+      "Make the overlay's controls real <button> elements, and move focus into the overlay when it appears.",
+  },
 };
 
-export const RULE_IDS_IN_ORDER: RuleId[] = ["BF-001", "BF-002", "BF-003", "BF-004"];
+export const RULE_IDS_IN_ORDER: RuleId[] = ["BF-001", "BF-002", "BF-003", "BF-004", "BF-005", "BF-006", "BF-007", "BF-008"];
 
 export const BF002_REASONS_IN_ORDER: Bf002Reason[] = ["missing-name", "hidden-from-screen-readers"];
 
@@ -66,6 +102,13 @@ export const BF002_REASONS: Record<Bf002Reason, Omit<RuleDescription, "id" | "wc
       'Remove aria-hidden="true" if the control should be usable. If its container is meant to be hidden, take the control out of the tab order while it\'s hidden (tabindex="-1", or inert on the container).',
   },
 };
+
+/** One line for a finding: its own message, or the rule (or BF-002 reason) title and the element. */
+export function summarizeFinding(finding: Finding): string {
+  if (finding.message) return finding.message;
+  const title = finding.ruleId === "BF-002" ? BF002_REASONS[finding.reason ?? "missing-name"].title : RULE_CATALOG[finding.ruleId].title;
+  return `${title}: ${finding.description}`;
+}
 
 /** One block of findings in the terminal and HTML report: a rule, or one BF-002 reason. */
 export interface FindingGroup {

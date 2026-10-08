@@ -27,13 +27,13 @@ export interface KeyboardWalkResult {
   trap: FocusTrap | null;
 }
 
-interface FocusedElement extends PageElementIdentity {
+export interface FocusedElement extends PageElementIdentity {
   insideAriaHidden: boolean;
   hasPresentationalRole: boolean;
 }
 
 /** The focused element's identity and hiding attributes, or null when focus is on the page body. */
-async function identifyFocusedElement(page: Page): Promise<FocusedElement | null> {
+export async function identifyFocusedElement(page: Page): Promise<FocusedElement | null> {
   return page.evaluate(() => {
     const focused = document.activeElement;
     if (!focused || focused === document.body || focused === document.documentElement) return null;
@@ -55,8 +55,58 @@ function isHiddenFromScreenReaders(focused: FocusedElement, roleAndName: RoleAnd
   return (focused.insideAriaHidden || focused.hasPresentationalRole) && exposesNothing;
 }
 
-function toFocusTrap(focusStops: FocusStop[], startIndex: number, cycleLength: number): FocusTrap {
-  const cycleStops = focusStops.slice(startIndex, startIndex + cycleLength);
+const FOCUSED_ON_LOAD_PREFIX = "(focused when the page loaded)";
+
+/**
+ * Records the stop for the element that has focus now. `announcement` is what
+ * the screen reader said; without one (fallback mode, or focus already there),
+ * the Engine B role and name are used.
+ */
+export async function recordFocusStop(
+  page: Page,
+  focused: FocusedElement,
+  step: number,
+  announcement: string | null,
+): Promise<FocusStop> {
+  const roleAndName = await readFocusedRoleAndName(page);
+  const visibility = await checkFocusVisibility(page);
+  return {
+    elementId: focused.elementId,
+    selector: focused.selector,
+    description: focused.description,
+    step,
+    announcement: announcement ?? formatAsAnnouncement(roleAndName),
+    role: roleAndName.role,
+    accessibleName: roleAndName.name,
+    hiddenFromScreenReaders: isHiddenFromScreenReaders(focused, roleAndName),
+    focusVisible: visibility.focusVisible,
+    focusStyleChanges: visibility.focusStyleChanges,
+  };
+}
+
+/** Presses Tab (or another key) once and records where focus lands, or returns null for the page body. */
+export async function pressKeyAndRecord(page: Page, step: number, useScreenReader: boolean, key = "Tab"): Promise<FocusStop | null> {
+  if (useScreenReader) await clearAnnouncements(page);
+  await page.keyboard.press(key);
+  const focused = await identifyFocusedElement(page);
+  if (focused === null) return null;
+  const announcement = useScreenReader ? await readAnnouncement(page) : null;
+  return recordFocusStop(page, focused, step, announcement);
+}
+
+/** A stop for focus that a page script set before any key was pressed. */
+export async function recordFocusOnLoad(page: Page): Promise<FocusStop | null> {
+  const focused = await identifyFocusedElement(page);
+  if (focused === null) return null;
+  const stop = await recordFocusStop(page, focused, 0, null);
+  return { ...stop, announcement: `${FOCUSED_ON_LOAD_PREFIX} ${stop.announcement}` };
+}
+
+/** The trap among these stops, if the latest ones repeat a cycle (Phase 1 detector). */
+export function findTrapInStops(focusStops: FocusStop[]): FocusTrap | null {
+  const trap = detectFocusTrap(focusStops.map((focusStop) => focusStop.elementId));
+  if (!trap) return null;
+  const cycleStops = focusStops.slice(trap.startIndex, trap.startIndex + trap.cycleLength);
   return {
     startStep: cycleStops[0]?.step ?? 0,
     cycle: cycleStops.map(({ elementId, selector, description }) => ({ elementId, selector, description })),
@@ -67,45 +117,30 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
   const focusStops: FocusStop[] = [];
   let tabPressesOnBody = 0;
 
-  for (let step = 1; step <= options.maxTabs; step++) {
-    if (options.useScreenReader) await clearAnnouncements(page);
-    await page.keyboard.press("Tab");
+  // A page script may already have focused something (e.g. a cookie banner's
+  // button). The keyboard user starts there, so it counts as reached.
+  const focusedOnLoad = await recordFocusOnLoad(page);
+  if (focusedOnLoad) {
+    focusStops.push(focusedOnLoad);
+    await options.onFocusStop?.(focusedOnLoad);
+  }
 
-    const focused = await identifyFocusedElement(page);
-    if (focused === null) {
+  for (let step = 1; step <= options.maxTabs; step++) {
+    const stop = await pressKeyAndRecord(page, step, options.useScreenReader);
+    if (stop === null) {
       if (focusStops.length > 0) return { focusStops, stoppedBecause: "end-of-page", trap: null };
       tabPressesOnBody++;
       if (tabPressesOnBody >= 2) return { focusStops, stoppedBecause: "no-focusable-elements", trap: null };
       continue;
     }
-    if (focusStops.length > 0 && focused.elementId === focusStops[0]?.elementId) {
+    if (focusStops.length > 0 && stop.elementId === focusStops[0]?.elementId) {
       return { focusStops, stoppedBecause: "cycle-complete", trap: null };
     }
-
-    const roleAndName = await readFocusedRoleAndName(page);
-    const announcement = options.useScreenReader
-      ? await readAnnouncement(page)
-      : formatAsAnnouncement(roleAndName);
-    const visibility = await checkFocusVisibility(page);
-    const stop: FocusStop = {
-      elementId: focused.elementId,
-      selector: focused.selector,
-      description: focused.description,
-      step,
-      announcement,
-      role: roleAndName.role,
-      accessibleName: roleAndName.name,
-      hiddenFromScreenReaders: isHiddenFromScreenReaders(focused, roleAndName),
-      focusVisible: visibility.focusVisible,
-      focusStyleChanges: visibility.focusStyleChanges,
-    };
     focusStops.push(stop);
     await options.onFocusStop?.(stop);
 
-    const trap = detectFocusTrap(focusStops.map((focusStop) => focusStop.elementId));
-    if (trap) {
-      return { focusStops, stoppedBecause: "focus-trap", trap: toFocusTrap(focusStops, trap.startIndex, trap.cycleLength) };
-    }
+    const trap = findTrapInStops(focusStops);
+    if (trap) return { focusStops, stoppedBecause: "focus-trap", trap };
   }
   return { focusStops, stoppedBecause: "max-tabs", trap: null };
 }

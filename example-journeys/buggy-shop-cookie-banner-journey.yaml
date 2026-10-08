@@ -1,0 +1,9 @@
+# First visit: get past the cookie banner, then open a product.
+# Works against either demo shop: --base-url http://localhost:4000 (buggy) or :4001 (accessible).
+name: First visit, cookie banner then product
+start_url: /
+steps:
+  - dismiss: "Accept, button"
+  - reach: "Linen tote bag, link"
+    press: Enter
+    expect_url_contains: "/product-linen-tote-bag.html"
