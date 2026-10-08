@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — Pebble & Pine</title>
+  <link rel="stylesheet" href="shop-styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="shop-logo" href="index.html">
+      <svg class="shop-logo-mark" aria-hidden="true" focusable="false" viewBox="0 0 32 32" width="32" height="32">
+        <ellipse cx="11" cy="23" rx="9" ry="6" fill="#8a9a92"/>
+        <path d="M23 3 L31 25 H15 Z" fill="#2f5d43"/>
+      </svg>
+      <span>Pebble & Pine</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a class="nav-link" href="index.html">Shop</a></li>
+        <li><a class="nav-link" href="product-linen-tote-bag.html">Tote bag</a></li>
+        <li><a class="nav-link" href="cart.html">Cart</a></li>
+        <li><a class="nav-link" href="checkout.html" aria-current="page">Checkout</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="cart-button">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24">
+        <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.7L20.5 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9.5" cy="19" r="1.6" fill="currentColor"/>
+        <circle cx="17" cy="19" r="1.6" fill="currentColor"/>
+      </svg>
+    </button>
+  </header>
+
+  <main id="main-content">
+    <h1>Checkout</h1>
+    <p>All fields are required.</p>
+    <form class="checkout-form">
+      <div class="form-field">
+        <label for="checkout-name">Full name</label>
+        <input id="checkout-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="form-field">
+        <label for="checkout-email">Email address</label>
+        <input id="checkout-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="checkout-address">Delivery address</label>
+        <textarea id="checkout-address" name="address" rows="3" autocomplete="street-address" required></textarea>
+      </div>
+      <button type="submit" class="place-order-button">Place order</button>
+    </form>
+    <p class="checkout-message" role="status"></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Pebble & Pine is a fictional shop made for accessibility testing. No real orders are taken.</p>
+  </footer>
+
+  <script src="shop-behaviour.js"></script>
+</body>
+</html>

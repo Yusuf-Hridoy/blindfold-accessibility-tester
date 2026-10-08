@@ -1,0 +1,375 @@
+/* Pebble & Pine — shared look for every page. No transitions: Blindfold reads
+   computed styles right after each key press and must not catch them mid-change. */
+
+:root {
+  --ink: #1f2a24;
+  --muted-ink: #4a5650;
+  --paper: #fbf8f3;
+  --card: #ffffff;
+  --pine: #2f5d43;
+  --pine-dark: #234633;
+  --line: #d9d2c5;
+  --focus-ring: #1d4ed8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+a {
+  color: var(--pine);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--card);
+  color: var(--pine);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/* Header */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+
+.shop-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.375rem;
+  font-weight: bold;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.main-nav {
+  margin-left: auto;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.25rem 0;
+}
+
+.nav-link[aria-current="page"] {
+  border-bottom: 2px solid var(--pine);
+}
+
+.cart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Page layout */
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.intro {
+  color: var(--muted-ink);
+}
+
+.site-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted-ink);
+  text-align: center;
+}
+
+/* Buttons. The cart's checkout control shares this look, whatever element it is. */
+
+.add-to-cart-button,
+.size-guide-button,
+.newsletter-subscribe-button,
+.remove-button,
+.checkout-button,
+.place-order-button,
+.size-guide-close,
+.cookie-choice {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffffff;
+  background: var(--pine);
+  border: 2px solid var(--pine);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.size-guide-button,
+.remove-button,
+.cookie-reject {
+  color: var(--pine-dark);
+  background: var(--card);
+}
+
+/* Products */
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-card {
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  margin: 0.75rem 0 0.25rem;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.product-price {
+  margin: 0;
+  font-weight: bold;
+}
+
+.product-note {
+  margin: 0.25rem 0 0;
+  color: var(--muted-ink);
+}
+
+.product-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.product-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.cart-message {
+  min-height: 1.5em;
+  color: var(--pine-dark);
+  font-weight: bold;
+}
+
+/* Newsletter */
+
+.newsletter-box {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.newsletter-form label {
+  flex-basis: 100%;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  font: inherit;
+  color: var(--ink);
+  background: #ffffff;
+  border: 2px solid var(--muted-ink);
+  border-radius: 4px;
+}
+
+.newsletter-message,
+.checkout-message,
+.cart-status-message {
+  min-height: 1.5em;
+  color: var(--pine-dark);
+}
+
+/* Cart */
+
+.cart-items {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-item-name {
+  flex: 1;
+}
+
+.cart-total {
+  font-weight: bold;
+}
+
+/* Checkout form */
+
+.checkout-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 28rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+/* Size guide modal */
+
+.size-guide-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(31, 42, 36, 0.6);
+  z-index: 20;
+}
+
+.size-guide-panel {
+  width: min(26rem, 90vw);
+  padding: 1.5rem;
+  background: var(--card);
+  border-radius: 8px;
+}
+
+.size-guide-panel h2 {
+  margin-top: 0;
+}
+
+.size-guide-table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.size-guide-table caption {
+  text-align: left;
+  color: var(--muted-ink);
+}
+
+.size-guide-table th,
+.size-guide-table td {
+  padding: 0.4rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Cookie banner: covers the whole page until a choice is made. */
+
+.cookie-banner {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(31, 42, 36, 0.6);
+  z-index: 30;
+}
+
+.cookie-banner-panel {
+  width: min(40rem, 100%);
+  padding: 1.5rem;
+  background: var(--card);
+  border-radius: 8px;
+}
+
+.cookie-banner-panel h2 {
+  margin-top: 0;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.75rem;
+}

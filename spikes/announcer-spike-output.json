@@ -1,0 +1,387 @@
+{
+  "pageUrl": "http://localhost:4000/?no-cookie-banner=1",
+  "engineAStatus": "working",
+  "focusVisibleMethod": "computed-style-baseline",
+  "steps": [
+    {
+      "step": 1,
+      "element": "a.skip-link \"Skip to main content\"",
+      "engineA": "link, Skip to main content",
+      "engineB": "link \"Skip to main content\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 3.3,
+      "engineAReadMilliseconds": 0.8,
+      "engineBMilliseconds": 14.5
+    },
+    {
+      "step": 2,
+      "element": "a.shop-logo \"Pebble & Pine\"",
+      "engineA": "link, Pebble & Pine",
+      "engineB": "link \"Pebble & Pine\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 1.2,
+      "engineAReadMilliseconds": 0.4,
+      "engineBMilliseconds": 1.9
+    },
+    {
+      "step": 3,
+      "element": "a.nav-link \"Shop\"",
+      "engineA": "link, Shop, current page",
+      "engineB": "link \"Shop\"",
+      "focusVisible": false,
+      "focusStyleChanges": [],
+      "engineAMilliseconds": 1.1,
+      "engineAReadMilliseconds": 0.4,
+      "engineBMilliseconds": 1.7
+    },
+    {
+      "step": 4,
+      "element": "a.nav-link \"Tote bag\"",
+      "engineA": "link, Tote bag",
+      "engineB": "link \"Tote bag\"",
+      "focusVisible": false,
+      "focusStyleChanges": [],
+      "engineAMilliseconds": 12,
+      "engineAReadMilliseconds": 11.3,
+      "engineBMilliseconds": 1.9
+    },
+    {
+      "step": 5,
+      "element": "a.nav-link \"Cart\"",
+      "engineA": "link, Cart",
+      "engineB": "link \"Cart\"",
+      "focusVisible": false,
+      "focusStyleChanges": [],
+      "engineAMilliseconds": 14.6,
+      "engineAReadMilliseconds": 13.8,
+      "engineBMilliseconds": 1.9
+    },
+    {
+      "step": 6,
+      "element": "a.nav-link \"Checkout\"",
+      "engineA": "link, Checkout",
+      "engineB": "link \"Checkout\"",
+      "focusVisible": false,
+      "focusStyleChanges": [],
+      "engineAMilliseconds": 11.9,
+      "engineAReadMilliseconds": 10.4,
+      "engineBMilliseconds": 1.8
+    },
+    {
+      "step": 7,
+      "element": "button.cart-button \"\"",
+      "engineA": "button",
+      "engineB": "button",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 14.6,
+      "engineAReadMilliseconds": 13.8,
+      "engineBMilliseconds": 2.1
+    },
+    {
+      "step": 8,
+      "element": "a \"Linen tote bag\"",
+      "engineA": "link, Linen tote bag",
+      "engineB": "link \"Linen tote bag\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 12.6,
+      "engineAReadMilliseconds": 11.9,
+      "engineBMilliseconds": 2
+    },
+    {
+      "step": 9,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 12.5,
+      "engineAReadMilliseconds": 11.4,
+      "engineBMilliseconds": 3
+    },
+    {
+      "step": 10,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 8.5,
+      "engineAReadMilliseconds": 7.7,
+      "engineBMilliseconds": 2.3
+    },
+    {
+      "step": 11,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 1,
+      "engineAReadMilliseconds": 0.4,
+      "engineBMilliseconds": 1.8
+    },
+    {
+      "step": 12,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 6.6,
+      "engineAReadMilliseconds": 5.8,
+      "engineBMilliseconds": 2.2
+    },
+    {
+      "step": 13,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 0.8,
+      "engineAReadMilliseconds": 0.4,
+      "engineBMilliseconds": 1.7
+    },
+    {
+      "step": 14,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 7.1,
+      "engineAReadMilliseconds": 6.3,
+      "engineBMilliseconds": 1.8
+    },
+    {
+      "step": 15,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 0.7,
+      "engineAReadMilliseconds": 0.4,
+      "engineBMilliseconds": 1.7
+    },
+    {
+      "step": 16,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 8.2,
+      "engineAReadMilliseconds": 7.5,
+      "engineBMilliseconds": 1.9
+    },
+    {
+      "step": 17,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 1.8,
+      "engineAReadMilliseconds": 0.4,
+      "engineBMilliseconds": 2
+    },
+    {
+      "step": 18,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 7.4,
+      "engineAReadMilliseconds": 6.8,
+      "engineBMilliseconds": 1.5
+    },
+    {
+      "step": 19,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 1.1,
+      "engineAReadMilliseconds": 0.3,
+      "engineBMilliseconds": 1.4
+    },
+    {
+      "step": 20,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 8.4,
+      "engineAReadMilliseconds": 7.8,
+      "engineBMilliseconds": 1.2
+    },
+    {
+      "step": 21,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 0.6,
+      "engineAReadMilliseconds": 0.3,
+      "engineBMilliseconds": 1.1
+    },
+    {
+      "step": 22,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 11.2,
+      "engineAReadMilliseconds": 10.6,
+      "engineBMilliseconds": 1.4
+    },
+    {
+      "step": 23,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 0.5,
+      "engineAReadMilliseconds": 0.3,
+      "engineBMilliseconds": 1.3
+    },
+    {
+      "step": 24,
+      "element": "button.newsletter-subscribe-button \"Subscribe\"",
+      "engineA": "button, Subscribe",
+      "engineB": "button \"Subscribe\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 11.5,
+      "engineAReadMilliseconds": 11,
+      "engineBMilliseconds": 1.5
+    },
+    {
+      "step": 25,
+      "element": "input#newsletter-email \"\"",
+      "engineA": "textbox, Email address, required",
+      "engineB": "textbox \"Email address\"",
+      "focusVisible": true,
+      "focusStyleChanges": [
+        "outline-style",
+        "outline-width",
+        "outline-color",
+        "outline-offset"
+      ],
+      "engineAMilliseconds": 0.5,
+      "engineAReadMilliseconds": 0.3,
+      "engineBMilliseconds": 1.3
+    }
+  ]
+}

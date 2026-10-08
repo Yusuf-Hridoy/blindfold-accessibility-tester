@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pebble & Pine — Handmade goods</title>
+  <link rel="stylesheet" href="shop-styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="shop-logo" href="index.html">
+      <svg class="shop-logo-mark" aria-hidden="true" focusable="false" viewBox="0 0 32 32" width="32" height="32">
+        <ellipse cx="11" cy="23" rx="9" ry="6" fill="#8a9a92"/>
+        <path d="M23 3 L31 25 H15 Z" fill="#2f5d43"/>
+      </svg>
+      <span>Pebble & Pine</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a class="nav-link" href="index.html" aria-current="page">Shop</a></li>
+        <li><a class="nav-link" href="product-linen-tote-bag.html">Tote bag</a></li>
+        <li><a class="nav-link" href="cart.html">Cart</a></li>
+        <li><a class="nav-link" href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="cart-button" aria-label="Cart, 2 items">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24">
+        <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.7L20.5 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9.5" cy="19" r="1.6" fill="currentColor"/>
+        <circle cx="17" cy="19" r="1.6" fill="currentColor"/>
+      </svg>
+    </button>
+  </header>
+
+  <main id="main-content">
+    <h1 id="page-heading" tabindex="-1">Handmade goods for slow mornings</h1>
+    <p class="intro">Pebble & Pine makes small batches of simple, useful things from natural materials.</p>
+
+    <section aria-labelledby="products-heading">
+      <h2 id="products-heading">Our products</h2>
+      <ul class="product-list">
+        <li class="product-card">
+          <svg class="product-image" role="img" aria-label="A natural linen tote bag with two long handles" viewBox="0 0 120 90">
+            <rect width="120" height="90" fill="#efe9df"/>
+            <path d="M45 30 C45 12 75 12 75 30" fill="none" stroke="#b9a98d" stroke-width="4"/>
+            <rect x="35" y="30" width="50" height="48" rx="3" fill="#d8ccb6"/>
+          </svg>
+          <h3><a href="product-linen-tote-bag.html">Linen tote bag</a></h3>
+          <p class="product-price">$24.00</p>
+        </li>
+        <li class="product-card">
+          <svg class="product-image" role="img" aria-label="A speckled grey stoneware mug" viewBox="0 0 120 90">
+            <rect width="120" height="90" fill="#e8ecea"/>
+            <rect x="42" y="28" width="32" height="40" rx="4" fill="#9aa5a0"/>
+            <path d="M74 36 C88 36 88 60 74 60" fill="none" stroke="#9aa5a0" stroke-width="5"/>
+          </svg>
+          <h3>Stoneware mug</h3>
+          <p class="product-price">$18.00</p>
+          <p class="product-note">Coming soon</p>
+        </li>
+        <li class="product-card">
+          <svg class="product-image" role="img" aria-label="A rectangular bar of cedar soap" viewBox="0 0 120 90">
+            <rect width="120" height="90" fill="#efe6dd"/>
+            <rect x="34" y="36" width="52" height="26" rx="6" fill="#b07a52"/>
+          </svg>
+          <h3>Cedar soap bar</h3>
+          <p class="product-price">$9.00</p>
+          <p class="product-note">Coming soon</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="newsletter-box" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Join our newsletter</h2>
+      <p>One short letter a month about new products. No spam.</p>
+      <form class="newsletter-form">
+        <label for="newsletter-email">Email address</label>
+        <input id="newsletter-email" type="email" name="email" autocomplete="email" required>
+        <button type="submit" class="newsletter-subscribe-button">Subscribe</button>
+      </form>
+      <p class="newsletter-message" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Pebble & Pine is a fictional shop made for accessibility testing. No real orders are taken.</p>
+  </footer>
+
+  <div class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-banner-heading" aria-describedby="cookie-banner-text" hidden>
+    <div class="cookie-banner-panel">
+      <h2 id="cookie-banner-heading">Cookies</h2>
+      <p id="cookie-banner-text">We use cookies to remember your cart. Choose whether to allow them.</p>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-choice cookie-accept" data-cookie-choice="accepted">Accept</button>
+        <button type="button" class="cookie-choice cookie-reject" data-cookie-choice="rejected">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="shop-behaviour.js"></script>
+</body>
+</html>

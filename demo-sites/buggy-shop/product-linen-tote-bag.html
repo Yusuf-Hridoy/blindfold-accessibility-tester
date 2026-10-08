@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linen tote bag — Pebble & Pine</title>
+  <link rel="stylesheet" href="shop-styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="shop-logo" href="index.html">
+      <svg class="shop-logo-mark" aria-hidden="true" focusable="false" viewBox="0 0 32 32" width="32" height="32">
+        <ellipse cx="11" cy="23" rx="9" ry="6" fill="#8a9a92"/>
+        <path d="M23 3 L31 25 H15 Z" fill="#2f5d43"/>
+      </svg>
+      <span>Pebble & Pine</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a class="nav-link" href="index.html">Shop</a></li>
+        <li><a class="nav-link" href="product-linen-tote-bag.html" aria-current="page">Tote bag</a></li>
+        <li><a class="nav-link" href="cart.html">Cart</a></li>
+        <li><a class="nav-link" href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="cart-button">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24">
+        <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.7L20.5 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="9.5" cy="19" r="1.6" fill="currentColor"/>
+        <circle cx="17" cy="19" r="1.6" fill="currentColor"/>
+      </svg>
+    </button>
+  </header>
+
+  <main id="main-content">
+    <div class="product-layout">
+      <svg class="product-image product-image-large" role="img" aria-label="A natural linen tote bag with two long handles" viewBox="0 0 120 90">
+        <rect width="120" height="90" fill="#efe9df"/>
+        <path d="M45 30 C45 12 75 12 75 30" fill="none" stroke="#b9a98d" stroke-width="4"/>
+        <rect x="35" y="30" width="50" height="48" rx="3" fill="#d8ccb6"/>
+      </svg>
+      <div class="product-details">
+        <h1>Linen tote bag</h1>
+        <p class="product-price">$24.00</p>
+        <p>Woven from undyed linen and stitched by hand. Big enough for a week of groceries, light enough to fold into a pocket.</p>
+        <div class="product-actions">
+          <button type="button" class="add-to-cart-button">Add to cart</button>
+          <button type="button" class="size-guide-button" aria-haspopup="dialog">Size guide</button>
+        </div>
+        <div class="cart-message"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Pebble & Pine is a fictional shop made for accessibility testing. No real orders are taken.</p>
+  </footer>
+
+  <div class="size-guide-modal" hidden>
+    <div class="size-guide-panel" role="dialog" aria-modal="true" aria-labelledby="size-guide-heading">
+      <h2 id="size-guide-heading" tabindex="-1">Size guide</h2>
+      <table class="size-guide-table">
+        <caption>Linen tote bag measurements</caption>
+        <thead>
+          <tr><th scope="col">Measurement</th><th scope="col">Size</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Width</th><td>38 cm</td></tr>
+          <tr><th scope="row">Height</th><td>42 cm</td></tr>
+          <tr><th scope="row">Handle drop</th><td>28 cm</td></tr>
+        </tbody>
+      </table>
+      <button type="button" class="size-guide-close">Close</button>
+    </div>
+  </div>
+
+  <script src="shop-behaviour.js"></script>
+</body>
+</html>
