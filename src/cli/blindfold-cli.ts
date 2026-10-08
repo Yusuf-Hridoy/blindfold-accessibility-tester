@@ -4,7 +4,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { Command, CommanderError, InvalidArgumentError } from "commander";
-import { RULE_CATALOG, RULE_IDS_IN_ORDER } from "../rules/rule-catalog.ts";
+import { groupFindings } from "../rules/rule-catalog.ts";
 import { buildHtmlReport, describeEngine, describeStopReason } from "../reports/html-report-builder.ts";
 import { buildJsonReport } from "../reports/json-report-builder.ts";
 import { ScanFailedError, scanPage, type ScanOutcome } from "../scan/page-scanner.ts";
@@ -46,13 +46,12 @@ function printScanSummary(outcome: ScanOutcome, reportPath: string): void {
   console.log(`Blindfold ${TOOL_VERSION} · scan · ${result.url}`);
   console.log(`Engine: ${describeEngine(result)}\n`);
 
-  const failedRuleIds = RULE_IDS_IN_ORDER.filter((ruleId) => result.findings.some((finding) => finding.ruleId === ruleId));
-  if (failedRuleIds.length === 0) {
+  const groups = groupFindings(result.findings);
+  if (groups.length === 0) {
     console.log("  ✓ No barriers found");
   }
-  for (const ruleId of failedRuleIds) {
-    const count = result.findings.filter((finding) => finding.ruleId === ruleId).length;
-    console.log(`  ✗ ${ruleId}  ${RULE_CATALOG[ruleId].title.padEnd(42)} ${pluralize(count, "element", "elements")}`);
+  for (const group of groups) {
+    console.log(`  ✗ ${group.ruleId}  ${group.title.padEnd(42)} ${pluralize(group.findings.length, "element", "elements")}`);
   }
   if (result.stoppedBecause === "max-tabs") {
     console.log(`\n  ! ${describeStopReason(result.stoppedBecause, result.maxTabs)}`);
@@ -61,12 +60,19 @@ function printScanSummary(outcome: ScanOutcome, reportPath: string): void {
     console.log(`  ! ${pluralize(result.notTested.length, "element was", "elements were")} not tested (see the report).`);
   }
 
+  const failedRuleCount = new Set(result.findings.map((finding) => finding.ruleId)).size;
   const seconds = (result.durationMilliseconds / 1000).toFixed(1);
   console.log(
-    `\n  ${pluralize(failedRuleIds.length, "rule", "rules")} failed · ${pluralize(result.findings.length, "element", "elements")} · ` +
+    `\n  ${pluralize(failedRuleCount, "rule", "rules")} failed · ${pluralize(result.findings.length, "element", "elements")} · ` +
       `${pluralize(result.focusStops.length, "focus stop", "focus stops")} · ${seconds}s`,
   );
   console.log(`  Report: ${reportPath}`);
+}
+
+/** Relative to the current folder when inside it, otherwise absolute (never "../../.."). */
+function displayPath(absolutePath: string): string {
+  const relativePath = path.relative(process.cwd(), absolutePath);
+  return relativePath.startsWith("..") || path.isAbsolute(relativePath) ? absolutePath : relativePath;
 }
 
 async function runScanCommand(url: string, options: ScanCommandOptions): Promise<number> {
@@ -87,7 +93,7 @@ async function runScanCommand(url: string, options: ScanCommandOptions): Promise
     throw new ScanFailedError(`Couldn't write the reports to ${outputFolder} (${reason}). Check the --output folder.`);
   }
 
-  printScanSummary(outcome, path.relative(process.cwd(), path.join(outputFolder, "report.html")));
+  printScanSummary(outcome, displayPath(path.join(outputFolder, "report.html")));
   return outcome.result.findings.length > 0 ? EXIT_FINDINGS : EXIT_NO_FINDINGS;
 }
 

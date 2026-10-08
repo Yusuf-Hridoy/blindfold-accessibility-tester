@@ -4,7 +4,7 @@
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { RULE_CATALOG, RULE_IDS_IN_ORDER } from "../rules/rule-catalog.ts";
+import { groupFindings } from "../rules/rule-catalog.ts";
 import type {
   Finding,
   FocusStop,
@@ -103,20 +103,19 @@ function buildFinding(finding: Finding, screenshot: string | undefined): string 
 
 function buildFindings(result: ScanResult, screenshots: Map<Finding, string>): string {
   if (result.findings.length === 0) return "<p>No barriers found by the rules in this version.</p>";
-  return RULE_IDS_IN_ORDER.map((ruleId) => {
-    const ruleFindings = result.findings.filter((finding) => finding.ruleId === ruleId);
-    if (ruleFindings.length === 0) return "";
-    const rule = RULE_CATALOG[ruleId];
-    return `<section class="rule" aria-labelledby="rule-${ruleId}">
-      <h3 id="rule-${ruleId}">${ruleId} · ${escapeHtml(rule.title)} (${pluralize(ruleFindings.length, "element", "elements")})</h3>
+  return groupFindings(result.findings)
+    .map(
+      (group) => `<section class="rule" aria-labelledby="rule-${group.key}">
+      <h3 id="rule-${group.key}">${group.ruleId} · ${escapeHtml(group.title)} (${pluralize(group.findings.length, "element", "elements")})</h3>
       <dl class="rule-facts">
-        <dt>WCAG</dt><dd>${escapeHtml(rule.wcag)}</dd>
-        <dt>Why it matters</dt><dd>${escapeHtml(rule.whyItMatters)}</dd>
-        <dt>How to fix it</dt><dd>${escapeHtml(rule.fixHint)}</dd>
+        <dt>WCAG</dt><dd>${escapeHtml(group.wcag)}</dd>
+        <dt>Why it matters</dt><dd>${escapeHtml(group.whyItMatters)}</dd>
+        <dt>How to fix it</dt><dd>${escapeHtml(group.fixHint)}</dd>
       </dl>
-      ${ruleFindings.map((finding) => buildFinding(finding, screenshots.get(finding))).join("")}
-    </section>`;
-  }).join("");
+      ${group.findings.map((finding) => buildFinding(finding, screenshots.get(finding))).join("")}
+    </section>`,
+    )
+    .join("");
 }
 
 function buildNotTested(result: ScanResult): string {

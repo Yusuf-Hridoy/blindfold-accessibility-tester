@@ -39,7 +39,7 @@ function findNotTestedElements(data: CollectedScanData): NotTestedElement[] {
   if (reason === null) return [];
   const reachedElementIds = new Set(data.focusStops.map((stop) => stop.elementId));
   return data.mousePassElements
-    .filter((element) => !reachedElementIds.has(element.elementId))
+    .filter((element) => !reachedElementIds.has(element.elementId) && element.mouseTarget !== false)
     .map(({ elementId, selector, description }) => ({ elementId, selector, description, reason }));
 }
 

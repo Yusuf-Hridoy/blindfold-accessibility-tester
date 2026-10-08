@@ -5,7 +5,7 @@ import type { Browser, Locator, Page } from "playwright";
 import { createScanContext, DESKTOP_VIEWPORT, launchBrowser } from "../browser/browser-launcher.ts";
 import { startScreenReaderAnnouncer } from "../announcer/screen-reader-announcer.ts";
 import { recordFocusStyleBaselines } from "../focus/focus-style-baseline.ts";
-import { collectMousePassElements } from "../passes/mouse-pass-collector.ts";
+import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pass-collector.ts";
 import { walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
 import { runRules } from "../rules/rule-engine.ts";
 import { TOOL_VERSION } from "../tool-version.ts";
@@ -76,9 +76,8 @@ async function loadPage(page: Page, url: string, timeoutSeconds: number): Promis
     throw new ScanFailedError(`Couldn't load ${url} (the browser got no response). Check the URL.`);
   }
   if (response.status() < 200 || response.status() > 299) {
-    throw new ScanFailedError(
-      `${url} returned HTTP ${response.status()} ${response.statusText()}. Blindfold only scans pages that load successfully (2xx).`,
-    );
+    const status = [response.status(), response.statusText()].filter(Boolean).join(" ");
+    throw new ScanFailedError(`${url} returned HTTP ${status}. Blindfold only scans pages that load successfully (2xx).`);
   }
   await page.waitForLoadState("networkidle", { timeout: NETWORK_SETTLE_CAP_MILLISECONDS }).catch(() => {
     // Busy pages (polling, analytics) never go idle; the cap keeps the scan moving.
@@ -168,7 +167,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     const page = await context.newPage();
     await loadPage(page, url, options.pageTimeoutSeconds);
 
-    const mousePassElements = await collectMousePassElements(page);
+    const mousePassCandidates = await collectMousePassElements(page);
     await recordFocusStyleBaselines(page);
     const announcer = await startScreenReaderAnnouncer(page);
 
@@ -182,6 +181,10 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
         if (image) focusTimeScreenshots.set(stop.elementId, image);
       },
     });
+
+    // After the walk, so scrolling for the hit-test can't affect the keyboard pass.
+    const reachedElementIds = new Set(walk.focusStops.map((stop) => stop.elementId));
+    const mousePassElements = await checkMouseTargets(page, mousePassCandidates, reachedElementIds);
 
     const { findings, notTested } = runRules({
       mousePassElements,

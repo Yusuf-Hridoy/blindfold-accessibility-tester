@@ -1,4 +1,4 @@
-import type { RuleId } from "../types/scan-result-types.ts";
+import type { Bf002Reason, Finding, RuleId } from "../types/scan-result-types.ts";
 
 export interface RuleDescription {
   id: RuleId;
@@ -18,6 +18,7 @@ export const RULE_CATALOG: Record<RuleId, RuleDescription> = {
     fixHint:
       'Use a real <button> or <a href> element. If another element must be used, give it tabindex="0" and a suitable role, and make it respond to Enter and Space.',
   },
+  // BF-002 findings are described per reason; see BF002_REASONS below.
   "BF-002": {
     id: "BF-002",
     title: "Control has no accessible name",
@@ -48,3 +49,50 @@ export const RULE_CATALOG: Record<RuleId, RuleDescription> = {
 };
 
 export const RULE_IDS_IN_ORDER: RuleId[] = ["BF-001", "BF-002", "BF-003", "BF-004"];
+
+export const BF002_REASONS_IN_ORDER: Bf002Reason[] = ["missing-name", "hidden-from-screen-readers"];
+
+export const BF002_REASONS: Record<Bf002Reason, Omit<RuleDescription, "id" | "wcag">> = {
+  "missing-name": {
+    title: RULE_CATALOG["BF-002"].title,
+    whyItMatters: RULE_CATALOG["BF-002"].whyItMatters,
+    fixHint: RULE_CATALOG["BF-002"].fixHint,
+  },
+  "hidden-from-screen-readers": {
+    title: "Control is hidden from screen readers",
+    whyItMatters:
+      'The control can get keyboard focus, but it sits inside aria-hidden="true" (or is marked presentational), so the screen reader says nothing when it\'s focused, even if it has a label. People land on a silent stop with no idea what it is.',
+    fixHint:
+      'Remove aria-hidden="true" if the control should be usable. If its container is meant to be hidden, take the control out of the tab order while it\'s hidden (tabindex="-1", or inert on the container).',
+  },
+};
+
+/** One block of findings in the terminal and HTML report: a rule, or one BF-002 reason. */
+export interface FindingGroup {
+  key: string;
+  ruleId: RuleId;
+  title: string;
+  wcag: string;
+  whyItMatters: string;
+  fixHint: string;
+  findings: Finding[];
+}
+
+export function groupFindings(findings: Finding[]): FindingGroup[] {
+  const groups: FindingGroup[] = [];
+  for (const ruleId of RULE_IDS_IN_ORDER) {
+    const rule = RULE_CATALOG[ruleId];
+    const ruleFindings = findings.filter((finding) => finding.ruleId === ruleId);
+    if (ruleId !== "BF-002") {
+      if (ruleFindings.length > 0) groups.push({ key: ruleId, ...rule, ruleId, findings: ruleFindings });
+      continue;
+    }
+    for (const reason of BF002_REASONS_IN_ORDER) {
+      const reasonFindings = ruleFindings.filter((finding) => (finding.reason ?? "missing-name") === reason);
+      if (reasonFindings.length > 0) {
+        groups.push({ key: `${ruleId}-${reason}`, ruleId, wcag: rule.wcag, ...BF002_REASONS[reason], findings: reasonFindings });
+      }
+    }
+  }
+  return groups;
+}

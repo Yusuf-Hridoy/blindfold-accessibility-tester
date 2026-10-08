@@ -5,6 +5,7 @@ import type { Page } from "playwright";
 import {
   formatAsAnnouncement,
   readFocusedRoleAndName,
+  type RoleAndName,
 } from "../announcer/accessibility-snapshot-fallback.ts";
 import { clearAnnouncements, readAnnouncement } from "../announcer/screen-reader-announcer.ts";
 import { checkFocusVisibility } from "../focus/focus-style-baseline.ts";
@@ -26,13 +27,32 @@ export interface KeyboardWalkResult {
   trap: FocusTrap | null;
 }
 
-/** The focused element's identity, or null when focus is on the page body. */
-async function identifyFocusedElement(page: Page): Promise<PageElementIdentity | null> {
+interface FocusedElement extends PageElementIdentity {
+  insideAriaHidden: boolean;
+  hasPresentationalRole: boolean;
+}
+
+/** The focused element's identity and hiding attributes, or null when focus is on the page body. */
+async function identifyFocusedElement(page: Page): Promise<FocusedElement | null> {
   return page.evaluate(() => {
     const focused = document.activeElement;
     if (!focused || focused === document.body || focused === document.documentElement) return null;
-    return window.__blindfoldElements.identify(focused);
+    const firstRole = (focused.getAttribute("role") ?? "").trim().split(/\s+/)[0];
+    return {
+      ...window.__blindfoldElements.identify(focused),
+      insideAriaHidden: focused.closest('[aria-hidden="true"]') !== null,
+      hasPresentationalRole: firstRole === "none" || firstRole === "presentation",
+    };
   });
+}
+
+/**
+ * Hidden only when the browser agrees: Chromium ignores role none/presentation
+ * on focusable controls and still announces them, so the attribute alone isn't enough.
+ */
+function isHiddenFromScreenReaders(focused: FocusedElement, roleAndName: RoleAndName): boolean {
+  const exposesNothing = (roleAndName.role === "none" || roleAndName.role === "generic") && roleAndName.name === "";
+  return (focused.insideAriaHidden || focused.hasPresentationalRole) && exposesNothing;
 }
 
 function toFocusTrap(focusStops: FocusStop[], startIndex: number, cycleLength: number): FocusTrap {
@@ -68,11 +88,14 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
       : formatAsAnnouncement(roleAndName);
     const visibility = await checkFocusVisibility(page);
     const stop: FocusStop = {
-      ...focused,
+      elementId: focused.elementId,
+      selector: focused.selector,
+      description: focused.description,
       step,
       announcement,
       role: roleAndName.role,
       accessibleName: roleAndName.name,
+      hiddenFromScreenReaders: isHiddenFromScreenReaders(focused, roleAndName),
       focusVisible: visibility.focusVisible,
       focusStyleChanges: visibility.focusStyleChanges,
     };

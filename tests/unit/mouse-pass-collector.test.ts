@@ -18,7 +18,14 @@ const SNIPPET = `
   <div inert><div id="inert-div">Inert</div></div>
   <button id="disabled-button" disabled>Disabled</button>
   <div id="aria-disabled-div" role="button" aria-disabled="true">Aria disabled</div>
+  <div id="delegating-menu">
+    <span id="menu-tea" style="cursor: pointer">Tea</span>
+    <span id="menu-coffee" style="cursor: pointer">Coffee</span>
+  </div>
+  <div id="listener-with-hidden-pointer-child"><span hidden style="cursor: pointer">Hidden</span>Visible text</div>
   <script>
+    document.getElementById("delegating-menu").addEventListener("click", () => {});
+    document.getElementById("listener-with-hidden-pointer-child").addEventListener("click", () => {});
     for (const id of ["listener-div", "delegating-list", "hidden-div", "invisible-div", "zero-size-div", "inert-div"]) {
       document.getElementById(id).addEventListener("click", () => {});
     }
@@ -54,6 +61,19 @@ describe("collectMousePassElements", () => {
 
   it("skips containers that only delegate clicks to their buttons", () => {
     expect(selectors()).not.toContain("#delegating-list");
+  });
+
+  it("counts pointer children of a delegating listener as the targets, not the container", () => {
+    expect(selectors()).toEqual(expect.arrayContaining(["#menu-tea", "#menu-coffee"]));
+    expect(selectors()).not.toContain("#delegating-menu");
+  });
+
+  it("keeps a listener container whose only pointer children are hidden", () => {
+    expect(selectors()).toContain("#listener-with-hidden-pointer-child");
+  });
+
+  it("leaves the mouse-target hit-test for after the keyboard walk", () => {
+    expect(elements.every((element) => element.mouseTarget === "not-checked")).toBe(true);
   });
 
   it("skips the parts of a control that inherit its pointer cursor", () => {

@@ -2,6 +2,9 @@
 
 export type RuleId = "BF-001" | "BF-002" | "BF-003" | "BF-004";
 
+/** Why a BF-002 finding fired; each reason has its own title and fix in the catalogue. */
+export type Bf002Reason = "missing-name" | "hidden-from-screen-readers";
+
 export type AnnouncerEngineName = "guidepup-virtual-screen-reader" | "accessibility-snapshot-fallback";
 
 export type WalkStopReason =
@@ -41,6 +44,12 @@ export interface MousePassElement extends ElementIdentity {
   text: string;
   boundingBox: BoundingBox;
   interactiveBecause: InteractiveBecause;
+  /**
+   * Hit-test after the keyboard walk, for elements the keyboard never reached:
+   * false when no test point lands on the element (clipped or covered), so a
+   * mouse can't click it either. Reached elements are "not-checked".
+   */
+  mouseTarget: boolean | "not-checked";
 }
 
 export interface FocusStop extends ElementIdentity {
@@ -51,6 +60,8 @@ export interface FocusStop extends ElementIdentity {
   /** Structured role and accessible name from Engine B (Playwright ARIA snapshot). */
   role: string;
   accessibleName: string;
+  /** aria-hidden (or an honoured role none/presentation) and Chromium exposes nothing. */
+  hiddenFromScreenReaders: boolean;
   focusVisible: FocusVisibility;
   /** Which styles changed on focus, e.g. `element.outline-style`, `parent.box-shadow`. */
   focusStyleChanges: string[];
@@ -75,6 +86,8 @@ export interface Finding extends ElementIdentity {
   step: number | null;
   /** Up to 2 transcript lines before and after the step. */
   transcriptExcerpt: TranscriptLine[];
+  /** BF-002 only: which kind of naming problem it is. */
+  reason?: Bf002Reason;
   /** BF-003 only: every element in the trap cycle. */
   trapCycle?: ElementIdentity[];
 }

@@ -20,6 +20,47 @@ describe("BF-001 unreachable by keyboard", () => {
     expect(findingSelectors(outcome, "BF-001")).toEqual(["#pay"]);
   });
 
+  it("fires on the pointer spans inside a delegating div, not on the div", async () => {
+    const outcome = await scanner.scan(`
+      <button>Back</button>
+      <div id="menu">
+        <span id="tea" style="cursor: pointer">Tea</span>
+        <span id="coffee" style="cursor: pointer">Coffee</span>
+      </div>
+      <script>document.getElementById("menu").addEventListener("click", () => {});</script>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["#tea", "#coffee"]);
+  });
+
+  it("does not fire for a link inside a collapsed accordion (clipped to zero height)", async () => {
+    const outcome = await scanner.scan(`
+      <button aria-expanded="false">Delivery details</button>
+      <div style="height: 0; overflow: hidden">
+        <a id="collapsed-link" href="#rates" tabindex="-1">Delivery rates</a>
+      </div>
+      <p>Content after the accordion.</p>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+    const link = outcome.result.mousePassElements.find((element) => element.selector === "#collapsed-link");
+    expect(link?.mouseTarget).toBe(false);
+  });
+
+  it("does not fire for a clickable div fully covered by another element", async () => {
+    const outcome = await scanner.scan(`
+      <button>Back</button>
+      <div id="covered" style="width: 200px; height: 80px; cursor: pointer">Pay</div>
+      <div style="position: fixed; inset: 0; background: white"></div>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+  });
+
+  it("still fires for a clickable div whose centre is covered but whose corners are not", async () => {
+    const outcome = await scanner.scan(`
+      <button>Back</button>
+      <div id="partly-covered" style="position: relative; width: 200px; height: 100px; cursor: pointer">
+        Pay
+        <div style="position: absolute; left: 80px; top: 40px; width: 40px; height: 20px; background: red; cursor: default"></div>
+      </div>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["#partly-covered"]);
+  });
+
   it("does not fire for a list that delegates clicks to its buttons", async () => {
     const outcome = await scanner.scan(`
       <ul id="cart"><li><button>Remove one</button></li><li><button>Remove two</button></li></ul>
