@@ -1,0 +1,18 @@
+import type { CollectedScanData, RuleFinding } from "../types/scan-result-types.ts";
+
+/** BF-001: mouse-pass elements that never became a focus stop. */
+export function findUnreachableByKeyboard(data: CollectedScanData): RuleFinding[] {
+  // If the walk was cut short, unreached elements are "not tested", not findings.
+  if (data.stoppedBecause === "focus-trap" || data.stoppedBecause === "max-tabs") return [];
+
+  const reachedElementIds = new Set(data.focusStops.map((stop) => stop.elementId));
+  return data.mousePassElements
+    .filter((element) => !reachedElementIds.has(element.elementId))
+    .map(({ elementId, selector, description }) => ({
+      ruleId: "BF-001",
+      elementId,
+      selector,
+      description,
+      step: null,
+    }));
+}

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{PAGE_TITLE}}</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --text: #1b1f24;
+      --muted: #4b5563;
+      --background: #ffffff;
+      --surface: #f4f5f7;
+      --border: #c9ced6;
+      --fail: #a1161d;
+      --fail-surface: #fdecec;
+      --pass: #14652f;
+      --pass-surface: #e7f6ec;
+      --link: #1446a0;
+      --focus: #1446a0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #e9ecf1;
+        --muted: #b4bcc8;
+        --background: #121418;
+        --surface: #1d2027;
+        --border: #3b414c;
+        --fail: #ff9b9b;
+        --fail-surface: #3a1719;
+        --pass: #8be0a6;
+        --pass-surface: #13301e;
+        --link: #9cc0ff;
+        --focus: #9cc0ff;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    a { color: var(--link); }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--background);
+    }
+
+    .skip-link:focus { top: 0.5rem; }
+
+    main {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1, h2, h3, h4 { line-height: 1.25; }
+
+    .verdict {
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      border: 2px solid currentColor;
+    }
+
+    .verdict h1 { margin: 0 0 0.5rem; }
+    .verdict p { margin: 0.25rem 0; color: var(--text); }
+    .verdict-fail { color: var(--fail); background: var(--fail-surface); }
+    .verdict-pass { color: var(--pass); background: var(--pass-surface); }
+
+    .page-contents ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .summary-numbers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .summary-numbers div {
+      min-width: 10rem;
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .summary-numbers dt { color: var(--muted); }
+    .summary-numbers dd { margin: 0; font-size: 1.75rem; font-weight: 700; }
+
+    .note {
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border-left: 4px solid var(--fail);
+    }
+
+    .rule {
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .rule h3 { margin-top: 0; }
+    .rule-facts dt { font-weight: 700; }
+    .rule-facts dd { margin: 0 0 0.5rem; }
+
+    .finding {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--surface);
+      border-radius: 6px;
+    }
+
+    .finding h4 { margin: 0 0 0.5rem; }
+
+    .finding img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0.5rem 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      overflow-wrap: anywhere;
+    }
+
+    .table-wrapper { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0;
+    }
+
+    caption {
+      text-align: left;
+      font-weight: 700;
+      padding-bottom: 0.25rem;
+    }
+
+    th, td {
+      padding: 0.4rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th { background: var(--surface); }
+
+    .highlight-row td, .highlight-row th { font-weight: 700; }
+    .focus-no { color: var(--fail); font-weight: 700; }
+
+    .disclaimer {
+      margin-top: 1rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#findings">Skip to findings</a>
+  <main>
+    <section class="verdict {{VERDICT_CLASS}}" aria-labelledby="verdict-heading">
+      <h1 id="verdict-heading">{{VERDICT_TEXT}}</h1>
+      <p>Page: <a href="{{SCANNED_URL}}">{{SCANNED_URL}}</a></p>
+      <p>Scanned: <time datetime="{{SCANNED_AT_ISO}}">{{SCANNED_AT_READABLE}}</time></p>
+    </section>
+
+    <nav class="page-contents" aria-label="Report sections">
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#not-tested">Not tested</a></li>
+        <li><a href="#transcript">Transcript</a></li>
+        <li><a href="#run-details">Run details</a></li>
+      </ul>
+    </nav>
+
+    <section id="summary" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Summary</h2>
+      {{SUMMARY}}
+    </section>
+
+    <section id="findings" aria-labelledby="findings-heading" tabindex="-1">
+      <h2 id="findings-heading">Findings</h2>
+      {{FINDINGS}}
+    </section>
+
+    <section id="not-tested" aria-labelledby="not-tested-heading">
+      <h2 id="not-tested-heading">Not tested</h2>
+      {{NOT_TESTED}}
+    </section>
+
+    <section id="transcript" aria-labelledby="transcript-heading">
+      <h2 id="transcript-heading">Full transcript</h2>
+      <p>Every Tab key press that moved focus, and what the screen reader said.</p>
+      {{TRANSCRIPT}}
+    </section>
+
+    <section id="run-details" aria-labelledby="run-details-heading">
+      <h2 id="run-details-heading">Run details</h2>
+      {{RUN_DETAILS}}
+      <p class="disclaimer">Blindfold finds likely keyboard and screen-reader barriers. It is not a legal compliance verdict and does not replace testing with real screen readers.</p>
+    </section>
+  </main>
+</body>
+</html>
