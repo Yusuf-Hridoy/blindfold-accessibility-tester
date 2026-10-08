@@ -6,7 +6,7 @@ its 8 planted bugs fixed in the standard way. It should produce zero findings.
 | Rule | What was done to fix it |
 |---|---|
 | BF-001 | The checkout control is a real `<button type="button">`, so it is in the tab order and works with Enter and Space. |
-| BF-002 | The cart icon button has `aria-label="Cart, 2 items"`, so it is announced with a name. |
+| BF-002 | The cart icon button has `aria-label="Cart"`, so it is announced with a name. (No item count: the demo never updates it, so it would become wrong.) |
 | BF-003 | The newsletter box has no focus-forcing `keydown` handler. Tab moves on to the footer and the rest of the page normally. |
 | BF-004 | Nav links keep the site-wide `:focus-visible` style (3px blue outline with 2px offset). Nothing removes it. |
 | BF-005 | The "Added to cart" message container has `role="status"`, so the message is announced politely when it appears. |
