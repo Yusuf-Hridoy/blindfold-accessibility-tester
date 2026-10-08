@@ -146,6 +146,12 @@ compliance verdict and does not replace testing with real screen readers.
   journey's focus isn't disturbed.
 - If the screen-reader engine can't start, BF-005 is decided from the markup
   alone (is the message in a live region?) and marked "lower confidence".
+- Journeys: when Tab brings focus back to where a step started without
+  passing the end of the page, Blindfold reports a focus trap (BF-003), unless
+  focus is legitimately kept inside a modal: an open `<dialog>`, a
+  `role="dialog"`/`"alertdialog"` with `aria-modal="true"`, or a container
+  where everything else on the page is `inert` or `aria-hidden`. A modal that
+  traps focus without those markers is reported as a trap.
 - Journeys: no login/sessions, iframes, new tabs or windows yet. An
   `expect_announcement` after a step that loads a new page can't hear the old
   page's announcements.

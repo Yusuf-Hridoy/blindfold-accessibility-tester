@@ -132,6 +132,8 @@ function printJourneySummary(outcome: JourneyRunOutcome, reportPath: string): vo
     const keys = pluralize(step.keysPressed.length, "key", "keys");
     console.log(`  ${step.status === "failed" ? "✗" : "✓"} ${label}  ${step.action.padEnd(48)} ${keys}`);
     if (step.blockedBecause) console.log(`  ✗ ${label}  blocked: ${step.blockedBecause}`);
+    const [bestMatch] = step.closestMatches ?? [];
+    if (bestMatch) console.log(`  ${" ".repeat(label.length + 2)}  Did you mean "${bestMatch}"?`);
     for (const finding of result.findings.filter((candidate) => candidate.journeyStep === step.stepNumber)) {
       console.log(`  ✗ ${label}  ${finding.ruleId} ${summarizeFinding(finding)}`);
     }

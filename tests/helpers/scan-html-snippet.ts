@@ -17,7 +17,7 @@ export interface SnippetScanner {
   /** Serves a snippet and returns its URL (e.g. a second page to navigate to). */
   pageUrl(bodyHtml: string): string;
   /** Runs a journey whose start page is the snippet. Steps need no line numbers. */
-  runJourney(bodyHtml: string, steps: Omit<JourneyStep, "line">[]): Promise<JourneyRunOutcome>;
+  runJourney(bodyHtml: string, steps: Omit<JourneyStep, "line">[], options?: { maxTabsPerStep?: number }): Promise<JourneyRunOutcome>;
   close(): Promise<void>;
 }
 
@@ -48,7 +48,7 @@ export async function startSnippetScanner(): Promise<SnippetScanner> {
     scan: (bodyHtml, options) =>
       scanPage({ url: addSnippet(bodyHtml), browser, maxTabs: options?.maxTabs ?? 50, pageTimeoutSeconds: 10, screenshots: false }),
     pageUrl: addSnippet,
-    runJourney: (bodyHtml, steps) =>
+    runJourney: (bodyHtml, steps, options) =>
       runJourney({
         journey: {
           filePath: "snippet-journey.yaml",
@@ -57,7 +57,7 @@ export async function startSnippetScanner(): Promise<SnippetScanner> {
           steps: steps.map((step, index) => ({ ...step, line: index + 1 })),
         },
         browser,
-        maxTabsPerStep: 30,
+        maxTabsPerStep: options?.maxTabsPerStep ?? 30,
         pageTimeoutSeconds: 10,
         screenshots: false,
       }),

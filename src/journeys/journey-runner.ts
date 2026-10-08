@@ -39,11 +39,12 @@ import type {
   JourneyTranscriptEntry,
   ModalObservation,
 } from "../types/journey-result-types.ts";
-import type { ElementIdentity, Finding, FocusStop, RuleFinding } from "../types/scan-result-types.ts";
+import type { ElementIdentity, Finding, FocusStop, FocusTrap, RuleFinding } from "../types/scan-result-types.ts";
 import type { LoadedJourney } from "./journey-file-loader.ts";
 import type { JourneyKey, JourneyStep } from "./journey-file-schema.ts";
 import { closestMatches, matchesTarget, normalizeText, targetName } from "./focus-target-matcher.ts";
 import {
+  checkCycleConfinement,
   findAppearedText,
   installPageChangeWatcher,
   listFocusContainers,
@@ -85,6 +86,8 @@ interface JourneySession {
   screenshots: Map<Finding, string>;
   /** `${ruleId} ${selector}` for BF-002/BF-004 (once per journey), `${pageLoad} ${selector}` for BF-008. */
   reportedKeys: Set<string>;
+  /** Every element that had keyboard focus on the current page load; never a BF-001 candidate. */
+  reachedOnThisPage: Set<number>;
   transcript: JourneyTranscriptEntry[];
 }
 
@@ -106,6 +109,8 @@ async function preparePage(session: JourneySession, stepNumber: number): Promise
   session.firstAnnouncer ??= announcer;
   session.useScreenReader = announcer.engine === "guidepup-virtual-screen-reader";
   session.pageLoadNumber++;
+  // Element ids restart with each document.
+  session.reachedOnThisPage.clear();
   session.transcript.push({ journeyStep: stepNumber, kind: "page", text: page.url(), url: page.url() });
 }
 
@@ -173,31 +178,67 @@ async function checkOverlays(session: JourneySession, stepNumber: number, mouseT
   return findings.length > 0;
 }
 
-type ReachOutcome = { reached: true } | { reached: false; reason: string; trapFinding: RuleFinding | null };
+type ReachOutcome =
+  | { reached: true }
+  | { reached: false; reason: string; trapFinding: RuleFinding | null; focusConfined: boolean };
+
+/** A trap's cycle, rotated to start at its earliest element in page order (as `scan` anchors it). */
+async function trapStartingInPageOrder(page: Page, cycleStops: FocusStop[]): Promise<FocusTrap> {
+  const { firstInPageOrder } = await checkCycleConfinement(page, cycleStops.map((stop) => stop.elementId));
+  const rotated = [...cycleStops.slice(firstInPageOrder), ...cycleStops.slice(0, firstInPageOrder)];
+  return {
+    startStep: rotated[0]?.step ?? 0,
+    cycle: rotated.map(({ elementId, selector, description }) => ({ elementId, selector, description })),
+  };
+}
+
+function trapFindingFor(trap: FocusTrap): RuleFinding | null {
+  const [finding] = findFocusTraps({ focusStops: [], mousePassElements: [], stoppedBecause: "focus-trap", trap, blockingOverlays: [] });
+  return finding ?? null;
+}
 
 /** Tabs until the focused element matches the target, a cycle completes, focus is trapped, or the limit is hit. */
 async function reachTarget(session: JourneySession, progress: StepProgress, target: string): Promise<ReachOutcome> {
   const { page } = session;
   const current = await identifyFocusedElement(page);
   if (current) {
+    session.reachedOnThisPage.add(current.elementId);
     const { role, name } = await readRoleAndName(page.locator(":focus").first());
     if (matchesTarget(target, { role, name, announcement: "" })) return { reached: true };
   }
 
   const stops: FocusStop[] = [];
   let bodyPressesInARow = 0;
+  let passedEndOfPage = false;
   for (let press = 1; press <= session.options.maxTabsPerStep; press++) {
     progress.keysPressed.push("Tab");
     const stop = await pressKeyAndRecord(page, progress.focusStops.length + 1, session.useScreenReader);
     if (stop === null) {
-      if (++bodyPressesInARow >= 2) return { reached: false, reason: "nothing on the page can be reached with Tab", trapFinding: null };
+      passedEndOfPage = true;
+      if (++bodyPressesInARow >= 2) {
+        return { reached: false, reason: "nothing on the page can be reached with Tab", trapFinding: null, focusConfined: false };
+      }
       continue;
     }
     bodyPressesInARow = 0;
     if (stops.length > 0 && stop.elementId === stops[0]?.elementId) {
-      return { reached: false, reason: "a full Tab cycle went by without reaching it", trapFinding: null };
+      // Back at the step's first stop. Only a full cycle if focus passed the end of the page.
+      if (passedEndOfPage) {
+        return { reached: false, reason: "a full Tab cycle went by without reaching it", trapFinding: null, focusConfined: false };
+      }
+      const { confined } = await checkCycleConfinement(page, stops.map((cycleStop) => cycleStop.elementId));
+      if (confined) {
+        return { reached: false, reason: "focus is kept inside a modal dialog, and it isn't in there", trapFinding: null, focusConfined: true };
+      }
+      return {
+        reached: false,
+        reason: "keyboard focus got trapped",
+        trapFinding: trapFindingFor(await trapStartingInPageOrder(page, stops)),
+        focusConfined: false,
+      };
     }
     stops.push(stop);
+    session.reachedOnThisPage.add(stop.elementId);
     progress.focusStops.push(stop);
     progress.announcements.push(stop.announcement);
     addTranscript(session, progress.stepNumber, { kind: "focus", text: stop.description, spoken: stop.announcement });
@@ -208,21 +249,43 @@ async function reachTarget(session: JourneySession, progress: StepProgress, targ
     }
     const trap = findTrapInStops(stops);
     if (trap) {
-      const [trapFinding] = findFocusTraps({ focusStops: stops, mousePassElements: [], stoppedBecause: "focus-trap", trap, blockingOverlays: [] });
-      return { reached: false, reason: "keyboard focus got trapped", trapFinding: trapFinding ?? null };
+      const cycleStops = stops.filter((cycleStop) => trap.cycle.some((element) => element.elementId === cycleStop.elementId));
+      const uniqueCycleStops = cycleStops.filter((cycleStop, index) => cycleStops.findIndex((other) => other.elementId === cycleStop.elementId) === index);
+      return {
+        reached: false,
+        reason: "keyboard focus got trapped",
+        trapFinding: trapFindingFor(await trapStartingInPageOrder(page, uniqueCycleStops)),
+        focusConfined: false,
+      };
     }
   }
-  return { reached: false, reason: `not reached within ${session.options.maxTabsPerStep} Tab presses (--max-tabs-per-step)`, trapFinding: null };
+  return {
+    reached: false,
+    reason: `not reached within ${session.options.maxTabsPerStep} Tab presses (--max-tabs-per-step)`,
+    trapFinding: null,
+    focusConfined: false,
+  };
 }
 
-/** After a target was never reached: BF-001 for a matching mouse-only control, BF-008 for a blocking overlay. */
-async function explainNeverReached(session: JourneySession, progress: StepProgress, target: string, trapFinding: RuleFinding | null): Promise<void> {
+/**
+ * After a target was never reached: BF-003 for a trap, otherwise BF-008 for a
+ * blocking overlay and BF-001 for a matching mouse-only control. No BF-001
+ * when a modal legitimately confines focus: outside it is unreachable on purpose.
+ */
+async function explainNeverReached(
+  session: JourneySession,
+  progress: StepProgress,
+  target: string,
+  trapFinding: RuleFinding | null,
+  focusConfined: boolean,
+): Promise<void> {
   if (trapFinding) {
     await addFindings(session, progress.stepNumber, [{ ...trapFinding, message: `focus trapped in ${trapFinding.description}` }]);
     return;
   }
   const { page } = session;
-  const reachedIds = new Set(progress.focusStops.map((stop) => stop.elementId));
+  // Anything the keyboard reached on this page load is reachable, whatever this step's walk saw.
+  const reachedIds = new Set([...session.reachedOnThisPage, ...progress.focusStops.map((stop) => stop.elementId)]);
   const mouseElements = await checkMouseTargets(page, await collectMousePassElements(page), reachedIds);
   const mouseTargets = mouseElements.filter((element) => element.mouseTarget !== false);
   const overlayFound = await checkOverlays(session, progress.stepNumber, mouseTargets.map((element) => element.elementId));
@@ -246,6 +309,7 @@ async function explainNeverReached(session: JourneySession, progress: StepProgre
   const overlayControlIds = new Set(
     session.findings.filter((finding) => finding.ruleId === "BF-008").flatMap((finding) => finding.overlayControls?.map((control) => control.elementId) ?? []),
   );
+  if (focusConfined) return;
   const bf001 = overlayFound ? unreachableMatches.filter((finding) => !overlayControlIds.has(finding.elementId)) : unreachableMatches;
   await addFindings(session, progress.stepNumber, bf001);
 }
@@ -283,6 +347,7 @@ async function performAction(session: JourneySession, progress: StepProgress, st
   }
 
   const focusBeforeElement = await identifyFocusedElement(page);
+  if (focusBeforeElement) session.reachedOnThisPage.add(focusBeforeElement.elementId);
   const focusBefore: ElementIdentity | null = focusBeforeElement
     ? { elementId: focusBeforeElement.elementId, selector: focusBeforeElement.selector, description: focusBeforeElement.description }
     : null;
@@ -331,6 +396,7 @@ async function performAction(session: JourneySession, progress: StepProgress, st
   }
 
   const focusAfterElement = await identifyFocusedElement(page);
+  if (focusAfterElement) session.reachedOnThisPage.add(focusAfterElement.elementId);
   if (focusAfterElement && (key === "Tab" || key === "Shift+Tab")) {
     const stop = await recordFocusStop(page, focusAfterElement, progress.focusStops.length + 1, spoken.join(" | ") || null);
     progress.focusStops.push(stop);
@@ -416,7 +482,7 @@ function describeAction(step: JourneyStep): string {
   const parts: string[] = [];
   if (step.dismiss) parts.push(`dismiss "${step.dismiss}"`);
   if (step.reach) parts.push(`reach "${step.reach}"`);
-  if (step.type) parts.push(`type "${step.type}"`);
+  if (step.type) parts.push(step.reach ? `+ type "${step.type}"` : `type "${step.type}"`);
   if (step.press) parts.push(step.reach || step.type ? `+ ${step.press}` : `press ${step.press}`);
   return parts.join(" ");
 }
@@ -457,7 +523,7 @@ async function runStep(session: JourneySession, step: JourneyStep, stepNumber: n
     const reach = await reachTarget(session, progress, target);
     if (!reach.reached) {
       const heard = progress.focusStops.map((stop) => (stop.accessibleName ? `${stop.accessibleName}, ${stop.role}` : stop.announcement));
-      await explainNeverReached(session, progress, target, reach.trapFinding);
+      await explainNeverReached(session, progress, target, reach.trapFinding, reach.focusConfined);
       return finish({ blockedBecause: `"${target}" was never reached: ${reach.reason}`, closestMatches: closestMatches(target, heard) });
     }
   }
@@ -492,6 +558,7 @@ export async function runJourney(options: JourneyRunOptions): Promise<JourneyRun
     findings: [],
     screenshots: new Map(),
     reportedKeys: new Set(),
+    reachedOnThisPage: new Set(),
     transcript: [],
   };
   try {

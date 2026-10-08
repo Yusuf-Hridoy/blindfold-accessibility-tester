@@ -1,0 +1,9 @@
+# Type an email address into the newsletter box, then try to get back to the top.
+# On the buggy shop the newsletter box traps focus (BF-003).
+name: Into the newsletter trap
+start_url: /?no-cookie-banner=1
+steps:
+  - reach: "Email address, textbox"
+    type: "ada@example.com"
+  - reach: "Pebble & Pine, link"
+    press: Enter

@@ -61,6 +61,21 @@ describe("BF-001 unreachable by keyboard", () => {
     expect(findingSelectors(outcome, "BF-001")).toEqual(["#partly-covered"]);
   });
 
+  it("in a journey, never attaches BF-001 to a control the keyboard reached earlier on the page", async () => {
+    // Step 1 reaches "Home". Step 2 looks for a "Home" button, starting after the
+    // link, and gives up after 2 Tab presses: the "Home" link must not be BF-001.
+    const outcome = await scanner.runJourney(
+      `<a id="home" href="#home">Home</a><a href="#b">B</a><a href="#c">C</a><a href="#d">D</a><a href="#e">E</a>`,
+      [
+        { reach: "Home, link", expectFocusOn: "Home, link" },
+        { reach: "Home, button", press: "Enter" },
+      ],
+      { maxTabsPerStep: 2 },
+    );
+    expect(outcome.result.blockedAtStep).toBe(2);
+    expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+  });
+
   it("does not fire for a list that delegates clicks to its buttons", async () => {
     const outcome = await scanner.scan(`
       <ul id="cart"><li><button>Remove one</button></li><li><button>Remove two</button></li></ul>

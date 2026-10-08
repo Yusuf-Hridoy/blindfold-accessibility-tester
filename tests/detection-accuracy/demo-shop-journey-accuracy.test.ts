@@ -29,6 +29,8 @@ interface ExpectedJourney {
   finalPath?: string;
   /** BF-008 only: CSS selector for exactly the overlay's controls. */
   overlayControls?: string;
+  /** BF-003 only: one CSS selector per element of the cycle, in order. */
+  trapCycle?: string[];
   effort: { keyboardPresses: number; mouseClicks: number; ratio: number; untilBlocked: boolean; perStep: number[] };
 }
 
@@ -38,7 +40,7 @@ const passed = (findings: Partial<Record<RuleId, string>> = {}): ExpectedStep =>
   expectationFailures: [],
 });
 
-const JOURNEYS: Record<string, { file: string; buggy: ExpectedJourney; accessible: ExpectedJourney }> = {
+const JOURNEYS: Record<string, { file: string; buggy: ExpectedJourney; accessible?: ExpectedJourney }> = {
   product: {
     file: "buggy-shop-product-journey.yaml",
     buggy: {
@@ -96,6 +98,20 @@ const JOURNEYS: Record<string, { file: string; buggy: ExpectedJourney; accessibl
       steps: [passed(), passed()],
       finalPath: "/product-linen-tote-bag.html",
       effort: { keyboardPresses: 3, mouseClicks: 2, ratio: 1.5, untilBlocked: false, perStep: [1, 2] },
+    },
+  },
+  // Buggy shop only: the newsletter box traps focus.
+  "newsletter trap": {
+    file: "buggy-shop-newsletter-trap-journey.yaml",
+    buggy: {
+      outcome: "blocked",
+      blockedAtStep: 2,
+      steps: [
+        passed({ "BF-002": ".cart-button", "BF-004": ".nav-link" }),
+        { status: "failed", findings: { "BF-003": "#newsletter-email" }, expectationFailures: [] },
+      ],
+      trapCycle: ["#newsletter-email", ".newsletter-subscribe-button"],
+      effort: { keyboardPresses: 12, mouseClicks: 1, ratio: 12, untilBlocked: true, perStep: [9, 3] },
     },
   },
 };
@@ -167,6 +183,13 @@ async function expectJourneyToMatch(outcome: JourneyRunOutcome, expected: Expect
     const controls = result.findings.find((finding) => finding.ruleId === "BF-008")?.overlayControls?.map((control) => control.selector) ?? [];
     expect(await selectorsMatchExactly(result.startUrl, controls, expected.overlayControls)).toBe(true);
   }
+  if (expected.trapCycle) {
+    const cycle = result.findings.find((finding) => finding.ruleId === "BF-003")?.trapCycle?.map((element) => element.selector) ?? [];
+    expect(cycle).toHaveLength(expected.trapCycle.length);
+    for (const [index, expectedSelector] of expected.trapCycle.entries()) {
+      expect(await selectorsMatchExactly(result.startUrl, [cycle[index] ?? ""], expectedSelector), `trap cycle element ${index + 1}`).toBe(true);
+    }
+  }
   if (expected.finalPath) expect(new URL(result.finalUrl).pathname).toBe(expected.finalPath);
 
   expect(result.effort).toMatchObject({
@@ -184,10 +207,13 @@ for (const [journeyName, journey] of Object.entries(JOURNEYS)) {
       await expectJourneyToMatch(await runExampleJourney(journey.file, "buggy"), journey.buggy);
     });
 
-    it("accessible shop: passes with no findings, and effort", async () => {
-      const outcome = await runExampleJourney(journey.file, "accessible");
-      expect(outcome.result.findings).toEqual([]);
-      await expectJourneyToMatch(outcome, journey.accessible);
-    });
+    const accessible = journey.accessible;
+    if (accessible) {
+      it("accessible shop: passes with no findings, and effort", async () => {
+        const outcome = await runExampleJourney(journey.file, "accessible");
+        expect(outcome.result.findings).toEqual([]);
+        await expectJourneyToMatch(outcome, accessible);
+      });
+    }
   });
 }
