@@ -25,6 +25,14 @@ describe.runIf(skipPackageTest)("the packaged CLI smoke test", () => {
 
 const npm = process.platform === "win32" ? "npm.cmd" : "npm";
 
+// Under `npm test` or `npm publish`, npm passes its own settings down as
+// npm_config_* variables (e.g. npm_config_dry_run=true during
+// `npm publish --dry-run`), which would turn this test's `npm pack` into a
+// dry run. Child npm commands get a clean copy of the environment instead.
+const cleanNpmEnv: NodeJS.ProcessEnv = Object.fromEntries(
+  Object.entries(process.env).filter(([name]) => !/^npm_(config|lifecycle)_/i.test(name)),
+);
+
 async function mustSucceed(run: Promise<CliRun>, what: string): Promise<CliRun> {
   const result = await run;
   if (result.exitCode !== 0) throw new Error(`${what} failed (exit code ${result.exitCode}):\n${result.stderr || result.stdout}`);
@@ -47,15 +55,18 @@ describe.skipIf(skipPackageTest)("the packaged CLI, installed from the tarball",
   beforeAll(async () => {
     workFolder = await mkdtemp(path.join(tmpdir(), "blindfold-package-test-"));
     installFolder = path.join(workFolder, "stranger-project");
-    await mustSucceed(runCommand(npm, ["run", "build"], { cwd: PROJECT_ROOT }), "npm run build");
-    await mustSucceed(runCommand(npm, ["pack", "--pack-destination", workFolder, "--silent"], { cwd: PROJECT_ROOT }), "npm pack");
+    await mustSucceed(runCommand(npm, ["run", "build"], { cwd: PROJECT_ROOT, env: cleanNpmEnv }), "npm run build");
+    await mustSucceed(runCommand(npm, ["pack", "--dry-run=false", "--pack-destination", workFolder, "--silent"], { cwd: PROJECT_ROOT, env: cleanNpmEnv }), "npm pack");
     const [tarball] = (await readdir(workFolder)).filter((name) => name.endsWith(".tgz"));
     if (!tarball) throw new Error("npm pack wrote no tarball");
 
     await runCommand("mkdir", [installFolder]);
     await writeFile(path.join(installFolder, "package.json"), JSON.stringify({ name: "stranger-project", private: true }));
     await mustSucceed(
-      runCommand(npm, ["install", path.join(workFolder, tarball), "--prefer-offline", "--no-audit", "--no-fund"], { cwd: installFolder }),
+      runCommand(npm, ["install", path.join(workFolder, tarball), "--prefer-offline", "--no-audit", "--no-fund"], {
+        cwd: installFolder,
+        env: cleanNpmEnv,
+      }),
       "npm install of the tarball",
     );
     buggyServer = await startDemoSiteServer({ shop: "buggy", port: 0 });
