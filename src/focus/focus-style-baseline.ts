@@ -4,7 +4,7 @@
 // elements added later. On focus, any difference means a visible indicator.
 // Elements focused before a clean baseline could be read are "unknown".
 
-import type { Page } from "playwright";
+import type { Frame, Page } from "playwright";
 import type { FocusVisibility } from "../types/scan-result-types.ts";
 
 export interface FocusVisibilityCheck {
@@ -68,9 +68,13 @@ const FOCUSABLE_SELECTOR = [
   '[contenteditable]:not([contenteditable="false"])',
 ].join(", ");
 
-/** Records baselines for the page as it is now, then keeps watching for new elements. */
-export async function recordFocusStyleBaselines(page: Page): Promise<void> {
-  await page.evaluate(
+function frameOf(target: Page | Frame): Frame {
+  return "mainFrame" in target ? target.mainFrame() : target;
+}
+
+/** Records baselines for the page (or a frame) as it is now, then keeps watching for new elements. */
+export async function recordFocusStyleBaselines(target: Page | Frame): Promise<void> {
+  await frameOf(target).evaluate(
     ({ properties, pseudoExtraProperties, focusableSelector }) => {
       function readStyles(element: Element, pseudoElement: string | null, propertyNames: string[]): FlatStyles {
         const computed = getComputedStyle(element, pseudoElement);
@@ -165,9 +169,9 @@ export async function recordFocusStyleBaselines(page: Page): Promise<void> {
   );
 }
 
-/** Compares the focused element's current styles with its baseline. */
-export async function checkFocusVisibility(page: Page): Promise<FocusVisibilityCheck> {
-  return page.evaluate(() => {
+/** Compares the focused element's current styles with its baseline, in the page or the frame given. */
+export async function checkFocusVisibility(target: Page | Frame): Promise<FocusVisibilityCheck> {
+  return frameOf(target).evaluate(() => {
     const store = window.__blindfoldFocusStyles;
     const focused = document.activeElement;
     const baseline = focused ? store?.baselines.get(focused) : undefined;

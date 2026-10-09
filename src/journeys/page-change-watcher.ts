@@ -202,6 +202,8 @@ export interface CycleConfinement {
   confined: boolean;
   /** Index (into the given ids) of the cycle element that comes first in page order. */
   firstInPageOrder: number;
+  /** When confined: the dialog, or the container everything else is blocked around. */
+  confinedBy?: PageElementIdentity & { isDialog: boolean };
 }
 
 /**
@@ -227,7 +229,7 @@ export async function checkCycleConfinement(page: Page, elementIds: number[]): P
 
     const modalDialog = container.closest('dialog, [role="dialog"][aria-modal="true"], [role="alertdialog"][aria-modal="true"]');
     if (modalDialog && (modalDialog.localName !== "dialog" || modalDialog.matches(":modal"))) {
-      return { confined: true, firstInPageOrder };
+      return { confined: true, firstInPageOrder, confinedBy: { ...window.__blindfoldElements.identify(modalDialog), isDialog: true } };
     }
 
     const ignoredTags = ["SCRIPT", "STYLE", "TEMPLATE", "NOSCRIPT"];
@@ -240,6 +242,6 @@ export async function checkCycleConfinement(page: Page, elementIds: number[]): P
         if (!isBlocked(sibling) && isRendered(sibling)) return { confined: false, firstInPageOrder };
       }
     }
-    return { confined: true, firstInPageOrder };
+    return { confined: true, firstInPageOrder, confinedBy: { ...window.__blindfoldElements.identify(container), isDialog: false } };
   }, elementIds);
 }

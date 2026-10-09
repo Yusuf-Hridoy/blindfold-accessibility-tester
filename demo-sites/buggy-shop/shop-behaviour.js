@@ -25,6 +25,17 @@ function setUpCartButton() {
   });
 }
 
+// Planted bug BF-001 (mobile only): below 700px wide the menu toggle is a
+// <div> with a click handler and no role or tabindex, so Tab skips it and the
+// nav links inside the collapsed menu can't be reached with a keyboard.
+function setUpMenuToggle() {
+  const toggle = document.querySelector(".menu-toggle");
+  const header = document.querySelector(".site-header");
+  toggle?.addEventListener("click", () => {
+    header.classList.toggle("menu-open");
+  });
+}
+
 function hasCookieChoiceBeenMade() {
   try {
     return sessionStorage.getItem(COOKIE_CHOICE_STORAGE_KEY) !== null;
@@ -202,6 +213,7 @@ function setUpCheckoutForm() {
 }
 
 setUpCartButton();
+setUpMenuToggle();
 setUpCookieBanner();
 setUpNewsletter();
 setUpAddToCart();

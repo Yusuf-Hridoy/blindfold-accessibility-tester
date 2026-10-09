@@ -123,6 +123,51 @@ a {
   cursor: pointer;
 }
 
+/* Responsive menu: below 700px wide the nav collapses behind a "Menu" toggle.
+   At 700px and wider the toggle is hidden and the header is unchanged. */
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 699.98px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-left: auto;
+    padding: 0 1rem;
+    font: inherit;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    cursor: pointer;
+  }
+
+  .main-nav {
+    display: none;
+    order: 1;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .site-header.menu-open .main-nav {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 /* Page layout */
 
 main {

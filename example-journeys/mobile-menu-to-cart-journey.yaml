@@ -1,0 +1,12 @@
+# On a phone-sized screen: open the menu, then go to the cart.
+# Works against either demo shop: --base-url http://localhost:4000 (buggy) or :4001 (accessible).
+# On the buggy shop the menu toggle is a <div>, so the keyboard can't open it (BF-001, mobile only).
+name: Mobile menu, then the cart
+start_url: /product-linen-tote-bag.html?no-cookie-banner=1
+viewport: mobile
+steps:
+  - reach: "Menu, button"
+    press: Enter
+  - reach: "Cart, link"
+    press: Enter
+    expect_url_contains: "/cart.html"

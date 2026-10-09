@@ -20,6 +20,9 @@ jobs:
 
       - run: npx playwright install --with-deps chromium
 
+      # Optional for users; installed here so the audio replay tests always run.
+      - run: sudo apt-get update && sudo apt-get install -y espeak-ng
+
       - run: npm run typecheck
 
       - run: npm test

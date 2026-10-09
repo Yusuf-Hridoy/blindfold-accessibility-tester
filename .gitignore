@@ -2,3 +2,5 @@ node_modules
 dist
 blindfold-results
 test-results
+# Saved logins (blindfold login --save-session): they contain login cookies.
+*.session.json

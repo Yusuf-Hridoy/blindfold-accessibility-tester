@@ -2,6 +2,7 @@
 
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import type { ViewportName } from "../browser/viewport-presets.ts";
 import { JourneyFileError, parseJourneyFile, type JourneyStep } from "./journey-file-schema.ts";
 
 export interface LoadedJourney {
@@ -9,6 +10,8 @@ export interface LoadedJourney {
   name: string;
   /** Absolute http(s) URL. */
   startUrl: string;
+  /** From the file; the --viewport option overrides it. */
+  viewport?: ViewportName;
   steps: JourneyStep[];
 }
 
@@ -39,6 +42,7 @@ export async function loadJourneyFile(filePath: string, baseUrl?: string): Promi
     filePath: path.resolve(filePath),
     name: content.name,
     startUrl: resolveStartUrl(content.startUrl, baseUrl, fileLabel),
+    ...(content.viewport ? { viewport: content.viewport } : {}),
     steps: content.steps,
   };
 }

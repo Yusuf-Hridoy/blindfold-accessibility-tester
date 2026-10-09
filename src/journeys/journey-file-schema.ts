@@ -2,6 +2,7 @@
 // using positions from the yaml parser.
 
 import { isMap, isScalar, isSeq, LineCounter, parseDocument, type Node, type Pair } from "yaml";
+import { isViewportName, VIEWPORT_NAMES, type ViewportName } from "../browser/viewport-presets.ts";
 import { closestMatches } from "./focus-target-matcher.ts";
 
 export const JOURNEY_KEYS = [
@@ -30,15 +31,19 @@ export interface JourneyStep {
   expectFocusOn?: string;
   expectUrlContains?: string;
   expectClosed?: string;
+  /** The action opens a new tab, and the journey continues there. */
+  followNewTab?: boolean;
 }
 
 export interface JourneyFileContent {
   name: string;
   startUrl: string;
+  /** Set when the file chooses one; the --viewport option overrides it. */
+  viewport?: ViewportName;
   steps: JourneyStep[];
 }
 
-const TOP_LEVEL_FIELDS = ["name", "start_url", "steps"];
+const TOP_LEVEL_FIELDS = ["name", "start_url", "viewport", "steps"];
 
 const STEP_FIELDS: Record<string, keyof Omit<JourneyStep, "line">> = {
   reach: "reach",
@@ -50,6 +55,7 @@ const STEP_FIELDS: Record<string, keyof Omit<JourneyStep, "line">> = {
   expect_focus_on: "expectFocusOn",
   expect_url_contains: "expectUrlContains",
   expect_closed: "expectClosed",
+  follow_new_tab: "followNewTab",
 };
 
 const EXAMPLE_VALUES: Record<string, string> = {
@@ -122,6 +128,13 @@ export function parseJourneyFile(text: string, fileLabel: string): JourneyFileCo
 
   const name = requiredText("name", 'name: "Product to checkout"');
   const startUrl = requiredText("start_url", "start_url: /cart.html");
+  let viewport: ViewportName | undefined;
+  const viewportPair = topLevel.get("viewport");
+  if (viewportPair) {
+    const value = isScalar(viewportPair.value) ? String(viewportPair.value.value) : "";
+    if (isViewportName(value)) viewport = value;
+    else problems.push(`line ${lineOf(viewportPair.key as Node)}: "viewport" is "${value}". Use one of: ${VIEWPORT_NAMES.join(", ")}.`);
+  }
 
   const steps: JourneyStep[] = [];
   const stepsPair = topLevel.get("steps");
@@ -137,7 +150,7 @@ export function parseJourneyFile(text: string, fileLabel: string): JourneyFileCo
   }
 
   if (problems.length > 0) throw new JourneyFileError(fileLabel, problems);
-  return { name, startUrl, steps };
+  return { name, startUrl, ...(viewport ? { viewport } : {}), steps };
 }
 
 function validateStep(
@@ -174,15 +187,27 @@ function validateStep(
       step.press = key as JourneyKey;
       continue;
     }
+    if (field === "follow_new_tab") {
+      if (value !== true && value !== false) {
+        problems.push(`line ${fieldLine}: step ${stepNumber} "follow_new_tab" must be true or false, e.g. follow_new_tab: true.`);
+        continue;
+      }
+      if (value) step.followNewTab = true;
+      continue;
+    }
     if (typeof value !== "string" || value.trim() === "") {
       problems.push(`line ${fieldLine}: step ${stepNumber} "${field}" must be text in quotes, e.g. ${EXAMPLE_VALUES[field]}.`);
       continue;
     }
-    step[property as Exclude<keyof JourneyStep, "line" | "press">] = value;
+    step[property as Exclude<keyof JourneyStep, "line" | "press" | "followNewTab">] = value;
   }
   if (problems.length > problemCountBefore) return null;
 
   const hasExpectation = Object.keys(step).some((key) => key.startsWith("expect"));
+  if (step.followNewTab && !step.press && !step.dismiss) {
+    problems.push(`line ${stepLine}: step ${stepNumber} has "follow_new_tab" but no "press" or "dismiss". A new tab only opens after an action.`);
+    return null;
+  }
   if (step.dismiss && (step.reach || step.press)) {
     problems.push(
       `line ${stepLine}: step ${stepNumber} has "dismiss" together with "${step.reach ? "reach" : "press"}". "dismiss" already reaches the control and presses Enter, so use one.`,

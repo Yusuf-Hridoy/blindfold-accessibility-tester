@@ -111,6 +111,52 @@ describe("BF-001 unreachable by keyboard", () => {
     ]);
   });
 
+  it("fires for a mouse target before a focus trap: the walk passed its position", async () => {
+    const outcome = await scanner.scan(`
+      <a href="#start">Start</a>
+      <div id="menu" style="cursor: pointer">Menu</div>
+      <div id="box"><input id="email" aria-label="Email"><button id="join">Join</button></div>
+      <div id="after" style="cursor: pointer">After the trap</div>
+      <script>
+        document.getElementById("box").addEventListener("keydown", (event) => {
+          if (event.key === "Tab" && !event.shiftKey && document.activeElement.id === "join") {
+            event.preventDefault();
+            document.getElementById("email").focus();
+          }
+        });
+      </script>`);
+    expect(outcome.result.stoppedBecause).toBe("focus-trap");
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["#menu"]);
+    expect(outcome.result.notTested.map((element) => [element.selector, element.reason])).toEqual([["#after", "blocked by focus trap"]]);
+  });
+
+  it("in a journey blocked by a trap, fires for a matching control before the trap, not after it", async () => {
+    const trapScript = `<script>
+        document.getElementById("box").addEventListener("keydown", (event) => {
+          if (event.key === "Tab" && !event.shiftKey && document.activeElement.id === "join") {
+            event.preventDefault();
+            document.getElementById("email").focus();
+          }
+        });
+      </script>`;
+    const before = await scanner.runJourney(
+      `<a href="#start">Start</a><div id="help" style="cursor: pointer">Help</div>
+       <div id="box"><input id="email" aria-label="Email"><button id="join">Join</button></div>${trapScript}`,
+      [{ reach: "Help, button", press: "Enter" }],
+    );
+    expect(before.result.findings.map((finding) => [finding.ruleId, finding.selector])).toEqual([
+      ["BF-003", "#email"],
+      ["BF-001", "#help"],
+    ]);
+    const after = await scanner.runJourney(
+      `<a href="#start">Start</a>
+       <div id="box"><input id="email" aria-label="Email"><button id="join">Join</button></div>
+       <div id="help" style="cursor: pointer">Help</div>${trapScript}`,
+      [{ reach: "Help, button", press: "Enter" }],
+    );
+    expect(after.result.findings.map((finding) => [finding.ruleId, finding.selector])).toEqual([["BF-003", "#email"]]);
+  });
+
   it("marks elements not reached before max-tabs as not tested instead of firing", async () => {
     const outcome = await scanner.scan(
       `<button>One</button><button>Two</button><button>Three</button><button id="four">Four</button>`,

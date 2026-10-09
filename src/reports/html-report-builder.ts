@@ -4,6 +4,8 @@
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import type { AudioReplayResult } from "../audio/audio-replay-writer.ts";
+import { describeViewport } from "../browser/viewport-presets.ts";
 import { groupFindings } from "../rules/rule-catalog.ts";
 import type {
   Finding,
@@ -180,6 +182,27 @@ export function renderReportPage(page: ReportPage): string {
   return readFileSync(TEMPLATE_PATH, "utf8").replace(/\{\{([A-Z_]+)\}\}/g, (placeholder, key: string) => values[key] ?? placeholder);
 }
 
+/**
+ * The "Listen" section: a player for blindfold-audio.wav (kept as a separate
+ * file so the report stays small), or why there is no audio. Null when audio
+ * was turned off with --no-audio.
+ */
+export function buildAudioSection(audio: AudioReplayResult | null): ReportSection | null {
+  if (!audio) return null;
+  if (audio.status === "skipped") {
+    return { id: "audio", title: "Listen", html: `<p class="note">Audio skipped: ${escapeHtml(audio.reason)}</p>` };
+  }
+  const notes = audio.notes.map((note) => `<p class="note">${escapeHtml(note)}</p>`).join("");
+  const fileName = escapeHtml(audio.fileName);
+  return {
+    id: "audio",
+    title: "Listen",
+    html: `<p id="audio-label">Audio replay: what the screen reader said, a soft tick for every key press, and silence where an update should have been announced (${audio.durationSeconds.toFixed(0)} seconds).</p>
+      <audio controls preload="none" src="${fileName}" aria-labelledby="audio-label"></audio>
+      <p><a href="${fileName}">Download the audio file (${fileName}, ${(audio.sizeBytes / 1_000_000).toFixed(1)} MB)</a></p>${notes}`,
+  };
+}
+
 // ---- Scan report ----
 
 function buildScanSummary(result: ScanResult): string {
@@ -218,14 +241,19 @@ function buildScanTranscript(focusStops: FocusStop[]): string {
     .map((stop) => {
       const visibility = describeFocusVisibility(stop.focusVisible);
       const visibilityCell = visibility === "no" ? `<td class="focus-no">no</td>` : `<td>${visibility}</td>`;
-      return `<tr><th scope="row">${stop.step}</th><td>${escapeHtml(stop.description)}</td><td>${escapeHtml(stop.announcement)}</td>${visibilityCell}</tr>`;
+      const boundary = stop.frameBoundary;
+      const said = boundary
+        ? `${stop.announcement} ${boundary.tabPressesInside} Tab ${boundary.tabPressesInside === 1 ? "press" : "presses"} inside it.`
+        : stop.announcement;
+      return `<tr><th scope="row">${stop.step}</th><td>${escapeHtml(stop.description)}</td><td>${escapeHtml(said)}</td>${visibilityCell}</tr>`;
     })
     .join("");
   return `<p>Every Tab key press that moved focus, and what the screen reader said.</p>
     ${buildScrollableTable("transcript-caption", "Keyboard transcript", ["Step", "Element", "Screen reader said", "Focus visible"], rows)}`;
 }
 
-export function buildHtmlReport(result: ScanResult, screenshots: Map<Finding, string>): string {
+export function buildHtmlReport(result: ScanResult, screenshots: Map<Finding, string>, audio: AudioReplayResult | null = null): string {
+  const audioSection = buildAudioSection(audio);
   const barrierCount = result.findings.length;
   const verdictText = barrierCount === 0 ? "No barriers found" : `${pluralize(barrierCount, "barrier", "barriers")} found`;
   return renderReportPage({
@@ -236,6 +264,7 @@ export function buildHtmlReport(result: ScanResult, screenshots: Map<Finding, st
       <p>Scanned: <time datetime="${escapeHtml(result.scannedAt)}">${escapeHtml(readableDate(result.scannedAt))}</time></p>`,
     sections: [
       { id: "summary", title: "Summary", html: buildScanSummary(result) },
+      ...(audioSection ? [audioSection] : []),
       { id: "findings", title: "Findings", html: buildFindingsSection(result.findings, screenshots) },
       { id: "not-tested", title: "Not tested", html: buildNotTested(result) },
       { id: "transcript", title: "Full transcript", html: buildScanTranscript(result.focusStops) },
@@ -243,7 +272,7 @@ export function buildHtmlReport(result: ScanResult, screenshots: Map<Finding, st
     runDetails: [
       ["Blindfold version", result.toolVersion],
       ["Engine", describeEngine(result.engine)],
-      ["Viewport", `${result.viewport.width} × ${result.viewport.height}`],
+      ["Viewport", describeViewport(result.viewport)],
       ["Keyboard walk", describeStopReason(result.stoppedBecause, result.maxTabs)],
       ["Elements a mouse can use", String(result.mousePassElements.length)],
       ["Duration", `${(result.durationMilliseconds / 1000).toFixed(1)} s`],

@@ -1,9 +1,10 @@
 # Planted bugs — Pebble & Pine (buggy shop)
 
-This shop contains exactly 8 accessibility bugs, one per Blindfold rule. Each is
-the only problem of its kind on the site, so detection can be measured exactly.
-Everything else is built correctly. The fixed versions live in
-`../accessible-shop` (see `FIXES.md` there).
+This shop contains exactly 8 accessibility bugs, one per Blindfold rule, plus
+one mobile-only bug (below). At desktop width each of the 8 is the only problem
+of its kind on the site, so detection can be measured exactly. Everything else
+is built correctly. The fixed versions live in `../accessible-shop` (see
+`FIXES.md` there).
 
 | Rule | Page | Element | How the bug is built | WCAG |
 |---|---|---|---|---|
@@ -16,6 +17,16 @@ Everything else is built correctly. The fixed versions live in
 | BF-007 | `product-linen-tote-bag.html` | Size guide modal (`div.size-guide-modal`) | "Size guide" only un-hides the modal. Focus stays on the trigger behind it, the page behind is not made inert, Escape does nothing, and closing does not return focus. | 2.4.3 Focus Order |
 | BF-008 | `index.html` (first visit) | Cookie banner (`div.cookie-banner`) | The banner covers the page and sets `inert` on everything behind it. Its "Accept" and "Reject" controls are `<span>`s with a click handler, so a keyboard user can never dismiss it. | 2.1.1 Keyboard |
 
+## Mobile only (below 700px wide)
+
+| Rule | Page | Element | How the bug is built | WCAG |
+|---|---|---|---|---|
+| BF-001 (mobile only) | All pages (header) | Menu toggle (`div.menu-toggle`) | Below 700px wide the nav links collapse behind a "Menu" toggle. The toggle is a `<div>` with a click handler in `shop-behaviour.js` and no role or `tabindex`, so a keyboard user can't open the menu and can't reach the nav links. At 700px and wider the toggle is `display: none` and the header is unchanged, so desktop results are not affected. | 2.1.1 Keyboard |
+
+Because the nav links are hidden inside the collapsed menu at mobile width, the
+keyboard never reaches them there, so BF-004 (which needs focus on them) is a
+desktop-only finding.
+
 ## Notes
 
 - The cookie banner only appears on `index.html`. A choice is remembered for
@@ -24,4 +35,5 @@ Everything else is built correctly. The fixed versions live in
   fields, image descriptions and `lang="en"`. These are not bugs.
 - In the source, each bug has a comment starting `Planted bug BF-00x`, except
   for the HTML-only bugs (BF-001, BF-002, BF-005, BF-008), which are the
-  markup differences listed above.
+  markup differences listed above. The mobile menu toggle's comment starts
+  `Planted bug BF-001 (mobile only)`.

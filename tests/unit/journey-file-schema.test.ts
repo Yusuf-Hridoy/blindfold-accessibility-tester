@@ -77,4 +77,33 @@ describe("parseJourneyFile", () => {
     const problems = problemsFor(["name: Broken", "start_url: /", "steps:", '  - reach: "unclosed'].join("\n"));
     expect(problems[0]).toMatch(/^checkout\.yaml line \d+: this isn't valid YAML/);
   });
+
+  it("accepts a viewport and follow_new_tab", () => {
+    const journey = parseJourneyFile(
+      ["name: Help", "start_url: /", "viewport: mobile", "steps:", '  - reach: "Help, link"', "    press: Enter", "    follow_new_tab: true"].join("\n"),
+      "help.yaml",
+    );
+    expect(journey.viewport).toBe("mobile");
+    expect(journey.steps).toEqual([{ line: 5, reach: "Help, link", press: "Enter", followNewTab: true }]);
+  });
+
+  it("leaves the viewport unset when the file doesn't choose one", () => {
+    const journey = parseJourneyFile(["name: Help", "start_url: /", "steps:", "  - press: Enter"].join("\n"), "help.yaml");
+    expect(journey.viewport).toBeUndefined();
+  });
+
+  it("rejects an unknown viewport and a follow_new_tab that isn't true or false", () => {
+    expect(problemsFor(["name: Help", "start_url: /", "viewport: tablet", "steps:", "  - press: Enter"].join("\n"))).toEqual([
+      'checkout.yaml line 3: "viewport" is "tablet". Use one of: desktop, mobile.',
+    ]);
+    expect(problemsFor(["name: Help", "start_url: /", "steps:", "  - press: Enter", '    follow_new_tab: "yes"'].join("\n"))).toEqual([
+      'checkout.yaml line 5: step 1 "follow_new_tab" must be true or false, e.g. follow_new_tab: true.',
+    ]);
+  });
+
+  it("rejects follow_new_tab on a step without an action that could open a tab", () => {
+    expect(problemsFor(["name: Help", "start_url: /", "steps:", '  - type: "hello"', "    follow_new_tab: true"].join("\n"))).toEqual([
+      'checkout.yaml line 4: step 1 has "follow_new_tab" but no "press" or "dismiss". A new tab only opens after an action.',
+    ]);
+  });
 });

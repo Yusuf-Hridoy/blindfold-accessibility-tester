@@ -35,7 +35,7 @@ function transcriptAround(focusStops: FocusStop[], step: number | null): Transcr
     .map(({ step: lineStep, description, announcement }) => ({ step: lineStep, description, announcement }));
 }
 
-/** Mouse-pass elements the keyboard never reached because the walk was cut short. */
+/** Mouse-pass elements the keyboard never reached because the walk was cut short before their position. */
 function findNotTestedElements(data: CollectedScanData): NotTestedElement[] {
   const reason =
     data.stoppedBecause === "focus-trap"
@@ -45,8 +45,10 @@ function findNotTestedElements(data: CollectedScanData): NotTestedElement[] {
         : null;
   if (reason === null) return [];
   const reachedElementIds = new Set(data.focusStops.map((stop) => stop.elementId));
+  // Before the trap, unreached targets are BF-001 findings instead.
+  const beforeTrap = new Set(data.stoppedBecause === "focus-trap" ? (data.elementIdsBeforeTrap ?? []) : []);
   return data.mousePassElements
-    .filter((element) => !reachedElementIds.has(element.elementId) && element.mouseTarget !== false)
+    .filter((element) => !reachedElementIds.has(element.elementId) && element.mouseTarget !== false && !beforeTrap.has(element.elementId))
     .map(({ elementId, selector, description }) => ({ elementId, selector, description, reason }));
 }
 

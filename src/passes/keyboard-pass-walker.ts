@@ -2,16 +2,14 @@
 // page wraps around, ends, traps focus, or the Tab limit is reached.
 
 import type { Page } from "playwright";
-import {
-  formatAsAnnouncement,
-  readFocusedRoleAndName,
-  type RoleAndName,
-} from "../announcer/accessibility-snapshot-fallback.ts";
-import { clearAnnouncements, readAnnouncement } from "../announcer/screen-reader-announcer.ts";
+import { formatAsAnnouncement, readRoleAndName, type RoleAndName } from "../announcer/accessibility-snapshot-fallback.ts";
+import { clearAnnouncements, readAnnouncement, screenReaderRunsIn } from "../announcer/screen-reader-announcer.ts";
 import { checkFocusVisibility } from "../focus/focus-style-baseline.ts";
 import { detectFocusTrap } from "../focus/focus-trap-detector.ts";
-import type { PageElementIdentity } from "../browser/page-element-helpers.ts";
+import { focusedElementLocator, identifyFocusedElement, type FocusedElement } from "../frames/frame-focus-follower.ts";
 import type { FocusStop, FocusTrap, WalkStopReason } from "../types/scan-result-types.ts";
+
+export { identifyFocusedElement, type FocusedElement };
 
 export interface KeyboardWalkOptions {
   maxTabs: number;
@@ -25,25 +23,8 @@ export interface KeyboardWalkResult {
   focusStops: FocusStop[];
   stoppedBecause: WalkStopReason;
   trap: FocusTrap | null;
-}
-
-export interface FocusedElement extends PageElementIdentity {
-  insideAriaHidden: boolean;
-  hasPresentationalRole: boolean;
-}
-
-/** The focused element's identity and hiding attributes, or null when focus is on the page body. */
-export async function identifyFocusedElement(page: Page): Promise<FocusedElement | null> {
-  return page.evaluate(() => {
-    const focused = document.activeElement;
-    if (!focused || focused === document.body || focused === document.documentElement) return null;
-    const firstRole = (focused.getAttribute("role") ?? "").trim().split(/\s+/)[0];
-    return {
-      ...window.__blindfoldElements.identify(focused),
-      insideAriaHidden: focused.closest('[aria-hidden="true"]') !== null,
-      hasPresentationalRole: firstRole === "none" || firstRole === "presentation",
-    };
-  });
+  /** Every Tab press, including the last one (onto the page body, or back to the start). */
+  tabPresses: number;
 }
 
 /**
@@ -55,7 +36,7 @@ function isHiddenFromScreenReaders(focused: FocusedElement, roleAndName: RoleAnd
   return (focused.insideAriaHidden || focused.hasPresentationalRole) && exposesNothing;
 }
 
-const FOCUSED_ON_LOAD_PREFIX = "(focused when the page loaded)";
+export const FOCUSED_ON_LOAD_PREFIX = "(focused when the page loaded)";
 
 /**
  * Records the stop for the element that has focus now. `announcement` is what
@@ -63,13 +44,12 @@ const FOCUSED_ON_LOAD_PREFIX = "(focused when the page loaded)";
  * the Engine B role and name are used.
  */
 export async function recordFocusStop(
-  page: Page,
   focused: FocusedElement,
   step: number,
   announcement: string | null,
 ): Promise<FocusStop> {
-  const roleAndName = await readFocusedRoleAndName(page);
-  const visibility = await checkFocusVisibility(page);
+  const roleAndName = await readRoleAndName(focusedElementLocator(focused));
+  const visibility = await checkFocusVisibility(focused.frame);
   return {
     elementId: focused.elementId,
     selector: focused.selector,
@@ -84,21 +64,56 @@ export async function recordFocusStop(
   };
 }
 
+/**
+ * Focus went into a frame from another origin. Blindfold doesn't test inside,
+ * so the stop is a boundary: rules skip it (role and focus visibility unknown).
+ */
+function frameBoundaryStop(focused: FocusedElement, origin: string, step: number): FocusStop {
+  return {
+    elementId: focused.elementId,
+    selector: focused.selector,
+    description: focused.description,
+    step,
+    announcement: `Focus entered a frame from ${origin}; Blindfold doesn't test third-party content.`,
+    role: "unknown",
+    accessibleName: "",
+    hiddenFromScreenReaders: false,
+    focusVisible: "unknown",
+    focusStyleChanges: [],
+    frameBoundary: { origin, tabPressesInside: 1 },
+  };
+}
+
+/** The element that has focus now, as a stop (a boundary for a third-party frame). */
+async function recordFocusedElement(focused: FocusedElement, step: number, useScreenReader: boolean): Promise<FocusStop> {
+  if (focused.thirdPartyOrigin) return frameBoundaryStop(focused, focused.thirdPartyOrigin, step);
+  const announcement = useScreenReader && screenReaderRunsIn(focused.frame) ? await readAnnouncement(focused.frame) : null;
+  return recordFocusStop(focused, step, announcement);
+}
+
 /** Presses Tab (or another key) once and records where focus lands, or returns null for the page body. */
 export async function pressKeyAndRecord(page: Page, step: number, useScreenReader: boolean, key = "Tab"): Promise<FocusStop | null> {
   if (useScreenReader) await clearAnnouncements(page);
   await page.keyboard.press(key);
   const focused = await identifyFocusedElement(page);
-  if (focused === null) return null;
-  const announcement = useScreenReader ? await readAnnouncement(page) : null;
-  return recordFocusStop(page, focused, step, announcement);
+  return focused === null ? null : recordFocusedElement(focused, step, useScreenReader);
+}
+
+/**
+ * Another Tab press inside the same third-party frame as the previous stop:
+ * counted on that boundary instead of becoming a stop of its own.
+ */
+export function countPressInsideSameFrame(previous: FocusStop | undefined, stop: FocusStop): boolean {
+  if (!stop.frameBoundary || !previous?.frameBoundary || previous.elementId !== stop.elementId) return false;
+  previous.frameBoundary.tabPressesInside++;
+  return true;
 }
 
 /** A stop for focus that a page script set before any key was pressed. */
 export async function recordFocusOnLoad(page: Page): Promise<FocusStop | null> {
   const focused = await identifyFocusedElement(page);
   if (focused === null) return null;
-  const stop = await recordFocusStop(page, focused, 0, null);
+  const stop = await recordFocusedElement(focused, 0, false);
   return { ...stop, announcement: `${FOCUSED_ON_LOAD_PREFIX} ${stop.announcement}` };
 }
 
@@ -111,6 +126,31 @@ export function findTrapInStops(focusStops: FocusStop[]): FocusTrap | null {
     startStep: cycleStops[0]?.step ?? 0,
     cycle: cycleStops.map(({ elementId, selector, description }) => ({ elementId, selector, description })),
   };
+}
+
+/**
+ * The candidates that come before the trap's first element in document order.
+ * The walk passed their position before it got stuck, so Tab skipped them.
+ * Ids must be main-frame ids (frame elements mapped to their iframe).
+ */
+export async function findElementsBeforeTrap(page: Page, candidateIds: number[], trapElementIds: number[]): Promise<number[]> {
+  if (candidateIds.length === 0 || trapElementIds.length === 0) return [];
+  return page.evaluate(
+    ({ candidates, trapIds }) => {
+      const helpers = window.__blindfoldElements;
+      const trapElements = trapIds.map((id) => helpers.elementForId(id)).filter((element) => element !== undefined);
+      const firstTrapElement = trapElements.reduce<Element | undefined>(
+        (earliest, element) => (!earliest || element.compareDocumentPosition(earliest) & Node.DOCUMENT_POSITION_FOLLOWING ? element : earliest),
+        undefined,
+      );
+      if (!firstTrapElement) return [];
+      return candidates.filter((id) => {
+        const element = helpers.elementForId(id);
+        return !!element && !!(element.compareDocumentPosition(firstTrapElement) & Node.DOCUMENT_POSITION_FOLLOWING);
+      });
+    },
+    { candidates: candidateIds, trapIds: trapElementIds },
+  );
 }
 
 export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions): Promise<KeyboardWalkResult> {
@@ -128,19 +168,20 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
   for (let step = 1; step <= options.maxTabs; step++) {
     const stop = await pressKeyAndRecord(page, step, options.useScreenReader);
     if (stop === null) {
-      if (focusStops.length > 0) return { focusStops, stoppedBecause: "end-of-page", trap: null };
+      if (focusStops.length > 0) return { focusStops, stoppedBecause: "end-of-page", trap: null, tabPresses: step };
       tabPressesOnBody++;
-      if (tabPressesOnBody >= 2) return { focusStops, stoppedBecause: "no-focusable-elements", trap: null };
+      if (tabPressesOnBody >= 2) return { focusStops, stoppedBecause: "no-focusable-elements", trap: null, tabPresses: step };
       continue;
     }
+    if (countPressInsideSameFrame(focusStops.at(-1), stop)) continue;
     if (focusStops.length > 0 && stop.elementId === focusStops[0]?.elementId) {
-      return { focusStops, stoppedBecause: "cycle-complete", trap: null };
+      return { focusStops, stoppedBecause: "cycle-complete", trap: null, tabPresses: step };
     }
     focusStops.push(stop);
     await options.onFocusStop?.(stop);
 
     const trap = findTrapInStops(focusStops);
-    if (trap) return { focusStops, stoppedBecause: "focus-trap", trap };
+    if (trap) return { focusStops, stoppedBecause: "focus-trap", trap, tabPresses: step };
   }
-  return { focusStops, stoppedBecause: "max-tabs", trap: null };
+  return { focusStops, stoppedBecause: "max-tabs", trap: null, tabPresses: options.maxTabs };
 }

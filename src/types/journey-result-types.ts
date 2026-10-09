@@ -1,5 +1,6 @@
 // Shapes of a journey run and the report.json `blindfold run` writes.
 
+import type { ViewportName } from "../browser/viewport-presets.ts";
 import type { JourneyKey } from "../journeys/journey-file-schema.ts";
 import type { EffortSummary } from "../metrics/effort-calculator.ts";
 import type { AnnouncerEngineName, ElementIdentity, Finding } from "./scan-result-types.ts";
@@ -42,6 +43,17 @@ export interface ExpectationFailure {
   message: string;
 }
 
+/** Why a step's target was never reached; picks the hint shown under the step. */
+export type NeverReachedReason = "full-cycle" | "trap" | "confined" | "max-tabs" | "nothing-focusable";
+
+/** Where focus was legitimately kept when the target was never reached. */
+export interface FocusConfinement {
+  /** A modal dialog; otherwise a part of the page with everything else inert or aria-hidden. */
+  isDialog: boolean;
+  /** Its accessible name, or a short description when it has none. */
+  name: string;
+}
+
 export interface JourneyStepResult {
   stepNumber: number;
   /** Human summary, e.g. `reach "Add to cart, button" + Enter`. */
@@ -61,16 +73,30 @@ export interface JourneyStepResult {
   blockedBecause?: string;
   /** For a target that was never reached: the closest things heard instead. */
   closestMatches?: string[];
+  neverReachedBecause?: NeverReachedReason;
+  /** Set when neverReachedBecause is "confined". */
+  confinedIn?: FocusConfinement;
+  /** The step's action opened a new tab (followed with follow_new_tab, closed otherwise). */
+  openedNewTab?: string;
   durationMilliseconds: number;
 }
 
 export interface JourneyTranscriptEntry {
   journeyStep: number;
-  /** page: a page loaded · focus: Tab landed on an element · key: an action key · speech: said after an action. */
-  kind: "page" | "focus" | "key" | "speech";
+  /**
+   * page: a page loaded (or a followed tab) · focus: Tab landed on an element ·
+   * key: any other key press · typed: text typed · speech: said after an action ·
+   * note: something Blindfold noticed (a frame boundary, a new tab).
+   * Every key press is exactly one focus or key entry.
+   */
+  kind: "page" | "focus" | "key" | "typed" | "speech" | "note";
   text: string;
-  /** For focus entries: what the screen reader said there. */
+  /** For focus entries: what the screen reader said there. For key entries: where focus went, when it's worth saying. */
   spoken?: string;
+  /** For page entries: how the page was reached, its <title> and lang attribute. */
+  openedBy?: "start" | "navigation" | "new-tab";
+  title?: string;
+  language?: string;
   url: string;
 }
 
@@ -84,7 +110,7 @@ export interface JourneyResult {
   finalUrl: string;
   scannedAt: string;
   engine: { name: AnnouncerEngineName; fallbackReason?: string };
-  viewport: { width: number; height: number };
+  viewport: { width: number; height: number; name: ViewportName };
   outcome: JourneyOutcome;
   blockedAtStep: number | null;
   /** Findings plus expectation failures. */

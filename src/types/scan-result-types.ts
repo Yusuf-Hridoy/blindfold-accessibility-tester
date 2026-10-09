@@ -1,5 +1,7 @@
 // Shapes of the data Blindfold collects and the report.json it writes.
 
+import type { ViewportName } from "../browser/viewport-presets.ts";
+
 export type RuleId = "BF-001" | "BF-002" | "BF-003" | "BF-004" | "BF-005" | "BF-006" | "BF-007" | "BF-008";
 
 /** Why a BF-002 finding fired; each reason has its own title and fix in the catalogue. */
@@ -28,8 +30,9 @@ export interface BoundingBox {
 
 /** Facts about one element that Blindfold can read from the page. */
 export interface ElementIdentity {
-  /** Unique per page load; links mouse-pass elements to focus stops. */
+  /** Unique per page load; links mouse-pass elements to focus stops. Elements inside iframes count from 1,000,000. */
   elementId: number;
+  /** CSS selector; inside an iframe, the frame path comes first: `iframe#reviews >>> button.vote`. */
   selector: string;
   /** Short human description, e.g. `button.cart-button "Checkout"`. */
   description: string;
@@ -65,6 +68,11 @@ export interface FocusStop extends ElementIdentity {
   focusVisible: FocusVisibility;
   /** Which styles changed on focus, e.g. `element.outline-style`, `parent.box-shadow`. */
   focusStyleChanges: string[];
+  /**
+   * Set when focus went into a frame from another origin. Blindfold doesn't
+   * test inside it: no rule reports this stop (role and visibility are "unknown").
+   */
+  frameBoundary?: { origin: string; tabPressesInside: number };
 }
 
 export interface FocusTrap {
@@ -133,6 +141,12 @@ export interface CollectedScanData {
   trap: FocusTrap | null;
   /** Overlays found at page load (BF-008). */
   blockingOverlays: OverlayDetection[];
+  /**
+   * After a trap: unreached mouse targets that come before the trap's first
+   * element in document order. The walk passed them, so they're BF-001; the
+   * ones after the trap are "not tested".
+   */
+  elementIdsBeforeTrap?: number[];
 }
 
 export interface ScanResult {
@@ -144,8 +158,13 @@ export interface ScanResult {
     /** Why Guidepup could not be used, when the fallback engine ran. */
     fallbackReason?: string;
   };
-  viewport: { width: number; height: number };
+  viewport: { width: number; height: number; name: ViewportName };
+  /** The page's <title> and lang attribute (lang picks the audio replay voice). */
+  pageTitle: string;
+  pageLanguage: string;
   maxTabs: number;
+  /** Every Tab press of the keyboard walk. */
+  tabPresses: number;
   stoppedBecause: WalkStopReason;
   focusStops: FocusStop[];
   mousePassElements: MousePassElement[];

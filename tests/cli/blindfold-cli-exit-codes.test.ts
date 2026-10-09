@@ -81,4 +81,26 @@ describe("blindfold CLI exit codes", () => {
     expect(run.stderr).toContain("--max-tabs");
     expect(run.stderr).toContain("Use a whole number of 1 or more");
   });
+
+  it("scans at mobile size with --viewport mobile, and --no-audio writes no audio", async () => {
+    const output = path.join(outputRoot, "mobile");
+    const run = await runCli(["scan", `${buggyServer.url}/checkout.html?no-cookie-banner=1`, "--viewport", "mobile", "--no-audio", "--output", output]);
+    expect(run.exitCode).toBe(1);
+    expect(run.stdout).toContain("Viewport: 390 × 844 (mobile)");
+    expect(run.stdout).not.toContain("Audio");
+    expect(await fileExists(path.join(output, "blindfold-audio.wav"))).toBe(false);
+  });
+
+  it("exits 2 with a clear message for an invalid --viewport", async () => {
+    const run = await runCli(["scan", `${buggyServer.url}/cart.html`, "--viewport", "tablet"]);
+    expect(run.exitCode).toBe(2);
+    expect(run.stderr).toContain("Use desktop or mobile, e.g. --viewport mobile.");
+  });
+
+  it("exits 2 with a clear message when the --session file is missing", async () => {
+    const missing = path.join(outputRoot, "missing.session.json");
+    const run = await runCli(["scan", `${buggyServer.url}/cart.html`, "--session", missing]);
+    expect(run.exitCode).toBe(2);
+    expect(run.stderr).toContain(`Session file not found: ${missing}.`);
+  });
 });

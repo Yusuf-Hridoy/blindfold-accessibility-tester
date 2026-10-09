@@ -1,6 +1,6 @@
 {
   "name": "blindfold-accessibility-tester",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Walks through websites with only a keyboard and a screen reader, and reports where blind users would get stuck.",
   "license": "MIT",

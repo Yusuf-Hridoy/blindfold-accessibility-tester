@@ -24,6 +24,27 @@ function setUpCartButton() {
   });
 }
 
+function setUpMenuToggle() {
+  const toggle = document.querySelector(".menu-toggle");
+  const header = document.querySelector(".site-header");
+  if (!toggle || !header) return;
+
+  function setMenuOpen(isOpen) {
+    header.classList.toggle("menu-open", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  toggle.addEventListener("click", () => {
+    setMenuOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+  // Escape closes the open menu and puts focus back on the toggle.
+  header.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || toggle.getAttribute("aria-expanded") !== "true") return;
+    setMenuOpen(false);
+    toggle.focus();
+  });
+}
+
 function hasCookieChoiceBeenMade() {
   try {
     return sessionStorage.getItem(COOKIE_CHOICE_STORAGE_KEY) !== null;
@@ -201,6 +222,7 @@ function setUpCheckoutForm() {
 }
 
 setUpCartButton();
+setUpMenuToggle();
 setUpCookieBanner();
 setUpNewsletter();
 setUpAddToCart();

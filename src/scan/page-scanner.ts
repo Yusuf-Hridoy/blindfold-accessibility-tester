@@ -2,12 +2,15 @@
 // keyboard pass, rules, screenshots.
 
 import type { Browser, Locator, Page } from "playwright";
-import { createScanContext, DESKTOP_VIEWPORT, launchBrowser } from "../browser/browser-launcher.ts";
+import { createScanContext, launchBrowser } from "../browser/browser-launcher.ts";
+import { VIEWPORT_PRESETS, type ViewportName } from "../browser/viewport-presets.ts";
 import { startScreenReaderAnnouncer } from "../announcer/screen-reader-announcer.ts";
 import { recordFocusStyleBaselines } from "../focus/focus-style-baseline.ts";
+import { FRAME_PATH_SEPARATOR, locatorForSelector, mainFrameElementIdFor, prepareSameOriginFrames } from "../frames/frame-focus-follower.ts";
 import { detectOverlays } from "../overlays/blocking-overlay-detector.ts";
 import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pass-collector.ts";
-import { walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
+import { findElementsBeforeTrap, walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
+import type { SessionState } from "../sessions/session-file-loader.ts";
 import { runRules } from "../rules/rule-engine.ts";
 import { TOOL_VERSION } from "../tool-version.ts";
 import type { BoundingBox, Finding, FocusStop, ScanResult } from "../types/scan-result-types.ts";
@@ -19,6 +22,10 @@ export interface ScanOptions {
   screenshots: boolean;
   /** Reuse a running browser (tests scan many pages); otherwise one is launched and closed. */
   browser?: Browser;
+  /** Default: desktop. */
+  viewport?: ViewportName;
+  /** A saved login from `blindfold login`. */
+  session?: SessionState;
 }
 
 export interface ScanOutcome {
@@ -89,15 +96,27 @@ export async function loadPage(page: Page, url: string, timeoutSeconds: number):
   });
 }
 
-function padToViewport(box: BoundingBox): BoundingBox {
+function padToViewport(box: BoundingBox, viewport: { width: number; height: number }): BoundingBox {
   const x = Math.max(0, box.x - SCREENSHOT_PADDING);
   const y = Math.max(0, box.y - SCREENSHOT_PADDING);
   return {
     x,
     y,
-    width: Math.min(DESKTOP_VIEWPORT.width, box.x + box.width + SCREENSHOT_PADDING) - x,
-    height: Math.min(DESKTOP_VIEWPORT.height, box.y + box.height + SCREENSHOT_PADDING) - y,
+    width: Math.min(viewport.width, box.x + box.width + SCREENSHOT_PADDING) - x,
+    height: Math.min(viewport.height, box.y + box.height + SCREENSHOT_PADDING) - y,
   };
+}
+
+/** The page's <title> and lang attribute, for reports and the audio replay voice. */
+export async function readPageTitleAndLanguage(page: Page): Promise<{ title: string; language: string }> {
+  return page
+    .evaluate(() => ({ title: document.title.trim(), language: document.documentElement.lang.trim() }))
+    .catch(() => ({ title: "", language: "" }));
+}
+
+/** Page-order checks run in the main document, so frame elements count as their iframe. */
+export function mainFrameIds(page: Page, elementIds: number[]): number[] {
+  return elementIds.map((elementId) => mainFrameElementIdFor(page, elementId));
 }
 
 /** Screenshot of an element plus a small margin, so focus rings drawn outside it show. */
@@ -106,7 +125,7 @@ export async function captureElementScreenshot(page: Page, locator: Locator, scr
     if (scrollIntoView) await locator.scrollIntoViewIfNeeded({ timeout: 2_000 });
     const box = await locator.boundingBox({ timeout: 2_000 });
     if (!box || box.width === 0 || box.height === 0) return null;
-    const clip = padToViewport(box);
+    const clip = padToViewport(box, page.viewportSize() ?? VIEWPORT_PRESETS.desktop);
     if (clip.width <= 0 || clip.height <= 0) return null;
     const image = await page.screenshot({ clip, type: "png" });
     return image.toString("base64");
@@ -140,10 +159,10 @@ async function captureFindingScreenshots(
     if (finding.ruleId === "BF-002" || finding.ruleId === "BF-004") {
       image = focusTimeScreenshots.get(finding.elementId);
     } else if (finding.ruleId === "BF-003" && finding.trapCycle) {
-      const containerSelector = await selectorContainingAll(page, finding.trapCycle.map((element) => element.elementId));
+      const containerSelector = await selectorContainingAll(page, mainFrameIds(page, finding.trapCycle.map((element) => element.elementId)));
       if (containerSelector) image = await captureElementScreenshot(page, page.locator(containerSelector).first(), true);
     } else {
-      image = await captureElementScreenshot(page, page.locator(finding.selector).first(), true);
+      image = await captureElementScreenshot(page, locatorForSelector(page, finding.selector), true);
     }
     if (image) screenshots.set(finding, image);
   }
@@ -167,24 +186,29 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     throw new ScanFailedError(`Couldn't start Chromium (${reason}). Run "npx playwright install chromium" and try again.`);
   }
 
-  const context = await createScanContext(browser);
+  const viewport = VIEWPORT_PRESETS[options.viewport ?? "desktop"];
+  const context = await createScanContext(browser, { viewport: viewport.name, ...(options.session ? { session: options.session } : {}) });
   try {
     const page = await context.newPage();
     await loadPage(page, url, options.pageTimeoutSeconds);
+    const { title: pageTitle, language: pageLanguage } = await readPageTitleAndLanguage(page);
 
     const mousePassCandidates = await collectMousePassElements(page);
     // At page load, before any key press: the overlay the user is faced with.
     const blockingOverlays = await detectOverlays(page, mousePassCandidates.map((element) => element.elementId));
     await recordFocusStyleBaselines(page);
     const announcer = await startScreenReaderAnnouncer(page);
+    const useScreenReader = announcer.engine === "guidepup-virtual-screen-reader";
+    await prepareSameOriginFrames(page, useScreenReader);
 
     const focusTimeScreenshots = new Map<number, string>();
     const walk = await walkWithKeyboard(page, {
       maxTabs: options.maxTabs,
-      useScreenReader: announcer.engine === "guidepup-virtual-screen-reader",
+      useScreenReader,
       onFocusStop: async (stop) => {
         if (!options.screenshots || !mightBecomeFocusFinding(stop) || focusTimeScreenshots.has(stop.elementId)) return;
-        const image = await captureElementScreenshot(page, page.locator(":focus").first(), false);
+        const focused = stop.selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, stop.selector) : page.locator(":focus").first();
+        const image = await captureElementScreenshot(page, focused, false);
         if (image) focusTimeScreenshots.set(stop.elementId, image);
       },
     });
@@ -192,6 +216,10 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     // After the walk, so scrolling for the hit-test can't affect the keyboard pass.
     const reachedElementIds = new Set(walk.focusStops.map((stop) => stop.elementId));
     const mousePassElements = await checkMouseTargets(page, mousePassCandidates, reachedElementIds);
+    const unreachedIds = mousePassElements.filter((element) => !reachedElementIds.has(element.elementId)).map((element) => element.elementId);
+    const elementIdsBeforeTrap = walk.trap
+      ? await findElementsBeforeTrap(page, unreachedIds, mainFrameIds(page, walk.trap.cycle.map((element) => element.elementId)))
+      : [];
 
     const { findings, notTested } = runRules({
       mousePassElements,
@@ -199,6 +227,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       stoppedBecause: walk.stoppedBecause,
       trap: walk.trap,
       blockingOverlays,
+      elementIdsBeforeTrap,
     });
     const screenshots = options.screenshots
       ? await captureFindingScreenshots(page, findings, focusTimeScreenshots)
@@ -211,8 +240,11 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       engine: announcer.fallbackReason
         ? { name: announcer.engine, fallbackReason: announcer.fallbackReason }
         : { name: announcer.engine },
-      viewport: { ...DESKTOP_VIEWPORT },
+      viewport: { width: viewport.width, height: viewport.height, name: viewport.name },
+      pageTitle,
+      pageLanguage,
       maxTabs: options.maxTabs,
+      tabPresses: walk.tabPresses,
       stoppedBecause: walk.stoppedBecause,
       focusStops: walk.focusStops,
       mousePassElements,
