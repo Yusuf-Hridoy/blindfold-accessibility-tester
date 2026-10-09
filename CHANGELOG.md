@@ -29,6 +29,16 @@ change behaviour).
   dependencies.
 - README rewritten for new users, with the benchmark results.
 
+### Fixed
+- BF-001 no longer fires for controls that Tab skips on purpose because arrow
+  keys reach them, in both `scan` and journeys: the other radios of a native
+  radio group (same name and form) when one radio of the group was a focus stop,
+  and the items of ARIA widgets that use arrow keys (`radiogroup`, `tablist`,
+  `menu`, `menubar`, `toolbar`, `listbox`, `grid`, `tree`, `treegrid`) when the
+  widget had a focus stop. The ARIA items are listed under "Not tested" as
+  "assumed reachable with arrow keys, not verified", because Blindfold doesn't
+  press arrow keys (that can change a selection).
+
 ## [0.3.0] - 2026-10-09
 
 ### Added

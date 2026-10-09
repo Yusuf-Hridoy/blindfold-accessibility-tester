@@ -3,6 +3,7 @@ import type {
   Finding,
   FocusStop,
   NotTestedElement,
+  NotTestedReason,
   RuleFinding,
   TranscriptLine,
 } from "../types/scan-result-types.ts";
@@ -35,21 +36,39 @@ function transcriptAround(focusStops: FocusStop[], step: number | null): Transcr
     .map(({ step: lineStep, description, announcement }) => ({ step: lineStep, description, announcement }));
 }
 
-/** Mouse-pass elements the keyboard never reached because the walk was cut short before their position. */
+/**
+ * Mouse-pass elements Blindfold couldn't check: ARIA widget items assumed
+ * reachable with arrow keys, and (when the walk was cut short) elements after
+ * the point where it stopped.
+ */
 function findNotTestedElements(data: CollectedScanData): NotTestedElement[] {
-  const reason =
+  const assumed = new Set(data.reachableWithArrowKeys?.assumedInCompositeWidget ?? []);
+  const nativeRadios = new Set(data.reachableWithArrowKeys?.nativeRadioGroup ?? []);
+  const notTested: NotTestedElement[] = data.mousePassElements
+    .filter((element) => assumed.has(element.elementId))
+    .map(({ elementId, selector, description }) => ({ elementId, selector, description, reason: "assumed reachable with arrow keys, not verified" }));
+
+  const reason: NotTestedReason | null =
     data.stoppedBecause === "focus-trap"
       ? "blocked by focus trap"
       : data.stoppedBecause === "max-tabs"
         ? "scan stopped at max tabs"
         : null;
-  if (reason === null) return [];
+  if (reason === null) return notTested;
   const reachedElementIds = new Set(data.focusStops.map((stop) => stop.elementId));
   // Before the trap, unreached targets are BF-001 findings instead.
   const beforeTrap = new Set(data.stoppedBecause === "focus-trap" ? (data.elementIdsBeforeTrap ?? []) : []);
-  return data.mousePassElements
-    .filter((element) => !reachedElementIds.has(element.elementId) && element.mouseTarget !== false && !beforeTrap.has(element.elementId))
+  const cutShort = data.mousePassElements
+    .filter(
+      (element) =>
+        !reachedElementIds.has(element.elementId) &&
+        element.mouseTarget !== false &&
+        !beforeTrap.has(element.elementId) &&
+        !assumed.has(element.elementId) &&
+        !nativeRadios.has(element.elementId),
+    )
     .map(({ elementId, selector, description }) => ({ elementId, selector, description, reason }));
+  return [...notTested, ...cutShort];
 }
 
 /**

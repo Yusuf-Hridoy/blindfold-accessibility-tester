@@ -157,6 +157,62 @@ describe("BF-001 unreachable by keyboard", () => {
     expect(after.result.findings.map((finding) => [finding.ruleId, finding.selector])).toEqual([["BF-003", "#email"]]);
   });
 
+  const POLL = (name: string, idPrefix: string) => `
+    <fieldset><legend>Do you like the shop? (${name})</legend>
+      <label><input type="radio" name="${name}" id="${idPrefix}-1" value="1">Excellent</label>
+      <label><input type="radio" name="${name}" id="${idPrefix}-2" value="2">Good</label>
+      <label><input type="radio" name="${name}" id="${idPrefix}-3" value="3">Poor</label>
+      <label><input type="radio" name="${name}" id="${idPrefix}-4" value="4">Very bad</label>
+    </fieldset>`;
+
+  it("does not fire for the other radios of a native radio group (arrow keys reach them)", async () => {
+    const outcome = await scanner.scan(`<form>${POLL("poll", "pollanswers")}<button type="submit">Vote</button></form>`);
+    expect(outcome.result.focusStops.filter((stop) => stop.role === "radio")).toHaveLength(1);
+    // The three radios Tab skipped are mouse targets, so without the radio-group rule they'd be BF-001.
+    const mouseTargets = outcome.result.mousePassElements.map((element) => element.selector);
+    expect(mouseTargets).toEqual(expect.arrayContaining(["#pollanswers-2", "#pollanswers-3", "#pollanswers-4"]));
+    expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+    expect(outcome.result.notTested).toEqual([]);
+  });
+
+  it("does not fire for two separate radio groups that were both reached", async () => {
+    const outcome = await scanner.scan(`<form>${POLL("delivery", "delivery")}${POLL("payment", "payment")}<button type="submit">Next</button></form>`);
+    expect(outcome.result.focusStops.filter((stop) => stop.role === "radio")).toHaveLength(2);
+    expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+    expect(outcome.result.notTested).toEqual([]);
+  });
+
+  it("does not fire for the other tabs of a roving-tabindex tablist; lists them as assumed reachable", async () => {
+    const outcome = await scanner.scan(`
+      <div role="tablist" aria-label="Product details">
+        <button role="tab" id="tab-description" aria-selected="true" tabindex="0">Description</button>
+        <button role="tab" id="tab-sizes" aria-selected="false" tabindex="-1">Sizes</button>
+        <button role="tab" id="tab-reviews" aria-selected="false" tabindex="-1">Reviews</button>
+      </div>
+      <a href="#more">More</a>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+    expect(outcome.result.notTested.map((element) => [element.selector, element.reason])).toEqual([
+      ["#tab-sizes", "assumed reachable with arrow keys, not verified"],
+      ["#tab-reviews", "assumed reachable with arrow keys, not verified"],
+    ]);
+  });
+
+  it("still fires for a mouse-only div next to a radio group", async () => {
+    const outcome = await scanner.scan(`
+      <form>${POLL("poll", "pollanswers")}<div id="vote" style="cursor: pointer">Vote</div></form>
+      <script>document.getElementById("vote").addEventListener("click", () => {});</script>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["#vote"]);
+    expect(outcome.result.notTested).toEqual([]);
+  });
+
+  it("in a journey, a radio that Tab skips (arrow keys reach it) is not BF-001", async () => {
+    const outcome = await scanner.runJourney(`<form>${POLL("poll", "pollanswers")}<button type="submit">Vote</button></form>`, [
+      { reach: "Good, radio", press: "Space" },
+    ]);
+    expect(outcome.result.steps[0]?.status).toBe("failed");
+    expect(outcome.result.findings).toEqual([]);
+  });
+
   it("marks elements not reached before max-tabs as not tested instead of firing", async () => {
     const outcome = await scanner.scan(
       `<button>One</button><button>Two</button><button>Three</button><button id="four">Four</button>`,

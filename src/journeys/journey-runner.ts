@@ -22,6 +22,7 @@ import {
 } from "../frames/frame-focus-follower.ts";
 import { calculateEffort } from "../metrics/effort-calculator.ts";
 import { detectOverlays } from "../overlays/blocking-overlay-detector.ts";
+import { findArrowKeyReachable } from "../passes/arrow-key-reachability.ts";
 import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pass-collector.ts";
 import {
   countPressInsideSameFrame,
@@ -387,6 +388,10 @@ async function explainNeverReached(session: JourneySession, progress: StepProgre
       step: null,
       message: `"${target}" exists for the mouse but can't be reached by keyboard`,
     }));
+  // Radios and ARIA widget items that Tab skips on purpose are reached with arrow keys.
+  const arrowKeys = await findArrowKeyReachable(page, unreachableMatches.map((finding) => finding.elementId), [...reachedIds]);
+  const arrowKeyIds = new Set([...arrowKeys.nativeRadioGroup, ...arrowKeys.assumedInCompositeWidget]);
+  unreachableMatches = unreachableMatches.filter((finding) => !arrowKeyIds.has(finding.elementId));
   if (trapFinding?.trapCycle) {
     const trapIds = mainFrameIds(page, trapFinding.trapCycle.map((element) => element.elementId));
     const beforeTrap = new Set(await findElementsBeforeTrap(page, unreachableMatches.map((finding) => finding.elementId), trapIds));

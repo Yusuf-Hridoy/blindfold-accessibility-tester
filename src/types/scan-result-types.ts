@@ -16,7 +16,7 @@ export type WalkStopReason =
   | "max-tabs"
   | "no-focusable-elements";
 
-export type NotTestedReason = "blocked by focus trap" | "scan stopped at max tabs";
+export type NotTestedReason = "blocked by focus trap" | "scan stopped at max tabs" | "assumed reachable with arrow keys, not verified";
 
 /** true / false, or "unknown" when there was no baseline to compare against. */
 export type FocusVisibility = boolean | "unknown";
@@ -147,6 +147,12 @@ export interface CollectedScanData {
    * ones after the trap are "not tested".
    */
   elementIdsBeforeTrap?: number[];
+  /**
+   * Unreached mouse targets that arrow keys reach by design: other radios of a
+   * native radio group that had a focus stop (certain), and items of an ARIA
+   * composite widget that had one (assumed, listed as not tested). Never BF-001.
+   */
+  reachableWithArrowKeys?: { nativeRadioGroup: number[]; assumedInCompositeWidget: number[] };
 }
 
 export interface ScanResult {

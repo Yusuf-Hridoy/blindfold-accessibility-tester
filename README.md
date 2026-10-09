@@ -364,6 +364,12 @@ even with `fail-on: never`.
 - After a focus trap, unreached controls *before* the trap (in document order)
   are reported as BF-001, because Tab passed their position. Controls after it
   are listed as "not tested".
+- Tab skips the other radios of a radio group and the items of widgets that
+  use arrow keys (tabs, menus, listboxes, grids, trees, toolbars), so those
+  aren't BF-001 when the group or widget was reached. Blindfold doesn't press
+  arrow keys to confirm it (that can change a selection): native radio groups
+  are reachable by browser design, and ARIA widget items are listed under
+  "Not tested" as "assumed reachable with arrow keys, not verified".
 - Chromium only. Two viewports: desktop 1280×800 and mobile 390×844 (no touch).
 - Shadow DOM is not checked. The mouse pass doesn't look inside iframes, so
   BF-001 can't fire for controls inside a frame (BF-002, BF-003 and BF-004

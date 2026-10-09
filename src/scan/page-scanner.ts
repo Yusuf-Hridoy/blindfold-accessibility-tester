@@ -9,6 +9,7 @@ import { recordFocusStyleBaselines } from "../focus/focus-style-baseline.ts";
 import { FRAME_PATH_SEPARATOR, locatorForSelector, mainFrameElementIdFor, prepareSameOriginFrames } from "../frames/frame-focus-follower.ts";
 import { detectOverlays } from "../overlays/blocking-overlay-detector.ts";
 import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pass-collector.ts";
+import { findArrowKeyReachable } from "../passes/arrow-key-reachability.ts";
 import { findElementsBeforeTrap, walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
 import type { SessionState } from "../sessions/session-file-loader.ts";
 import { runRules } from "../rules/rule-engine.ts";
@@ -217,6 +218,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     const reachedElementIds = new Set(walk.focusStops.map((stop) => stop.elementId));
     const mousePassElements = await checkMouseTargets(page, mousePassCandidates, reachedElementIds);
     const unreachedIds = mousePassElements.filter((element) => !reachedElementIds.has(element.elementId)).map((element) => element.elementId);
+    const reachableWithArrowKeys = await findArrowKeyReachable(page, unreachedIds, [...reachedElementIds]);
     const elementIdsBeforeTrap = walk.trap
       ? await findElementsBeforeTrap(page, unreachedIds, mainFrameIds(page, walk.trap.cycle.map((element) => element.elementId)))
       : [];
@@ -228,6 +230,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       trap: walk.trap,
       blockingOverlays,
       elementIdsBeforeTrap,
+      reachableWithArrowKeys,
     });
     const screenshots = options.screenshots
       ? await captureFindingScreenshots(page, findings, focusTimeScreenshots)

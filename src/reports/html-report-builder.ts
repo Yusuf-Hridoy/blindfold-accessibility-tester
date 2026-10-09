@@ -222,13 +222,21 @@ function buildScanSummary(result: ScanResult): string {
 
 function buildNotTested(result: ScanResult): string {
   if (result.notTested.length === 0) return "<p>Nothing was skipped. Every element a mouse can use was checked.</p>";
+  const reasons = new Set(result.notTested.map((element) => element.reason));
+  const assumedNote =
+    "Widget items (tabs, menus, listboxes…) whose widget the keyboard reached are assumed reachable with arrow keys. Blindfold doesn't press arrow keys to check, because that can change a selection.";
+  const introText = !reasons.has("assumed reachable with arrow keys, not verified")
+    ? "The keyboard walk stopped early, so these elements could not be checked."
+    : reasons.size === 1
+      ? assumedNote
+      : `Blindfold couldn't fully check these elements. ${assumedNote} The others weren't reached because the keyboard walk stopped early.`;
   const rows = result.notTested
     .map(
       (element) =>
         `<tr><td>${escapeHtml(element.description)}</td><td><code>${escapeHtml(element.selector)}</code></td><td>${escapeHtml(element.reason)}</td></tr>`,
     )
     .join("");
-  return `<p>The keyboard walk stopped early, so these elements could not be checked.</p>
+  return `<p>${introText}</p>
     <div class="table-wrapper"><table>
     <caption>Elements not tested</caption>
     <thead><tr><th scope="col">Element</th><th scope="col">Selector</th><th scope="col">Reason</th></tr></thead>

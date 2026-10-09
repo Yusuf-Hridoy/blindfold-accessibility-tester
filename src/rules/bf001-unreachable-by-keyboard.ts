@@ -9,9 +9,20 @@ export function findUnreachableByKeyboard(data: CollectedScanData): RuleFinding[
   const passedByWalk = (elementId: number) => data.stoppedBecause !== "focus-trap" || beforeTrap.has(elementId);
 
   const reachedElementIds = new Set(data.focusStops.map((stop) => stop.elementId));
+  // Tab skips these on purpose; arrow keys reach them.
+  const arrowKeyIds = new Set([
+    ...(data.reachableWithArrowKeys?.nativeRadioGroup ?? []),
+    ...(data.reachableWithArrowKeys?.assumedInCompositeWidget ?? []),
+  ]);
   return data.mousePassElements
     // Clipped or covered elements can't be clicked either, so they're not barriers.
-    .filter((element) => !reachedElementIds.has(element.elementId) && element.mouseTarget !== false && passedByWalk(element.elementId))
+    .filter(
+      (element) =>
+        !reachedElementIds.has(element.elementId) &&
+        !arrowKeyIds.has(element.elementId) &&
+        element.mouseTarget !== false &&
+        passedByWalk(element.elementId),
+    )
     .map(({ elementId, selector, description }) => ({
       ruleId: "BF-001",
       elementId,
