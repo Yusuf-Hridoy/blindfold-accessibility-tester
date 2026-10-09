@@ -402,8 +402,17 @@ even with `fail-on: never`.
 
 ## Research
 
-The idea of testing pages the way a screen reader user navigates them, rather
-than by reading the markup alone, draws on the A11yLTLNav research (arXiv, 2026).
+Blindfold builds on research into testing web pages the way screen reader users
+actually navigate them:
+
+- **A11yLTLNav** (arXiv, 2026): <https://arxiv.org/abs/2609.17959>
+- **A11yNavigator** (ASE 2025), an earlier tool that simulates NVDA navigation
+  to find elements screen-reader users can't locate or activate:
+  <https://conf.researchr.org/details/ase-2025/ase-2025-papers/192/Automated-Detection-of-Web-Application-Navigation-Barriers-for-Screen-Reader-Users>
+
+Blindfold differs in that it runs without a real screen reader (it uses a
+virtual one), on any operating system and in CI, and adds multi-step journeys,
+effort scores and before/after comparison.
 
 ## Development
 
