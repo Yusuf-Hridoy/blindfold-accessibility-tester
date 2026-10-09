@@ -4,3 +4,6 @@ blindfold-results
 test-results
 # Saved logins (blindfold login --save-session): they contain login cookies.
 *.session.json
+
+# npm pack output
+*.tgz

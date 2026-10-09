@@ -1,0 +1,88 @@
+name: Blindfold Action self-test
+
+# Uses the Action from this repository (./) against the demo shops.
+# Each job starts the shops itself, so the jobs run in parallel without sharing ports.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  buggy-scan-fails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan the buggy cart (expected to fail)
+        id: buggy
+        continue-on-error: true
+        uses: ./
+        with:
+          target: http://localhost:4000/cart.html?no-cookie-banner=1
+          start-command: npm run demo:both
+          wait-for-url: http://localhost:4000/
+          artifact-name: blindfold-buggy-cart-scan
+
+      - name: The Action must have failed because of barriers
+        env:
+          OUTCOME: ${{ steps.buggy.outcome }}
+          EXIT_CODE: ${{ steps.buggy.outputs.exit-code }}
+        run: |
+          if [ "$OUTCOME" != "failure" ] || [ "$EXIT_CODE" != "1" ]; then
+            echo "::error::Expected the buggy scan to fail with exit code 1, got outcome $OUTCOME and exit code $EXIT_CODE."
+            exit 1
+          fi
+          echo "The buggy scan failed as expected (exit code 1)."
+
+  accessible-scan-passes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan the accessible cart (expected to pass)
+        id: accessible
+        uses: ./
+        with:
+          target: http://localhost:4001/cart.html?no-cookie-banner=1
+          start-command: npm run demo:both
+          wait-for-url: http://localhost:4001/
+          artifact-name: blindfold-accessible-cart-scan
+
+      - name: The scan must have found nothing
+        env:
+          EXIT_CODE: ${{ steps.accessible.outputs.exit-code }}
+        run: |
+          if [ "$EXIT_CODE" != "0" ]; then
+            echo "::error::Expected exit code 0 from the accessible scan, got $EXIT_CODE."
+            exit 1
+          fi
+
+  buggy-journey-never-fails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run the buggy cart journey with fail-on never
+        id: journey
+        uses: ./
+        with:
+          command: run
+          target: example-journeys/buggy-shop-cart-journey.yaml
+          base-url: http://localhost:4000
+          start-command: npm run demo:both
+          wait-for-url: http://localhost:4000/
+          fail-on: never
+          artifact-name: blindfold-buggy-cart-journey
+
+      - name: The journey must have been blocked, without failing the step
+        env:
+          EXIT_CODE: ${{ steps.journey.outputs.exit-code }}
+        run: |
+          if [ "$EXIT_CODE" != "1" ]; then
+            echo "::error::Expected exit code 1 (journey blocked), got $EXIT_CODE."
+            exit 1
+          fi

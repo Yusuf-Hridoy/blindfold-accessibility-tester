@@ -5,6 +5,7 @@
 import { chmod, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { chromium, type Browser, type BrowserContext, type Page } from "playwright";
+import { launchOrExplainMissingBrowser } from "../browser/missing-browser-check.ts";
 import { describeError, ScanFailedError } from "../scan/page-scanner.ts";
 import type { SessionState } from "./session-file-loader.ts";
 
@@ -38,7 +39,7 @@ export async function recordLoginSession(
   launch: () => Promise<Browser> = () => chromium.launch({ headless: false }),
   onReady?: (page: Page) => Promise<void>,
 ): Promise<SavedLogin> {
-  const browser = await launch();
+  const browser = await launchOrExplainMissingBrowser(launch);
   let latest: SessionState | null = null;
   try {
     const context = await browser.newContext({ viewport: null });

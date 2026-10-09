@@ -13,5 +13,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts", "demo-sites/**/*.ts", "spikes/**/*.ts", "tests/**/*.ts", "vitest.config.ts"]
+  "include": ["src/**/*.ts", "scripts/**/*.ts", "demo-sites/**/*.ts", "spikes/**/*.ts", "tests/**/*.ts", "vitest.config.ts"]
 }

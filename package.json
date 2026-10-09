@@ -1,32 +1,59 @@
 {
-  "name": "blindfold-accessibility-tester",
-  "version": "0.3.0",
-  "private": true,
+  "name": "blindfold-a11y",
+  "version": "0.4.0",
   "description": "Walks through websites with only a keyboard and a screen reader, and reports where blind users would get stuck.",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "screen-reader",
+    "keyboard",
+    "testing",
+    "playwright"
+  ],
+  "homepage": "https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester#readme",
+  "bugs": {
+    "url": "https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester.git"
+  },
   "license": "MIT",
   "type": "module",
+  "bin": {
+    "blindfold": "dist/cli/blindfold-cli.js"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "engines": {
     "node": ">=22.12"
   },
   "scripts": {
     "blindfold": "tsx src/cli/blindfold-cli.ts",
+    "build": "tsc -p tsconfig.build.json && tsx scripts/copy-build-assets.ts",
     "demo:buggy": "tsx demo-sites/serve-demo-sites.ts buggy",
     "demo:accessible": "tsx demo-sites/serve-demo-sites.ts accessible",
     "demo:both": "tsx demo-sites/serve-demo-sites.ts both",
     "spike:announcer": "tsx spikes/announcer-spike.ts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@guidepup/virtual-screen-reader": "0.33.0",
+    "commander": "^15.0.0",
+    "playwright": "1.64.0",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
-    "@guidepup/virtual-screen-reader": "0.33.0",
     "@types/node": "^22.20.5",
-    "playwright": "^1.64.0",
     "tsx": "^4.23.15",
     "typescript": "~5.9",
     "vitest": "^5.0.3"
-  },
-  "dependencies": {
-    "commander": "^15.0.0",
-    "yaml": "^2.9.1"
   }
 }

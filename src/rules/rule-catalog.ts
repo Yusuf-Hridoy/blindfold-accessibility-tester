@@ -103,11 +103,15 @@ export const BF002_REASONS: Record<Bf002Reason, Omit<RuleDescription, "id" | "wc
   },
 };
 
+/** The rule's title, or the BF-002 reason's title. */
+export function findingTitle(finding: Pick<Finding, "ruleId" | "reason">): string {
+  return finding.ruleId === "BF-002" ? BF002_REASONS[finding.reason ?? "missing-name"].title : RULE_CATALOG[finding.ruleId].title;
+}
+
 /** One line for a finding: its own message, or the rule (or BF-002 reason) title and the element. */
 export function summarizeFinding(finding: Finding): string {
   if (finding.message) return finding.message;
-  const title = finding.ruleId === "BF-002" ? BF002_REASONS[finding.reason ?? "missing-name"].title : RULE_CATALOG[finding.ruleId].title;
-  return `${title}: ${finding.description}`;
+  return `${findingTitle(finding)}: ${finding.description}`;
 }
 
 /** One block of findings in the terminal and HTML report: a rule, or one BF-002 reason. */

@@ -1,0 +1,254 @@
+# Blindfold as a GitHub Action: scan a page or run a journey with only a
+# keyboard and a screen reader, upload the reports, and write a job summary.
+# Linux runners only (ubuntu-latest).
+#
+# Safety: inputs never appear as ${{ inputs.* }} inside run: scripts. Every
+# input reaches the shell through env: and is used as a quoted variable, so an
+# input value can't inject shell code.
+
+name: Blindfold accessibility check
+description: Walk your site with only a keyboard and a screen reader, and report where blind users would get stuck.
+author: Yusuf-Hridoy
+branding:
+  icon: eye-off
+  color: blue
+
+inputs:
+  command:
+    description: "scan (one page) or run (a journey file)"
+    required: false
+    default: scan
+  target:
+    description: "The page URL for scan, or the journey file for run"
+    required: true
+  base-url:
+    description: "Site address for journeys whose start_url is a path (run only)"
+    required: false
+    default: ""
+  viewport:
+    description: "desktop or mobile. Empty: desktop for scan; for run, the journey file's viewport (else desktop)"
+    required: false
+    default: ""
+  start-command:
+    description: "Optional command that starts your app in the background (stopped at the end, even on failure)"
+    required: false
+    default: ""
+  wait-for-url:
+    description: "Optional URL to wait for (up to 60 seconds) before testing"
+    required: false
+    default: ""
+  baseline:
+    description: "Optional path to a previous report.json; if set, the run is also compared with it"
+    required: false
+    default: ""
+  fail-on:
+    description: "findings, new-findings (needs baseline) or never. Blindfold errors (exit code 2) always fail."
+    required: false
+    default: findings
+  output:
+    description: "Folder for the reports"
+    required: false
+    default: blindfold-results
+  artifact-name:
+    description: "Name of the uploaded report artifact (must be unique within a workflow run)"
+    required: false
+    default: blindfold-results
+
+outputs:
+  exit-code:
+    description: "Blindfold's exit code: 0 no barriers, 1 barriers (or journey blocked), 2 Blindfold couldn't complete"
+    value: ${{ steps.blindfold.outputs.exit-code }}
+  compare-exit-code:
+    description: "With a baseline: 0 no new barriers, 1 new barriers, 2 couldn't compare"
+    value: ${{ steps.compare.outputs.exit-code }}
+  report-folder:
+    description: "The folder with report.html and report.json"
+    value: ${{ inputs.output }}
+
+runs:
+  using: composite
+  steps:
+    - name: Check the runner and inputs
+      shell: bash
+      env:
+        RUNNER_OS_NAME: ${{ runner.os }}
+        BLINDFOLD_COMMAND: ${{ inputs.command }}
+        BLINDFOLD_VIEWPORT: ${{ inputs.viewport }}
+        BLINDFOLD_FAIL_ON: ${{ inputs.fail-on }}
+        BLINDFOLD_BASELINE: ${{ inputs.baseline }}
+      run: |
+        if [ "$RUNNER_OS_NAME" != "Linux" ]; then
+          echo "::error::Blindfold's Action currently supports Linux runners (ubuntu-latest)."
+          exit 1
+        fi
+        case "$BLINDFOLD_COMMAND" in
+          scan|run) ;;
+          *) echo "::error::The command input must be scan or run."; exit 1 ;;
+        esac
+        case "$BLINDFOLD_VIEWPORT" in
+          ""|desktop|mobile) ;;
+          *) echo "::error::The viewport input must be desktop or mobile."; exit 1 ;;
+        esac
+        case "$BLINDFOLD_FAIL_ON" in
+          findings|never) ;;
+          new-findings)
+            if [ -z "$BLINDFOLD_BASELINE" ]; then
+              echo "::error::fail-on: new-findings needs a baseline (a previous report.json)."
+              exit 1
+            fi ;;
+          *) echo "::error::The fail-on input must be findings, new-findings or never."; exit 1 ;;
+        esac
+        if [ -n "$BLINDFOLD_BASELINE" ] && [ ! -f "$BLINDFOLD_BASELINE" ]; then
+          echo "::error::The baseline file wasn't found. Check the baseline input."
+          exit 1
+        fi
+
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    - name: Install Blindfold and Chromium
+      shell: bash
+      run: |
+        cd "$GITHUB_ACTION_PATH"
+        npm ci --no-audit --no-fund
+        npm run build
+        npx playwright install --with-deps chromium
+
+    - name: Start the app
+      if: inputs.start-command != ''
+      shell: bash
+      env:
+        BLINDFOLD_START_COMMAND: ${{ inputs.start-command }}
+      run: |
+        # Its own process group, so the stop step can end it and every child process.
+        setsid bash -c "$BLINDFOLD_START_COMMAND" > "$RUNNER_TEMP/blindfold-app.log" 2>&1 < /dev/null &
+        echo "$!" > "$RUNNER_TEMP/blindfold-app.pid"
+        echo "Started the app (process group $!). Its output goes to blindfold-app.log in the report artifact."
+
+    - name: Wait for the app
+      if: inputs.wait-for-url != ''
+      shell: bash
+      env:
+        BLINDFOLD_WAIT_FOR_URL: ${{ inputs.wait-for-url }}
+      run: |
+        for attempt in $(seq 1 60); do
+          # Any HTTP answer means the server is up.
+          if curl --silent --max-time 5 --output /dev/null "$BLINDFOLD_WAIT_FOR_URL"; then
+            echo "The app is answering (after about $attempt s)."
+            exit 0
+          fi
+          sleep 1
+        done
+        echo "::error::The app didn't answer within 60 seconds (wait-for-url). Its output is in blindfold-app.log in the report artifact."
+        exit 1
+
+    - name: Run Blindfold
+      id: blindfold
+      shell: bash
+      env:
+        BLINDFOLD_COMMAND: ${{ inputs.command }}
+        BLINDFOLD_TARGET: ${{ inputs.target }}
+        BLINDFOLD_BASE_URL: ${{ inputs.base-url }}
+        BLINDFOLD_VIEWPORT: ${{ inputs.viewport }}
+        BLINDFOLD_OUTPUT: ${{ inputs.output }}
+        BLINDFOLD_BASELINE: ${{ inputs.baseline }}
+      run: |
+        # The baseline may sit in the output folder this run overwrites, so keep a copy.
+        if [ -n "$BLINDFOLD_BASELINE" ]; then cp "$BLINDFOLD_BASELINE" "$RUNNER_TEMP/blindfold-baseline.json"; fi
+        mkdir -p "$BLINDFOLD_OUTPUT"
+        rm -f "$BLINDFOLD_OUTPUT/report.json" "$BLINDFOLD_OUTPUT/report.html" "$BLINDFOLD_OUTPUT/comparison.json" "$BLINDFOLD_OUTPUT/comparison.html"
+
+        # Audio is off: most CI machines don't have espeak-ng.
+        args=("$BLINDFOLD_COMMAND" "$BLINDFOLD_TARGET" --output "$BLINDFOLD_OUTPUT" --no-audio)
+        if [ -n "$BLINDFOLD_VIEWPORT" ]; then args+=(--viewport "$BLINDFOLD_VIEWPORT"); fi
+        if [ "$BLINDFOLD_COMMAND" = "run" ] && [ -n "$BLINDFOLD_BASE_URL" ]; then args+=(--base-url "$BLINDFOLD_BASE_URL"); fi
+
+        set +e
+        node "$GITHUB_ACTION_PATH/dist/cli/blindfold-cli.js" "${args[@]}"
+        exit_code=$?
+        set -e
+        echo "exit-code=$exit_code" >> "$GITHUB_OUTPUT"
+
+    - name: Compare with the baseline
+      id: compare
+      if: inputs.baseline != '' && steps.blindfold.outputs.exit-code != '2'
+      shell: bash
+      env:
+        BLINDFOLD_OUTPUT: ${{ inputs.output }}
+      run: |
+        set +e
+        node "$GITHUB_ACTION_PATH/dist/cli/blindfold-cli.js" compare "$RUNNER_TEMP/blindfold-baseline.json" "$BLINDFOLD_OUTPUT/report.json" --output "$BLINDFOLD_OUTPUT"
+        exit_code=$?
+        set -e
+        echo "exit-code=$exit_code" >> "$GITHUB_OUTPUT"
+
+    - name: Write the job summary
+      if: always()
+      shell: bash
+      env:
+        BLINDFOLD_OUTPUT: ${{ inputs.output }}
+        BLINDFOLD_ARTIFACT_NAME: ${{ inputs.artifact-name }}
+        BLINDFOLD_EXIT_CODE: ${{ steps.blindfold.outputs.exit-code }}
+      run: |
+        summary_writer="$GITHUB_ACTION_PATH/dist/action/write-job-summary.js"
+        if [ -f "$summary_writer" ]; then
+          node "$summary_writer" "$BLINDFOLD_OUTPUT" "${BLINDFOLD_EXIT_CODE:-2}" "$BLINDFOLD_ARTIFACT_NAME"
+        fi
+
+    - name: Stop the app
+      if: always() && inputs.start-command != ''
+      shell: bash
+      env:
+        BLINDFOLD_OUTPUT: ${{ inputs.output }}
+      run: |
+        pid_file="$RUNNER_TEMP/blindfold-app.pid"
+        if [ -f "$pid_file" ]; then
+          process_group="$(cat "$pid_file")"
+          kill -TERM -- "-$process_group" 2>/dev/null || true
+          sleep 2
+          kill -KILL -- "-$process_group" 2>/dev/null || true
+          echo "Stopped the app."
+        fi
+        mkdir -p "$BLINDFOLD_OUTPUT"
+        cp "$RUNNER_TEMP/blindfold-app.log" "$BLINDFOLD_OUTPUT/" 2>/dev/null || true
+
+    - name: Upload the report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ inputs.output }}
+        if-no-files-found: warn
+
+    - name: Decide the result
+      shell: bash
+      env:
+        BLINDFOLD_FAIL_ON: ${{ inputs.fail-on }}
+        BLINDFOLD_EXIT_CODE: ${{ steps.blindfold.outputs.exit-code }}
+        BLINDFOLD_COMPARE_EXIT_CODE: ${{ steps.compare.outputs.exit-code }}
+      run: |
+        if [ "${BLINDFOLD_EXIT_CODE:-2}" = "2" ]; then
+          echo "::error::Blindfold couldn't complete (exit code 2). See the Run Blindfold step's log."
+          exit 1
+        fi
+        if [ "$BLINDFOLD_COMPARE_EXIT_CODE" = "2" ]; then
+          echo "::error::Blindfold couldn't compare with the baseline (exit code 2). See the Compare step's log."
+          exit 1
+        fi
+        case "$BLINDFOLD_FAIL_ON" in
+          findings)
+            if [ "$BLINDFOLD_EXIT_CODE" != "0" ]; then
+              echo "::error::Blindfold found accessibility barriers. See the job summary and the report artifact."
+              exit 1
+            fi ;;
+          new-findings)
+            if [ "$BLINDFOLD_COMPARE_EXIT_CODE" != "0" ]; then
+              echo "::error::Blindfold found new accessibility barriers compared with the baseline. See the job summary."
+              exit 1
+            fi ;;
+          never)
+            echo "fail-on is never, so barriers don't fail this step." ;;
+        esac
+        echo "Blindfold: passed (fail-on: $BLINDFOLD_FAIL_ON)."

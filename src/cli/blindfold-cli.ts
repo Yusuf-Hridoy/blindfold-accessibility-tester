@@ -1,5 +1,6 @@
-// Command line entry point: `npm run blindfold -- scan <url>`, `run <journey.yaml>`
-// and `login <url> --save-session <file>`.
+#!/usr/bin/env node
+// Command line entry point: `blindfold scan <url>`, `run <journey.yaml>`,
+// `compare <old> <new>` and `login <url> --save-session <file>`.
 // Exit codes: 0 no findings · 1 findings (or journey blocked) · 2 Blindfold couldn't complete.
 
 import { mkdir, rm, writeFile } from "node:fs/promises";
@@ -9,6 +10,9 @@ import type { Browser } from "playwright";
 import { AUDIO_FILE_NAME, writeAudioReplay, type AudioReplayResult } from "../audio/audio-replay-writer.ts";
 import { journeyToAudioSegments, scanToAudioSegments, type AudioSegment } from "../audio/transcript-to-audio.ts";
 import { launchBrowser } from "../browser/browser-launcher.ts";
+import { launchOrExplainMissingBrowser, MissingBrowserError } from "../browser/missing-browser-check.ts";
+import { buildComparisonHtml, buildComparisonJson } from "../compare/comparison-report-builder.ts";
+import { compareReports, ComparisonError, loadReportFile, type ReportComparison } from "../compare/report-comparison.ts";
 import { describeViewport, isViewportName, VIEWPORT_NAMES, type ViewportName } from "../browser/viewport-presets.ts";
 import { loadJourneyFile } from "../journeys/journey-file-loader.ts";
 import { JourneyFileError } from "../journeys/journey-file-schema.ts";
@@ -50,6 +54,10 @@ interface RunCommandOptions {
   /** Unset: the journey file's viewport, or desktop. */
   viewport?: ViewportName;
   session?: string;
+}
+
+interface CompareCommandOptions {
+  output: string;
 }
 
 interface LoginCommandOptions {
@@ -141,8 +149,9 @@ function printViewportLine(viewport: { width: number; height: number; name: View
 async function withBrowserAndTimeLimit<T>(seconds: number, work: (browser: Browser) => Promise<T>): Promise<T> {
   let browser: Browser;
   try {
-    browser = await launchBrowser();
+    browser = await launchOrExplainMissingBrowser(launchBrowser);
   } catch (error) {
+    if (error instanceof MissingBrowserError) throw error;
     throw new ScanFailedError(`Couldn't start Chromium (${describeError(error)}). Run "npx playwright install chromium" and try again.`);
   }
   try {
@@ -256,6 +265,39 @@ async function runJourneyCommand(journeyFile: string, options: RunCommandOptions
   return outcome.result.outcome === "passed" ? EXIT_NO_FINDINGS : EXIT_FINDINGS;
 }
 
+function formatRatio(ratio: number | null): string {
+  return ratio === null ? "—" : `${ratio}×`;
+}
+
+function printComparisonSummary(comparison: ReportComparison, htmlPath: string): void {
+  const { totals } = comparison;
+  console.log(`Blindfold ${TOOL_VERSION} · compare`);
+  for (const warning of comparison.warnings) console.log(`  ! ${warning}`);
+  console.log(`  ✓ ${totals.fixed} fixed    ✗ ${totals.new} new    • ${totals.stillPresent} still present`);
+  for (const finding of comparison.new) {
+    const step = finding.journeyStep !== undefined ? ` (step ${finding.journeyStep})` : "";
+    console.log(`  ✗ new  ${finding.ruleId}  ${finding.summary}${step}`);
+  }
+  if (comparison.journey) {
+    const { summary, oldEffortRatio, newEffortRatio } = comparison.journey;
+    console.log(`  Journey ${summary} · effort ${formatRatio(oldEffortRatio)} → ${formatRatio(newEffortRatio)}`);
+  }
+  console.log(`  Comparison: ${htmlPath}`);
+}
+
+async function runCompareCommand(oldFile: string, newFile: string, options: CompareCommandOptions): Promise<number> {
+  const comparison = compareReports(await loadReportFile(oldFile), await loadReportFile(newFile), TOOL_VERSION);
+  const outputFolder = await prepareOutputFolder(options.output);
+  try {
+    await writeFile(path.join(outputFolder, "comparison.json"), buildComparisonJson(comparison));
+    await writeFile(path.join(outputFolder, "comparison.html"), buildComparisonHtml(comparison));
+  } catch (error) {
+    throw new ScanFailedError(`Couldn't write the comparison to ${outputFolder} (${describeError(error)}). Check the --output folder.`);
+  }
+  printComparisonSummary(comparison, displayPath(path.join(outputFolder, "comparison.html")));
+  return comparison.totals.new > 0 ? EXIT_FINDINGS : EXIT_NO_FINDINGS;
+}
+
 async function runLoginCommand(url: string, options: LoginCommandOptions): Promise<number> {
   const pageUrl = parseScanUrl(url).href;
   console.log(`Blindfold ${TOOL_VERSION} · login · ${pageUrl}`);
@@ -318,6 +360,17 @@ function buildProgram(setExitCode: (code: number) => void): Command {
     });
 
   program
+    .command("compare")
+    .description("Compare two report.json files (two scans or two journeys): fixed, new and still-present barriers.")
+    .argument("<old-report>", "the earlier report.json")
+    .argument("<new-report>", "the later report.json")
+    .option("--output <folder>", "where to write comparison.html and comparison.json", "./blindfold-results")
+    .exitOverride()
+    .action(async (oldReport: string, newReport: string, options: CompareCommandOptions) => {
+      setExitCode(await runCompareCommand(oldReport, newReport, options));
+    });
+
+  program
     .command("login")
     .description("Open a visible browser, log in by hand, close the window: saves the login for --session.")
     .argument("<url>", "the site's login page, e.g. https://example.com/login")
@@ -332,7 +385,8 @@ function buildProgram(setExitCode: (code: number) => void): Command {
 
 async function main(): Promise<void> {
   let exitCode = EXIT_NO_FINDINGS;
-  const commandName = process.argv[2] === "run" ? "journey" : process.argv[2] === "login" ? "login" : "scan";
+  const commandNames: Record<string, string> = { run: "journey", login: "login", compare: "comparison" };
+  const commandName = commandNames[process.argv[2] ?? ""] ?? "scan";
   try {
     await buildProgram((code) => {
       exitCode = code;
@@ -342,7 +396,13 @@ async function main(): Promise<void> {
       // Commander has already printed its message. Help and version are not failures.
       const isInformational = error.code === "commander.helpDisplayed" || error.code === "commander.version";
       exitCode = isInformational ? EXIT_NO_FINDINGS : EXIT_TOOL_ERROR;
-    } else if (error instanceof TimeLimitError || error instanceof JourneyFileError || error instanceof SessionFileError) {
+    } else if (
+      error instanceof TimeLimitError ||
+      error instanceof JourneyFileError ||
+      error instanceof SessionFileError ||
+      error instanceof ComparisonError ||
+      error instanceof MissingBrowserError
+    ) {
       console.error(error.message);
       exitCode = EXIT_TOOL_ERROR;
     } else if (error instanceof ScanFailedError) {

@@ -1,0 +1,14 @@
+{
+  // Compiles src/ into dist/ for the npm package. Imports keep their .ts
+  // extensions in the source; rewriteRelativeImportExtensions turns them into .js.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "rewriteRelativeImportExtensions": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": false,
+    "sourceMap": false
+  },
+  "include": ["src/**/*.ts"]
+}
