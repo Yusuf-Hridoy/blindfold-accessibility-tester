@@ -243,6 +243,9 @@ function buildNotTested(result: ScanResult): string {
     reasons.has("duplicate link removed from Tab order; the same destination is reachable")
       ? "Links taken out of the Tab order (for example with tabindex=\"-1\") aren't barriers when a link the keyboard reaches goes to the same address."
       : null,
+    reasons.has("mouse-only part of a keyboard widget; the widget is reachable")
+      ? "Mouse-only parts of a slider, spinbutton or combobox (a track, +/- buttons, an open button) aren't barriers: the keyboard reaches the widget and operates it with arrow keys."
+      : null,
   ].filter((note) => note !== null);
   const introText =
     notes.length === 0

@@ -5,6 +5,8 @@ import type { Page } from "playwright";
 import type { OverlayDetection } from "../types/scan-result-types.ts";
 
 const MINIMUM_BLOCKING_COVERAGE = 0.25;
+/** A "control" covering this much of its overlay is the overlay's surface (e.g. an app's canvas), not a control in it. */
+const SURFACE_SHARE_OF_OVERLAY = 0.9;
 
 /**
  * Groups the given mouse targets by their outermost fixed/absolute/sticky
@@ -13,7 +15,7 @@ const MINIMUM_BLOCKING_COVERAGE = 0.25;
  */
 export async function detectOverlays(page: Page, mouseTargetIds: number[]): Promise<OverlayDetection[]> {
   return page.evaluate(
-    ({ targetIds, minimumCoverage }) => {
+    ({ targetIds, minimumCoverage, surfaceShare }) => {
       const helpers = window.__blindfoldElements;
 
       function isPositioned(element: Element): boolean {
@@ -70,27 +72,49 @@ export async function detectOverlays(page: Page, mouseTargetIds: number[]): Prom
         return visibleOthers.length > 0 && visibleOthers.every(blocked);
       }
 
+      /** Visible (opacity included) and on top: the hit test at the centre of its on-screen part lands on it. */
+      function isShownOnTop(container: Element): boolean {
+        if (!container.checkVisibility({ visibilityProperty: true, opacityProperty: true })) return false;
+        const box = container.getBoundingClientRect();
+        const left = Math.max(box.left, 0);
+        const right = Math.min(box.right, window.innerWidth);
+        const top = Math.max(box.top, 0);
+        const bottom = Math.min(box.bottom, window.innerHeight);
+        if (right <= left || bottom <= top) return false;
+        const hit = document.elementFromPoint((left + right) / 2, (top + bottom) / 2);
+        return hit !== null && (hit === container || container.contains(hit));
+      }
+
+      function isSurfaceOf(target: Element, container: Element): boolean {
+        const targetBox = target.getBoundingClientRect();
+        const containerBox = container.getBoundingClientRect();
+        const containerArea = containerBox.width * containerBox.height;
+        return containerArea > 0 && (targetBox.width * targetBox.height) / containerArea >= surfaceShare;
+      }
+
       const targetsByContainer = new Map<Element, Element[]>();
       for (const targetId of targetIds) {
         const target = helpers.elementForId(targetId);
         if (!target || !target.isConnected) continue;
         const container = outermostPositionedContainer(target);
-        if (!container) continue;
+        if (!container || isSurfaceOf(target, container)) continue;
         targetsByContainer.set(container, [...(targetsByContainer.get(container) ?? []), target]);
       }
 
-      return Array.from(targetsByContainer, ([container, targets]) => {
-        const coverage = viewportCoverage(container);
-        const restOfPageBlocked = isRestOfPageBlocked(container);
-        return {
-          container: helpers.identify(container),
-          controls: targets.map((target) => ({ ...helpers.identify(target), keyboardReachable: isKeyboardReachable(target) })),
-          viewportCoverage: Math.round(coverage * 1000) / 1000,
-          restOfPageBlocked,
-          blocksPage: coverage >= minimumCoverage || restOfPageBlocked,
-        };
-      });
+      return Array.from(targetsByContainer)
+        .filter(([container]) => isShownOnTop(container))
+        .map(([container, targets]) => {
+          const coverage = viewportCoverage(container);
+          const restOfPageBlocked = isRestOfPageBlocked(container);
+          return {
+            container: helpers.identify(container),
+            controls: targets.map((target) => ({ ...helpers.identify(target), keyboardReachable: isKeyboardReachable(target) })),
+            viewportCoverage: Math.round(coverage * 1000) / 1000,
+            restOfPageBlocked,
+            blocksPage: coverage >= minimumCoverage || restOfPageBlocked,
+          };
+        });
     },
-    { targetIds: mouseTargetIds, minimumCoverage: MINIMUM_BLOCKING_COVERAGE },
+    { targetIds: mouseTargetIds, minimumCoverage: MINIMUM_BLOCKING_COVERAGE, surfaceShare: SURFACE_SHARE_OF_OVERLAY },
   );
 }

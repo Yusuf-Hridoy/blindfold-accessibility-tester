@@ -14,6 +14,8 @@ export function findUnreachableByKeyboard(data: CollectedScanData): RuleFinding[
     ...(data.reachableWithArrowKeys?.nativeRadioGroup ?? []),
     ...(data.reachableWithArrowKeys?.assumedInCompositeWidget ?? []),
     ...(data.duplicateLinkIds ?? []),
+    ...(data.keyboardAlternatives?.widgetPartIds ?? []),
+    ...(data.keyboardAlternatives?.labelIds ?? []),
   ]);
   return data.mousePassElements
     // Clipped or covered elements can't be clicked either, so they're not barriers.

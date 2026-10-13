@@ -117,10 +117,10 @@ export async function prepareSameOriginFrames(page: Page, useScreenReader: boole
 }
 
 function readFocusInFrame(): FocusInFrame | null {
-  const focused = document.activeElement;
-  if (!focused || focused === document.body || focused === document.documentElement) return null;
   // Frames whose document Blindfold couldn't prepare (e.g. an about:blank written by script).
   if (!window.__blindfoldElements) return null;
+  const focused = window.__blindfoldElements.deepActiveElement();
+  if (!focused || focused === document.body || focused === document.documentElement) return null;
   const firstRole = (focused.getAttribute("role") ?? "").trim().split(/\s+/)[0];
   return {
     ...window.__blindfoldElements.identify(focused),
@@ -131,7 +131,7 @@ function readFocusInFrame(): FocusInFrame | null {
 }
 
 async function contentFrameOfFocusedElement(frame: Frame): Promise<Frame | null> {
-  const handle = await frame.evaluateHandle(() => document.activeElement);
+  const handle = await frame.evaluateHandle(() => window.__blindfoldElements?.deepActiveElement() ?? document.activeElement);
   try {
     const element = handle.asElement();
     return element ? await element.contentFrame() : null;
@@ -174,7 +174,9 @@ export async function identifyFocusedElement(page: Page): Promise<FocusedElement
 
 /** The focused element as a locator, inside whichever frame holds it. */
 export function focusedElementLocator(focused: FocusedElement): Locator {
-  return focused.frame.locator(":focus").first();
+  // A shadow host matches :focus too when focus is inside it; the focused
+  // element itself is the innermost match, so the last in document order.
+  return focused.frame.locator(":focus").last();
 }
 
 /** A locator for a selector that may contain an iframe path (`iframe#reviews >>> button.vote`). */

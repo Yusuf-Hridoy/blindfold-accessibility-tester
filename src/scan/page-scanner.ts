@@ -11,6 +11,7 @@ import { detectOverlays } from "../overlays/blocking-overlay-detector.ts";
 import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pass-collector.ts";
 import { findArrowKeyReachable } from "../passes/arrow-key-reachability.ts";
 import { findDuplicateLinks } from "../passes/duplicate-link-finder.ts";
+import { findKeyboardAlternatives } from "../passes/keyboard-alternative-finder.ts";
 import { findElementsBeforeTrap, walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
 import type { SessionState } from "../sessions/session-file-loader.ts";
 import { summarizeFinding } from "../rules/rule-catalog.ts";
@@ -230,7 +231,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
           focusVisible: stop.focusVisible,
         });
         if (!options.screenshots || !mightBecomeFocusFinding(stop) || focusTimeScreenshots.has(stop.elementId)) return;
-        const focused = stop.selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, stop.selector) : page.locator(":focus").first();
+        const focused = stop.selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, stop.selector) : page.locator(":focus").last();
         const image = await captureElementScreenshot(page, focused, false);
         if (image) focusTimeScreenshots.set(stop.elementId, image);
       },
@@ -247,7 +248,13 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       unreachedIds.filter((elementId) => !arrowKeyIds.has(elementId)),
       [...reachedElementIds],
     );
-    const elementIdsBeforeTrap = walk.trap
+    const explained = new Set([...arrowKeyIds, ...duplicateLinkIds]);
+    const keyboardAlternatives = await findKeyboardAlternatives(
+      page,
+      unreachedIds.filter((elementId) => !explained.has(elementId)),
+      [...reachedElementIds],
+    );
+    const elementIdsBeforeTrap = walk.trap && !walk.trap.startedInside
       ? await findElementsBeforeTrap(page, unreachedIds, mainFrameIds(page, walk.trap.cycle.map((element) => element.elementId)))
       : [];
 
@@ -260,6 +267,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       elementIdsBeforeTrap,
       reachableWithArrowKeys,
       duplicateLinkIds,
+      keyboardAlternatives,
     });
     throwIfCancelled(signal);
     for (const finding of findings) {

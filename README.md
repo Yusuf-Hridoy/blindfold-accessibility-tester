@@ -425,8 +425,15 @@ even with `fail-on: never`.
 
 ## Known limitations
 
-- A focus trap whose cycle includes the page's first focus stop is not detected
-  yet (for example, a dialog that traps focus from the moment the page loads).
+- When Tab brings focus back to the walk's first stop without ever reaching
+  the end of the page, the walk started inside a focus trap: one BF-003, and
+  everything outside it is "not tested". Not when a modal keeps focus there
+  on purpose (an open `<dialog>`, `aria-modal="true"`, or everything else
+  `inert` or `aria-hidden`).
+- A control that blurs itself on focus leaves focus on the page body for a
+  moment; the scan keeps pressing Tab instead of taking that as the end of
+  the page. (Journeys still treat two Tab presses in a row onto the page body
+  as "nothing more to reach".)
 - When the page focuses something at load (a cookie banner, an `autofocus`
   field), the keyboard walk starts there, wraps around past the end of the
   page and stops after one full cycle. If more than half of the clickable
@@ -446,9 +453,33 @@ even with `fail-on: never`.
   are reachable by browser design, and ARIA widget items are listed under
   "Not tested" as "assumed reachable with arrow keys, not verified".
 - Chromium only. Two viewports: desktop 1280×800 and mobile 390×844 (no touch).
-- Shadow DOM is not checked. The mouse pass doesn't look inside iframes, so
-  BF-001 can't fire for controls inside a frame (BF-002, BF-003 and BF-004
-  can). Nothing inside third-party iframes is tested.
+- Focus inside open shadow roots is followed (the focused element, not its
+  host, is recorded), but the mouse pass and focus-style baselines don't look
+  inside shadow roots: no BF-001 there, and focus visibility is `unknown`.
+  The mouse pass doesn't look inside iframes either, so BF-001 can't fire for
+  controls inside a frame (BF-002, BF-003 and BF-004 can). Nothing inside
+  third-party iframes is tested.
+- BF-004 needs two checks to agree. First the styles of the element, its
+  `::before`/`::after`, its parent and grandparent are compared with and
+  without focus. If nothing changed, the element's area (its box plus 8 px)
+  is photographed while focused and again after focus has moved on, each time
+  once CSS transitions and animations have finished (at most 500 ms). BF-004
+  is reported only when the pixels are identical too. Content that moves on
+  its own (a carousel, a video) near the element makes the area look changed,
+  so a real BF-004 there is missed; that's preferred over a false alarm. An
+  indicator drawn more than 8 px away from the element isn't seen. While
+  taking the second photo, the newly focused element's own focus ring is
+  hidden for a moment when it appeared with focus, so it can't spill into the
+  area.
+- BF-002 fires only for roles that need a name (buttons, links, form fields,
+  tabs, dialogs, images…) and only when both engines find no name: if
+  Guidepup speaks a name, there's no BF-002 even when Chromium's snapshot
+  has none. (For value fields such as a `<select>`, the value Guidepup reads
+  isn't a name.)
+- Mouse-only parts of a slider, spinbutton or combobox (a track, +/- buttons,
+  an open button) aren't BF-001 when the widget itself is reached; they're
+  listed under "Not tested". Labels of reached controls, and empty
+  full-screen backdrops behind dialogs, aren't counted as controls.
 - Focus visibility is `unknown` (never reported) for an element that receives
   focus before Blindfold could record its unfocused styles, e.g. one inserted
   and focused by a script in the same moment, or one focused on page load.

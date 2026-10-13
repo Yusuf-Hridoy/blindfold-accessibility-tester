@@ -6,7 +6,7 @@
 // A pure function of the finding and the data collected for its page.
 
 import type { FindingConfidence, FocusStop, MousePassElement, RuleFinding } from "../types/scan-result-types.ts";
-import { FOCUSED_ON_LOAD_PREFIX } from "../passes/keyboard-pass-walker.ts";
+import { spokenTextBesidesRole } from "./bf002-unnamed-control.ts";
 
 export interface ConfidenceEvidence {
   mousePassElements?: MousePassElement[];
@@ -37,15 +37,6 @@ const CONTROL_ROLES = new Set([
   "treeitem",
 ]);
 
-/** Parts of a Guidepup announcement that describe state, not the name. */
-const STATE_PHRASES = [
-  /^(not )?(checked|pressed|expanded|selected)$/,
-  /^(collapsed|mixed|disabled|required|invalid|read ?only|busy|modal|multi-?selectable|current( page)?)$/,
-  /^has popup( \w+)?$/,
-  /^(position|set size|level) \d+$/,
-  /^orientated \w+$/,
-];
-
 export const CONFIDENCE_LABELS: Record<FindingConfidence | "unknown", string> = {
   certain: "certain",
   likely: "likely",
@@ -63,6 +54,8 @@ function bf001Confidence(element: MousePassElement | undefined): FindingConfiden
   if (!element) return "likely";
   const tabIndex = element.tabIndexAttribute === null ? null : Number.parseInt(element.tabIndexAttribute, 10);
   if ((tabIndex !== null && tabIndex < 0) || element.insideArrowKeyWidget) return "check-by-hand";
+  // Only a click listener (often analytics) and nothing that tells a mouse user it's clickable.
+  if (element.interactiveBecause === "click-listener" && !element.hasPointerCursor && element.roleAttribute === null) return "check-by-hand";
   if (element.tag === "a" && element.interactiveBecause !== "native-element") return "likely";
   if (element.roleAttribute !== null && element.tabIndexAttribute === null) return "likely";
   const plainScriptedElement =
@@ -73,19 +66,12 @@ function bf001Confidence(element: MousePassElement | undefined): FindingConfiden
   return plainScriptedElement ? "certain" : "likely";
 }
 
-/** True when Guidepup said something besides the role and states, i.e. it found a name (or description). */
-export function screenReaderSpokeAName(stop: FocusStop): boolean {
-  const announcement = stop.announcement.startsWith(FOCUSED_ON_LOAD_PREFIX)
-    ? stop.announcement.slice(FOCUSED_ON_LOAD_PREFIX.length).trim()
-    : stop.announcement;
-  const [, ...rest] = announcement.split(", ");
-  return rest.some((part) => part.trim() !== "" && !STATE_PHRASES.some((phrase) => phrase.test(part.trim().toLowerCase())));
-}
-
 function bf002Confidence(finding: RuleFinding, stop: FocusStop | undefined): FindingConfidence {
   if (finding.reason === "hidden-from-screen-readers") return "certain";
   if (!stop) return "likely";
-  if (screenReaderSpokeAName(stop)) return "check-by-hand";
+  // BF-002 only fires when Guidepup spoke no name. For a value control it may
+  // still have read the value, which a user could take for a label.
+  if (spokenTextBesidesRole(stop).length > 0) return "check-by-hand";
   return CONTROL_ROLES.has(stop.role) ? "certain" : "likely";
 }
 

@@ -12,6 +12,8 @@ export interface PageElementHelpers {
   idFor(element: Element): number;
   elementForId(elementId: number): Element | undefined;
   selectorFor(element: Element): string;
+  /** The focused element, following focus into open shadow roots (document.activeElement stops at the host). */
+  deepActiveElement(): Element | null;
   describe(element: Element): string;
   identify(element: Element): PageElementIdentity;
   isVisible(element: Element): boolean;
@@ -53,11 +55,15 @@ export function installPageElementHelpers(): void {
       }
       let part = CSS.escape(current.localName);
       const parent: Element | null = current.parentElement;
-      if (parent) {
-        const sameTagSiblings = Array.from(parent.children).filter((sibling) => sibling.localName === current?.localName);
+      const shadowRoot = !parent && current.parentNode instanceof ShadowRoot ? current.parentNode : null;
+      const siblings = parent?.children ?? shadowRoot?.children;
+      if (siblings) {
+        const sameTagSiblings = Array.from(siblings).filter((sibling) => sibling.localName === current?.localName);
         if (sameTagSiblings.length > 1) part += `:nth-of-type(${sameTagSiblings.indexOf(current) + 1})`;
       }
       parts.unshift(part);
+      // Inside an open shadow root: Playwright's CSS selectors pierce it from the host.
+      if (shadowRoot) return `${selectorFor(shadowRoot.host)} ${parts.join(" > ")}`;
       current = parent;
     }
     return parts.join(" > ");
@@ -79,7 +85,14 @@ export function installPageElementHelpers(): void {
     return box.width > 0 && box.height > 0;
   }
 
+  function deepActiveElement(): Element | null {
+    let focused = document.activeElement;
+    while (focused?.shadowRoot?.activeElement) focused = focused.shadowRoot.activeElement;
+    return focused;
+  }
+
   window.__blindfoldElements = {
+    deepActiveElement,
     idFor,
     elementForId: (elementId) => elementsById.get(elementId),
     selectorFor,

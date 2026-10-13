@@ -20,6 +20,8 @@ import {
   prepareSameOriginFrames,
   type FocusedElement,
 } from "../frames/frame-focus-follower.ts";
+import { checkCycleConfinement } from "../focus/focus-confinement-check.ts";
+import { FocusPixelCheck } from "../focus/focus-pixel-check.ts";
 import { calculateEffort } from "../metrics/effort-calculator.ts";
 import { detectOverlays } from "../overlays/blocking-overlay-detector.ts";
 import { findArrowKeyReachable } from "../passes/arrow-key-reachability.ts";
@@ -66,12 +68,11 @@ import type {
   NeverReachedReason,
 } from "../types/journey-result-types.ts";
 import type { ProgressListener } from "../types/progress-event-types.ts";
-import type { ElementIdentity, Finding, FocusStop, FocusTrap, RuleFinding } from "../types/scan-result-types.ts";
+import type { CollectedScanData, ElementIdentity, Finding, FocusStop, FocusTrap, RuleFinding } from "../types/scan-result-types.ts";
 import type { LoadedJourney } from "./journey-file-loader.ts";
 import type { JourneyKey, JourneyStep } from "./journey-file-schema.ts";
 import { closestMatches, matchesTarget, normalizeText, targetName } from "./focus-target-matcher.ts";
 import {
-  checkCycleConfinement,
   findAppearedText,
   installPageChangeWatcher,
   listFocusContainers,
@@ -126,6 +127,10 @@ interface JourneySession {
   /** Every element that had keyboard focus on the current page load; never a BF-001 candidate. */
   reachedOnThisPage: Set<number>;
   transcript: JourneyTranscriptEntry[];
+  /** BF-004's pixel confirmation, for the current page (a followed tab gets a new one). */
+  pixelCheck: FocusPixelCheck;
+  /** The step and focused photo of the stop the pixel check is waiting on. */
+  pendingFocusCheck: { stepNumber: number; image: Buffer } | null;
 }
 
 interface StepProgress {
@@ -212,7 +217,7 @@ async function screenshotForFinding(page: Page, finding: Finding): Promise<strin
 }
 
 function focusedLocatorFor(page: Page, selector: string): Locator {
-  return selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, selector) : page.locator(":focus").first();
+  return selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, selector) : page.locator(":focus").last();
 }
 
 /** A focus stop the step passed: kept for the step result and sent as live progress. */
@@ -228,20 +233,53 @@ function addPassedStop(session: JourneySession, progress: StepProgress, stop: Fo
   });
 }
 
-/** BF-002 and BF-004 for focus stops passed, each element once per journey. */
-async function checkPassedStop(session: JourneySession, progress: StepProgress, stop: FocusStop): Promise<void> {
-  const data = { focusStops: [stop], mousePassElements: [], stoppedBecause: "end-of-page" as const, trap: null, blockingOverlays: [] };
-  const fresh = [...findUnnamedControls(data), ...findInvisibleFocus(data)].filter((finding) => {
+function singleStopData(stop: FocusStop): CollectedScanData {
+  return { focusStops: [stop], mousePassElements: [], stoppedBecause: "end-of-page", trap: null, blockingOverlays: [] };
+}
+
+/** Findings not reported yet in this journey (BF-002/BF-004: each element once). */
+function notReportedYet(session: JourneySession, findings: RuleFinding[]): RuleFinding[] {
+  return findings.filter((finding) => {
     const key = `${finding.ruleId} ${finding.selector}`;
     if (session.reportedKeys.has(key)) return false;
     session.reportedKeys.add(key);
     return true;
   });
+}
+
+/**
+ * BF-002 for a focus stop passed, at once. BF-004 waits for the pixel check,
+ * which settles when focus moves on (settleFocusCheck).
+ */
+async function checkPassedStop(session: JourneySession, progress: StepProgress, stop: FocusStop): Promise<void> {
+  if (stop.focusVisible === false && !session.reportedKeys.has(`BF-004 ${stop.selector}`)) {
+    const image = await session.pixelCheck.focused(stop);
+    if (image) session.pendingFocusCheck = { stepNumber: progress.stepNumber, image };
+  }
+  const fresh = notReportedYet(session, findUnnamedControls(singleStopData(stop)));
   if (fresh.length === 0) return;
   const image = session.options.screenshots
     ? ((await captureElementScreenshot(session.page, focusedLocatorFor(session.page, stop.selector), false)) ?? undefined)
     : undefined;
   await addFindings(session, progress.stepNumber, fresh, image, { focusStops: [stop] });
+}
+
+/** After a key press: BF-004 for the stop the pixel check was waiting on, if focus left and nothing changed. */
+async function settleFocusCheck(session: JourneySession, nowFocused: Pick<FocusStop, "elementId" | "focusStyleChanges"> | null): Promise<void> {
+  const pending = session.pendingFocusCheck;
+  const settled = await session.pixelCheck.focusMoved(nowFocused);
+  if (!settled || !pending) return;
+  session.pendingFocusCheck = null;
+  const fresh = notReportedYet(session, findInvisibleFocus(singleStopData(settled)));
+  if (fresh.length === 0) return;
+  const image = session.options.screenshots ? pending.image.toString("base64") : undefined;
+  await addFindings(session, pending.stepNumber, fresh, image, { focusStops: [settled] });
+}
+
+/** The element focused now, without its focus styles (unknown here). */
+async function currentFocus(page: Page): Promise<Pick<FocusStop, "elementId" | "focusStyleChanges"> | null> {
+  const focused = await identifyFocusedElement(page).catch(() => null);
+  return focused ? { elementId: focused.elementId, focusStyleChanges: [] } : null;
 }
 
 /** BF-008 at the current moment; each overlay once per page load. */
@@ -325,6 +363,7 @@ async function reachTarget(session: JourneySession, progress: StepProgress, targ
     throwIfCancelled(session.options.signal);
     progress.keysPressed.push("Tab");
     const stop = await pressKeyAndRecord(page, progress.focusStops.length + 1, session.useScreenReader);
+    await settleFocusCheck(session, stop);
     if (stop === null) {
       passedEndOfPage = true;
       addTranscript(session, progress.stepNumber, { kind: "key", text: "Tab", spoken: "(focus left the page)" });
@@ -499,7 +538,10 @@ async function handleNewTabs(session: JourneySession, progress: StepProgress, st
   addTranscript(session, progress.stepNumber, { kind: "note", text: `Opened a new tab: ${firstTab.url()}. The journey continues there.` });
   for (const tab of tabs.slice(1)) await tab.close().catch(() => {});
   session.navigation.stop();
+  session.pixelCheck.abandon();
+  session.pendingFocusCheck = null;
   session.page = firstTab;
+  session.pixelCheck = new FocusPixelCheck(firstTab, (stop) => locatorForSelector(firstTab, stop.selector));
   session.navigation = trackNavigation(firstTab);
   await firstTab.bringToFront();
   await preparePage(session, progress.stepNumber, "new-tab");
@@ -538,6 +580,7 @@ async function performAction(session: JourneySession, progress: StepProgress, st
   } finally {
     newTabs.stop();
   }
+  await settleFocusCheck(session, await currentFocus(session.page));
 
   if (settled.newDocument && !followedNewTab) {
     const status = session.navigation.responseStatus();
@@ -677,6 +720,10 @@ async function runStep(session: JourneySession, step: JourneyStep, stepNumber: n
   const focusBefore = (await identifyFocusedElement(pageBefore))?.description ?? null;
   const urlBefore = pageBefore.url();
   const finish = async (fields: Partial<JourneyStepResult>): Promise<JourneyStepResult> => {
+    // A check still waiting at the end of the step can't be settled any more (focus never left).
+    await settleFocusCheck(session, await currentFocus(session.page));
+    session.pixelCheck.abandon();
+    session.pendingFocusCheck = null;
     const { page } = session;
     const hasBarriers = progress.expectationFailures.length > 0 || session.findings.some((finding) => finding.journeyStep === stepNumber);
     return {
@@ -749,6 +796,8 @@ export async function runJourney(options: JourneyRunOptions): Promise<JourneyRun
     reportedKeys: new Set(),
     reachedOnThisPage: new Set(),
     transcript: [],
+    pixelCheck: new FocusPixelCheck(page, (stop) => locatorForSelector(page, stop.selector)),
+    pendingFocusCheck: null,
   };
   try {
     await loadPage(page, options.journey.startUrl, options.pageTimeoutSeconds);

@@ -2,7 +2,8 @@
 // the evidence (tabindex, role, outline, what Guidepup said) is collected.
 
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { countByConfidence, describeConfidenceCounts, findingConfidence, screenReaderSpokeAName } from "../../src/rules/finding-confidence.ts";
+import { screenReaderSpokeAName } from "../../src/rules/bf002-unnamed-control.ts";
+import { countByConfidence, describeConfidenceCounts, findingConfidence } from "../../src/rules/finding-confidence.ts";
 import type { FocusStop, MousePassElement, RuleFinding } from "../../src/types/scan-result-types.ts";
 import { startSnippetScanner, type SnippetScanner } from "../helpers/scan-html-snippet.ts";
 
@@ -17,6 +18,7 @@ function mouseElement(fields: Partial<MousePassElement>): MousePassElement {
     text: "Pay",
     boundingBox: { x: 0, y: 0, width: 10, height: 10 },
     interactiveBecause: "click-listener",
+    hasPointerCursor: true,
     tabIndexAttribute: null,
     roleAttribute: null,
     insideArrowKeyWidget: false,
@@ -56,6 +58,7 @@ describe("findingConfidence (pure)", () => {
     expect(level({ interactiveBecause: "pointer-cursor" })).toBe("likely");
     expect(level({ tag: "a", interactiveBecause: "native-element", tabIndexAttribute: "-1" })).toBe("check-by-hand");
     expect(level({ insideArrowKeyWidget: true })).toBe("check-by-hand");
+    expect(level({ hasPointerCursor: false })).toBe("check-by-hand");
     expect(findingConfidence(bf001)).toBe("likely");
   });
 
@@ -70,7 +73,10 @@ describe("findingConfidence (pure)", () => {
     expect(level({ role: "generic" }, ruleFinding("BF-002", { reason: "hidden-from-screen-readers" }))).toBe("certain");
   });
 
-  it("ignores roles, states and the page-load prefix when deciding whether Guidepup spoke a name", () => {
+  it("ignores roles, states, a value control's value and the page-load prefix when deciding whether Guidepup spoke a name", () => {
+    expect(screenReaderSpokeAName(focusStop({ role: "generic", announcement: "Attributes by element" }))).toBe(true);
+    expect(screenReaderSpokeAName(focusStop({ role: "combobox", announcement: "combobox, Narnia, has popup listbox, not expanded" }))).toBe(false);
+    expect(screenReaderSpokeAName(focusStop({ announcement: "(nothing announced)" }))).toBe(false);
     expect(screenReaderSpokeAName(focusStop({ announcement: "checkbox, not checked, required" }))).toBe(false);
     expect(screenReaderSpokeAName(focusStop({ announcement: "radio, checked, position 1, set size 2" }))).toBe(false);
     expect(screenReaderSpokeAName(focusStop({ announcement: "(focused when the page loaded) button, has popup menu, expanded" }))).toBe(false);
@@ -117,7 +123,7 @@ describe("confidence on real scans", () => {
   it("BF-001 levels come from the element's tag, listener, tabindex and role", async () => {
     const outcome = await scanner.scan(`
       <button>Start</button>
-      <div id="pay">Pay now</div>
+      <div id="pay" style="cursor: pointer">Pay now</div>
       <div id="custom" role="button">Custom</div>
       <a id="removed" href="/elsewhere" tabindex="-1">Elsewhere</a>
       <script>
@@ -127,13 +133,14 @@ describe("confidence on real scans", () => {
     expect(levels(outcome, "BF-001")).toEqual({ "#pay": "certain", "#custom": "likely", "#removed": "check-by-hand" });
   });
 
-  it("BF-004 is certain for outline:none with no other change, likely when only the font weight changes on focus", async () => {
-    // (A colour change on an underlined link already counts as visible: the underline changes colour too.)
+  it("BF-004 is certain for outline:none with no other change, likely when an always-on outline just doesn't change", async () => {
+    // (A font-weight or colour change on focus is visible in the pixels, so it isn't BF-004 at all.)
     const outcome = await scanner.scan(`
-      <style>a:focus { outline: none; } #tinted:focus { font-weight: 700; }</style>
+      <style>a:focus { outline: none; } #boxed, #boxed:focus { outline: 2px solid rgb(120, 120, 120); outline-offset: 0; }</style>
       <a id="plain" href="#a">Plain</a>
-      <a id="tinted" href="#b">Tinted</a>`);
-    expect(levels(outcome, "BF-004")).toEqual({ "#plain": "certain", "#tinted": "likely" });
+      <a id="boxed" href="#b">Boxed</a>
+      <button>After</button>`);
+    expect(levels(outcome, "BF-004")).toEqual({ "#plain": "certain", "#boxed": "likely" });
   });
 
   it("BF-002 is certain for a nameless button", async () => {

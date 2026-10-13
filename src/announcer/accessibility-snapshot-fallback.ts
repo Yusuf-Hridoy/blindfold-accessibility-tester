@@ -37,7 +37,7 @@ export async function readRoleAndName(locator: Locator): Promise<RoleAndName> {
 }
 
 export async function readFocusedRoleAndName(page: Page): Promise<RoleAndName> {
-  return readRoleAndName(page.locator(":focus").first());
+  return readRoleAndName(page.locator(":focus").last());
 }
 
 /** Screen-reader-style text for fallback mode, e.g. `button, Cart` or just `button`. */

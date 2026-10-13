@@ -45,9 +45,15 @@ export async function findArrowKeyReachable(page: Page, candidateIds: number[], 
           }
           continue;
         }
-        // The widget around the item (not the element itself: an unreached widget is still a barrier).
-        const widget = element.parentElement?.closest(widgetSelector);
-        if (widget && reachedElements.some((reachedElement) => widget.contains(reachedElement))) assumedInCompositeWidget.push(id);
+        // Any widget around the item (not the element itself: an unreached widget
+        // is still a barrier). Widgets nest, e.g. a radiogroup inside a toolbar
+        // whose roving Tab stop is on another toolbar item.
+        for (let widget = element.parentElement?.closest(widgetSelector); widget; widget = widget.parentElement?.closest(widgetSelector)) {
+          if (reachedElements.some((reachedElement) => widget?.contains(reachedElement))) {
+            assumedInCompositeWidget.push(id);
+            break;
+          }
+        }
       }
       return { nativeRadioGroup, assumedInCompositeWidget };
     },

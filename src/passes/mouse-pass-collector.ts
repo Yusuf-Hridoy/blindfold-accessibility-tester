@@ -53,9 +53,20 @@ export async function collectMousePassElements(
         return false;
       }
 
+      // An empty layer over (almost) the whole viewport, e.g. a modal's
+      // backdrop that closes it on click: a surface, not a control.
+      function isBackdrop(element: Element): boolean {
+        const position = getComputedStyle(element).position;
+        if (position !== "fixed" && position !== "absolute") return false;
+        if ((element.textContent ?? "").trim() !== "" || element.querySelector("img, svg, video, canvas, input, button, a")) return false;
+        const box = element.getBoundingClientRect();
+        return box.width >= window.innerWidth * 0.9 && box.height >= window.innerHeight * 0.9;
+      }
+
       function whyInteractive(element: Element): InteractiveBecause | null {
         if (element.matches(nativeSelector)) return "native-element";
         if (element.matches(roleSelector)) return "aria-role";
+        if (isBackdrop(element)) return null;
         // Clickable non-interactive elements: skip those inside a control
         // (part of it) and those containing one (event delegation containers).
         if (element.parentElement?.closest(interactiveSelector) || hasIncludedAncestor(element)) return null;
@@ -82,6 +93,7 @@ export async function collectMousePassElements(
           text: (element.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 80),
           boundingBox: { x: box.x + window.scrollX, y: box.y + window.scrollY, width: box.width, height: box.height },
           interactiveBecause,
+          hasPointerCursor: getComputedStyle(element).cursor === "pointer",
           tabIndexAttribute: element.getAttribute("tabindex"),
           roleAttribute: element.getAttribute("role"),
           insideArrowKeyWidget: element.parentElement?.closest(arrowKeyWidgetSelector) != null,

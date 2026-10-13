@@ -46,6 +46,28 @@ change behaviour).
   UI). The findings are kept.
 
 ### Fixed
+- False alarms found by the real-world corpus, each fixed with a general rule
+  and an offline test (`tests/unit/corpus-false-alarm-classes.test.ts`):
+  - BF-002 only fires when both engines find no name (e.g. a `<summary>` is
+    named by its text), and only for roles that need a name (not a focusable
+    `list` or `code` scroll container).
+  - Focus inside an open shadow root is recorded on the focused element, not
+    its host (no false BF-002 or BF-003 on custom elements).
+  - BF-004 needs a pixel check to agree: the element's area is photographed
+    while focused and after focus left (after transitions settle, at most
+    500 ms). Indicators drawn on a child, an ancestor or through a CSS
+    transition are no longer reported.
+  - A link that blurs itself on focus no longer ends the scan's keyboard walk.
+  - A trap that includes the walk's first stop (e.g. an app container
+    focused at load that keeps Tab) is one BF-003, not BF-001 for everything
+    else, unless a modal keeps focus there on purpose.
+  - Not BF-001: mouse-only parts of a reached slider, spinbutton or combobox
+    (listed as not tested), items of an arrow-key widget nested in another
+    one, labels of reached controls, and empty full-screen backdrops.
+  - BF-008 only for an overlay that is visible and on top at its centre; a
+    control covering the whole overlay (an app's canvas) is its surface.
+  - BF-001 on an element with only a click listener (no pointer cursor, no
+    role) is "check by hand".
 - False BF-001 for most of a page when the page focuses something at load
   near the end of the DOM (typically a cookie banner). The walk stopped as soon
   as focus reached the end of the page, so everything above the banner was

@@ -188,7 +188,8 @@ export async function recordFocusStyleBaselines(target: Page | Frame): Promise<v
 export async function checkFocusVisibility(target: Page | Frame): Promise<FocusVisibilityCheck> {
   return frameOf(target).evaluate((weakPrefix) => {
     const store = window.__blindfoldFocusStyles;
-    const focused = document.activeElement;
+    // Inside a shadow root there's no baseline (it isn't scanned), so focus there is "unknown".
+    const focused = window.__blindfoldElements?.deepActiveElement() ?? document.activeElement;
     const baseline = focused ? store?.baselines.get(focused) : undefined;
     if (!store || !focused || focused === document.body || !baseline) {
       return { focusVisible: "unknown" as const, focusStyleChanges: [] };

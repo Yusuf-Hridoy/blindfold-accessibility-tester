@@ -20,7 +20,8 @@ export type NotTestedReason =
   | "blocked by focus trap"
   | "scan stopped at max tabs"
   | "assumed reachable with arrow keys, not verified"
-  | "duplicate link removed from Tab order; the same destination is reachable";
+  | "duplicate link removed from Tab order; the same destination is reachable"
+  | "mouse-only part of a keyboard widget; the widget is reachable";
 
 /** true / false, or "unknown" when there was no baseline to compare against. */
 export type FocusVisibility = boolean | "unknown";
@@ -57,6 +58,8 @@ export interface MousePassElement extends ElementIdentity {
   text: string;
   boundingBox: BoundingBox;
   interactiveBecause: InteractiveBecause;
+  /** The mouse pointer turns into a hand over it (set by the element or inherited). */
+  hasPointerCursor: boolean;
   /** The tabindex and role attributes as written (null when absent), for BF-001 confidence. */
   tabIndexAttribute: string | null;
   roleAttribute: string | null;
@@ -88,6 +91,12 @@ export interface FocusStop extends ElementIdentity {
   /** Only when focus wasn't visible: changes too weak to count as a focus indicator (color, font-weight…). */
   weakFocusStyleChanges?: string[];
   /**
+   * Only when the style check found no change: the element's area photographed
+   * while focused and after focus left. "changed" makes focus visible;
+   * "not-checked" (couldn't photograph, or focus never left) makes it unknown.
+   */
+  focusPixelCheck?: "unchanged" | "changed" | "not-checked";
+  /**
    * Set when focus went into a frame from another origin. Blindfold doesn't
    * test inside it: no rule reports this stop (role and visibility are "unknown").
    */
@@ -99,6 +108,11 @@ export interface FocusTrap {
   startStep: number;
   /** The elements in one turn of the cycle, in order. */
   cycle: ElementIdentity[];
+  /**
+   * The walk started inside the trap (it includes the first focus stop), so
+   * it never passed any part of the page: everything else is "not tested".
+   */
+  startedInside?: boolean;
 }
 
 /** A control inside an overlay, and whether the keyboard can reach it. */
@@ -179,6 +193,12 @@ export interface CollectedScanData {
    * also goes to (listed as not tested). Never BF-001.
    */
   duplicateLinkIds?: number[];
+  /**
+   * Unreached mouse targets with a keyboard alternative: mouse-only parts of a
+   * reached slider, spinbutton or combobox (listed as not tested), and labels
+   * of reached controls. Never BF-001.
+   */
+  keyboardAlternatives?: { widgetPartIds: number[]; labelIds: number[] };
 }
 
 export interface ScanResult {
