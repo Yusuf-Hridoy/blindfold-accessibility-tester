@@ -8,7 +8,7 @@ test-results
 # npm pack output
 *.tgz
 
-   # Local check output and editor settings
-   real-check-*/
-   github-check/
-   .vscode/
+# Local check output and editor settings
+real-check-*/
+github-check/
+.vscode/
