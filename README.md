@@ -432,6 +432,10 @@ even with `fail-on: never`.
   page and stops after one full cycle. If more than half of the clickable
   elements still end up as BF-001, the report warns that the walk may have
   been incomplete; check those results by hand.
+- A link removed from the Tab order isn't BF-001 when a link the keyboard
+  reaches goes to the same address (ignoring the `#fragment` for other pages).
+  It's listed under "Not tested". Blindfold doesn't check that the reachable
+  link is as easy to find.
 - After a focus trap, unreached controls *before* the trap (in document order)
   are reported as BF-001, because Tab passed their position. Controls after it
   are listed as "not tested".

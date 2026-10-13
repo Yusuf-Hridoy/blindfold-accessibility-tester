@@ -10,6 +10,7 @@ import { FRAME_PATH_SEPARATOR, locatorForSelector, mainFrameElementIdFor, prepar
 import { detectOverlays } from "../overlays/blocking-overlay-detector.ts";
 import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pass-collector.ts";
 import { findArrowKeyReachable } from "../passes/arrow-key-reachability.ts";
+import { findDuplicateLinks } from "../passes/duplicate-link-finder.ts";
 import { findElementsBeforeTrap, walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
 import type { SessionState } from "../sessions/session-file-loader.ts";
 import { summarizeFinding } from "../rules/rule-catalog.ts";
@@ -240,6 +241,12 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     const mousePassElements = await checkMouseTargets(page, mousePassCandidates, reachedElementIds);
     const unreachedIds = mousePassElements.filter((element) => !reachedElementIds.has(element.elementId)).map((element) => element.elementId);
     const reachableWithArrowKeys = await findArrowKeyReachable(page, unreachedIds, [...reachedElementIds]);
+    const arrowKeyIds = new Set([...reachableWithArrowKeys.nativeRadioGroup, ...reachableWithArrowKeys.assumedInCompositeWidget]);
+    const duplicateLinkIds = await findDuplicateLinks(
+      page,
+      unreachedIds.filter((elementId) => !arrowKeyIds.has(elementId)),
+      [...reachedElementIds],
+    );
     const elementIdsBeforeTrap = walk.trap
       ? await findElementsBeforeTrap(page, unreachedIds, mainFrameIds(page, walk.trap.cycle.map((element) => element.elementId)))
       : [];
@@ -252,6 +259,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       blockingOverlays,
       elementIdsBeforeTrap,
       reachableWithArrowKeys,
+      duplicateLinkIds,
     });
     throwIfCancelled(signal);
     for (const finding of findings) {

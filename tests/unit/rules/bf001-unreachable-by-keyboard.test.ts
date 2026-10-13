@@ -213,6 +213,47 @@ describe("BF-001 unreachable by keyboard", () => {
     expect(outcome.result.findings).toEqual([]);
   });
 
+  describe("duplicate links removed from the Tab order", () => {
+    const DUPLICATE_REASON = "duplicate link removed from Tab order; the same destination is reachable";
+    const notTestedPairs = (outcome: Awaited<ReturnType<SnippetScanner["scan"]>>) =>
+      outcome.result.notTested.map((element) => [element.selector, element.reason]);
+
+    it("a card's tabindex=-1 title link with a reachable link to the same URL is not BF-001 (listed as not tested)", async () => {
+      const outcome = await scanner.scan(`
+        <div class="card">
+          <a id="card-title" href="/products/linen-tote-bag" tabindex="-1">Linen tote bag</a>
+          <p>A sturdy everyday bag.</p>
+          <a id="read-more" href="/products/linen-tote-bag">Read more</a>
+        </div>`);
+      expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+      expect(notTestedPairs(outcome)).toEqual([["#card-title", DUPLICATE_REASON]]);
+    });
+
+    it("ignores the #fragment of a link to another page", async () => {
+      const outcome = await scanner.scan(`
+        <a id="reviews" href="/products/linen-tote-bag#reviews" tabindex="-1">Reviews</a>
+        <a href="/products/linen-tote-bag">Linen tote bag</a>`);
+      expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+      expect(notTestedPairs(outcome)).toEqual([["#reviews", DUPLICATE_REASON]]);
+    });
+
+    it("still fires for a tabindex=-1 link with no reachable twin", async () => {
+      const outcome = await scanner.scan(`
+        <a id="mug" href="/products/stoneware-mug" tabindex="-1">Stoneware mug</a>
+        <a href="/products/linen-tote-bag">Linen tote bag</a>`);
+      expect(findingSelectors(outcome, "BF-001")).toEqual(["#mug"]);
+      expect(outcome.result.notTested).toEqual([]);
+    });
+
+    it("still fires for an in-page link to a different section of this page", async () => {
+      const outcome = await scanner.scan(`
+        <a href="#shipping">Shipping</a>
+        <a id="returns-link" href="#returns" tabindex="-1">Returns</a>
+        <h2 id="shipping">Shipping</h2><h2 id="returns">Returns</h2>`);
+      expect(findingSelectors(outcome, "BF-001")).toEqual(["#returns-link"]);
+    });
+  });
+
   it("marks elements not reached before max-tabs as not tested instead of firing", async () => {
     const outcome = await scanner.scan(
       `<button>One</button><button>Two</button><button>Three</button><button id="four">Four</button>`,

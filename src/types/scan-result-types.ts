@@ -16,7 +16,11 @@ export type WalkStopReason =
   | "max-tabs"
   | "no-focusable-elements";
 
-export type NotTestedReason = "blocked by focus trap" | "scan stopped at max tabs" | "assumed reachable with arrow keys, not verified";
+export type NotTestedReason =
+  | "blocked by focus trap"
+  | "scan stopped at max tabs"
+  | "assumed reachable with arrow keys, not verified"
+  | "duplicate link removed from Tab order; the same destination is reachable";
 
 /** true / false, or "unknown" when there was no baseline to compare against. */
 export type FocusVisibility = boolean | "unknown";
@@ -153,6 +157,11 @@ export interface CollectedScanData {
    * composite widget that had one (assumed, listed as not tested). Never BF-001.
    */
   reachableWithArrowKeys?: { nativeRadioGroup: number[]; assumedInCompositeWidget: number[] };
+  /**
+   * Unreached links whose destination a keyboard-reachable link on the page
+   * also goes to (listed as not tested). Never BF-001.
+   */
+  duplicateLinkIds?: number[];
 }
 
 export interface ScanResult {

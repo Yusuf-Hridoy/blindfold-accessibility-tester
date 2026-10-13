@@ -161,6 +161,8 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
   let tabPressesOnBody = 0;
   let bodyPressesInARow = 0;
   let passedEndOfPage = false;
+  /** Elements visited before the walk wrapped past the end of the page. */
+  const visitedBeforeWrap = new Set<number>();
 
   // A page script may already have focused something (e.g. a cookie banner's
   // button). The keyboard user starts there, so it counts as reached.
@@ -184,6 +186,7 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
         if (tabPressesOnBody >= 2) return { focusStops, stoppedBecause: "no-focusable-elements", trap: null, tabPresses: step };
         continue;
       }
+      if (!passedEndOfPage) for (const visited of focusStops) visitedBeforeWrap.add(visited.elementId);
       passedEndOfPage = true;
       // Twice in a row: there's nothing at the top to wrap to.
       if (++bodyPressesInARow >= 2) return { focusStops, stoppedBecause: "end-of-page", trap: null, tabPresses: step };
@@ -194,10 +197,11 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
     if (focusStops.length > 0 && stop.elementId === focusStops[0]?.elementId) {
       return { focusStops, stoppedBecause: "cycle-complete", trap: null, tabPresses: step };
     }
-    // After wrapping, any element already visited closes the cycle: the
-    // element focused at load may not be a Tab stop (e.g. a heading with
-    // tabindex="-1"), so focus would never come back to it exactly.
-    if (passedEndOfPage && focusStops.some((visited) => visited.elementId === stop.elementId)) {
+    // After wrapping, reaching an element visited before the wrap closes the
+    // cycle: the element focused at load may not be a Tab stop (e.g. a heading
+    // with tabindex="-1"), so focus would never come back to it exactly.
+    // Repeats of elements first seen after the wrap go to the trap detector.
+    if (passedEndOfPage && visitedBeforeWrap.has(stop.elementId)) {
       return { focusStops, stoppedBecause: "cycle-complete", trap: null, tabPresses: step };
     }
     focusStops.push(stop);

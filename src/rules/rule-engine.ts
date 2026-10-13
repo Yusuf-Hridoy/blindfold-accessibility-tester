@@ -44,9 +44,15 @@ function transcriptAround(focusStops: FocusStop[], step: number | null): Transcr
 function findNotTestedElements(data: CollectedScanData): NotTestedElement[] {
   const assumed = new Set(data.reachableWithArrowKeys?.assumedInCompositeWidget ?? []);
   const nativeRadios = new Set(data.reachableWithArrowKeys?.nativeRadioGroup ?? []);
+  const duplicateLinks = new Set(data.duplicateLinkIds ?? []);
   const notTested: NotTestedElement[] = data.mousePassElements
-    .filter((element) => assumed.has(element.elementId))
-    .map(({ elementId, selector, description }) => ({ elementId, selector, description, reason: "assumed reachable with arrow keys, not verified" }));
+    .filter((element) => assumed.has(element.elementId) || duplicateLinks.has(element.elementId))
+    .map(({ elementId, selector, description }) => ({
+      elementId,
+      selector,
+      description,
+      reason: assumed.has(elementId) ? "assumed reachable with arrow keys, not verified" : "duplicate link removed from Tab order; the same destination is reachable",
+    }));
 
   const reason: NotTestedReason | null =
     data.stoppedBecause === "focus-trap"
@@ -65,7 +71,8 @@ function findNotTestedElements(data: CollectedScanData): NotTestedElement[] {
         element.mouseTarget !== false &&
         !beforeTrap.has(element.elementId) &&
         !assumed.has(element.elementId) &&
-        !nativeRadios.has(element.elementId),
+        !nativeRadios.has(element.elementId) &&
+        !duplicateLinks.has(element.elementId),
     )
     .map(({ elementId, selector, description }) => ({ elementId, selector, description, reason }));
   return [...notTested, ...cutShort];

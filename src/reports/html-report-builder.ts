@@ -223,13 +223,21 @@ function buildScanSummary(result: ScanResult): string {
 function buildNotTested(result: ScanResult): string {
   if (result.notTested.length === 0) return "<p>Nothing was skipped. Every element a mouse can use was checked.</p>";
   const reasons = new Set(result.notTested.map((element) => element.reason));
-  const assumedNote =
-    "Widget items (tabs, menus, listboxes…) whose widget the keyboard reached are assumed reachable with arrow keys. Blindfold doesn't press arrow keys to check, because that can change a selection.";
-  const introText = !reasons.has("assumed reachable with arrow keys, not verified")
-    ? "The keyboard walk stopped early, so these elements could not be checked."
-    : reasons.size === 1
-      ? assumedNote
-      : `Blindfold couldn't fully check these elements. ${assumedNote} The others weren't reached because the keyboard walk stopped early.`;
+  const walkStoppedEarly = reasons.has("blocked by focus trap") || reasons.has("scan stopped at max tabs");
+  const notes = [
+    reasons.has("assumed reachable with arrow keys, not verified")
+      ? "Widget items (tabs, menus, listboxes…) whose widget the keyboard reached are assumed reachable with arrow keys. Blindfold doesn't press arrow keys to check, because that can change a selection."
+      : null,
+    reasons.has("duplicate link removed from Tab order; the same destination is reachable")
+      ? "Links taken out of the Tab order (for example with tabindex=\"-1\") aren't barriers when a link the keyboard reaches goes to the same address."
+      : null,
+  ].filter((note) => note !== null);
+  const introText =
+    notes.length === 0
+      ? "The keyboard walk stopped early, so these elements could not be checked."
+      : notes.length === 1 && !walkStoppedEarly
+        ? notes[0]
+        : `Blindfold couldn't fully check these elements. ${notes.join(" ")}${walkStoppedEarly ? " The others weren't reached because the keyboard walk stopped early." : ""}`;
   const rows = result.notTested
     .map(
       (element) =>

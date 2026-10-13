@@ -37,7 +37,14 @@ change behaviour).
   as focus reached the end of the page, so everything above the banner was
   never visited. A walk that starts on an element focused at load now wraps
   around to the top and stops after one full cycle (back at an element it
-  already visited). Walks that start at the top of the page are unchanged.
+  visited before wrapping). A focus trap met after wrapping is still reported
+  as BF-003. Walks that start at the top of the page are unchanged.
+- No BF-001 for a link taken out of the Tab order (e.g. a card's title link
+  with `tabindex="-1"`) when a keyboard-reachable link on the page goes to the
+  same address. It's listed under "Not tested" as "duplicate link removed from
+  Tab order; the same destination is reachable". For links to another page
+  the `#fragment` is ignored; links to sections of the same page must match
+  exactly.
 
 ## [0.4.0] - 2026-10-09
 
