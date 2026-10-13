@@ -1,6 +1,6 @@
 # Blindfold real-world corpus report
 
-Run: 2026-10-13T11:18:07.067Z · Blindfold 0.6.0 · desktop, no audio, no screenshots.
+Run: 2026-10-13T12:43:56.927Z · Blindfold 0.6.0 · desktop, no audio, no screenshots.
 
 Precision = real ÷ (real + false alarm), counting only verdicts the owner confirmed
 (`corpus/triage-verdicts.json` entries without `"proposed": true`).
@@ -9,23 +9,23 @@ Precision = real ÷ (real + false alarm), counting only verdicts the owner confi
 
 | Source | Pages | Scanned | Couldn't scan | Pages with findings | Findings |
 |---|---|---|---|---|---|
-| APG examples (expected: 0 findings) | 69 | 69 | 0 | 61 | 116 |
-| BAD demo, before (expected: findings) | 5 | 5 | 0 | 5 | 174 |
+| APG examples (expected: 0 findings) | 69 | 69 | 0 | 0 | 0 |
+| BAD demo, before (expected: findings) | 5 | 5 | 0 | 5 | 35 |
 | BAD demo, after (expected: no false alarms) | 5 | 5 | 0 | 0 | 0 |
-| Real sites | 21 | 19 | 2 | 14 | 153 |
+| Real sites | 21 | 20 | 1 | 13 | 135 |
 
 ## Precision per rule
 
 | Rule | Findings | Real | False alarm | Unsure | Proposed | Untriaged | Precision |
 |---|---|---|---|---|---|---|---|
-| BF-001 Control can't be reached by keyboard | 261 | 39 | 189 | 33 | 0 | 0 | 17% |
-| BF-002 Control has no accessible name | 105 | 32 | 72 | 1 | 0 | 0 | 31% |
-| BF-003 Keyboard focus gets trapped | 1 | 0 | 1 | 0 | 0 | 0 | 0% |
-| BF-004 Keyboard focus is not visible | 74 | 3 | 69 | 2 | 0 | 0 | 4% |
+| BF-001 Control can't be reached by keyboard | 54 | 39 | 2 | 7 | 6 | 0 | 95% |
+| BF-002 Control has no accessible name | 100 | 26 | 0 | 1 | 73 | 0 | 100% |
+| BF-003 Keyboard focus gets trapped | 1 | 0 | 0 | 1 | 0 | 0 | — |
+| BF-004 Keyboard focus is not visible | 15 | 3 | 9 | 0 | 3 | 0 | 25% |
 | BF-005 Update is shown but not announced | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | BF-006 Focus is lost after an action | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | BF-007 Dialog opens without moving focus into it | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| BF-008 Overlay blocks keyboard users | 2 | 0 | 1 | 1 | 0 | 0 | 0% |
+| BF-008 Overlay blocks keyboard users | 0 | 0 | 0 | 0 | 0 | 0 | — |
 
 ## Precision per confidence level
 
@@ -33,229 +33,417 @@ The goal: `certain` close to 100%.
 
 | Confidence | Findings | Real | False alarm | Unsure | Proposed | Untriaged | Precision |
 |---|---|---|---|---|---|---|---|
-| certain | 125 | 26 | 99 | 0 | 0 | 0 | 21% |
-| likely | 214 | 26 | 158 | 30 | 0 | 0 | 14% |
-| check by hand | 104 | 22 | 75 | 7 | 0 | 0 | 23% |
+| certain | 109 | 25 | 9 | 1 | 74 | 0 | 74% |
+| likely | 33 | 26 | 0 | 1 | 6 | 0 | 100% |
+| check by hand | 28 | 17 | 2 | 7 | 2 | 0 | 89% |
 
 ## Suspected false alarms (APG examples and BAD "after" pages)
 
-| Page | Rule | Element | Selector | Confidence | Verdict |
-|---|---|---|---|---|---|
-| https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button\_idl/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ | BF-002 | code\#sc1 "&lt;section id="myCarousel" class="carouse…" | \#sc1 | likely | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ | BF-004 | button.rotation | \#myCarousel &gt; div &gt; div:nth-of-type(1) &gt; button:nth-of-type(1) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ | BF-004 | button.previous | \#myCarousel &gt; div &gt; div:nth-of-type(1) &gt; button:nth-of-type(2) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ | BF-004 | button.next | \#myCarousel &gt; div &gt; div:nth-of-type(1) &gt; button:nth-of-type(3) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ | BF-002 | code\#sc1 "&lt;section id="myCarousel" class="carouse…" | \#sc1 | likely | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ | BF-004 | button.rotation | \#myCarousel &gt; div &gt; div:nth-of-type(1) &gt; button | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/ | BF-001 | button\#cb1-button | \#cb1-button | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/ | BF-001 | button\#cb1-button | \#cb1-button | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/ | BF-001 | button\#cb1-button | \#cb1-button | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/ | BF-001 | button.arrow | \#myDatepicker &gt; div:nth-of-type(2) &gt; button | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/ | BF-001 | div\#combo1-label "Favorite Fruit" | \#combo1-label | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ | BF-004 | button\#toggle-folk-futures "Details" | \#toggle-folk-futures | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ | BF-004 | button\#toggle-playful-dissonance "Details" | \#toggle-playful-dissonance | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/ | BF-002 | summary "Experimental content! Do not use except…" | \#support-notice &gt; summary | likely | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ | BF-001 | rect | \#ex1 &gt; div &gt; svg &gt; g:nth-of-type(1) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ | BF-004 | g.minimum "$100" | \#ex1 &gt; div &gt; svg &gt; g:nth-of-type(3) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ | BF-004 | g.maximum "$250" | \#ex1 &gt; div &gt; svg &gt; g:nth-of-type(4) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ | BF-001 | rect.rail | \#ex1 &gt; div &gt; div:nth-of-type(2) &gt; svg &gt; rect:nth-of-type(1) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ | BF-001 | rect.rail | \#ex1 &gt; div &gt; div:nth-of-type(4) &gt; svg &gt; rect:nth-of-type(1) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ | BF-001 | rect.rail | \#ex1 &gt; div &gt; div:nth-of-type(6) &gt; svg &gt; rect:nth-of-type(1) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(1) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "1" | \#id-rating &gt; svg &gt; g:nth-of-type(1) &gt; text:nth-of-type(1) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(2) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "2" | \#id-rating &gt; svg &gt; g:nth-of-type(2) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(3) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "3" | \#id-rating &gt; svg &gt; g:nth-of-type(3) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(4) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "4" | \#id-rating &gt; svg &gt; g:nth-of-type(4) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(5) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "5" | \#id-rating &gt; svg &gt; g:nth-of-type(5) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(6) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "6" | \#id-rating &gt; svg &gt; g:nth-of-type(6) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(7) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "7" | \#id-rating &gt; svg &gt; g:nth-of-type(7) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(8) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "8" | \#id-rating &gt; svg &gt; g:nth-of-type(8) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(9) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "9" | \#id-rating &gt; svg &gt; g:nth-of-type(9) &gt; text | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | rect.target | \#id-rating &gt; svg &gt; g:nth-of-type(10) &gt; rect | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-001 | text.label "10" | \#id-rating &gt; svg &gt; g:nth-of-type(10) &gt; text:nth-of-type(1) | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ | BF-004 | div\#id-rating "1 Extremely Unsatisfied 2 3 4 5 6 7 8 9…" | \#id-rating | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ | BF-001 | button.decrease | \#example-group &gt; div:nth-of-type(3) &gt; button:nth-of-type(1) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ | BF-001 | button.increase | \#example-group &gt; div:nth-of-type(3) &gt; button:nth-of-type(2) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ | BF-001 | button.decrease | \#example-group &gt; div:nth-of-type(4) &gt; button:nth-of-type(1) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ | BF-001 | button.increase | \#example-group &gt; div:nth-of-type(4) &gt; button:nth-of-type(2) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ | BF-001 | button.decrease | \#example-group &gt; div:nth-of-type(5) &gt; button:nth-of-type(1) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ | BF-001 | button.increase | \#example-group &gt; div:nth-of-type(5) &gt; button:nth-of-type(2) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ | BF-001 | button "+" | \#example &gt; div &gt; fieldset &gt; div &gt; div:nth-of-type(1) &gt; div &gt; button:nth-of-type(2) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ | BF-001 | button "+" | \#example &gt; div &gt; fieldset &gt; div &gt; div:nth-of-type(2) &gt; div &gt; button:nth-of-type(2) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ | BF-001 | button "+" | \#example &gt; div &gt; fieldset &gt; div &gt; div:nth-of-type(3) &gt; div &gt; button:nth-of-type(2) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ | BF-004 | input\#adults | \#adults | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ | BF-004 | input\#kids | \#kids | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ | BF-004 | input\#animals | \#animals | certain | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/ | BF-002 | summary "Experimental content! Do not use except…" | \#support-notice &gt; summary | likely | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ | BF-001 | button.item "Text Align Left" | \#ex1 &gt; div &gt; div:nth-of-type(2) &gt; button:nth-of-type(1) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ | BF-001 | button.item "Text Align Center" | \#ex1 &gt; div &gt; div:nth-of-type(2) &gt; button:nth-of-type(2) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ | BF-001 | button.item "Text Align Right" | \#ex1 &gt; div &gt; div:nth-of-type(2) &gt; button:nth-of-type(3) | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
-| https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/ | BF-002 | summary "The code in this example is not intende…" | \#support-notice &gt; summary | check by hand | false-alarm |
+None.
 
 ## Pages that couldn't be scanned
 
 | Page | Reason |
 |---|---|
-| https://demowebshop.tricentis.com/ | Blindfold couldn't complete the scan. https://demowebshop.tricentis.com/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout. |
 | https://www.rakuten.co.jp/ | Blindfold stopped after 120 s (time limit). Raise --time-limit for very large pages. |
 
 ## Changed since last run
 
-Compared with the run of 2026-10-13T11:02:53.745Z.
+Compared with the run of 2026-10-13T11:18:07.067Z.
 
-- https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button\_idl/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/contentinfo.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/form.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/search.html: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/: new in the corpus
-- https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/: new in the corpus
-- https://demowebshop.tricentis.com/: new in the corpus
-- https://www.telerik.com/support/demos: new in the corpus
-- https://github.com/: new in the corpus
-- https://www.allbirds.com/: new in the corpus
-- https://www.tentree.com/: new in the corpus
-- https://wordpress.org/news/: new in the corpus
-- https://techcrunch.com/: new in the corpus
-- https://www.bbc.com/news: new in the corpus
-- https://www.gov.uk/: new in the corpus
-- https://www.usa.gov/: new in the corpus
-- https://stripe.com/: new in the corpus
-- https://www.atlassian.com/: new in the corpus
-- https://developer.mozilla.org/en-US/docs/Web/HTML: new in the corpus
-- https://docs.python.org/3/: new in the corpus
-- https://www.ikea.com/gb/en/: new in the corpus
-- https://www.samsung.com/uk/: new in the corpus
-- https://excalidraw.com/: new in the corpus
-- https://react.dev/: new in the corpus
-- https://www.lemonde.fr/: new in the corpus
-- https://www.rakuten.co.jp/: new in the corpus
-- https://en.wikipedia.org/wiki/Web\_accessibility: new in the corpus
+- https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button\_idl/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/: 5 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+  - gone: BF-002 code\#sc1 "&lt;section id="myCarousel" class="carouse…"
+  - gone: BF-004 button.rotation
+  - gone: BF-004 button.previous
+  - gone: BF-004 button.next
+- https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/: 3 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+  - gone: BF-002 code\#sc1 "&lt;section id="myCarousel" class="carouse…"
+  - gone: BF-004 button.rotation
+- https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/: 2 gone
+  - gone: BF-001 button\#cb1-button
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/: 2 gone
+  - gone: BF-001 button\#cb1-button
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/: 2 gone
+  - gone: BF-001 button\#cb1-button
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/: 2 gone
+  - gone: BF-001 button.arrow
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/: 2 gone
+  - gone: BF-001 div\#combo1-label "Favorite Fruit"
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/: 3 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+  - gone: BF-004 button\#toggle-folk-futures "Details"
+  - gone: BF-004 button\#toggle-playful-dissonance "Details"
+- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/: 1 gone
+  - gone: BF-002 summary "Experimental content! Do not use except…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/: 4 gone
+  - gone: BF-001 rect
+  - gone: BF-002 summary "The code in this example is not intende…"
+  - gone: BF-004 g.minimum "$100"
+  - gone: BF-004 g.maximum "$250"
+- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/: 4 gone
+  - gone: BF-001 rect.rail
+  - gone: BF-001 rect.rail
+  - gone: BF-001 rect.rail
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/: 22 gone
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "1"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "2"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "3"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "4"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "5"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "6"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "7"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "8"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "9"
+  - gone: BF-001 rect.target
+  - gone: BF-001 text.label "10"
+- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/: 7 gone
+  - gone: BF-001 button.decrease
+  - gone: BF-001 button.increase
+  - gone: BF-001 button.decrease
+  - gone: BF-001 button.increase
+  - gone: BF-001 button.decrease
+  - gone: BF-001 button.increase
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/: 7 gone
+  - gone: BF-001 button "+"
+  - gone: BF-001 button "+"
+  - gone: BF-001 button "+"
+  - gone: BF-002 summary "The code in this example is not intende…"
+  - gone: BF-004 input\#adults
+  - gone: BF-004 input\#kids
+  - gone: BF-004 input\#animals
+- https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/: 1 gone
+  - gone: BF-002 summary "Experimental content! Do not use except…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/: 4 gone
+  - gone: BF-001 button.item "Text Align Left"
+  - gone: BF-001 button.item "Text Align Center"
+  - gone: BF-001 button.item "Text Align Right"
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/: 1 gone
+  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/demos/bad/before/home.html: 26 gone
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+  - gone: BF-001 a "changelog"
+  - gone: BF-001 a "Shadi Abou-Zahra"
+  - gone: BF-001 a "Education and Outreach Working Group (E…"
+  - gone: BF-001 a "WAI-TIES"
+  - gone: BF-001 a "WAI-AGE"
+  - gone: BF-001 a "Acknowledgements"
+  - gone: BF-001 a "WAI Site Map"
+  - gone: BF-001 a "Help with WAI Website"
+  - gone: BF-001 a "Search"
+  - gone: BF-001 a "Contacting WAI"
+  - gone: BF-001 a "wai-eo-editors@w3.org"
+  - gone: BF-001 a "wai@w3.org"
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+- https://www.w3.org/WAI/demos/bad/before/news.html: 28 gone
+  - gone: BF-001 a "trombone forgery debacle"
+  - gone: BF-001 a "the way that air conditioning works"
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+  - gone: BF-001 a "changelog"
+  - gone: BF-001 a "Shadi Abou-Zahra"
+  - gone: BF-001 a "Education and Outreach Working Group (E…"
+  - gone: BF-001 a "WAI-TIES"
+  - gone: BF-001 a "WAI-AGE"
+  - gone: BF-001 a "Acknowledgements"
+  - gone: BF-001 a "WAI Site Map"
+  - gone: BF-001 a "Help with WAI Website"
+  - gone: BF-001 a "Search"
+  - gone: BF-001 a "Contacting WAI"
+  - gone: BF-001 a "wai-eo-editors@w3.org"
+  - gone: BF-001 a "wai@w3.org"
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+- https://www.w3.org/WAI/demos/bad/before/tickets.html: 26 gone
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+  - gone: BF-001 a "changelog"
+  - gone: BF-001 a "Shadi Abou-Zahra"
+  - gone: BF-001 a "Education and Outreach Working Group (E…"
+  - gone: BF-001 a "WAI-TIES"
+  - gone: BF-001 a "WAI-AGE"
+  - gone: BF-001 a "Acknowledgements"
+  - gone: BF-001 a "WAI Site Map"
+  - gone: BF-001 a "Help with WAI Website"
+  - gone: BF-001 a "Search"
+  - gone: BF-001 a "Contacting WAI"
+  - gone: BF-001 a "wai-eo-editors@w3.org"
+  - gone: BF-001 a "wai@w3.org"
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+- https://www.w3.org/WAI/demos/bad/before/survey.html: 39 gone, 6 new
+  - new: BF-002 input.align
+  - new: BF-002 select "select a city -----&gt; Afghanistan, Kabul…"
+  - new: BF-002 input
+  - new: BF-002 input\#em
+  - new: BF-002 input\#n
+  - new: BF-002 input\#ev
+  - gone: BF-001 input.align
+  - gone: BF-001 input.align
+  - gone: BF-001 input.align
+  - gone: BF-001 input.align
+  - gone: BF-001 input.align
+  - gone: BF-001 input.align
+  - gone: BF-001 select "select a city -----&gt; Afghanistan, Kabul…"
+  - gone: BF-001 input
+  - gone: BF-001 input
+  - gone: BF-001 input\#em
+  - gone: BF-001 input\#n
+  - gone: BF-001 input\#ev
+  - gone: BF-001 input\#submit
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+  - gone: BF-001 a "changelog"
+  - gone: BF-001 a "Shadi Abou-Zahra"
+  - gone: BF-001 a "Education and Outreach Working Group (E…"
+- https://www.w3.org/WAI/demos/bad/before/template.html: 26 gone
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+  - gone: BF-001 a "changelog"
+  - gone: BF-001 a "Shadi Abou-Zahra"
+  - gone: BF-001 a "Education and Outreach Working Group (E…"
+  - gone: BF-001 a "WAI-TIES"
+  - gone: BF-001 a "WAI-AGE"
+  - gone: BF-001 a "Acknowledgements"
+  - gone: BF-001 a "WAI Site Map"
+  - gone: BF-001 a "Help with WAI Website"
+  - gone: BF-001 a "Search"
+  - gone: BF-001 a "Contacting WAI"
+  - gone: BF-001 a "wai-eo-editors@w3.org"
+  - gone: BF-001 a "wai@w3.org"
+  - gone: BF-001 a "Copyright"
+  - gone: BF-001 a "MIT"
+  - gone: BF-001 a "ERCIM"
+  - gone: BF-001 a "Keio"
+- https://demowebshop.tricentis.com/: couldn't scan → scanned
+- https://www.telerik.com/support/demos: 4 gone
+  - gone: BF-004 a\#js-tlrk-skip-link "skip navigation"
+  - gone: BF-004 a.TK-TLRK-Logo
+  - gone: BF-004 a.TK-Button "Get A Free Trial"
+  - gone: BF-004 a.Btn "See Plans &amp; Pricing"
+- https://www.allbirds.com/: 2 gone
+  - gone: BF-001 div.bg-opacity-90
+  - gone: BF-008 div.z-takeover
+- https://www.tentree.com/: 7 gone, 66 new
+  - new: BF-001 div.absolute
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a.color-swatch-link
+  - new: BF-002 a
+  - new: BF-002 a
+  - new: BF-002 a
+  - new: BF-002 a
+  - new: BF-002 a
+  - new: BF-002 a
+  - gone: BF-002 a.tracking-wider "WOMENS"
+  - gone: BF-002 a.tracking-wider "MENS"
+  - gone: BF-002 a.tracking-wider "ACCESSORIES"
+  - gone: BF-002 a.tracking-wider "CLIMATE+"
+  - gone: BF-002 a.tracking-wider "IMPACT"
+  - gone: BF-002 product-info
+  - gone: BF-003 product-info
+- https://stripe.com/: 14 gone, 1 new
+  - new: BF-001 a.hds-button "Guide me"
+  - gone: BF-004 button.modular-solutions-bento-card "Accept and optimize payments globally—o…"
+  - gone: BF-004 button.modular-solutions-bento-card "Enable any billing modelPro PlanBilled …"
+  - gone: BF-004 button.modular-solutions-bento-card "Monetize through agentic commerceI’m re…"
+  - gone: BF-004 button.modular-solutions-bento-card "Create a card issuing program"
+  - gone: BF-004 button.modular-solutions-bento-card "Access borderless money movement with s…"
+  - gone: BF-004 button.modular-solutions-bento-card "Embed payments in your platformJackson …"
+  - gone: BF-004 a.case-study-card "Lovable grows into a vibe-coding jugger…"
+  - gone: BF-004 a.case-study-card "Gamma expands to $100M ARR and 70 milli…"
+  - gone: BF-004 a.case-study-card "Runway protects developer time with no-…"
+  - gone: BF-004 a.case-study-card "Supabase delivers its backend-as-a-serv…"
+  - gone: BF-004 a.case-study-card "Linear partners with Stripe to handle b…"
+  - gone: BF-004 a.case-study-card "ElevenLabs grows into a $3B AI audio le…"
+  - gone: BF-004 a.case-study-card "Browserbase offers usage-based billing …"
+  - gone: BF-004 a.case-study-card "Decagon decreases support costs by 65% …"
+- https://developer.mozilla.org/en-US/docs/Web/HTML: 5 gone
+  - gone: BF-002 mdn-placement-top
+  - gone: BF-002 mdn-content-feedback
+  - gone: BF-002 mdn-sidebar-filter
+  - gone: BF-002 summary "Attributes by element"
+  - gone: BF-002 summary "Attribute values"
+- https://www.ikea.com/gb/en/: 3 gone
+  - gone: BF-002 div\#hnf-carousel\_\_hnf-inpage-nav "OffersChristmas ShopStorage furnitureHo…"
+  - gone: BF-002 div\#listing-carousel\_\_product-carousel-c64bda "New lower priceKALLAX Shelving unit, wh…"
+  - gone: BF-002 div\#listing-carousel\_\_product-rec-carousel-d02a3 "NewSTRANDMON Wing chair, Talliden beige…"
+- https://excalidraw.com/: 27 gone, 1 new
+  - new: BF-003 div.excalidraw "Your drawings are saved in your browser…"
+  - gone: BF-001 button.welcome-screen-menu-item "OpenCmd+O"
+  - gone: BF-001 button.welcome-screen-menu-item "Help?"
+  - gone: BF-001 button.welcome-screen-menu-item "Live collaboration..."
+  - gone: BF-001 a.welcome-screen-menu-item "Sign up"
+  - gone: BF-001 button\#radix-:r2:
+  - gone: BF-001 button.ToolIcon
+  - gone: BF-001 button.ToolIcon
+  - gone: BF-001 button.ToolIcon "V"
+  - gone: BF-001 button.ToolIcon "R"
+  - gone: BF-001 button.ToolIcon "D"
+  - gone: BF-001 button.ToolIcon "O"
+  - gone: BF-001 button.ToolIcon "A"
+  - gone: BF-001 button.ToolIcon "L"
+  - gone: BF-001 button.ToolIcon "P"
+  - gone: BF-001 button.ToolIcon "T"
+  - gone: BF-001 button.ToolIcon "N"
+  - gone: BF-001 button.ToolIcon "E"
+  - gone: BF-001 button\#radix-:r0:
+  - gone: BF-001 a.plus-banner "Try Excalidraw+14-day free trial"
+  - gone: BF-001 button.excalidraw-button
+- https://react.dev/: 2 gone
+  - gone: BF-004 input\#:R1sq8q6:
+  - gone: BF-004 input\#:R6sqaq6:
+- https://www.lemonde.fr/: 30 gone, 1 new
+  - new: BF-004 a.ds-card\_\_link "Swann Arlaud did not want to talk polit…"
+  - gone: BF-004 a.ds-card\_\_link "After ban of one stun grenade, French p…"
+  - gone: BF-004 a.ds-card\_\_link "What actions are French police allowed …"
+  - gone: BF-004 a.ds-card\_\_link "French high school protests: What we kn…"
+  - gone: BF-004 a.ds-card\_\_link "Greta Thunberg joins French students am…"
+  - gone: BF-004 a.ds-card\_\_link "Trump's plan to import Russian diesel a…"
+  - gone: BF-004 a.ds-card\_\_link "Why the Trump-Putin fuel agreement bene…"
+  - gone: BF-004 a.ds-card\_\_link "NATO's top commander says 'alliance is …"
+  - gone: BF-004 a.ds-card\_\_link "A disastrous day for French supermarket…"
+  - gone: BF-004 a.ds-card\_\_link "Oxfam sues French state over tax inequa…"
+  - gone: BF-004 a.ds-card\_\_link "French middle schooler opens fire on pr…"
+  - gone: BF-004 a.ds-card\_\_link "Why Ceuta and Melilla remain a point of…"
+  - gone: BF-004 a.ds-card\_\_link "Local authorities authorize killing of …"
+  - gone: BF-004 a.ds-card\_\_link "Hungary removes anti-LGBTQ provisions f…"
+  - gone: BF-004 a.ds-card\_\_link "Economics Nobel Prize awarded to Americ…"
+  - gone: BF-004 a.ds-card\_\_link "911 calls reveal emergency help for Chr…"
+  - gone: BF-004 a.ds-card\_\_link "Pope Leo XIV to be hospitalized in Rome…"
+  - gone: BF-004 a.ds-card\_\_link "From farms to high schools, France is a…"
+  - gone: BF-004 a.ds-card\_\_link "Glucksmann won the center-left primary.…"
+  - gone: BF-004 a.ds-card\_\_link "How the French left wants to reclaim th…"
+  - gone: BF-004 a.ds-card\_\_link "'A Man of His Time': Swann Arlaud as a …"

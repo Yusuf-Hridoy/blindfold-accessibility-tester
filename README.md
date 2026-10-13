@@ -423,6 +423,52 @@ Action (most CI machines don't have espeak-ng). If Blindfold itself can't
 complete (exit code 2, e.g. the app never started), the step always fails,
 even with `fail-on: never`.
 
+## How accurate is it?
+
+Blindfold is measured against a corpus of real pages (`corpus/`): the 69
+example pages of the W3C ARIA Authoring Practices (well-built widgets that
+should give no findings), the W3C Before-and-After Demonstration (the
+"before" pages have planted barriers, the "after" pages fix them) and about 20
+public sites (shops, news, government, documentation, apps, two non-English).
+`npm run corpus` scans them one at a time; `npm run corpus:report` writes
+`corpus/CORPUS-REPORT.md`. It needs the network, so it never runs with
+`npm test`; a workflow runs it monthly.
+
+Latest run (2026-10-13, Blindfold 0.6.0): **0 findings on all 69 APG pages
+and on all 5 BAD "after" pages.** Precision counts only findings the owner
+has confirmed as a real barrier or a false alarm:
+
+| Rule | Findings | Real | False alarm | Awaiting a verdict | Precision |
+|---|---|---|---|---|---|
+| BF-001 Control can't be reached by keyboard | 54 | 39 | 2 | 13 | 95% |
+| BF-002 Control has no accessible name | 100 | 26 | 0 | 74 | 100% |
+| BF-004 Keyboard focus is not visible | 15 | 3 | 9 | 3 | 25% |
+
+| Confidence | Findings | Real | False alarm | Awaiting a verdict | Precision |
+|---|---|---|---|---|---|
+| certain | 109 | 25 | 9 | 75 | 74% |
+| likely | 33 | 26 | 0 | 7 | 100% |
+| check by hand | 28 | 17 | 2 | 9 | 89% |
+
+BF-003 had one finding (unsure); BF-005 to BF-008 had none, since the corpus
+runs scans, not journeys. The remaining BF-004 false alarms are focus
+indicators drawn more than 8 px away from the element (see Known
+limitations). Before the corpus-driven fixes, the same pages gave 443
+findings with 18% precision.
+
+**Confidence levels.** Every finding has one:
+
+- **certain**: the evidence leaves no doubt (e.g. a `<div>` with a click
+  listener and no tabindex; a button with no name in either engine; an
+  outline removed with nothing changing on screen).
+- **likely**: probably a barrier, but a legitimate pattern can look the same
+  (e.g. a custom `role` without tabindex; an element that is clickable only
+  because of its pointer cursor).
+- **check by hand**: the page did something on purpose or the evidence is
+  thin (e.g. a link with `tabindex="-1"`, an element with only a click
+  listener and no pointer cursor, a field whose value Guidepup reads instead
+  of a label). A person should decide.
+
 ## Known limitations
 
 - When Tab brings focus back to the walk's first stop without ever reaching

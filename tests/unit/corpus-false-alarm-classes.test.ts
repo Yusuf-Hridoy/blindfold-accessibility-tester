@@ -82,17 +82,14 @@ describe("FA-12: BF-002 only for roles that need a name", () => {
 });
 
 describe("FA-6: Tab lands on <body> mid-page because a link blurs itself on focus", () => {
-  it("keeps walking: the links after it are reached; only the self-blurring links are BF-001", async () => {
+  it("keeps walking, even past 14 in a row: the links after them are reached; only the self-blurring links are BF-001", async () => {
+    const blurringLinks = Array.from({ length: 14 }, (_, index) => `<a id="nav-${index + 1}" href="#n${index + 1}" onfocus="this.blur()">Section ${index + 1}</a>`);
     const outcome = await scanner.scan(`
       <a href="#a">A</a> <a href="#b">B</a>
-      <nav>
-        <a id="nav-1" href="#n1" onfocus="this.blur()">News</a>
-        <a id="nav-2" href="#n2" onfocus="this.blur()">Tickets</a>
-        <a id="nav-3" href="#n3" onfocus="this.blur()">Survey</a>
-      </nav>
+      <nav>${blurringLinks.join(" ")}</nav>
       <a href="#c">C</a> <a href="#d">D</a>`);
     expect(outcome.result.focusStops.map((stop) => stop.accessibleName)).toEqual(["A", "B", "C", "D"]);
-    expect(findingSelectors(outcome, "BF-001")).toEqual(["#nav-1", "#nav-2", "#nav-3"]);
+    expect(findingSelectors(outcome, "BF-001")).toEqual(Array.from({ length: 14 }, (_, index) => `#nav-${index + 1}`));
     expect(outcome.result.stoppedBecause).toBe("end-of-page");
   });
 });

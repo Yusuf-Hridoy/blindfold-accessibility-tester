@@ -166,8 +166,13 @@ export async function findElementsBeforeTrap(page: Page, candidateIds: number[],
   );
 }
 
-/** A run of this many Tab presses landing on <body> means there's nothing more to reach. */
-export const MAX_BODY_PRESSES_IN_A_ROW = 10;
+/**
+ * A run of this many Tab presses landing on <body> means there's nothing more
+ * to reach. At the real end of a page <body> comes once before Tab wraps to
+ * the top; long runs come from controls that blur themselves on focus (one
+ * page has 14 in a row), so the limit is generous. --max-tabs still applies.
+ */
+export const MAX_BODY_PRESSES_IN_A_ROW = 50;
 
 /** One turn of a trap the walk started inside (it includes the first stop). */
 function trapStartedInside(focusStops: FocusStop[]): FocusTrap {
@@ -230,8 +235,12 @@ async function walk(page: Page, options: KeyboardWalkOptions, pixelCheck: FocusP
       if (bodyPressesInARow >= MAX_BODY_PRESSES_IN_A_ROW) return { focusStops, stoppedBecause: "end-of-page", trap: null, tabPresses: lastBodyStep };
       continue;
     }
+    const cameFromBody = bodyPressesInARow > 0;
     bodyPressesInARow = 0;
-    if (countPressInsideSameFrame(focusStops.at(-1), stop)) continue;
+    // Back at a third-party frame straight after <body> is a revisit, not
+    // another press inside it (Chromium can alternate between the page body
+    // and an out-of-process frame at the end of the page).
+    if (!cameFromBody && countPressInsideSameFrame(focusStops.at(-1), stop)) continue;
 
     const alreadyVisited = focusStops.some((visited) => visited.elementId === stop.elementId);
     if (alreadyVisited && passedBody) {

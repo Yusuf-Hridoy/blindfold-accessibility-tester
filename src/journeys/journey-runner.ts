@@ -511,13 +511,33 @@ function identityOf(focused: FocusedElement | null): ElementIdentity | null {
   return focused ? { elementId: focused.elementId, selector: focused.selector, description: focused.description } : null;
 }
 
+/** The focused element is a link (or in a form) whose target opens a new tab or window. */
+async function focusOpensNewBrowsingContext(page: Page): Promise<boolean> {
+  return page
+    .evaluate(() => {
+      const focused = window.__blindfoldElements?.deepActiveElement() ?? document.activeElement;
+      const owner = focused?.closest("a[href][target], area[href][target]") ?? (focused as HTMLInputElement | null)?.form ?? null;
+      const target = (owner?.getAttribute("target") ?? "").trim().toLowerCase();
+      return target !== "" && !["_self", "_parent", "_top"].includes(target);
+    })
+    .catch(() => false);
+}
+
 /**
  * Tabs the action opened: with follow_new_tab the journey switches to the first
  * one (load, 2xx check, prepared like any page); otherwise they're closed.
  * Returns true when the journey now continues in a new tab.
  */
-async function handleNewTabs(session: JourneySession, progress: StepProgress, step: JourneyStep, watcher: NewTabWatcher): Promise<boolean> {
-  const tabs = await watcher.openedTabs(step.followNewTab ? NEW_TAB_WAIT_MILLISECONDS : 0);
+async function handleNewTabs(
+  session: JourneySession,
+  progress: StepProgress,
+  step: JourneyStep,
+  watcher: NewTabWatcher,
+  expectsNewTab: boolean,
+): Promise<boolean> {
+  // A slow machine can open the tab after the page has settled, so wait for
+  // it whenever one is expected, not only with follow_new_tab.
+  const tabs = await watcher.openedTabs(step.followNewTab || expectsNewTab ? NEW_TAB_WAIT_MILLISECONDS : 0);
   const [firstTab] = tabs;
   if (!firstTab) return false;
   const timeout = session.options.pageTimeoutSeconds * 1000;
@@ -565,6 +585,7 @@ async function performAction(session: JourneySession, progress: StepProgress, st
   if (session.useScreenReader) await clearAnnouncements(page);
   session.navigation.reset();
 
+  const expectsNewTab = await focusOpensNewBrowsingContext(page);
   const newTabs = watchForNewTabs(page.context());
   const actionStartedAt = Date.now();
   let settled: { newDocument: boolean };
@@ -576,7 +597,7 @@ async function performAction(session: JourneySession, progress: StepProgress, st
       await page.keyboard.press(playwrightKeyName(key));
     }
     settled = await waitForPageToSettle(page, session.documentMarker, session.navigation, session.options.pageTimeoutSeconds);
-    followedNewTab = await handleNewTabs(session, progress, step, newTabs);
+    followedNewTab = await handleNewTabs(session, progress, step, newTabs, expectsNewTab);
   } finally {
     newTabs.stop();
   }

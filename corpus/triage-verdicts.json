@@ -2213,5 +2213,550 @@
     "verdict": "real",
     "note": "Owner: real.",
     "class": "R-2"
+  },
+  "https://demowebshop.tricentis.com/ BF-001 #nivo-slider > div:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: mouse-only control (same pattern as R-5).",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://demowebshop.tricentis.com/ BF-001 #nivo-slider > div:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "New after the fixes: mouse-only control (same pattern as R-5).",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://demowebshop.tricentis.com/ BF-001 body > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: mouse-only control (same pattern as R-5).",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://demowebshop.tricentis.com/ BF-001 body > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "New after the fixes: mouse-only control (same pattern as R-5).",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://demowebshop.tricentis.com/ BF-002 #small-searchterms": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://demowebshop.tricentis.com/ BF-002 #newsletter-email": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://demowebshop.tricentis.com/ BF-002 #nivo-slider > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-001 #overlay > div:nth-of-type(2) > div > div > div:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: mouse-only control (same pattern as R-5).",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://www.tentree.com/ BF-002 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #womens-flint-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #womens-flint-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide01 > div > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide01 > div > div > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide02 > div > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide02 > div > div > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide03 > div > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide03 > div > div > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide04 > div > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide04 > div > div > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide05 > div > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide01-slide05 > div > div > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(12) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(13) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(14) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(15) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(3)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-004 #subscribe_email": {
+    "verdict": "real",
+    "note": "New after the fixes: outline removed, nothing changes on focus (same pattern as R-6).",
+    "proposed": true,
+    "class": "R-6"
+  },
+  "https://www.tentree.com/ BF-004 #subscribe_phone": {
+    "verdict": "real",
+    "note": "New after the fixes: outline removed, nothing changes on focus (same pattern as R-6).",
+    "proposed": true,
+    "class": "R-6"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_3_1 >>> #aw0": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_4_0 >>> #aw0": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://excalidraw.com/ BF-003 #root > div > div": {
+    "verdict": "unsure",
+    "note": "Owner: unsure (R-8). Now reported as one BF-003; Escape, Shift+Tab and F6 do not release focus.",
+    "class": "R-8"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #main > div > form > table:nth-of-type(2) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > span > select": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #em": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #n": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #ev": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(6) > a": {
+    "verdict": "unsure",
+    "note": "New: Stripe control with tabindex=-1 (same pattern as U-1).",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-002 #main-content > section:nth-of-type(6) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button": {
+    "verdict": "real",
+    "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 34740 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5"
   }
 }

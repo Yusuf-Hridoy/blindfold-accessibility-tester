@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T11:18:07.067Z",
+  "generatedAt": "2026-10-13T12:43:56.927Z",
   "toolVersion": "0.6.0",
   "pages": [
     {
@@ -10,17 +10,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 4463,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 4090,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/",
@@ -30,17 +21,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 3539,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3490,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/",
@@ -50,17 +32,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 2718,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2377,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/",
@@ -70,17 +43,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 50,
       "warnings": [],
-      "durationMilliseconds": 2321,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2318,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/",
@@ -90,17 +54,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 3937,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3460,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/",
@@ -110,17 +65,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 51,
       "warnings": [],
-      "durationMilliseconds": 2499,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2210,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
@@ -130,46 +76,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3073,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#sc1",
-          "description": "code#sc1 \"<section id=\"myCarousel\" class=\"carouse…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
-          "ruleId": "BF-004",
-          "selector": "#myCarousel > div > div:nth-of-type(1) > button:nth-of-type(1)",
-          "description": "button.rotation",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
-          "ruleId": "BF-004",
-          "selector": "#myCarousel > div > div:nth-of-type(1) > button:nth-of-type(2)",
-          "description": "button.previous",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
-          "ruleId": "BF-004",
-          "selector": "#myCarousel > div > div:nth-of-type(1) > button:nth-of-type(3)",
-          "description": "button.next",
-          "confidence": "certain"
-        }
-      ]
+      "durationMilliseconds": 3712,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/",
@@ -179,32 +87,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 60,
       "warnings": [],
-      "durationMilliseconds": 3887,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#sc1",
-          "description": "code#sc1 \"<section id=\"myCarousel\" class=\"carouse…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/",
-          "ruleId": "BF-004",
-          "selector": "#myCarousel > div > div:nth-of-type(1) > button",
-          "description": "button.rotation",
-          "confidence": "certain"
-        }
-      ]
+      "durationMilliseconds": 3836,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/",
@@ -214,17 +98,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 2523,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2170,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/",
@@ -234,17 +109,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 2486,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2229,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/",
@@ -254,24 +120,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 3121,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/",
-          "ruleId": "BF-001",
-          "selector": "#cb1-button",
-          "description": "button#cb1-button",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2793,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
@@ -281,24 +131,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 2836,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
-          "ruleId": "BF-001",
-          "selector": "#cb1-button",
-          "description": "button#cb1-button",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2757,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/",
@@ -308,24 +142,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 2571,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/",
-          "ruleId": "BF-001",
-          "selector": "#cb1-button",
-          "description": "button#cb1-button",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2447,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/",
@@ -335,24 +153,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 60,
       "warnings": [],
-      "durationMilliseconds": 3766,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/",
-          "ruleId": "BF-001",
-          "selector": "#myDatepicker > div:nth-of-type(2) > button",
-          "description": "button.arrow",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 4365,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
@@ -362,24 +164,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 3203,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
-          "ruleId": "BF-001",
-          "selector": "#combo1-label",
-          "description": "div#combo1-label \"Favorite Fruit\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2378,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/",
@@ -389,17 +175,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 2668,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2446,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
@@ -409,17 +186,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 3296,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 4143,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/",
@@ -429,17 +197,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 54,
       "warnings": [],
-      "durationMilliseconds": 4125,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3740,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/",
@@ -449,31 +208,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 60,
       "warnings": [],
-      "durationMilliseconds": 2943,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/",
-          "ruleId": "BF-004",
-          "selector": "#toggle-folk-futures",
-          "description": "button#toggle-folk-futures \"Details\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/",
-          "ruleId": "BF-004",
-          "selector": "#toggle-playful-dissonance",
-          "description": "button#toggle-playful-dissonance \"Details\"",
-          "confidence": "certain"
-        }
-      ]
+      "durationMilliseconds": 3678,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/",
@@ -483,17 +219,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 3830,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3439,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/",
@@ -503,17 +230,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 3038,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2649,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/",
@@ -523,17 +241,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 62,
       "warnings": [],
-      "durationMilliseconds": 2794,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2512,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
@@ -543,17 +252,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 62,
       "warnings": [],
-      "durationMilliseconds": 3968,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3834,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/",
@@ -561,19 +261,10 @@
       "category": "feed",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 68,
+      "focusStops": 66,
       "warnings": [],
-      "durationMilliseconds": 3060,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2317,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/",
@@ -583,17 +274,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 61,
       "warnings": [],
-      "durationMilliseconds": 4739,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 4069,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/",
@@ -603,17 +285,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 69,
       "warnings": [],
-      "durationMilliseconds": 4043,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3664,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html",
@@ -623,7 +296,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1736,
+      "durationMilliseconds": 1195,
       "findings": []
     },
     {
@@ -634,7 +307,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1469,
+      "durationMilliseconds": 1171,
       "findings": []
     },
     {
@@ -645,7 +318,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1672,
+      "durationMilliseconds": 1056,
       "findings": []
     },
     {
@@ -656,7 +329,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 34,
       "warnings": [],
-      "durationMilliseconds": 1815,
+      "durationMilliseconds": 1199,
       "findings": []
     },
     {
@@ -667,7 +340,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1453,
+      "durationMilliseconds": 1083,
       "findings": []
     },
     {
@@ -678,7 +351,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1353,
+      "durationMilliseconds": 1145,
       "findings": []
     },
     {
@@ -689,7 +362,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1398,
+      "durationMilliseconds": 1057,
       "findings": []
     },
     {
@@ -700,7 +373,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 29,
       "warnings": [],
-      "durationMilliseconds": 1406,
+      "durationMilliseconds": 1049,
       "findings": []
     },
     {
@@ -711,17 +384,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 4151,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3837,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/",
@@ -731,17 +395,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 61,
       "warnings": [],
-      "durationMilliseconds": 3289,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"Experimental content! Do not use except…\"",
-          "confidence": "likely"
-        }
-      ]
+      "durationMilliseconds": 2638,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/",
@@ -751,17 +406,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3221,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2381,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/",
@@ -771,17 +417,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 2867,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2357,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/",
@@ -791,17 +428,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 67,
       "warnings": [],
-      "durationMilliseconds": 3459,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3309,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/",
@@ -811,17 +439,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 2686,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2606,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/",
@@ -831,17 +450,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 3927,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3960,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/",
@@ -851,17 +461,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 3934,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3599,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/",
@@ -871,17 +472,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 3965,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3950,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/",
@@ -891,17 +483,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 3298,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2931,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/",
@@ -911,17 +494,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3501,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3363,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/",
@@ -931,17 +505,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 47,
       "warnings": [],
-      "durationMilliseconds": 2821,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2641,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/",
@@ -951,17 +516,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 4209,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3920,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/",
@@ -971,17 +527,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 2688,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2371,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/",
@@ -991,17 +538,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 4867,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3673,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
@@ -1011,38 +549,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 2529,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
-          "ruleId": "BF-001",
-          "selector": "#ex1 > div > svg > g:nth-of-type(1) > rect",
-          "description": "rect",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
-          "ruleId": "BF-004",
-          "selector": "#ex1 > div > svg > g:nth-of-type(3)",
-          "description": "g.minimum \"$100\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
-          "ruleId": "BF-004",
-          "selector": "#ex1 > div > svg > g:nth-of-type(4)",
-          "description": "g.maximum \"$250\"",
-          "confidence": "certain"
-        }
-      ]
+      "durationMilliseconds": 3009,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
@@ -1052,38 +560,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3980,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
-          "ruleId": "BF-001",
-          "selector": "#ex1 > div > div:nth-of-type(2) > svg > rect:nth-of-type(1)",
-          "description": "rect.rail",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
-          "ruleId": "BF-001",
-          "selector": "#ex1 > div > div:nth-of-type(4) > svg > rect:nth-of-type(1)",
-          "description": "rect.rail",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
-          "ruleId": "BF-001",
-          "selector": "#ex1 > div > div:nth-of-type(6) > svg > rect:nth-of-type(1)",
-          "description": "rect.rail",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3779,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
@@ -1093,164 +571,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 2805,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(1) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(1) > text:nth-of-type(1)",
-          "description": "text.label \"1\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(2) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(2) > text",
-          "description": "text.label \"2\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(3) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(3) > text",
-          "description": "text.label \"3\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(4) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(4) > text",
-          "description": "text.label \"4\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(5) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(5) > text",
-          "description": "text.label \"5\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(6) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(6) > text",
-          "description": "text.label \"6\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(7) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(7) > text",
-          "description": "text.label \"7\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(8) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(8) > text",
-          "description": "text.label \"8\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(9) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(9) > text",
-          "description": "text.label \"9\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(10) > rect",
-          "description": "rect.target",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-001",
-          "selector": "#id-rating > svg > g:nth-of-type(10) > text:nth-of-type(1)",
-          "description": "text.label \"10\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
-          "ruleId": "BF-004",
-          "selector": "#id-rating",
-          "description": "div#id-rating \"1 Extremely Unsatisfied 2 3 4 5 6 7 8 9…\"",
-          "confidence": "certain"
-        }
-      ]
+      "durationMilliseconds": 3167,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/",
@@ -1260,17 +582,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 3796,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3647,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/",
@@ -1280,17 +593,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 3791,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3494,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
@@ -1300,59 +604,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 2754,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
-          "ruleId": "BF-001",
-          "selector": "#example-group > div:nth-of-type(3) > button:nth-of-type(1)",
-          "description": "button.decrease",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
-          "ruleId": "BF-001",
-          "selector": "#example-group > div:nth-of-type(3) > button:nth-of-type(2)",
-          "description": "button.increase",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
-          "ruleId": "BF-001",
-          "selector": "#example-group > div:nth-of-type(4) > button:nth-of-type(1)",
-          "description": "button.decrease",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
-          "ruleId": "BF-001",
-          "selector": "#example-group > div:nth-of-type(4) > button:nth-of-type(2)",
-          "description": "button.increase",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
-          "ruleId": "BF-001",
-          "selector": "#example-group > div:nth-of-type(5) > button:nth-of-type(1)",
-          "description": "button.decrease",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
-          "ruleId": "BF-001",
-          "selector": "#example-group > div:nth-of-type(5) > button:nth-of-type(2)",
-          "description": "button.increase",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3128,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
@@ -1362,59 +615,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 2740,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
-          "ruleId": "BF-001",
-          "selector": "#example > div > fieldset > div > div:nth-of-type(1) > div > button:nth-of-type(2)",
-          "description": "button \"+\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
-          "ruleId": "BF-001",
-          "selector": "#example > div > fieldset > div > div:nth-of-type(2) > div > button:nth-of-type(2)",
-          "description": "button \"+\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
-          "ruleId": "BF-001",
-          "selector": "#example > div > fieldset > div > div:nth-of-type(3) > div > button:nth-of-type(2)",
-          "description": "button \"+\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
-          "ruleId": "BF-004",
-          "selector": "#adults",
-          "description": "input#adults",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
-          "ruleId": "BF-004",
-          "selector": "#kids",
-          "description": "input#kids",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
-          "ruleId": "BF-004",
-          "selector": "#animals",
-          "description": "input#animals",
-          "confidence": "certain"
-        }
-      ]
+      "durationMilliseconds": 4306,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/",
@@ -1424,17 +626,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 54,
       "warnings": [],
-      "durationMilliseconds": 3705,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3580,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/",
@@ -1444,17 +637,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 51,
       "warnings": [],
-      "durationMilliseconds": 2394,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2288,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/",
@@ -1464,17 +648,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 3707,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3320,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/",
@@ -1484,17 +659,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 2576,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2274,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/",
@@ -1504,17 +670,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 47,
       "warnings": [],
-      "durationMilliseconds": 2353,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2073,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/",
@@ -1524,17 +681,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3201,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"Experimental content! Do not use except…\"",
-          "confidence": "likely"
-        }
-      ]
+      "durationMilliseconds": 3026,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/",
@@ -1544,17 +692,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 2539,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2293,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/",
@@ -1564,17 +703,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 3870,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3769,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
@@ -1584,38 +714,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 78,
       "warnings": [],
-      "durationMilliseconds": 4312,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
-          "ruleId": "BF-001",
-          "selector": "#ex1 > div > div:nth-of-type(2) > button:nth-of-type(1)",
-          "description": "button.item \"Text Align Left\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
-          "ruleId": "BF-001",
-          "selector": "#ex1 > div > div:nth-of-type(2) > button:nth-of-type(2)",
-          "description": "button.item \"Text Align Center\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
-          "ruleId": "BF-001",
-          "selector": "#ex1 > div > div:nth-of-type(2) > button:nth-of-type(3)",
-          "description": "button.item \"Text Align Right\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 4378,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/",
@@ -1625,17 +725,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 2956,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 2569,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/",
@@ -1645,17 +736,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3560,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3545,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/",
@@ -1665,17 +747,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 3283,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3312,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/",
@@ -1685,17 +758,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3740,
-      "findings": [
-        {
-          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#support-notice > summary",
-          "description": "summary \"The code in this example is not intende…\"",
-          "confidence": "check-by-hand"
-        }
-      ]
+      "durationMilliseconds": 3306,
+      "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
@@ -1703,11 +767,9 @@
       "category": "before",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 14,
-      "warnings": [
-        "More than half of the clickable elements were never reached. The keyboard walk may have been incomplete; check these results by hand."
-      ],
-      "durationMilliseconds": 1514,
+      "focusStops": 42,
+      "warnings": [],
+      "durationMilliseconds": 2537,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
@@ -1753,188 +815,6 @@
         },
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(1)",
-          "description": "a \"changelog\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(2)",
-          "description": "a \"Shadi Abou-Zahra\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(3)",
-          "description": "a \"Education and Outreach Working Group (E…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(4)",
-          "description": "a \"WAI-TIES\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(5)",
-          "description": "a \"WAI-AGE\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(6)",
-          "description": "a \"Acknowledgements\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(1)",
-          "description": "a \"WAI Site Map\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(2)",
-          "description": "a \"Help with WAI Website\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(3)",
-          "description": "a \"Search\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(4)",
-          "description": "a \"Contacting WAI\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > strong > a",
-          "description": "a \"wai-eo-editors@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(5)",
-          "description": "a \"wai@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(6)",
-          "description": "a \"liability\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(7)",
-          "description": "a \"trademark\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(8)",
-          "description": "a \"document use\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(9)",
-          "description": "a \"software licensing\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(10)",
-          "description": "a \"public\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(11)",
-          "description": "a \"Member\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
           "ruleId": "BF-002",
           "reason": "missing-name",
           "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
@@ -1951,7 +831,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 1343,
+      "durationMilliseconds": 1535,
       "findings": []
     },
     {
@@ -1960,11 +840,9 @@
       "category": "before",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 14,
-      "warnings": [
-        "More than half of the clickable elements were never reached. The keyboard walk may have been incomplete; check these results by hand."
-      ],
-      "durationMilliseconds": 1433,
+      "focusStops": 45,
+      "warnings": [],
+      "durationMilliseconds": 2011,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
@@ -1992,202 +870,6 @@
           "ruleId": "BF-001",
           "selector": "#survey > a",
           "description": "a",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div:nth-of-type(2) > div:nth-of-type(2) > a",
-          "description": "a \"trombone forgery debacle\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div:nth-of-type(3) > div:nth-of-type(1) > a",
-          "description": "a \"the way that air conditioning works\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(1)",
-          "description": "a \"changelog\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(2)",
-          "description": "a \"Shadi Abou-Zahra\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(3)",
-          "description": "a \"Education and Outreach Working Group (E…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(4)",
-          "description": "a \"WAI-TIES\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(5)",
-          "description": "a \"WAI-AGE\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(6)",
-          "description": "a \"Acknowledgements\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(1)",
-          "description": "a \"WAI Site Map\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(2)",
-          "description": "a \"Help with WAI Website\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(3)",
-          "description": "a \"Search\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(4)",
-          "description": "a \"Contacting WAI\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > strong > a",
-          "description": "a \"wai-eo-editors@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(5)",
-          "description": "a \"wai@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(6)",
-          "description": "a \"liability\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(7)",
-          "description": "a \"trademark\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(8)",
-          "description": "a \"document use\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(9)",
-          "description": "a \"software licensing\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(10)",
-          "description": "a \"public\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(11)",
-          "description": "a \"Member\"",
           "confidence": "likely"
         },
         {
@@ -2208,7 +890,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 1344,
+      "durationMilliseconds": 1476,
       "findings": []
     },
     {
@@ -2217,11 +899,9 @@
       "category": "before",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 14,
-      "warnings": [
-        "More than half of the clickable elements were never reached. The keyboard walk may have been incomplete; check these results by hand."
-      ],
-      "durationMilliseconds": 1446,
+      "focusStops": 42,
+      "warnings": [],
+      "durationMilliseconds": 2286,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
@@ -2249,188 +929,6 @@
           "ruleId": "BF-001",
           "selector": "#survey > a",
           "description": "a",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(1)",
-          "description": "a \"changelog\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(2)",
-          "description": "a \"Shadi Abou-Zahra\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(3)",
-          "description": "a \"Education and Outreach Working Group (E…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(4)",
-          "description": "a \"WAI-TIES\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(5)",
-          "description": "a \"WAI-AGE\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(6)",
-          "description": "a \"Acknowledgements\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(1)",
-          "description": "a \"WAI Site Map\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(2)",
-          "description": "a \"Help with WAI Website\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(3)",
-          "description": "a \"Search\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(4)",
-          "description": "a \"Contacting WAI\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > strong > a",
-          "description": "a \"wai-eo-editors@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(5)",
-          "description": "a \"wai@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(6)",
-          "description": "a \"liability\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(7)",
-          "description": "a \"trademark\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(8)",
-          "description": "a \"document use\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(9)",
-          "description": "a \"software licensing\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(10)",
-          "description": "a \"public\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(11)",
-          "description": "a \"Member\"",
           "confidence": "likely"
         },
         {
@@ -2451,7 +949,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 48,
       "warnings": [],
-      "durationMilliseconds": 1362,
+      "durationMilliseconds": 1618,
       "findings": []
     },
     {
@@ -2460,11 +958,9 @@
       "category": "before",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 14,
-      "warnings": [
-        "More than half of the clickable elements were never reached. The keyboard walk may have been incomplete; check these results by hand."
-      ],
-      "durationMilliseconds": 1577,
+      "focusStops": 49,
+      "warnings": [],
+      "durationMilliseconds": 2700,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
@@ -2496,284 +992,59 @@
         },
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input",
-          "description": "input.align",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > span > input",
-          "description": "input.align",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input",
-          "description": "input.align",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input",
-          "description": "input.align",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > input",
-          "description": "input.align",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input",
-          "description": "input.align",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(2) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > span > select",
-          "description": "select \"select a city -----> Afghanistan, Kabul…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(1)",
-          "description": "input",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(2)",
-          "description": "input",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#em",
-          "description": "input#em",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#n",
-          "description": "input#n",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#ev",
-          "description": "input#ev",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#submit",
-          "description": "input#submit",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(1)",
-          "description": "a \"changelog\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(2)",
-          "description": "a \"Shadi Abou-Zahra\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(3)",
-          "description": "a \"Education and Outreach Working Group (E…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(4)",
-          "description": "a \"WAI-TIES\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(5)",
-          "description": "a \"WAI-AGE\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(6)",
-          "description": "a \"Acknowledgements\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(1)",
-          "description": "a \"WAI Site Map\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(2)",
-          "description": "a \"Help with WAI Website\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(3)",
-          "description": "a \"Search\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(4)",
-          "description": "a \"Contacting WAI\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > strong > a",
-          "description": "a \"wai-eo-editors@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(5)",
-          "description": "a \"wai@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(6)",
-          "description": "a \"liability\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(7)",
-          "description": "a \"trademark\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(8)",
-          "description": "a \"document use\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(9)",
-          "description": "a \"software licensing\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(10)",
-          "description": "a \"public\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(11)",
-          "description": "a \"Member\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
           "ruleId": "BF-002",
           "reason": "missing-name",
           "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
           "description": "select \"QUICKMENU ----> Broadcasting Education …\"",
           "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input",
+          "description": "input.align",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#main > div > form > table:nth-of-type(2) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > span > select",
+          "description": "select \"select a city -----> Afghanistan, Kabul…\"",
+          "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(1)",
+          "description": "input",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#em",
+          "description": "input#em",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#n",
+          "description": "input#n",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#ev",
+          "description": "input#ev",
+          "confidence": "certain"
         }
       ]
     },
@@ -2785,7 +1056,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 1683,
+      "durationMilliseconds": 1856,
       "findings": []
     },
     {
@@ -2794,11 +1065,9 @@
       "category": "before",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 14,
-      "warnings": [
-        "More than half of the clickable elements were never reached. The keyboard walk may have been incomplete; check these results by hand."
-      ],
-      "durationMilliseconds": 1452,
+      "focusStops": 42,
+      "warnings": [],
+      "durationMilliseconds": 1823,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
@@ -2844,188 +1113,6 @@
         },
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(1)",
-          "description": "a \"changelog\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(2)",
-          "description": "a \"Shadi Abou-Zahra\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(3)",
-          "description": "a \"Education and Outreach Working Group (E…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(4)",
-          "description": "a \"WAI-TIES\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(5)",
-          "description": "a \"WAI-AGE\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(1) > a:nth-of-type(6)",
-          "description": "a \"Acknowledgements\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(1)",
-          "description": "a \"WAI Site Map\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(2)",
-          "description": "a \"Help with WAI Website\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(3)",
-          "description": "a \"Search\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(4)",
-          "description": "a \"Contacting WAI\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > strong > a",
-          "description": "a \"wai-eo-editors@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > p:nth-of-type(2) > a:nth-of-type(5)",
-          "description": "a \"wai@w3.org\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(1)",
-          "description": "a \"Copyright\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(3)",
-          "description": "a \"MIT\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(4)",
-          "description": "a \"ERCIM\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(5)",
-          "description": "a \"Keio\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(6)",
-          "description": "a \"liability\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(7)",
-          "description": "a \"trademark\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(8)",
-          "description": "a \"document use\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(9)",
-          "description": "a \"software licensing\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(10)",
-          "description": "a \"public\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
-          "ruleId": "BF-001",
-          "selector": "#meta-footer > div > p > a:nth-of-type(11)",
-          "description": "a \"Member\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
           "ruleId": "BF-002",
           "reason": "missing-name",
           "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
@@ -3042,17 +1129,72 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 50,
       "warnings": [],
-      "durationMilliseconds": 1381,
+      "durationMilliseconds": 1334,
       "findings": []
     },
     {
       "url": "https://demowebshop.tricentis.com/",
       "source": "real-site",
       "category": "e-commerce demo",
-      "status": "couldn't scan",
-      "reason": "Blindfold couldn't complete the scan. https://demowebshop.tricentis.com/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout.",
-      "durationMilliseconds": 30196,
-      "findings": []
+      "status": "scanned",
+      "stoppedBecause": "end-of-page",
+      "focusStops": 84,
+      "warnings": [],
+      "durationMilliseconds": 6986,
+      "findings": [
+        {
+          "url": "https://demowebshop.tricentis.com/",
+          "ruleId": "BF-001",
+          "selector": "#nivo-slider > div:nth-of-type(2) > a:nth-of-type(1)",
+          "description": "a.nivo-prevNav \"Prev\"",
+          "confidence": "likely"
+        },
+        {
+          "url": "https://demowebshop.tricentis.com/",
+          "ruleId": "BF-001",
+          "selector": "#nivo-slider > div:nth-of-type(2) > a:nth-of-type(2)",
+          "description": "a.nivo-nextNav \"Next\"",
+          "confidence": "likely"
+        },
+        {
+          "url": "https://demowebshop.tricentis.com/",
+          "ruleId": "BF-001",
+          "selector": "body > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)",
+          "description": "a.nivo-control \"1\"",
+          "confidence": "likely"
+        },
+        {
+          "url": "https://demowebshop.tricentis.com/",
+          "ruleId": "BF-001",
+          "selector": "body > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(2)",
+          "description": "a.nivo-control \"2\"",
+          "confidence": "likely"
+        },
+        {
+          "url": "https://demowebshop.tricentis.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#small-searchterms",
+          "description": "input#small-searchterms",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://demowebshop.tricentis.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#newsletter-email",
+          "description": "input#newsletter-email",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://demowebshop.tricentis.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#nivo-slider > a:nth-of-type(1)",
+          "description": "a.nivo-imageLink",
+          "confidence": "certain"
+        }
+      ]
     },
     {
       "url": "https://www.telerik.com/support/demos",
@@ -3060,9 +1202,9 @@
       "category": "SaaS, cookie banner",
       "status": "scanned",
       "stoppedBecause": "cycle-complete",
-      "focusStops": 107,
+      "focusStops": 144,
       "warnings": [],
-      "durationMilliseconds": 4658,
+      "durationMilliseconds": 8741,
       "findings": [
         {
           "url": "https://www.telerik.com/support/demos",
@@ -3160,36 +1302,8 @@
         {
           "url": "https://www.telerik.com/support/demos",
           "ruleId": "BF-004",
-          "selector": "#js-tlrk-skip-link",
-          "description": "a#js-tlrk-skip-link \"skip navigation\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.telerik.com/support/demos",
-          "ruleId": "BF-004",
-          "selector": "#js-tlrk-nav > section > div > figure > a:nth-of-type(2)",
-          "description": "a.TK-TLRK-Logo",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.telerik.com/support/demos",
-          "ruleId": "BF-004",
           "selector": "#js-tlrk-nav-drawer > ul:nth-of-type(1) > li:nth-of-type(1) > a",
           "description": "a.TK-Menu-Item-Link \"Demos\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.telerik.com/support/demos",
-          "ruleId": "BF-004",
-          "selector": "#js-tlrk-nav-drawer > ul:nth-of-type(2) > li:nth-of-type(6) > a",
-          "description": "a.TK-Button \"Get A Free Trial\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.telerik.com/support/demos",
-          "ruleId": "BF-004",
-          "selector": "#ContentPlaceholder1_C335_Col00 > div > div:nth-of-type(3) > a:nth-of-type(1)",
-          "description": "a.Btn \"See Plans & Pricing\"",
           "confidence": "certain"
         }
       ]
@@ -3202,7 +1316,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 105,
       "warnings": [],
-      "durationMilliseconds": 9640,
+      "durationMilliseconds": 10695,
       "findings": []
     },
     {
@@ -3213,15 +1327,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 101,
       "warnings": [],
-      "durationMilliseconds": 11274,
+      "durationMilliseconds": 10381,
       "findings": [
-        {
-          "url": "https://www.allbirds.com/",
-          "ruleId": "BF-001",
-          "selector": "#shopify-section-sections--16476870967376__geofencing > div > div > div > div:nth-of-type(1)",
-          "description": "div.bg-opacity-90",
-          "confidence": "certain"
-        },
         {
           "url": "https://www.allbirds.com/",
           "ruleId": "BF-002",
@@ -3245,13 +1352,6 @@
           "selector": "#shopify-section-sections--16476870967376__geofencing > div > div > div > div:nth-of-type(2) > div > div > div > div > select",
           "description": "select.w-full \"United StatesAustraliaAustriaBelgiumCan…\"",
           "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.allbirds.com/",
-          "ruleId": "BF-008",
-          "selector": "#vue-cart-drawer-app-sections--16476871000144__cart_drawer_section_4VCgQr > div > div:nth-of-type(1)",
-          "description": "div.z-takeover",
-          "confidence": "likely"
         }
       ]
     },
@@ -3260,50 +1360,17 @@
       "source": "real-site",
       "category": "Shopify shop",
       "status": "scanned",
-      "stoppedBecause": "focus-trap",
-      "focusStops": 17,
+      "stoppedBecause": "end-of-page",
+      "focusStops": 267,
       "warnings": [],
-      "durationMilliseconds": 8297,
+      "durationMilliseconds": 69231,
       "findings": [
         {
           "url": "https://www.tentree.com/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(1) > a",
-          "description": "a.tracking-wider \"WOMENS\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.tentree.com/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(2) > a",
-          "description": "a.tracking-wider \"MENS\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.tentree.com/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(3) > a",
-          "description": "a.tracking-wider \"ACCESSORIES\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.tentree.com/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(4) > a",
-          "description": "a.tracking-wider \"CLIMATE+\"",
-          "confidence": "check-by-hand"
-        },
-        {
-          "url": "https://www.tentree.com/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(5) > a",
-          "description": "a.tracking-wider \"IMPACT\"",
-          "confidence": "check-by-hand"
+          "ruleId": "BF-001",
+          "selector": "#overlay > div:nth-of-type(2) > div > div > div:nth-of-type(1)",
+          "description": "div.absolute",
+          "confidence": "certain"
         },
         {
           "url": "https://www.tentree.com/",
@@ -3317,16 +1384,519 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info",
-          "description": "product-info",
+          "selector": "#womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
           "confidence": "certain"
         },
         {
           "url": "https://www.tentree.com/",
-          "ruleId": "BF-003",
-          "selector": "#womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info",
-          "description": "product-info",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
           "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-flint-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-flint-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide01 > div > a",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide01 > div > div > a:nth-of-type(1)",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide02 > div > a",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide02 > div > div > a:nth-of-type(1)",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide03 > div > a",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide03 > div > div > a:nth-of-type(1)",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide04 > div > a",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide04 > div > div > a:nth-of-type(1)",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide05 > div > a",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#splide01-slide05 > div > div > a:nth-of-type(1)",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(12) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(13) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(14) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(15) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(1)",
+          "description": "a.inline-flex",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(2)",
+          "description": "a.inline-flex",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(3)",
+          "description": "a.inline-flex",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-004",
+          "selector": "#subscribe_email",
+          "description": "input#subscribe_email",
+          "confidence": "likely"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-004",
+          "selector": "#subscribe_phone",
+          "description": "input#subscribe_phone",
+          "confidence": "likely"
         }
       ]
     },
@@ -3338,7 +1908,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 75,
       "warnings": [],
-      "durationMilliseconds": 4755,
+      "durationMilliseconds": 5576,
       "findings": []
     },
     {
@@ -3349,7 +1919,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 268,
       "warnings": [],
-      "durationMilliseconds": 19753,
+      "durationMilliseconds": 21366,
       "findings": [
         {
           "url": "https://techcrunch.com/",
@@ -3399,9 +1969,9 @@
       "category": "news",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 116,
+      "focusStops": 117,
       "warnings": [],
-      "durationMilliseconds": 7449,
+      "durationMilliseconds": 5503,
       "findings": []
     },
     {
@@ -3412,7 +1982,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 88,
       "warnings": [],
-      "durationMilliseconds": 2104,
+      "durationMilliseconds": 2055,
       "findings": []
     },
     {
@@ -3423,21 +1993,21 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 5526,
+      "durationMilliseconds": 5413,
       "findings": [
         {
           "url": "https://www.usa.gov/",
           "ruleId": "BF-001",
           "selector": "#usagov-banner > div > div:nth-of-type(1) > div > div:nth-of-type(1) > img",
           "description": "img.usa-banner__header-flag",
-          "confidence": "certain"
+          "confidence": "check-by-hand"
         },
         {
           "url": "https://www.usa.gov/",
           "ruleId": "BF-001",
           "selector": "#block-usagov-content > div > div:nth-of-type(6) > div > img",
           "description": "img",
-          "confidence": "certain"
+          "confidence": "check-by-hand"
         }
       ]
     },
@@ -3447,9 +2017,9 @@
       "category": "SaaS marketing",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 170,
+      "focusStops": 173,
       "warnings": [],
-      "durationMilliseconds": 23744,
+      "durationMilliseconds": 49514,
       "findings": [
         {
           "url": "https://stripe.com/",
@@ -3470,6 +2040,13 @@
           "ruleId": "BF-001",
           "selector": "#navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(4) > button",
           "description": "button.hds-button \"Resources\"",
+          "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://stripe.com/",
+          "ruleId": "BF-001",
+          "selector": "#navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(6) > a",
+          "description": "a.hds-button \"Guide me\"",
           "confidence": "check-by-hand"
         },
         {
@@ -3504,106 +2081,8 @@
           "url": "https://stripe.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button",
+          "selector": "#main-content > section:nth-of-type(6) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button",
           "description": "button.platform-graphic__replay-button",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(1)",
-          "description": "button.modular-solutions-bento-card \"Accept and optimize payments globally—o…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(2)",
-          "description": "button.modular-solutions-bento-card \"Enable any billing modelPro PlanBilled …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(3)",
-          "description": "button.modular-solutions-bento-card \"Monetize through agentic commerceI’m re…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(4)",
-          "description": "button.modular-solutions-bento-card \"Create a card issuing program\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(5)",
-          "description": "button.modular-solutions-bento-card \"Access borderless money movement with s…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(6)",
-          "description": "button.modular-solutions-bento-card \"Embed payments in your platformJackson …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(1) > div > a",
-          "description": "a.case-study-card \"Lovable grows into a vibe-coding jugger…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(2) > div > a",
-          "description": "a.case-study-card \"Gamma expands to $100M ARR and 70 milli…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(3) > div > a",
-          "description": "a.case-study-card \"Runway protects developer time with no-…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(4) > div > a",
-          "description": "a.case-study-card \"Supabase delivers its backend-as-a-serv…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(5) > div > a",
-          "description": "a.case-study-card \"Linear partners with Stripe to handle b…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(6) > div > a",
-          "description": "a.case-study-card \"ElevenLabs grows into a $3B AI audio le…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(7) > div > a",
-          "description": "a.case-study-card \"Browserbase offers usage-based billing …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://stripe.com/",
-          "ruleId": "BF-004",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(8) > div > a",
-          "description": "a.case-study-card \"Decagon decreases support costs by 65% …\"",
           "confidence": "certain"
         }
       ]
@@ -3616,7 +2095,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 81,
       "warnings": [],
-      "durationMilliseconds": 37945,
+      "durationMilliseconds": 38453,
       "findings": [
         {
           "url": "https://www.atlassian.com/",
@@ -3667,49 +2146,8 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 151,
       "warnings": [],
-      "durationMilliseconds": 9083,
-      "findings": [
-        {
-          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "body > div:nth-of-type(1) > mdn-placement-top",
-          "description": "mdn-placement-top",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#content > div:nth-of-type(2) > section:nth-of-type(8) > div > mdn-content-feedback",
-          "description": "mdn-content-feedback",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#main-sidebar > nav > div:nth-of-type(1) > mdn-sidebar-filter",
-          "description": "mdn-sidebar-filter",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#main-sidebar > nav > div:nth-of-type(2) > ol > li:nth-of-type(14) > details > summary",
-          "description": "summary \"Attributes by element\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#main-sidebar > nav > div:nth-of-type(2) > ol > li:nth-of-type(15) > details > summary",
-          "description": "summary \"Attribute values\"",
-          "confidence": "likely"
-        }
-      ]
+      "durationMilliseconds": 8981,
+      "findings": []
     },
     {
       "url": "https://docs.python.org/3/",
@@ -3719,7 +2157,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 80,
       "warnings": [],
-      "durationMilliseconds": 2562,
+      "durationMilliseconds": 2518,
       "findings": [
         {
           "url": "https://docs.python.org/3/",
@@ -3754,33 +2192,8 @@
       "stoppedBecause": "max-tabs",
       "focusStops": 400,
       "warnings": [],
-      "durationMilliseconds": 73419,
-      "findings": [
-        {
-          "url": "https://www.ikea.com/gb/en/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#hnf-carousel__hnf-inpage-nav",
-          "description": "div#hnf-carousel__hnf-inpage-nav \"OffersChristmas ShopStorage furnitureHo…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.ikea.com/gb/en/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#listing-carousel__product-carousel-c64bda",
-          "description": "div#listing-carousel__product-carousel-c64bda \"New lower priceKALLAX Shelving unit, wh…\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.ikea.com/gb/en/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#listing-carousel__product-rec-carousel-d02a3",
-          "description": "div#listing-carousel__product-rec-carousel-d02a3 \"NewSTRANDMON Wing chair, Talliden beige…\"",
-          "confidence": "likely"
-        }
-      ]
+      "durationMilliseconds": 89911,
+      "findings": []
     },
     {
       "url": "https://www.samsung.com/uk/",
@@ -3790,7 +2203,7 @@
       "stoppedBecause": "cycle-complete",
       "focusStops": 5,
       "warnings": [],
-      "durationMilliseconds": 4773,
+      "durationMilliseconds": 5816,
       "findings": []
     },
     {
@@ -3798,195 +2211,11 @@
       "source": "real-site",
       "category": "single-page app",
       "status": "scanned",
-      "stoppedBecause": "cycle-complete",
+      "stoppedBecause": "focus-trap",
       "focusStops": 1,
-      "warnings": [
-        "More than half of the clickable elements were never reached. The keyboard walk may have been incomplete; check these results by hand."
-      ],
-      "durationMilliseconds": 2491,
+      "warnings": [],
+      "durationMilliseconds": 2934,
       "findings": [
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
-          "description": "button.welcome-screen-menu-item \"OpenCmd+O\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(2)",
-          "description": "button.welcome-screen-menu-item \"Help?\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(3)",
-          "description": "button.welcome-screen-menu-item \"Live collaboration...\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a",
-          "description": "a.welcome-screen-menu-item \"Sign up\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#radix-\\:r2\\:",
-          "description": "button#radix-:r2:",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(1)",
-          "description": "button.ToolIcon",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(2)",
-          "description": "button.ToolIcon",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(3)",
-          "description": "button.ToolIcon \"V\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(4)",
-          "description": "button.ToolIcon \"R\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(5)",
-          "description": "button.ToolIcon \"D\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(6)",
-          "description": "button.ToolIcon \"O\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(7)",
-          "description": "button.ToolIcon \"A\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(8)",
-          "description": "button.ToolIcon \"L\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(9)",
-          "description": "button.ToolIcon \"P\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(10)",
-          "description": "button.ToolIcon \"T\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(11)",
-          "description": "button.ToolIcon \"N\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(12)",
-          "description": "button.ToolIcon \"E\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#radix-\\:r0\\:",
-          "description": "button#radix-:r0:",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a",
-          "description": "a.plus-banner \"Try Excalidraw+14-day free trial\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > div > button",
-          "description": "button.excalidraw-button",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > button",
-          "description": "button.sidebar-trigger__label-element",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(1) > button",
-          "description": "button.ToolIcon_type_button",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(2) > button",
-          "description": "button.ToolIcon_type_button \"100%\"",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(3) > button",
-          "description": "button.ToolIcon_type_button",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(2) > div > a",
-          "description": "a.encrypted-icon",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-001",
-          "selector": "#root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(3) > div > div:nth-of-type(2) > button",
-          "description": "button.help-icon",
-          "confidence": "likely"
-        },
         {
           "url": "https://excalidraw.com/",
           "ruleId": "BF-002",
@@ -3997,10 +2226,10 @@
         },
         {
           "url": "https://excalidraw.com/",
-          "ruleId": "BF-008",
-          "selector": "#root > div > div > canvas",
-          "description": "canvas.excalidraw__canvas \"Drawing canvas\"",
-          "confidence": "likely"
+          "ruleId": "BF-003",
+          "selector": "#root > div > div",
+          "description": "div.excalidraw \"Your drawings are saved in your browser…\"",
+          "confidence": "certain"
         }
       ]
     },
@@ -4012,7 +2241,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 105,
       "warnings": [],
-      "durationMilliseconds": 5208,
+      "durationMilliseconds": 6056,
       "findings": [
         {
           "url": "https://react.dev/",
@@ -4020,20 +2249,6 @@
           "selector": "#__next > div:nth-of-type(3) > main > div > div > footer > div > div:nth-of-type(1) > div:nth-of-type(3)",
           "description": "div.uwu-hidden \"uwu?\"",
           "confidence": "certain"
-        },
-        {
-          "url": "https://react.dev/",
-          "ruleId": "BF-004",
-          "selector": "#\\:R1sq8q6\\:",
-          "description": "input#:R1sq8q6:",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://react.dev/",
-          "ruleId": "BF-004",
-          "selector": "#\\:R6sqaq6\\:",
-          "description": "input#:R6sqaq6:",
-          "confidence": "likely"
         }
       ]
     },
@@ -4045,7 +2260,7 @@
       "stoppedBecause": "end-of-page",
       "focusStops": 106,
       "warnings": [],
-      "durationMilliseconds": 7164,
+      "durationMilliseconds": 12409,
       "findings": [
         {
           "url": "https://www.lemonde.fr/",
@@ -4079,55 +2294,6 @@
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#\\31 52425 > h2 > a",
-          "description": "a.ds-card__link \"After ban of one stun grenade, French p…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 50782 > h3 > a",
-          "description": "a.ds-card__link \"What actions are French police allowed …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 50479 > h3 > a",
-          "description": "a.ds-card__link \"French high school protests: What we kn…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#habillagepub > section > ul:nth-of-type(1) > li:nth-of-type(2) > div > div > div:nth-of-type(2) > h2 > a",
-          "description": "a.ds-card__link \"Greta Thunberg joins French students am…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52821 > h2 > a",
-          "description": "a.ds-card__link \"Trump's plan to import Russian diesel a…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52496 > h3 > a",
-          "description": "a.ds-card__link \"Why the Trump-Putin fuel agreement bene…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52755 > h3 > a",
-          "description": "a.ds-card__link \"NATO's top commander says 'alliance is …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
           "selector": "#\\31 52227 > h3 > a",
           "description": "a.ds-card__link \"Ukraine and Europe seek to keep pressur…\"",
           "confidence": "certain"
@@ -4142,50 +2308,8 @@
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#habillagepub > section > ul:nth-of-type(1) > li:nth-of-type(4) > div > div > div:nth-of-type(2) > h2 > a",
-          "description": "a.ds-card__link \"A disastrous day for French supermarket…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 53121 > h2 > a",
-          "description": "a.ds-card__link \"Oxfam sues French state over tax inequa…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52822 > h2 > a",
-          "description": "a.ds-card__link \"French middle schooler opens fire on pr…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 51404 > h2 > a",
-          "description": "a.ds-card__link \"Why Ceuta and Melilla remain a point of…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52854 > h2 > a",
-          "description": "a.ds-card__link \"Local authorities authorize killing of …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
           "selector": "#\\31 53122 > h2 > a",
           "description": "a.ds-card__link \"UK PM Burnham levels sweeping accusatio…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 53129 > h2 > a",
-          "description": "a.ds-card__link \"Hungary removes anti-LGBTQ provisions f…\"",
           "confidence": "certain"
         },
         {
@@ -4198,71 +2322,8 @@
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#\\31 52497 > h2 > a",
-          "description": "a.ds-card__link \"Economics Nobel Prize awarded to Americ…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#habillagepub > section > ul:nth-of-type(2) > li:nth-of-type(6) > div > div > div:nth-of-type(2) > h2 > a",
-          "description": "a.ds-card__link \"911 calls reveal emergency help for Chr…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52722 > h2 > a",
-          "description": "a.ds-card__link \"Pope Leo XIV to be hospitalized in Rome…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 51831 > h3 > a",
-          "description": "a.ds-card__link \"From farms to high schools, France is a…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(2) > div > div > div:nth-of-type(2) > h3 > a",
-          "description": "a.ds-card__link \"Glucksmann won the center-left primary.…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 50495 > h3 > a",
-          "description": "a.ds-card__link \"How the French left wants to reclaim th…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 45001 > h3 > a",
-          "description": "a.ds-card__link \"'A Man of His Time': Swann Arlaud as a …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52229 > h3 > a",
-          "description": "a.ds-card__link \"Dorothée Gilbert, étoile at the Paris O…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 51732 > h3 > a",
-          "description": "a.ds-card__link \"Triathletes swim in Versailles grand ca…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 50813 > h3 > a",
-          "description": "a.ds-card__link \"How Jeffrey Epstein used Woody Allen to…\"",
+          "selector": "#\\31 34740 > h3 > a",
+          "description": "a.ds-card__link \"Swann Arlaud did not want to talk polit…\"",
           "confidence": "certain"
         },
         {
@@ -4282,34 +2343,6 @@
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#\\31 51041 > h3 > a",
-          "description": "a.ds-card__link \"OpenAI's latest blow to mathematicians:…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#ds-area__list--ds-area--most-read > li:nth-of-type(2) > div > div > div > h3 > a",
-          "description": "a.ds-card__link \"911 calls reveal emergency help for Chr…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#ds-area__list--ds-area--most-read > li:nth-of-type(3) > div > div > div > h3 > a",
-          "description": "a.ds-card__link \"A disastrous day for French supermarket…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52458 > h3 > a",
-          "description": "a.ds-card__link \"French supermarket chains say cyberatta…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
           "selector": "#\\31 52431 > h3 > a",
           "description": "a.ds-card__link \"Middle school principal and teacher sho…\"",
           "confidence": "certain"
@@ -4319,27 +2352,6 @@
           "ruleId": "BF-004",
           "selector": "#\\31 52326 > h3 > a",
           "description": "a.ds-card__link \"French high school protests: Exhausted …\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 52434 > h3 > a",
-          "description": "a.ds-card__link \"Paris's historic Marché des Enfants-Rou…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#ds-area__list--ds-area--most-read > li:nth-of-type(8) > div > div > div > h3 > a",
-          "description": "a.ds-card__link \"Greta Thunberg joins French students am…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#ds-area__list--ds-area--most-read > li:nth-of-type(9) > div > div > div > h3 > a",
-          "description": "a.ds-card__link \"French presidential election: Glucksman…\"",
           "confidence": "certain"
         },
         {
@@ -4357,7 +2369,7 @@
       "category": "non-English e-commerce (Japanese)",
       "status": "couldn't scan",
       "reason": "Blindfold stopped after 120 s (time limit). Raise --time-limit for very large pages.",
-      "durationMilliseconds": 120238,
+      "durationMilliseconds": 120254,
       "findings": []
     },
     {
@@ -4368,7 +2380,7 @@
       "stoppedBecause": "max-tabs",
       "focusStops": 400,
       "warnings": [],
-      "durationMilliseconds": 23160,
+      "durationMilliseconds": 22745,
       "findings": [
         {
           "url": "https://en.wikipedia.org/wiki/Web_accessibility",

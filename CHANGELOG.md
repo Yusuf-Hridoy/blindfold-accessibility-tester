@@ -68,6 +68,11 @@ change behaviour).
     control covering the whole overlay (an app's canvas) is its surface.
   - BF-001 on an element with only a click listener (no pointer cursor, no
     role) is "check by hand".
+- A scan whose last stop is a third-party frame no longer runs to the Tab
+  limit when Chromium alternates between the page body and the frame.
+- Journeys wait for the new tab (up to 3 s) whenever the action is on a link
+  or form whose `target` opens one, not only with `follow_new_tab`, so a slow
+  machine doesn't miss it.
 - False BF-001 for most of a page when the page focuses something at load
   near the end of the DOM (typically a cookie banner). The walk stopped as soon
   as focus reached the end of the page, so everything above the banner was

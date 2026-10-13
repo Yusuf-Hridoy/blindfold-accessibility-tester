@@ -108,3 +108,12 @@ describe("trap detection through a frame", () => {
     expect(outcome.result.notTested.map((element) => [element.selector, element.reason])).toEqual([["#late", "blocked by focus trap"]]);
   });
 });
+
+describe("a third-party frame at the end of the page", () => {
+  it("ends the walk at the end of the page (Tab past it doesn't loop between the page body and the frame)", async () => {
+    const widget = scanner.otherOriginPageUrl(`<button>Inside</button>`);
+    const { result } = await scanner.scan(`<a href="#a">First</a><iframe id="widget" title="Widget" src="${widget}"></iframe>`, { maxTabs: 40 });
+    expect(result.stoppedBecause).toBe("end-of-page");
+    expect(result.tabPresses).toBeLessThan(10);
+  });
+});
