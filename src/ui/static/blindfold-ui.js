@@ -200,11 +200,14 @@
 
   // ---- Result panel ----
 
-  function showResult({ heading, verdict, passed, numbers = [], reportUrl = null, audioUrl = null }) {
+  function showResult({ heading, verdict, passed, warnings = [], numbers = [], reportUrl = null, audioUrl = null }) {
     byId("result-heading").textContent = heading;
     const verdictElement = byId("result-verdict");
     verdictElement.textContent = verdict;
     verdictElement.className = passed === null ? "verdict" : passed ? "verdict verdict-pass" : "verdict verdict-fail";
+    const warning = byId("result-warning");
+    warning.textContent = warnings.map((text) => `Warning: ${text}`).join(" ");
+    warning.hidden = warnings.length === 0;
 
     const numberList = byId("result-numbers");
     numberList.replaceChildren(
@@ -237,6 +240,7 @@
       heading: `${kindLabel(summary.kind)} result: ${summary.subject}`,
       verdict: summary.verdict,
       passed: summary.barrierCount === 0 && summary.outcome !== "blocked",
+      warnings: summary.warnings ?? [],
       numbers: [
         ["Barriers", summary.barrierCount],
         ["Rules failed", summary.rulesFailed],

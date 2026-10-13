@@ -153,6 +153,7 @@ export function summarizeScanResult(result: ScanResult): RunSummary {
     rulesFailed: countFailedRules(result.findings),
     focusStops: result.focusStops.length,
     verdict: result.findings.length === 0 ? "No barriers found" : `${pluralize(result.findings.length, "barrier", "barriers")} found`,
+    warnings: result.warnings ?? [],
     durationMilliseconds: result.durationMilliseconds,
   };
 }
@@ -166,6 +167,7 @@ export function summarizeJourneyResult(result: JourneyResult): RunSummary {
     focusStops: result.steps.reduce((sum, step) => sum + step.focusStopsPassed, 0),
     outcome: result.outcome,
     verdict: journeyVerdict(result),
+    warnings: [],
     durationMilliseconds: result.durationMilliseconds,
   };
 }

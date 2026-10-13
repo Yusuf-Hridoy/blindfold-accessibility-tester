@@ -139,6 +139,7 @@ function printScanSummary(outcome: ScanOutcome, reportPath: string, audio: Audio
   if (result.notTested.length > 0) {
     console.log(`  ! ${pluralize(result.notTested.length, "element was", "elements were")} not tested (see the report).`);
   }
+  for (const warning of result.warnings) console.log(`  ! ${warning}`);
 
   const failedRuleCount = new Set(result.findings.map((finding) => finding.ruleId)).size;
   const seconds = (result.durationMilliseconds / 1000).toFixed(1);

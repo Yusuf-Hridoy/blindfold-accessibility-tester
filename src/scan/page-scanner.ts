@@ -13,6 +13,7 @@ import { findArrowKeyReachable } from "../passes/arrow-key-reachability.ts";
 import { findElementsBeforeTrap, walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
 import type { SessionState } from "../sessions/session-file-loader.ts";
 import { summarizeFinding } from "../rules/rule-catalog.ts";
+import { incompleteWalkWarnings } from "../rules/incomplete-walk-warning.ts";
 import { runRules } from "../rules/rule-engine.ts";
 import { RunCancelledError, throwIfCancelled } from "../runtime/run-cancellation.ts";
 import { TOOL_VERSION } from "../tool-version.ts";
@@ -279,6 +280,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       blockingOverlays,
       findings,
       notTested,
+      warnings: incompleteWalkWarnings(mousePassElements, findings),
       durationMilliseconds: Date.now() - startedAt,
     };
     return { result, screenshots };

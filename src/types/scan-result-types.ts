@@ -178,5 +178,7 @@ export interface ScanResult {
   blockingOverlays: OverlayDetection[];
   findings: Finding[];
   notTested: NotTestedElement[];
+  /** Doubts about the scan itself, e.g. most clickable elements never reached. Missing in reports before 0.5.0. */
+  warnings: string[];
   durationMilliseconds: number;
 }

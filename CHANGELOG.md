@@ -26,6 +26,18 @@ change behaviour).
 ### Changed
 - The CLI's scan and journey commands now share their run-and-write code with
   the web UI. Output, reports and exit codes are unchanged.
+- Scan reports have a `warnings` list. When more than half of the clickable
+  elements are BF-001, it says the keyboard walk may have been incomplete and
+  the results should be checked by hand (terminal, HTML report, JSON and web
+  UI). The findings are kept.
+
+### Fixed
+- False BF-001 for most of a page when the page focuses something at load
+  near the end of the DOM (typically a cookie banner). The walk stopped as soon
+  as focus reached the end of the page, so everything above the banner was
+  never visited. A walk that starts on an element focused at load now wraps
+  around to the top and stops after one full cycle (back at an element it
+  already visited). Walks that start at the top of the page are unchanged.
 
 ## [0.4.0] - 2026-10-09
 

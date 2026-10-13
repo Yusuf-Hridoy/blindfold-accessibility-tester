@@ -427,6 +427,11 @@ even with `fail-on: never`.
 
 - A focus trap whose cycle includes the page's first focus stop is not detected
   yet (for example, a dialog that traps focus from the moment the page loads).
+- When the page focuses something at load (a cookie banner, an `autofocus`
+  field), the keyboard walk starts there, wraps around past the end of the
+  page and stops after one full cycle. If more than half of the clickable
+  elements still end up as BF-001, the report warns that the walk may have
+  been incomplete; check those results by hand.
 - After a focus trap, unreached controls *before* the trap (in document order)
   are reported as BF-001, because Tab passed their position. Controls after it
   are listed as "not tested".

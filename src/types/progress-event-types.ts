@@ -19,6 +19,8 @@ export interface RunSummary {
   outcome?: JourneyOutcome;
   /** One line, e.g. "4 barriers found" or "Blocked at step 2". */
   verdict: string;
+  /** Doubts about the run itself (scans: most clickable elements never reached). */
+  warnings: string[];
   durationMilliseconds: number;
 }
 

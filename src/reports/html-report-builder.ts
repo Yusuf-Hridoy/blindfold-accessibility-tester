@@ -269,7 +269,8 @@ export function buildHtmlReport(result: ScanResult, screenshots: Map<Finding, st
     verdictText,
     passed: barrierCount === 0,
     verdictDetails: `<p>Page: <a href="${escapeHtml(result.url)}">${escapeHtml(result.url)}</a></p>
-      <p>Scanned: <time datetime="${escapeHtml(result.scannedAt)}">${escapeHtml(readableDate(result.scannedAt))}</time></p>`,
+      <p>Scanned: <time datetime="${escapeHtml(result.scannedAt)}">${escapeHtml(readableDate(result.scannedAt))}</time></p>
+      ${(result.warnings ?? []).map((warning) => `<p><strong>Warning:</strong> ${escapeHtml(warning)}</p>`).join("")}`,
     sections: [
       { id: "summary", title: "Summary", html: buildScanSummary(result) },
       ...(audioSection ? [audioSection] : []),

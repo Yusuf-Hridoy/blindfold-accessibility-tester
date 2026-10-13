@@ -159,6 +159,8 @@ export async function findElementsBeforeTrap(page: Page, candidateIds: number[],
 export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions): Promise<KeyboardWalkResult> {
   const focusStops: FocusStop[] = [];
   let tabPressesOnBody = 0;
+  let bodyPressesInARow = 0;
+  let passedEndOfPage = false;
 
   // A page script may already have focused something (e.g. a cookie banner's
   // button). The keyboard user starts there, so it counts as reached.
@@ -167,18 +169,35 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
     focusStops.push(focusedOnLoad);
     await options.onFocusStop?.(focusedOnLoad);
   }
+  // Only a walk that started at the top has seen the whole page when focus
+  // reaches <body>. One that started on an element focused at load (often a
+  // cookie banner at the end of the page) wraps around to the top instead.
+  const startedAtTop = focusedOnLoad === null;
 
   for (let step = 1; step <= options.maxTabs; step++) {
     throwIfCancelled(options.signal);
     const stop = await pressKeyAndRecord(page, step, options.useScreenReader);
     if (stop === null) {
-      if (focusStops.length > 0) return { focusStops, stoppedBecause: "end-of-page", trap: null, tabPresses: step };
-      tabPressesOnBody++;
-      if (tabPressesOnBody >= 2) return { focusStops, stoppedBecause: "no-focusable-elements", trap: null, tabPresses: step };
+      if (startedAtTop) {
+        if (focusStops.length > 0) return { focusStops, stoppedBecause: "end-of-page", trap: null, tabPresses: step };
+        tabPressesOnBody++;
+        if (tabPressesOnBody >= 2) return { focusStops, stoppedBecause: "no-focusable-elements", trap: null, tabPresses: step };
+        continue;
+      }
+      passedEndOfPage = true;
+      // Twice in a row: there's nothing at the top to wrap to.
+      if (++bodyPressesInARow >= 2) return { focusStops, stoppedBecause: "end-of-page", trap: null, tabPresses: step };
       continue;
     }
+    bodyPressesInARow = 0;
     if (countPressInsideSameFrame(focusStops.at(-1), stop)) continue;
     if (focusStops.length > 0 && stop.elementId === focusStops[0]?.elementId) {
+      return { focusStops, stoppedBecause: "cycle-complete", trap: null, tabPresses: step };
+    }
+    // After wrapping, any element already visited closes the cycle: the
+    // element focused at load may not be a Tab stop (e.g. a heading with
+    // tabindex="-1"), so focus would never come back to it exactly.
+    if (passedEndOfPage && focusStops.some((visited) => visited.elementId === stop.elementId)) {
       return { focusStops, stoppedBecause: "cycle-complete", trap: null, tabPresses: step };
     }
     focusStops.push(stop);
