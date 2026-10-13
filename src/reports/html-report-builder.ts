@@ -6,9 +6,11 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { AudioReplayResult } from "../audio/audio-replay-writer.ts";
 import { describeViewport } from "../browser/viewport-presets.ts";
+import { CONFIDENCE_LABELS, CONFIDENCE_LEGEND } from "../rules/finding-confidence.ts";
 import { groupFindings } from "../rules/rule-catalog.ts";
 import type {
   Finding,
+  FindingConfidence,
   FocusStop,
   FocusVisibility,
   ScanResult,
@@ -114,9 +116,12 @@ function buildFinding(finding: Finding, screenshot: string | undefined): string 
         .map((control) => `<li>${escapeHtml(control.description)} (<code>${escapeHtml(control.selector)}</code>)</li>`)
         .join("")}</ul>`
     : "";
+  const level = finding.confidence ?? "unknown";
+  const confidenceLabel = `<p class="confidence confidence-${level}"><span class="confidence-label">Confidence: ${escapeHtml(CONFIDENCE_LABELS[level])}</span></p>`;
   const excerptCaption = finding.journeyStep !== undefined ? `What happened in step ${finding.journeyStep}` : `Transcript around step ${finding.step ?? ""}`;
   return `<article class="finding">
     <h4>${escapeHtml(finding.description)}</h4>
+    ${confidenceLabel}
     <p>Selector: <code>${escapeHtml(finding.selector)}</code></p>
     ${where}
     ${message}
@@ -128,9 +133,16 @@ function buildFinding(finding: Finding, screenshot: string | undefined): string 
   </article>`;
 }
 
+function buildConfidenceLegend(): string {
+  const items = (Object.keys(CONFIDENCE_LEGEND) as FindingConfidence[])
+    .map((level) => `<li><span class="confidence-label confidence-${level}">${escapeHtml(CONFIDENCE_LABELS[level])}</span>: ${escapeHtml(CONFIDENCE_LEGEND[level])}</li>`)
+    .join("");
+  return `<div class="confidence-legend"><p>Each finding has a confidence level:</p><ul>${items}</ul></div>`;
+}
+
 export function buildFindingsSection(findings: Finding[], screenshots: Map<Finding, string>): string {
   if (findings.length === 0) return "<p>No barriers found by the rules in this version.</p>";
-  return groupFindings(findings)
+  return buildConfidenceLegend() + groupFindings(findings)
     .map(
       (group) => `<section class="rule" aria-labelledby="rule-${group.key}">
       <h3 id="rule-${group.key}">${group.ruleId} · ${escapeHtml(group.title)} (${pluralize(group.findings.length, "element", "elements")})</h3>

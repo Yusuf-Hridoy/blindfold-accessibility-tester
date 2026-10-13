@@ -4,6 +4,7 @@
 // must not be able to break the table or inject markup into the summary.
 
 import { describeEffort, journeyVerdict } from "../reports/journey-report-sections.ts";
+import { CONFIDENCE_LABELS } from "../rules/finding-confidence.ts";
 import { findingTitle, RULE_CATALOG } from "../rules/rule-catalog.ts";
 import type { ReportComparison } from "../compare/report-comparison.ts";
 import type { JourneyResult } from "../types/journey-result-types.ts";
@@ -51,13 +52,16 @@ function verdictLine(report: ScanResult | JourneyResult): string {
 
 function findingsTable(findings: Finding[], withSteps: boolean): string[] {
   if (findings.length === 0) return [];
-  const header = withSteps ? ["| Step | Rule | Barrier | Element | WCAG |", "|---|---|---|---|---|"] : ["| Rule | Barrier | Element | WCAG |", "|---|---|---|---|"];
+  const header = withSteps
+    ? ["| Step | Rule | Barrier | Element | WCAG | Confidence |", "|---|---|---|---|---|---|"]
+    : ["| Rule | Barrier | Element | WCAG | Confidence |", "|---|---|---|---|---|"];
   const rows = findings.slice(0, MAX_TABLE_ROWS).map((finding) => {
     const cells = [
       finding.ruleId,
       escapeMarkdownCell(finding.message ?? findingTitle(finding)),
       escapeMarkdownCell(finding.description),
       escapeMarkdownCell(RULE_CATALOG[finding.ruleId]?.wcag ?? ""),
+      CONFIDENCE_LABELS[finding.confidence ?? "unknown"],
     ];
     if (withSteps) cells.unshift(String(finding.journeyStep ?? ""));
     return `| ${cells.join(" | ")} |`;

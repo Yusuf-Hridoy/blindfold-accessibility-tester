@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
+    "category": "before",
+    "notes": "W3C Before-and-After Demonstration, home page, inaccessible version. Expected: findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+    "category": "after",
+    "notes": "W3C Before-and-After Demonstration, home page, fixed version. Expected: no false alarms."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+    "category": "before",
+    "notes": "W3C Before-and-After Demonstration, news page, inaccessible version. Expected: findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+    "category": "after",
+    "notes": "W3C Before-and-After Demonstration, news page, fixed version. Expected: no false alarms."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
+    "category": "before",
+    "notes": "W3C Before-and-After Demonstration, tickets page, inaccessible version. Expected: findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+    "category": "after",
+    "notes": "W3C Before-and-After Demonstration, tickets page, fixed version. Expected: no false alarms."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+    "category": "before",
+    "notes": "W3C Before-and-After Demonstration, survey page, inaccessible version. Expected: findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+    "category": "after",
+    "notes": "W3C Before-and-After Demonstration, survey page, fixed version. Expected: no false alarms."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
+    "category": "before",
+    "notes": "W3C Before-and-After Demonstration, template page, inaccessible version. Expected: findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/demos/bad/after/template.html",
+    "category": "after",
+    "notes": "W3C Before-and-After Demonstration, template page, fixed version. Expected: no false alarms."
+  }
+]

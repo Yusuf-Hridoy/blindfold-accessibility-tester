@@ -263,7 +263,13 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     });
     throwIfCancelled(signal);
     for (const finding of findings) {
-      onProgress?.({ type: "finding", ruleId: finding.ruleId, element: finding.description, summary: summarizeFinding(finding) });
+      onProgress?.({
+        type: "finding",
+        ruleId: finding.ruleId,
+        element: finding.description,
+        summary: summarizeFinding(finding),
+        ...(finding.confidence ? { confidence: finding.confidence } : {}),
+      });
     }
     const screenshots = options.screenshots
       ? await captureFindingScreenshots(page, findings, focusTimeScreenshots)

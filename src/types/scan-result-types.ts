@@ -44,6 +44,12 @@ export interface ElementIdentity {
 
 export type InteractiveBecause = "native-element" | "aria-role" | "click-listener" | "pointer-cursor";
 
+/**
+ * How sure Blindfold is that a finding is a real barrier (see finding-confidence.ts).
+ * Reports written before 0.6.0 have none; they show as "unknown".
+ */
+export type FindingConfidence = "certain" | "likely" | "check-by-hand";
+
 export interface MousePassElement extends ElementIdentity {
   tag: string;
   role: string;
@@ -51,6 +57,11 @@ export interface MousePassElement extends ElementIdentity {
   text: string;
   boundingBox: BoundingBox;
   interactiveBecause: InteractiveBecause;
+  /** The tabindex and role attributes as written (null when absent), for BF-001 confidence. */
+  tabIndexAttribute: string | null;
+  roleAttribute: string | null;
+  /** Inside a widget whose items arrow keys reach (tablist, menu, listbox…). */
+  insideArrowKeyWidget: boolean;
   /**
    * Hit-test after the keyboard walk, for elements the keyboard never reached:
    * false when no test point lands on the element (clipped or covered), so a
@@ -72,6 +83,10 @@ export interface FocusStop extends ElementIdentity {
   focusVisible: FocusVisibility;
   /** Which styles changed on focus, e.g. `element.outline-style`, `parent.box-shadow`. */
   focusStyleChanges: string[];
+  /** Only when focus wasn't visible: the focused element draws no outline (none or 0 width). */
+  outlineRemovedOnFocus?: boolean;
+  /** Only when focus wasn't visible: changes too weak to count as a focus indicator (color, font-weight…). */
+  weakFocusStyleChanges?: string[];
   /**
    * Set when focus went into a frame from another origin. Blindfold doesn't
    * test inside it: no rule reports this stop (role and visibility are "unknown").
@@ -128,10 +143,12 @@ export interface Finding extends ElementIdentity {
   message?: string;
   /** Set when the result was decided without the screen-reader engine. */
   confidenceNote?: string;
+  /** Always set by this version; missing in reports written before 0.6.0 ("unknown"). */
+  confidence?: FindingConfidence;
 }
 
-/** A finding as a rule produces it, before the rule engine adds the transcript excerpt. */
-export type RuleFinding = Omit<Finding, "transcriptExcerpt">;
+/** A finding as a rule produces it, before the transcript excerpt and confidence are added. */
+export type RuleFinding = Omit<Finding, "transcriptExcerpt" | "confidence">;
 
 export interface NotTestedElement extends ElementIdentity {
   reason: NotTestedReason;

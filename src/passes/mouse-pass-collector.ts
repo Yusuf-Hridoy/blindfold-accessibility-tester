@@ -3,6 +3,7 @@
 import type { Page } from "playwright";
 import { readRoleAndName } from "../announcer/accessibility-snapshot-fallback.ts";
 import type { InteractiveBecause, MousePassElement } from "../types/scan-result-types.ts";
+import { ARROW_KEY_WIDGET_ROLES } from "./arrow-key-reachability.ts";
 
 const NATIVE_INTERACTIVE_SELECTOR = "a[href], area[href], button, input, select, textarea, summary";
 
@@ -21,9 +22,10 @@ export async function collectMousePassElements(
   options: { withAccessibleNames: boolean } = { withAccessibleNames: true },
 ): Promise<MousePassElement[]> {
   const elements = await page.evaluate(
-    ({ nativeSelector, roleSelector }) => {
+    ({ nativeSelector, roleSelector, widgetRoles }) => {
       const helpers = window.__blindfoldElements;
       const interactiveSelector = `${nativeSelector}, ${roleSelector}`;
+      const arrowKeyWidgetSelector = widgetRoles.map((role) => `[role="${role}"]`).join(", ");
       const included = new Set<Element>();
       const collected: MousePassElementWithoutAccessibility[] = [];
 
@@ -80,11 +82,14 @@ export async function collectMousePassElements(
           text: (element.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 80),
           boundingBox: { x: box.x + window.scrollX, y: box.y + window.scrollY, width: box.width, height: box.height },
           interactiveBecause,
+          tabIndexAttribute: element.getAttribute("tabindex"),
+          roleAttribute: element.getAttribute("role"),
+          insideArrowKeyWidget: element.parentElement?.closest(arrowKeyWidgetSelector) != null,
         });
       }
       return collected;
     },
-    { nativeSelector: NATIVE_INTERACTIVE_SELECTOR, roleSelector: INTERACTIVE_ROLE_SELECTOR },
+    { nativeSelector: NATIVE_INTERACTIVE_SELECTOR, roleSelector: INTERACTIVE_ROLE_SELECTOR, widgetRoles: ARROW_KEY_WIDGET_ROLES },
   );
 
   if (!options.withAccessibleNames) {

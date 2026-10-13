@@ -45,12 +45,12 @@ Scan one page:
 
 ```console
 $ blindfold scan "http://localhost:4000/cart.html?no-cookie-banner=1"
-Blindfold 0.5.0 · scan · http://localhost:4000/cart.html?no-cookie-banner=1
+Blindfold 0.6.0 · scan · http://localhost:4000/cart.html?no-cookie-banner=1
 Engine: Guidepup virtual screen reader
 
-  ✗ BF-001  Control can't be reached by keyboard       1 element
-  ✗ BF-002  Control has no accessible name             1 element
-  ✗ BF-004  Keyboard focus is not visible              4 elements
+  ✗ BF-001  Control can't be reached by keyboard       1 element (1 certain)
+  ✗ BF-002  Control has no accessible name             1 element (1 certain)
+  ✗ BF-004  Keyboard focus is not visible              4 elements (4 certain)
 
   3 rules failed · 6 elements · 9 focus stops · 1.1s
   Report: blindfold-results/report.html
@@ -61,20 +61,20 @@ Run a journey (a user task written in YAML):
 
 ```console
 $ blindfold run example-journeys/buggy-shop-cart-journey.yaml --base-url http://localhost:4000
-Blindfold 0.5.0 · run · Cart, remove an item and check out
+Blindfold 0.6.0 · run · Cart, remove an item and check out
 Engine: Guidepup virtual screen reader
 
   ✓ step 1  reach "Remove Linen tote bag, button" + Enter    9 keys
-  ✗ step 1  BF-004 Keyboard focus is not visible: a.nav-link "Shop"
-  ✗ step 1  BF-004 Keyboard focus is not visible: a.nav-link "Tote bag"
-  ✗ step 1  BF-004 Keyboard focus is not visible: a.nav-link "Cart"
-  ✗ step 1  BF-004 Keyboard focus is not visible: a.nav-link "Checkout"
-  ✗ step 1  BF-002 Control has no accessible name: button.cart-button
-  ✗ step 1  BF-006 focus fell back to the page after Enter on button.remove-button "Remove Linen tote bag"
+  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Shop"
+  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Tote bag"
+  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Cart"
+  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Checkout"
+  ✗ step 1  BF-002 [certain] Control has no accessible name: button.cart-button
+  ✗ step 1  BF-006 [likely] focus fell back to the page after Enter on button.remove-button "Remove Linen tote bag"
   ✗ step 2  reach "Checkout, button" + Enter                 10 keys
   ✗ step 2  blocked: "Checkout, button" was never reached: a full Tab cycle went by without reaching it
             Did you mean "Checkout, link"?
-  ✗ step 2  BF-001 "Checkout, button" exists for the mouse but can't be reached by keyboard
+  ✗ step 2  BF-001 [certain] "Checkout, button" exists for the mouse but can't be reached by keyboard
 
   Journey blocked at step 2 · effort 19 keys vs 2 clicks (9.5×), until blocked · 1.2s
   Report: journey/report.html
@@ -141,7 +141,7 @@ barrier.
 
 ```console
 $ blindfold compare before/report.json after/report.json
-Blindfold 0.5.0 · compare
+Blindfold 0.6.0 · compare
   ✓ 0 fixed    ✗ 6 new    • 0 still present
   ✗ new  BF-001  Control can't be reached by keyboard: div.checkout-button "Checkout"
   ✗ new  BF-002  Control has no accessible name: button.cart-button

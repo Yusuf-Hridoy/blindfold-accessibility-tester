@@ -1,0 +1,68 @@
+name: Real-world corpus
+
+# Scans the corpus (APG examples, the W3C BAD demo and about 20 real sites)
+# and writes corpus/CORPUS-REPORT.md. Needs the network and changes as sites
+# change, so it never runs with the normal tests. Findings never fail it;
+# only a crash of Blindfold or the scripts does.
+#
+# Monthly, on the first Monday at 06:00 UTC, to keep the load on third-party
+# sites low. Cron can't say "first Monday" (day-of-month and day-of-week are
+# OR-ed), so it starts on days 1-7 and skips unless it's a Monday.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 1-7 * *"
+
+permissions:
+  contents: read
+
+jobs:
+  corpus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Run only on the first Monday of the month (or when started by hand)
+        id: gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "1" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Not the first Monday of the month; skipping."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.run == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: npm ci
+
+      - name: Install Chromium
+        if: steps.gate.outputs.run == 'true'
+        run: npx playwright@1.64.0 install --with-deps chromium
+
+      - name: Scan the corpus
+        if: steps.gate.outputs.run == 'true'
+        run: npm run corpus
+
+      - name: Write the corpus report
+        if: steps.gate.outputs.run == 'true'
+        run: npm run corpus:report
+
+      - name: Upload the corpus results
+        if: always() && steps.gate.outputs.run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-world-corpus
+          path: corpus/
+          if-no-files-found: warn

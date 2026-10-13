@@ -89,7 +89,7 @@ describe.skipIf(skipPackageTest)("the packaged CLI, installed from the tarball",
   it("installs the blindfold command and reports its version", async () => {
     const run = await runInstalledBlindfold(["--version"]);
     expect(run.exitCode).toBe(0);
-    expect(run.stdout.trim()).toBe("0.5.0");
+    expect(run.stdout.trim()).toBe("0.6.0");
   });
 
   it(

@@ -1,0 +1,347 @@
+[
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/",
+    "category": "accordion",
+    "notes": "APG example: accordion. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/",
+    "category": "alert",
+    "notes": "APG example: alert. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/",
+    "category": "alertdialog",
+    "notes": "APG example: alertdialog. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/",
+    "category": "breadcrumb",
+    "notes": "APG example: breadcrumb. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/",
+    "category": "button",
+    "notes": "APG example: button. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/",
+    "category": "button",
+    "notes": "APG example: button_idl. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
+    "category": "carousel",
+    "notes": "APG example: carousel-1-prev-next. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/",
+    "category": "carousel",
+    "notes": "APG example: carousel-2-tablist. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/",
+    "category": "checkbox",
+    "notes": "APG example: checkbox-mixed. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/",
+    "category": "checkbox",
+    "notes": "APG example: checkbox. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/",
+    "category": "combobox",
+    "notes": "APG example: combobox-autocomplete-both. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
+    "category": "combobox",
+    "notes": "APG example: combobox-autocomplete-list. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/",
+    "category": "combobox",
+    "notes": "APG example: combobox-autocomplete-none. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/",
+    "category": "combobox",
+    "notes": "APG example: combobox-datepicker. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
+    "category": "combobox",
+    "notes": "APG example: combobox-select-only. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/",
+    "category": "combobox",
+    "notes": "APG example: grid-combo. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
+    "category": "dialog-modal",
+    "notes": "APG example: datepicker-dialog. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/",
+    "category": "dialog-modal",
+    "notes": "APG example: dialog. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/",
+    "category": "disclosure",
+    "notes": "APG example: disclosure-card. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/",
+    "category": "disclosure",
+    "notes": "APG example: disclosure-faq. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/",
+    "category": "disclosure",
+    "notes": "APG example: disclosure-image-description. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/",
+    "category": "disclosure",
+    "notes": "APG example: disclosure-navigation-hybrid. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
+    "category": "disclosure",
+    "notes": "APG example: disclosure-navigation. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/",
+    "category": "feed",
+    "notes": "APG example: feed. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/",
+    "category": "grid",
+    "notes": "APG example: data-grids. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/",
+    "category": "grid",
+    "notes": "APG example: layout-grids. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html",
+    "category": "landmarks",
+    "notes": "APG example: banner. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html",
+    "category": "landmarks",
+    "notes": "APG example: complementary. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/contentinfo.html",
+    "category": "landmarks",
+    "notes": "APG example: contentinfo. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/form.html",
+    "category": "landmarks",
+    "notes": "APG example: form. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html",
+    "category": "landmarks",
+    "notes": "APG example: main. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html",
+    "category": "landmarks",
+    "notes": "APG example: navigation. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html",
+    "category": "landmarks",
+    "notes": "APG example: region. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/search.html",
+    "category": "landmarks",
+    "notes": "APG example: search. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/",
+    "category": "link",
+    "notes": "APG example: link. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/",
+    "category": "listbox",
+    "notes": "APG example: listbox-actions. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/",
+    "category": "listbox",
+    "notes": "APG example: listbox-collapsible. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/",
+    "category": "listbox",
+    "notes": "APG example: listbox-grouped. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/",
+    "category": "listbox",
+    "notes": "APG example: listbox-rearrangeable. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/",
+    "category": "listbox",
+    "notes": "APG example: listbox-scrollable. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/",
+    "category": "menu-button",
+    "notes": "APG example: menu-button-actions-active-descendant. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/",
+    "category": "menu-button",
+    "notes": "APG example: menu-button-actions. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/",
+    "category": "menu-button",
+    "notes": "APG example: menu-button-links. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/",
+    "category": "menubar",
+    "notes": "APG example: menubar-editor. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/",
+    "category": "menubar",
+    "notes": "APG example: menubar-navigation. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/",
+    "category": "meter",
+    "notes": "APG example: meter. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/",
+    "category": "radio",
+    "notes": "APG example: radio-activedescendant. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/",
+    "category": "radio",
+    "notes": "APG example: radio-rating. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/",
+    "category": "radio",
+    "notes": "APG example: radio. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
+    "category": "slider-multithumb",
+    "notes": "APG example: slider-multithumb. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
+    "category": "slider",
+    "notes": "APG example: slider-color-viewer. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
+    "category": "slider",
+    "notes": "APG example: slider-rating. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/",
+    "category": "slider",
+    "notes": "APG example: slider-seek. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/",
+    "category": "slider",
+    "notes": "APG example: slider-temperature. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
+    "category": "spinbutton",
+    "notes": "APG example: datepicker-spinbuttons. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
+    "category": "spinbutton",
+    "notes": "APG example: quantity-spinbutton. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/",
+    "category": "switch",
+    "notes": "APG example: switch-button. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/",
+    "category": "switch",
+    "notes": "APG example: switch-checkbox. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/",
+    "category": "switch",
+    "notes": "APG example: switch. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/",
+    "category": "table",
+    "notes": "APG example: sortable-table. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/",
+    "category": "table",
+    "notes": "APG example: table. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/",
+    "category": "tabs",
+    "notes": "APG example: tabs-actions. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/",
+    "category": "tabs",
+    "notes": "APG example: tabs-automatic. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/",
+    "category": "tabs",
+    "notes": "APG example: tabs-manual. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
+    "category": "toolbar",
+    "notes": "APG example: toolbar. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/",
+    "category": "treegrid",
+    "notes": "APG example: treegrid-1. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/",
+    "category": "treeview",
+    "notes": "APG example: treeview-1a. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/",
+    "category": "treeview",
+    "notes": "APG example: treeview-1b. Expected: 0 findings."
+  },
+  {
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/",
+    "category": "treeview",
+    "notes": "APG example: treeview-navigation. Expected: 0 findings."
+  }
+]

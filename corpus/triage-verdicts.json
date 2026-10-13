@@ -1,0 +1,2660 @@
+{
+  "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-002 #sc1": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-12"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-004 #myCarousel > div > div:nth-of-type(1) > button:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-004 #myCarousel > div > div:nth-of-type(1) > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-004 #myCarousel > div > div:nth-of-type(1) > button:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ BF-002 #sc1": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-12"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ BF-004 #myCarousel > div > div:nth-of-type(1) > button": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/ BF-001 #cb1-button": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/ BF-001 #cb1-button": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/ BF-001 #cb1-button": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/ BF-001 #myDatepicker > div:nth-of-type(2) > button": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/ BF-001 #combo1-label": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-9"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ BF-004 #toggle-folk-futures": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ BF-004 #toggle-playful-dissonance": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-001 #ex1 > div > svg > g:nth-of-type(1) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-004 #ex1 > div > svg > g:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-004 #ex1 > div > svg > g:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-001 #ex1 > div > div:nth-of-type(2) > svg > rect:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-001 #ex1 > div > div:nth-of-type(4) > svg > rect:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-001 #ex1 > div > div:nth-of-type(6) > svg > rect:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(1) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(1) > text:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(2) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(2) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(3) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(3) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(4) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(4) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(5) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(5) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(6) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(6) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(7) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(7) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(8) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(8) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(9) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(9) > text": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(10) > rect": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(10) > text:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-004 #id-rating": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(3) > button:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(3) > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(4) > button:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(4) > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(5) > button:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(5) > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-001 #example > div > fieldset > div > div:nth-of-type(1) > div > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-001 #example > div > fieldset > div > div:nth-of-type(2) > div > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-001 #example > div > fieldset > div > div:nth-of-type(3) > div > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-7"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-004 #adults": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-004 #kids": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-004 #animals": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-001 #ex1 > div > div:nth-of-type(2) > button:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-8"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-001 #ex1 > div > div:nth-of-type(2) > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-8"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-001 #ex1 > div > div:nth-of-type(2) > button:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-8"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/ BF-002 #support-notice > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #home > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #news > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #tickets > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #survey > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > p:nth-of-type(2) > span > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > p:nth-of-type(2) > span > a:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #home > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #news > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #tickets > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #survey > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #main > div:nth-of-type(2) > div:nth-of-type(2) > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #main > div:nth-of-type(3) > div:nth-of-type(1) > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/news.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #home > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #news > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #tickets > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #survey > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #home > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #news > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #tickets > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #survey > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > span > input": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > input": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(2) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > span > select": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #em": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #n": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #ev": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #submit": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #home > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #news > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #tickets > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #survey > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(4) > td > table > tbody > tr > td > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(9) > td > table > tbody > tr > td > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-1"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-6"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/template.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col00 > div > div > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col01 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col02 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col03 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col04 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C337_Col01 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C337_Col03 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C348_Col00 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C348_Col01 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C348_Col02 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C326_Col00 > div > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-4"
+  },
+  "https://www.telerik.com/support/demos BF-002 #ContentPlaceholder1_C337_Col02 > a:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.telerik.com/support/demos BF-002 #ContentPlaceholder1_C337_Col03 > a:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.telerik.com/support/demos BF-004 #js-tlrk-skip-link": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.telerik.com/support/demos BF-004 #js-tlrk-nav > section > div > figure > a:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.telerik.com/support/demos BF-004 #js-tlrk-nav-drawer > ul:nth-of-type(1) > li:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-6"
+  },
+  "https://www.telerik.com/support/demos BF-004 #js-tlrk-nav-drawer > ul:nth-of-type(2) > li:nth-of-type(6) > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.telerik.com/support/demos BF-004 #ContentPlaceholder1_C335_Col00 > div > div:nth-of-type(3) > a:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-3"
+  },
+  "https://www.allbirds.com/ BF-001 #shopify-section-sections--16476870967376__geofencing > div > div > div > div:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-10"
+  },
+  "https://www.allbirds.com/ BF-002 #shopify-section-sections--16476871000144__global-banner > div > div > button:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.allbirds.com/ BF-002 #shopify-section-sections--16476871000144__global-banner > div > div > button:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.allbirds.com/ BF-002 #shopify-section-sections--16476870967376__geofencing > div > div > div > div:nth-of-type(2) > div > div > div > div > select": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.allbirds.com/ BF-008 #vue-cart-drawer-app-sections--16476871000144__cart_drawer_section_4VCgQr > div > div:nth-of-type(1)": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-4"
+  },
+  "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-7"
+  },
+  "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-7"
+  },
+  "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-7"
+  },
+  "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-7"
+  },
+  "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-7"
+  },
+  "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(4) > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.tentree.com/ BF-002 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-2"
+  },
+  "https://www.tentree.com/ BF-003 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-2"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_top_center_0 >>> #aw0": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://techcrunch.com/ BF-002 #wp--skip-link--target > div:nth-of-type(1) > figure > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_top_right_0 >>> #aw0": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://techcrunch.com/ BF-002 #wp--skip-link--target > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > figure > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_1_0 >>> #aw0": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.usa.gov/ BF-001 #usagov-banner > div > div:nth-of-type(1) > div > div:nth-of-type(1) > img": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-11"
+  },
+  "https://www.usa.gov/ BF-001 #block-usagov-content > div > div:nth-of-type(6) > div > img": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-11"
+  },
+  "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(2) > button": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(3) > button": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(4) > button": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-001 #customer-Hertz > div:nth-of-type(1) > button": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-001 #customer-URBN > div:nth-of-type(1) > div:nth-of-type(2) > a": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-001 #customer-Instacart > div:nth-of-type(1) > div:nth-of-type(2) > a": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-001 #customer-LeMonde > div:nth-of-type(1) > div:nth-of-type(2) > a": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-1"
+  },
+  "https://stripe.com/ BF-002 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(1)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(2)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(3)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(4)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(5)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(6)": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(1) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(2) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(3) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(4) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(5) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(6) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(7) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(8) > div > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-4"
+  },
+  "https://www.atlassian.com/ BF-002 #strategy > div > div > div > div > div:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-3"
+  },
+  "https://www.atlassian.com/ BF-002 #service > div > div > div > div > div:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-3"
+  },
+  "https://www.atlassian.com/ BF-002 #software > div > div > div > div > div:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-3"
+  },
+  "https://www.atlassian.com/ BF-002 #product > div > div > div > div > div:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-3"
+  },
+  "https://www.atlassian.com/ BF-004 #language-dropdown": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 body > div:nth-of-type(1) > mdn-placement-top": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-2"
+  },
+  "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #content > div:nth-of-type(2) > section:nth-of-type(8) > div > mdn-content-feedback": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-2"
+  },
+  "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #main-sidebar > nav > div:nth-of-type(1) > mdn-sidebar-filter": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-2"
+  },
+  "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #main-sidebar > nav > div:nth-of-type(2) > ol > li:nth-of-type(14) > details > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #main-sidebar > nav > div:nth-of-type(2) > ol > li:nth-of-type(15) > details > summary": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-1"
+  },
+  "https://docs.python.org/3/ BF-001 #sidebarbutton": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://docs.python.org/3/ BF-002 body > div:nth-of-type(2) > ul > li:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://docs.python.org/3/ BF-002 body > div:nth-of-type(4) > ul > li:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.ikea.com/gb/en/ BF-002 #hnf-carousel__hnf-inpage-nav": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-12"
+  },
+  "https://www.ikea.com/gb/en/ BF-002 #listing-carousel__product-carousel-c64bda": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-12"
+  },
+  "https://www.ikea.com/gb/en/ BF-002 #listing-carousel__product-rec-carousel-d02a3": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-12"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(3)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #radix-\\:r2\\:": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(2)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(3)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(4)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(5)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(6)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(7)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(8)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(9)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(10)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(11)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(12)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #radix-\\:r0\\:": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > div > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(1) > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(2) > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(3) > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(2) > div > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(3) > div > div:nth-of-type(2) > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-8"
+  },
+  "https://excalidraw.com/ BF-002 #root > div > div": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-3"
+  },
+  "https://excalidraw.com/ BF-008 #root > div > div > canvas": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-13"
+  },
+  "https://react.dev/ BF-001 #__next > div:nth-of-type(3) > main > div > div > footer > div > div:nth-of-type(1) > div:nth-of-type(3)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://react.dev/ BF-004 #\\:R1sq8q6\\:": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-2"
+  },
+  "https://react.dev/ BF-004 #\\:R6sqaq6\\:": {
+    "verdict": "unsure",
+    "note": "",
+    "proposed": true,
+    "class": "U-2"
+  },
+  "https://www.lemonde.fr/ BF-001 #js-body > div:nth-of-type(5) > div > div > div:nth-of-type(2) > p > a:nth-of-type(1)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://www.lemonde.fr/ BF-001 #js-body > div:nth-of-type(5) > div > div > div:nth-of-type(3) > p > a": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-5"
+  },
+  "https://www.lemonde.fr/ BF-002 #js-body > header > div:nth-of-type(2) > div:nth-of-type(2) > div > a:nth-of-type(3)": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://www.lemonde.fr/ BF-004 #ds-burger-trigger__nav": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-6"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52425 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 50782 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 50479 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #habillagepub > section > ul:nth-of-type(1) > li:nth-of-type(2) > div > div > div:nth-of-type(2) > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52821 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52496 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52755 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52227 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53118 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #habillagepub > section > ul:nth-of-type(1) > li:nth-of-type(4) > div > div > div:nth-of-type(2) > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53121 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52822 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 51404 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52854 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53122 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53129 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52887 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52497 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #habillagepub > section > ul:nth-of-type(2) > li:nth-of-type(6) > div > div > div:nth-of-type(2) > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52722 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 51831 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(2) > div > div > div:nth-of-type(2) > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 50495 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 45001 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52229 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 51732 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 50813 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 37817 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 12694 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 51041 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(2) > div > div > div > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(3) > div > div > div > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52458 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52431 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52326 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 52434 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(8) > div > div > div > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(9) > div > div > div > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "",
+    "proposed": true,
+    "class": "FA-5"
+  },
+  "https://www.lemonde.fr/ BF-004 #js-body > div:nth-of-type(5) > div > footer > button": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-6"
+  },
+  "https://en.wikipedia.org/wiki/Web_accessibility BF-002 #mwAss": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://en.wikipedia.org/wiki/Web_accessibility BF-002 #mwA0I": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  },
+  "https://en.wikipedia.org/wiki/Web_accessibility BF-002 #mwA2s": {
+    "verdict": "real",
+    "note": "",
+    "proposed": true,
+    "class": "R-2"
+  }
+}

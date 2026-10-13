@@ -3,7 +3,7 @@
 
 import type { ViewportName } from "../browser/viewport-presets.ts";
 import type { JourneyOutcome, JourneyStepStatus } from "./journey-result-types.ts";
-import type { FocusVisibility, RuleId } from "./scan-result-types.ts";
+import type { FindingConfidence, FocusVisibility, RuleId } from "./scan-result-types.ts";
 
 export type RunKind = "scan" | "journey";
 
@@ -21,6 +21,8 @@ export interface RunSummary {
   verdict: string;
   /** Doubts about the run itself (scans: most clickable elements never reached). */
   warnings: string[];
+  /** Findings per confidence level ("unknown" only for reports written before 0.6.0). */
+  confidenceCounts: Record<FindingConfidence | "unknown", number>;
   durationMilliseconds: number;
 }
 
@@ -38,7 +40,7 @@ export type ProgressEvent =
     }
   | { type: "step-started"; stepNumber: number; action: string }
   | { type: "step-finished"; stepNumber: number; status: JourneyStepStatus; blockedBecause?: string }
-  | { type: "finding"; ruleId: RuleId; element: string; summary: string; journeyStep?: number }
+  | { type: "finding"; ruleId: RuleId; element: string; summary: string; confidence?: FindingConfidence; journeyStep?: number }
   | {
       type: "run-finished";
       summary: RunSummary;

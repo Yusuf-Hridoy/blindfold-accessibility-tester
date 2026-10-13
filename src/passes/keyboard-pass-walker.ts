@@ -64,6 +64,8 @@ export async function recordFocusStop(
     hiddenFromScreenReaders: isHiddenFromScreenReaders(focused, roleAndName),
     focusVisible: visibility.focusVisible,
     focusStyleChanges: visibility.focusStyleChanges,
+    ...(visibility.outlineRemovedOnFocus !== undefined ? { outlineRemovedOnFocus: visibility.outlineRemovedOnFocus } : {}),
+    ...(visibility.weakFocusStyleChanges ? { weakFocusStyleChanges: visibility.weakFocusStyleChanges } : {}),
   };
 }
 

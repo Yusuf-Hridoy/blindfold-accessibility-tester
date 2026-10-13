@@ -13,3 +13,10 @@ test-results
 real-check-*/
 github-check/
 .vscode/
+
+# Real-world corpus: raw reports and the run before the latest
+corpus/raw/
+corpus/previous-results.json
+
+# Suggested commit message written by Claude Code
+COMMIT_MSG.txt

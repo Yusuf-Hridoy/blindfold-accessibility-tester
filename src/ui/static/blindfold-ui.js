@@ -39,6 +39,8 @@
     return `${count} ${count === 1 ? singular : pluralForm}`;
   }
 
+  const CONFIDENCE_LABELS = { certain: "certain", likely: "likely", "check-by-hand": "check by hand", unknown: "unknown" };
+
   function kindLabel(kind) {
     return kind === "journey" ? "Journey" : "Scan";
   }
@@ -175,7 +177,8 @@
         findingCount++;
         byId("finding-empty").hidden = true;
         const step = event.journeyStep !== undefined ? ` (step ${event.journeyStep})` : "";
-        byId("finding-list").append(listItem(`${event.ruleId} ${event.summary}${step}`));
+        const confidence = CONFIDENCE_LABELS[event.confidence ?? "unknown"];
+        byId("finding-list").append(listItem(`${event.ruleId} [${confidence}] ${event.summary}${step}`));
         scheduleFindingAnnouncement();
         break;
       }
@@ -200,7 +203,15 @@
 
   // ---- Result panel ----
 
-  function showResult({ heading, verdict, passed, warnings = [], numbers = [], reportUrl = null, audioUrl = null }) {
+  /** e.g. "Confidence: 2 certain, 1 likely" (empty when there are no findings). */
+  function describeConfidenceCounts(counts) {
+    const parts = Object.keys(CONFIDENCE_LABELS)
+      .filter((level) => (counts?.[level] ?? 0) > 0)
+      .map((level) => `${counts[level]} ${CONFIDENCE_LABELS[level]}`);
+    return parts.length > 0 ? `Confidence: ${parts.join(", ")}` : "";
+  }
+
+  function showResult({ heading, verdict, passed, warnings = [], confidenceText = "", numbers = [], reportUrl = null, audioUrl = null }) {
     byId("result-heading").textContent = heading;
     const verdictElement = byId("result-verdict");
     verdictElement.textContent = verdict;
@@ -208,6 +219,9 @@
     const warning = byId("result-warning");
     warning.textContent = warnings.map((text) => `Warning: ${text}`).join(" ");
     warning.hidden = warnings.length === 0;
+    const confidence = byId("result-confidence");
+    confidence.textContent = confidenceText;
+    confidence.hidden = confidenceText === "";
 
     const numberList = byId("result-numbers");
     numberList.replaceChildren(
@@ -241,6 +255,7 @@
       verdict: summary.verdict,
       passed: summary.barrierCount === 0 && summary.outcome !== "blocked",
       warnings: summary.warnings ?? [],
+      confidenceText: describeConfidenceCounts(summary.confidenceCounts),
       numbers: [
         ["Barriers", summary.barrierCount],
         ["Rules failed", summary.rulesFailed],

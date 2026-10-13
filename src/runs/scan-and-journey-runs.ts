@@ -19,6 +19,7 @@ import { buildJsonReport } from "../reports/json-report-builder.ts";
 import { RunCancelledError, throwIfCancelled } from "../runtime/run-cancellation.ts";
 import { describeRunFailure } from "../runtime/run-failure-message.ts";
 import { runWithTimeLimit } from "../runtime/time-limit.ts";
+import { countByConfidence } from "../rules/finding-confidence.ts";
 import { describeError, ScanFailedError, scanPage, type ScanOutcome } from "../scan/page-scanner.ts";
 import type { SessionState } from "../sessions/session-file-loader.ts";
 import type { JourneyResult } from "../types/journey-result-types.ts";
@@ -154,6 +155,7 @@ export function summarizeScanResult(result: ScanResult): RunSummary {
     focusStops: result.focusStops.length,
     verdict: result.findings.length === 0 ? "No barriers found" : `${pluralize(result.findings.length, "barrier", "barriers")} found`,
     warnings: result.warnings ?? [],
+    confidenceCounts: countByConfidence(result.findings),
     durationMilliseconds: result.durationMilliseconds,
   };
 }
@@ -168,6 +170,7 @@ export function summarizeJourneyResult(result: JourneyResult): RunSummary {
     outcome: result.outcome,
     verdict: journeyVerdict(result),
     warnings: [],
+    confidenceCounts: countByConfidence(result.findings),
     durationMilliseconds: result.durationMilliseconds,
   };
 }

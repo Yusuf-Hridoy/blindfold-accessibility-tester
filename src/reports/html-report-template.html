@@ -182,6 +182,18 @@
       color: var(--muted);
     }
 
+    .confidence { margin: 0.25rem 0 0.5rem; }
+    .confidence-label {
+      display: inline-block;
+      padding: 0.05rem 0.5rem;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 0.9em;
+      font-weight: 700;
+    }
+    .confidence-certain .confidence-label, .confidence-label.confidence-certain { color: var(--fail); }
+    .confidence-legend ul { margin-top: 0.25rem; }
+
     .confidence-note {
       font-style: italic;
       color: var(--muted);

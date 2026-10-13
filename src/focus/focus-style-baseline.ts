@@ -10,6 +10,9 @@ import type { FocusVisibility } from "../types/scan-result-types.ts";
 export interface FocusVisibilityCheck {
   focusVisible: FocusVisibility;
   focusStyleChanges: string[];
+  /** Only when focus isn't visible (see FocusStop). */
+  outlineRemovedOnFocus?: boolean;
+  weakFocusStyleChanges?: string[];
 }
 
 type FlatStyles = Record<string, string>;
@@ -53,6 +56,14 @@ const FOCUS_STYLE_PROPERTIES = [
 
 const PSEUDO_ELEMENT_EXTRA_PROPERTIES = ["content", "opacity", "transform"];
 
+/**
+ * Changes on the element itself too weak to count as a focus indicator. They
+ * never make focus "visible"; they only lower BF-004's confidence to "likely",
+ * because the author did change something on focus.
+ */
+const WEAK_FOCUS_STYLE_PROPERTIES = ["color", "font-weight", "opacity", "transform", "filter", "text-shadow"];
+const WEAK_PREFIX = "weak";
+
 const FOCUSABLE_SELECTOR = [
   "a[href]",
   "area[href]",
@@ -75,7 +86,7 @@ function frameOf(target: Page | Frame): Frame {
 /** Records baselines for the page (or a frame) as it is now, then keeps watching for new elements. */
 export async function recordFocusStyleBaselines(target: Page | Frame): Promise<void> {
   await frameOf(target).evaluate(
-    ({ properties, pseudoExtraProperties, focusableSelector }) => {
+    ({ properties, pseudoExtraProperties, weakProperties, weakPrefix, focusableSelector }) => {
       function readStyles(element: Element, pseudoElement: string | null, propertyNames: string[]): FlatStyles {
         const computed = getComputedStyle(element, pseudoElement);
         const styles: FlatStyles = {};
@@ -104,6 +115,8 @@ export async function recordFocusStyleBaselines(target: Page | Frame): Promise<v
         if (parent) addWithPrefix(allStyles, "parent", readStyles(parent, null, properties));
         const grandparent = parent?.parentElement;
         if (grandparent) addWithPrefix(allStyles, "grandparent", readStyles(grandparent, null, properties));
+        const computed = getComputedStyle(element);
+        for (const property of weakProperties) allStyles[`${weakPrefix}.${property}`] = computed.getPropertyValue(property);
         return allStyles;
       }
 
@@ -164,6 +177,8 @@ export async function recordFocusStyleBaselines(target: Page | Frame): Promise<v
     {
       properties: FOCUS_STYLE_PROPERTIES,
       pseudoExtraProperties: PSEUDO_ELEMENT_EXTRA_PROPERTIES,
+      weakProperties: WEAK_FOCUS_STYLE_PROPERTIES,
+      weakPrefix: WEAK_PREFIX,
       focusableSelector: FOCUSABLE_SELECTOR,
     },
   );
@@ -171,7 +186,7 @@ export async function recordFocusStyleBaselines(target: Page | Frame): Promise<v
 
 /** Compares the focused element's current styles with its baseline, in the page or the frame given. */
 export async function checkFocusVisibility(target: Page | Frame): Promise<FocusVisibilityCheck> {
-  return frameOf(target).evaluate(() => {
+  return frameOf(target).evaluate((weakPrefix) => {
     const store = window.__blindfoldFocusStyles;
     const focused = document.activeElement;
     const baseline = focused ? store?.baselines.get(focused) : undefined;
@@ -180,7 +195,15 @@ export async function checkFocusVisibility(target: Page | Frame): Promise<FocusV
     }
     const current = store.readFullFocusStyles(focused);
     const allKeys = new Set([...Object.keys(baseline), ...Object.keys(current)]);
-    const focusStyleChanges = [...allKeys].filter((key) => baseline[key] !== current[key]);
-    return { focusVisible: focusStyleChanges.length > 0, focusStyleChanges };
-  });
+    const changed = [...allKeys].filter((key) => baseline[key] !== current[key]);
+    const isWeak = (key: string) => key.startsWith(`${weakPrefix}.`);
+    const focusStyleChanges = changed.filter((key) => !isWeak(key));
+    if (focusStyleChanges.length > 0) return { focusVisible: true, focusStyleChanges };
+    return {
+      focusVisible: false,
+      focusStyleChanges,
+      outlineRemovedOnFocus: current["element.outline-style"] === "none",
+      weakFocusStyleChanges: changed.filter(isWeak).map((key) => key.slice(weakPrefix.length + 1)),
+    };
+  }, WEAK_PREFIX);
 }

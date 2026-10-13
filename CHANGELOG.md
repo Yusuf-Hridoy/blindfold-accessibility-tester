@@ -5,9 +5,23 @@ All notable changes to Blindfold are listed here. The format follows
 [Semantic Versioning](https://semver.org/) (before 1.0, minor versions may
 change behaviour).
 
-## [0.5.0] - 2026-10-13
+## [0.6.0] - 2026-10-13
+
+0.5.0 was never published; its changes are part of this release.
 
 ### Added
+- A confidence level on every finding: `certain`, `likely` or `check by hand`,
+  decided from the evidence (e.g. a `<div>` with a click listener and no
+  tabindex is certainly unreachable; a link with `tabindex="-1"` should be
+  checked by hand). Shown in the terminal, the HTML report (with a legend),
+  report.json, the web UI and the Action's job summary. Reports written before
+  0.6.0 load with "unknown". Exit codes don't change.
+- A real-world corpus to measure precision: the W3C ARIA Authoring Practices
+  examples (expected: no findings), the W3C Before-and-After Demonstration and
+  about 20 real sites. `npm run corpus` scans it one page at a time;
+  `npm run corpus:report` writes `corpus/CORPUS-REPORT.md` with precision per
+  rule and per confidence level from the owner's verdicts. A monthly workflow
+  runs it; it never runs with `npm test`.
 - `blindfold ui`: a local web UI for people who don't use a terminal. Scan a
   URL (desktop or mobile, audio on or off) or run a journey from the journeys
   folder, watch live progress (each focus stop, what the screen reader said,
@@ -131,7 +145,7 @@ change behaviour).
 - BF-001 only fires for elements a mouse can actually click (hit test), and
   BF-002 tells a missing name apart from a control hidden from screen readers.
 
-[0.5.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.4.0...v0.5.0
+[0.6.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.4.0...v0.6.0
 [0.4.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.1.0...v0.2.0

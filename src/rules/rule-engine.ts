@@ -12,6 +12,7 @@ import { findUnnamedControls } from "./bf002-unnamed-control.ts";
 import { findFocusTraps } from "./bf003-focus-trap.ts";
 import { findInvisibleFocus } from "./bf004-invisible-focus.ts";
 import { findOverlaysBlockingKeyboard } from "./bf008-overlay-blocks-keyboard.ts";
+import { findingConfidence } from "./finding-confidence.ts";
 
 export interface RuleEngineResult {
   findings: Finding[];
@@ -104,6 +105,7 @@ export function runRules(data: CollectedScanData): RuleEngineResult {
   const findings = dropFindingsCoveredByOverlays(ruleFindings).map((finding) => ({
     ...finding,
     transcriptExcerpt: transcriptAround(data.focusStops, finding.step),
+    confidence: findingConfidence(finding, data),
   }));
   const overlayControlIds = new Set(findings.flatMap((finding) => finding.overlayControls?.map((control) => control.elementId) ?? []));
   const notTested = findNotTestedElements(data).filter((element) => !overlayControlIds.has(element.elementId));

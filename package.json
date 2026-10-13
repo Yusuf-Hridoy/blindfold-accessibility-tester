@@ -1,6 +1,6 @@
 {
   "name": "blindfold-a11y",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Walks through websites with only a keyboard and a screen reader, and reports where blind users would get stuck.",
   "keywords": [
     "accessibility",
@@ -40,6 +40,8 @@
     "demo:accessible": "tsx demo-sites/serve-demo-sites.ts accessible",
     "demo:both": "tsx demo-sites/serve-demo-sites.ts both",
     "spike:announcer": "tsx spikes/announcer-spike.ts",
+    "corpus": "tsx scripts/run-real-world-corpus.ts",
+    "corpus:report": "tsx scripts/build-corpus-report.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "prepublishOnly": "npm run typecheck && npm test && npm run build"

@@ -41,7 +41,7 @@ describe("blindfold compare", () => {
     const output = path.join(folder, "fixed");
     const run = await runBlindfoldCli(["compare", buggyReport, accessibleReport, "--output", output]);
     expect(run.exitCode).toBe(0);
-    expect(run.stdout).toContain("Blindfold 0.5.0 · compare");
+    expect(run.stdout).toContain("Blindfold 0.6.0 · compare");
     expect(run.stdout).toContain("✓ 6 fixed    ✗ 0 new    • 0 still present");
     // Different ports, so a warning, but the comparison still runs.
     expect(run.stdout).toContain("! The reports are for different pages:");

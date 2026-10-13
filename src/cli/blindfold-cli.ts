@@ -13,6 +13,7 @@ import { describeViewport, isViewportName, VIEWPORT_NAMES, type ViewportName } f
 import { loadJourneyFile } from "../journeys/journey-file-loader.ts";
 import type { JourneyRunOutcome } from "../journeys/journey-runner.ts";
 import { neverReachedHint } from "../journeys/never-reached-messages.ts";
+import { CONFIDENCE_LABELS, describeConfidenceCounts } from "../rules/finding-confidence.ts";
 import { groupFindings, summarizeFinding } from "../rules/rule-catalog.ts";
 import { describeEngine, describeStopReason, pluralize } from "../reports/html-report-builder.ts";
 import { describeEffort, journeyVerdict } from "../reports/journey-report-sections.ts";
@@ -133,7 +134,8 @@ function printScanSummary(outcome: ScanOutcome, reportPath: string, audio: Audio
   const groups = groupFindings(result.findings);
   if (groups.length === 0) console.log("  ✓ No barriers found");
   for (const group of groups) {
-    console.log(`  ✗ ${group.ruleId}  ${group.title.padEnd(42)} ${pluralize(group.findings.length, "element", "elements")}`);
+    const count = pluralize(group.findings.length, "element", "elements");
+    console.log(`  ✗ ${group.ruleId}  ${group.title.padEnd(42)} ${count} (${describeConfidenceCounts(group.findings)})`);
   }
   if (result.stoppedBecause === "max-tabs") console.log(`\n  ! ${describeStopReason(result.stoppedBecause, result.maxTabs)}`);
   if (result.notTested.length > 0) {
@@ -172,7 +174,7 @@ function printJourneySummary(outcome: JourneyRunOutcome, reportPath: string, aud
     if (hint) console.log(`${indent}${hint}`);
     if (step.openedNewTab) console.log(`${indent}Opened a new tab: ${step.openedNewTab}`);
     for (const finding of result.findings.filter((candidate) => candidate.journeyStep === step.stepNumber)) {
-      console.log(`  ✗ ${label}  ${finding.ruleId} ${summarizeFinding(finding)}`);
+      console.log(`  ✗ ${label}  ${finding.ruleId} [${CONFIDENCE_LABELS[finding.confidence ?? "unknown"]}] ${summarizeFinding(finding)}`);
     }
     for (const failure of step.expectationFailures) console.log(`  ✗ ${label}  ${failure.message}`);
   }

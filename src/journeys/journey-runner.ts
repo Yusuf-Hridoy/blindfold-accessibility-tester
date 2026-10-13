@@ -39,6 +39,7 @@ import { findSilentUpdates } from "../rules/bf005-silent-update.ts";
 import { findFocusLostAfterAction } from "../rules/bf006-focus-lost-after-action.ts";
 import { findModalsWithoutFocus } from "../rules/bf007-modal-without-focus.ts";
 import { findOverlaysBlockingKeyboard } from "../rules/bf008-overlay-blocks-keyboard.ts";
+import { findingConfidence, type ConfidenceEvidence } from "../rules/finding-confidence.ts";
 import { summarizeFinding } from "../rules/rule-catalog.ts";
 import { dropFindingsCoveredByOverlays } from "../rules/rule-engine.ts";
 import { RunCancelledError, throwIfCancelled } from "../runtime/run-cancellation.ts";
@@ -166,7 +167,14 @@ function excerptDescription(entry: JourneyTranscriptEntry): string {
 }
 
 /** Adds findings to the journey, capturing each screenshot while the page still shows the problem. */
-async function addFindings(session: JourneySession, stepNumber: number, ruleFindings: RuleFinding[], focusScreenshot?: string): Promise<void> {
+/** `evidence`: the data the findings were decided from, for their confidence level. */
+async function addFindings(
+  session: JourneySession,
+  stepNumber: number,
+  ruleFindings: RuleFinding[],
+  focusScreenshot?: string,
+  evidence: ConfidenceEvidence = {},
+): Promise<void> {
   for (const ruleFinding of dropFindingsCoveredByOverlays(ruleFindings)) {
     const stepLines = session.transcript.filter((entry) => entry.journeyStep === stepNumber && entry.kind !== "page");
     const finding: Finding = {
@@ -177,6 +185,7 @@ async function addFindings(session: JourneySession, stepNumber: number, ruleFind
         description: excerptDescription(entry),
         announcement: entry.kind === "focus" ? (entry.spoken ?? "") : entry.kind === "speech" ? entry.text : "",
       })),
+      confidence: findingConfidence(ruleFinding, evidence),
     };
     session.findings.push(finding);
     session.options.onProgress?.({
@@ -184,6 +193,7 @@ async function addFindings(session: JourneySession, stepNumber: number, ruleFind
       ruleId: finding.ruleId,
       element: finding.description,
       summary: summarizeFinding(finding),
+      ...(finding.confidence ? { confidence: finding.confidence } : {}),
       journeyStep: stepNumber,
     });
     if (!session.options.screenshots) continue;
@@ -231,7 +241,7 @@ async function checkPassedStop(session: JourneySession, progress: StepProgress, 
   const image = session.options.screenshots
     ? ((await captureElementScreenshot(session.page, focusedLocatorFor(session.page, stop.selector), false)) ?? undefined)
     : undefined;
-  await addFindings(session, progress.stepNumber, fresh, image);
+  await addFindings(session, progress.stepNumber, fresh, image, { focusStops: [stop] });
 }
 
 /** BF-008 at the current moment; each overlay once per page load. */
@@ -431,7 +441,7 @@ async function explainNeverReached(session: JourneySession, progress: StepProgre
     session.findings.filter((finding) => finding.ruleId === "BF-008").flatMap((finding) => finding.overlayControls?.map((control) => control.elementId) ?? []),
   );
   const bf001 = overlayFound ? unreachableMatches.filter((finding) => !overlayControlIds.has(finding.elementId)) : unreachableMatches;
-  await addFindings(session, progress.stepNumber, bf001);
+  await addFindings(session, progress.stepNumber, bf001, undefined, { mousePassElements: mouseElements });
 }
 
 function playwrightKeyName(key: JourneyKey): string {

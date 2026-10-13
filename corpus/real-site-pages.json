@@ -1,0 +1,107 @@
+[
+  {
+    "url": "https://demowebshop.tricentis.com/",
+    "category": "e-commerce demo",
+    "notes": "Radio-group poll; found the arrow-key false alarms."
+  },
+  {
+    "url": "https://www.telerik.com/support/demos",
+    "category": "SaaS, cookie banner",
+    "notes": "Focuses a cookie link at load; duplicate card links with tabindex=-1."
+  },
+  {
+    "url": "https://github.com/",
+    "category": "SaaS marketing",
+    "notes": "Large marketing page."
+  },
+  {
+    "url": "https://www.allbirds.com/",
+    "category": "Shopify shop",
+    "notes": "Shopify theme."
+  },
+  {
+    "url": "https://www.tentree.com/",
+    "category": "Shopify shop",
+    "notes": "Second Shopify theme."
+  },
+  {
+    "url": "https://wordpress.org/news/",
+    "category": "WordPress",
+    "notes": "Core WordPress theme."
+  },
+  {
+    "url": "https://techcrunch.com/",
+    "category": "news, WordPress",
+    "notes": "Large WordPress news site."
+  },
+  {
+    "url": "https://www.bbc.com/news",
+    "category": "news",
+    "notes": "Heavy navigation."
+  },
+  {
+    "url": "https://www.gov.uk/",
+    "category": "government",
+    "notes": "Strong accessibility baseline."
+  },
+  {
+    "url": "https://www.usa.gov/",
+    "category": "government",
+    "notes": "US Web Design System."
+  },
+  {
+    "url": "https://stripe.com/",
+    "category": "SaaS marketing",
+    "notes": "Animated menus."
+  },
+  {
+    "url": "https://www.atlassian.com/",
+    "category": "SaaS marketing",
+    "notes": "Mega-menus."
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    "category": "documentation",
+    "notes": "Sidebar navigation."
+  },
+  {
+    "url": "https://docs.python.org/3/",
+    "category": "documentation",
+    "notes": "Classic static docs."
+  },
+  {
+    "url": "https://www.ikea.com/gb/en/",
+    "category": "e-commerce, cookie banner",
+    "notes": "Consent dialog at load."
+  },
+  {
+    "url": "https://www.samsung.com/uk/",
+    "category": "carousel",
+    "notes": "Hero carousel."
+  },
+  {
+    "url": "https://excalidraw.com/",
+    "category": "single-page app",
+    "notes": "Canvas app, no login."
+  },
+  {
+    "url": "https://react.dev/",
+    "category": "single-page app, documentation",
+    "notes": "Client-side routing."
+  },
+  {
+    "url": "https://www.lemonde.fr/",
+    "category": "non-English news (French)",
+    "notes": "lang=fr, cookie banner."
+  },
+  {
+    "url": "https://www.rakuten.co.jp/",
+    "category": "non-English e-commerce (Japanese)",
+    "notes": "Dense carousels."
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Web_accessibility",
+    "category": "content",
+    "notes": "Large plain page."
+  }
+]
