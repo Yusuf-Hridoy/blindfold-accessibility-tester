@@ -5,6 +5,28 @@ All notable changes to Blindfold are listed here. The format follows
 [Semantic Versioning](https://semver.org/) (before 1.0, minor versions may
 change behaviour).
 
+## [0.5.0] - 2026-10-13
+
+### Added
+- `blindfold ui`: a local web UI for people who don't use a terminal. Scan a
+  URL (desktop or mobile, audio on or off) or run a journey from the journeys
+  folder, watch live progress (each focus stop, what the screen reader said,
+  each barrier), cancel, open the report and audio, browse the history of runs
+  and compare two of them. Options: `--port` (default 4321, falls back to a
+  free port), `--results` (default `./blindfold-ui-results`), `--journeys`
+  (default `./example-journeys` when it exists) and `--no-open`.
+- The UI is local only: it listens on 127.0.0.1, needs the random session
+  token from the printed link (403 without it), refuses other Host headers
+  (DNS rebinding) and cross-origin POSTs, sends no CORS headers, serves files
+  only from the results folder and runs one scan at a time (409).
+- `scanPage` and `runJourney` take an optional `onProgress` callback (live
+  progress events) and an `AbortSignal` (cancel: the browser closes and no
+  report is written). Neither changes a run's result.
+
+### Changed
+- The CLI's scan and journey commands now share their run-and-write code with
+  the web UI. Output, reports and exit codes are unchanged.
+
 ## [0.4.0] - 2026-10-09
 
 ### Added
@@ -90,6 +112,7 @@ change behaviour).
 - BF-001 only fires for elements a mouse can actually click (hit test), and
   BF-002 tells a missing name apart from a control hidden from screen readers.
 
+[0.5.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/Yusuf-Hridoy/blindfold-accessibility-tester/compare/v0.1.0...v0.2.0

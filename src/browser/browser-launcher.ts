@@ -16,8 +16,18 @@ export interface ScanContextOptions {
   session?: SessionState;
 }
 
-export async function launchBrowser(): Promise<Browser> {
-  return chromium.launch({ headless: true });
+export interface LaunchBrowserOptions {
+  /**
+   * Default true: on Ctrl+C or SIGTERM Playwright closes the browser and exits
+   * the process (code 130). The web UI turns this off: its own handler cancels
+   * the run, which closes the browser, and then stops the server.
+   */
+  closeOnSignals?: boolean;
+}
+
+export async function launchBrowser(options: LaunchBrowserOptions = {}): Promise<Browser> {
+  const signals = options.closeOnSignals === false ? { handleSIGINT: false, handleSIGTERM: false } : {};
+  return chromium.launch({ headless: true, ...signals });
 }
 
 /** A fresh context with Blindfold's page helpers installed (in every frame) before any page script runs. */

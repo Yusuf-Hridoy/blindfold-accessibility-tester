@@ -5,12 +5,15 @@
 //
 // Set BLINDFOLD_SKIP_PACKAGE_TEST=1 to skip it locally. CI always runs it.
 
+import { spawn } from "node:child_process";
 import { access, mkdtemp, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { startDemoSiteServer, type RunningDemoSiteServer } from "../../demo-sites/serve-demo-sites.ts";
+import { READY_LINE_PREFIX } from "../../src/ui/ui-command.ts";
 import { runCommand, type CliRun } from "../helpers/run-blindfold-cli.ts";
+import { apiCall } from "../helpers/ui-test-client.ts";
 
 const PROJECT_ROOT = path.join(import.meta.dirname, "..", "..");
 const SMOKE_TEST_TIMEOUT_MILLISECONDS = 120_000;
@@ -86,7 +89,7 @@ describe.skipIf(skipPackageTest)("the packaged CLI, installed from the tarball",
   it("installs the blindfold command and reports its version", async () => {
     const run = await runInstalledBlindfold(["--version"]);
     expect(run.exitCode).toBe(0);
-    expect(run.stdout.trim()).toBe("0.4.0");
+    expect(run.stdout.trim()).toBe("0.5.0");
   });
 
   it(
@@ -101,6 +104,38 @@ describe.skipIf(skipPackageTest)("the packaged CLI, installed from the tarball",
         expect(run.exitCode, run.stderr).toBe(expectedExitCode);
         expect(await exists(path.join(output, "report.html"))).toBe(true);
         expect(await exists(path.join(output, "report.json"))).toBe(true);
+      }
+    },
+    SMOKE_TEST_TIMEOUT_MILLISECONDS,
+  );
+
+  it(
+    "starts the web UI, which answers the history API with its token, and stops on SIGINT",
+    async () => {
+      const child = spawn(path.join(installFolder, "node_modules", ".bin", "blindfold"), ["ui", "--no-open", "--port", "0", "--results", path.join(installFolder, "ui-results")], {
+        cwd: installFolder,
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+      try {
+        let output = "";
+        const ready = await new Promise<{ port: number; token: string }>((resolve, reject) => {
+          child.stdout.on("data", (chunk: Buffer) => {
+            output += chunk.toString();
+            const line = output.split("\n").find((candidate) => candidate.startsWith(READY_LINE_PREFIX));
+            if (line) resolve(JSON.parse(line.slice(READY_LINE_PREFIX.length)) as { port: number; token: string });
+          });
+          child.stderr.on("data", (chunk: Buffer) => (output += chunk.toString()));
+          child.on("exit", (code) => reject(new Error(`blindfold ui exited early (code ${code}):\n${output}`)));
+        });
+        const history = await apiCall(ready, "GET", "/api/history");
+        expect(history.status).toBe(200);
+        expect(JSON.parse(history.body)).toEqual({ runs: [], running: false });
+
+        const exited = new Promise<number | null>((resolve) => child.on("exit", resolve));
+        child.kill("SIGINT");
+        expect(await exited).toBe(0);
+      } finally {
+        if (child.exitCode === null) child.kill("SIGKILL");
       }
     },
     SMOKE_TEST_TIMEOUT_MILLISECONDS,

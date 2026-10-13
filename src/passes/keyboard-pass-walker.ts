@@ -7,6 +7,7 @@ import { clearAnnouncements, readAnnouncement, screenReaderRunsIn } from "../ann
 import { checkFocusVisibility } from "../focus/focus-style-baseline.ts";
 import { detectFocusTrap } from "../focus/focus-trap-detector.ts";
 import { focusedElementLocator, identifyFocusedElement, type FocusedElement } from "../frames/frame-focus-follower.ts";
+import { throwIfCancelled } from "../runtime/run-cancellation.ts";
 import type { FocusStop, FocusTrap, WalkStopReason } from "../types/scan-result-types.ts";
 
 export { identifyFocusedElement, type FocusedElement };
@@ -17,6 +18,8 @@ export interface KeyboardWalkOptions {
   useScreenReader: boolean;
   /** Called right after each stop is recorded, while the element still has focus. */
   onFocusStop?: (stop: FocusStop) => Promise<void>;
+  /** Cancels the walk before the next key press (RunCancelledError). */
+  signal?: AbortSignal;
 }
 
 export interface KeyboardWalkResult {
@@ -166,6 +169,7 @@ export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions)
   }
 
   for (let step = 1; step <= options.maxTabs; step++) {
+    throwIfCancelled(options.signal);
     const stop = await pressKeyAndRecord(page, step, options.useScreenReader);
     if (stop === null) {
       if (focusStops.length > 0) return { focusStops, stoppedBecause: "end-of-page", trap: null, tabPresses: step };

@@ -39,7 +39,9 @@ import { findSilentUpdates } from "../rules/bf005-silent-update.ts";
 import { findFocusLostAfterAction } from "../rules/bf006-focus-lost-after-action.ts";
 import { findModalsWithoutFocus } from "../rules/bf007-modal-without-focus.ts";
 import { findOverlaysBlockingKeyboard } from "../rules/bf008-overlay-blocks-keyboard.ts";
+import { summarizeFinding } from "../rules/rule-catalog.ts";
 import { dropFindingsCoveredByOverlays } from "../rules/rule-engine.ts";
+import { RunCancelledError, throwIfCancelled } from "../runtime/run-cancellation.ts";
 import {
   captureElementScreenshot,
   describeError,
@@ -62,6 +64,7 @@ import type {
   ModalObservation,
   NeverReachedReason,
 } from "../types/journey-result-types.ts";
+import type { ProgressListener } from "../types/progress-event-types.ts";
 import type { ElementIdentity, Finding, FocusStop, FocusTrap, RuleFinding } from "../types/scan-result-types.ts";
 import type { LoadedJourney } from "./journey-file-loader.ts";
 import type { JourneyKey, JourneyStep } from "./journey-file-schema.ts";
@@ -89,6 +92,10 @@ export interface JourneyRunOptions {
   viewport?: ViewportName;
   /** A saved login from `blindfold login`. */
   session?: SessionState;
+  /** Live progress for the web UI. Doesn't change the result. */
+  onProgress?: ProgressListener;
+  /** Cancels the journey (RunCancelledError). The caller should also close the browser, so a slow page load stops at once. */
+  signal?: AbortSignal;
 }
 
 export interface JourneyRunOutcome {
@@ -144,6 +151,7 @@ async function preparePage(session: JourneySession, stepNumber: number, openedBy
   session.reachedOnThisPage.clear();
   const { title, language } = await readPageTitleAndLanguage(page);
   session.transcript.push({ journeyStep: stepNumber, kind: "page", text: page.url(), openedBy, title, language, url: page.url() });
+  session.options.onProgress?.({ type: "page-loaded", url: page.url() });
 }
 
 function addTranscript(session: JourneySession, step: number, entry: Omit<JourneyTranscriptEntry, "journeyStep" | "url">): void {
@@ -171,6 +179,13 @@ async function addFindings(session: JourneySession, stepNumber: number, ruleFind
       })),
     };
     session.findings.push(finding);
+    session.options.onProgress?.({
+      type: "finding",
+      ruleId: finding.ruleId,
+      element: finding.description,
+      summary: summarizeFinding(finding),
+      journeyStep: stepNumber,
+    });
     if (!session.options.screenshots) continue;
     const image = focusScreenshot ?? (await screenshotForFinding(session.page, finding));
     if (image) session.screenshots.set(finding, image);
@@ -188,6 +203,19 @@ async function screenshotForFinding(page: Page, finding: Finding): Promise<strin
 
 function focusedLocatorFor(page: Page, selector: string): Locator {
   return selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, selector) : page.locator(":focus").first();
+}
+
+/** A focus stop the step passed: kept for the step result and sent as live progress. */
+function addPassedStop(session: JourneySession, progress: StepProgress, stop: FocusStop): void {
+  progress.focusStops.push(stop);
+  session.options.onProgress?.({
+    type: "focus-stop",
+    step: stop.step,
+    element: stop.description,
+    announcement: stop.announcement,
+    focusVisible: stop.focusVisible,
+    journeyStep: progress.stepNumber,
+  });
 }
 
 /** BF-002 and BF-004 for focus stops passed, each element once per journey. */
@@ -284,6 +312,7 @@ async function reachTarget(session: JourneySession, progress: StepProgress, targ
   let bodyPressesInARow = 0;
   let passedEndOfPage = false;
   for (let press = 1; press <= session.options.maxTabsPerStep; press++) {
+    throwIfCancelled(session.options.signal);
     progress.keysPressed.push("Tab");
     const stop = await pressKeyAndRecord(page, progress.focusStops.length + 1, session.useScreenReader);
     if (stop === null) {
@@ -325,7 +354,7 @@ async function reachTarget(session: JourneySession, progress: StepProgress, targ
     addFocusToTranscript(session, progress.stepNumber, stops.at(-1), stop);
     stops.push(stop);
     session.reachedOnThisPage.add(stop.elementId);
-    progress.focusStops.push(stop);
+    addPassedStop(session, progress, stop);
     progress.announcements.push(stop.announcement);
     await checkPassedStop(session, progress, stop);
 
@@ -475,6 +504,7 @@ async function performAction(session: JourneySession, progress: StepProgress, st
     addTranscript(session, progress.stepNumber, { kind: "typed", text: step.type });
   }
 
+  throwIfCancelled(session.options.signal);
   const focusBeforeElement = await identifyFocusedElement(page);
   if (focusBeforeElement) session.reachedOnThisPage.add(focusBeforeElement.elementId);
   const focusBefore = identityOf(focusBeforeElement);
@@ -536,7 +566,7 @@ async function performAction(session: JourneySession, progress: StepProgress, st
   if (focusAfterElement) session.reachedOnThisPage.add(focusAfterElement.elementId);
   if (focusAfterElement && !focusAfterElement.thirdPartyOrigin && (key === "Tab" || key === "Shift+Tab")) {
     const stop = await recordFocusStop(focusAfterElement, progress.focusStops.length + 1, spoken.join(" | ") || null);
-    progress.focusStops.push(stop);
+    addPassedStop(session, progress, stop);
     await checkPassedStop(session, progress, stop);
   }
 
@@ -691,7 +721,9 @@ async function runStep(session: JourneySession, step: JourneyStep, stepNumber: n
 
 export async function runJourney(options: JourneyRunOptions): Promise<JourneyRunOutcome> {
   const startedAt = Date.now();
+  throwIfCancelled(options.signal);
   const viewport = VIEWPORT_PRESETS[options.viewport ?? options.journey.viewport ?? "desktop"];
+  options.onProgress?.({ type: "run-started", kind: "journey", subject: options.journey.name, viewport: viewport.name });
   const context = await createScanContext(options.browser, { viewport: viewport.name, ...(options.session ? { session: options.session } : {}) });
   const page = await context.newPage();
   const session: JourneySession = {
@@ -734,7 +766,15 @@ export async function runJourney(options: JourneyRunOptions): Promise<JourneyRun
         });
         continue;
       }
+      throwIfCancelled(options.signal);
+      options.onProgress?.({ type: "step-started", stepNumber, action: describeAction(step) });
       const result = await runStep(session, step, stepNumber);
+      options.onProgress?.({
+        type: "step-finished",
+        stepNumber,
+        status: result.status,
+        ...(result.blockedBecause ? { blockedBecause: result.blockedBecause } : {}),
+      });
       steps.push(result);
       if (result.status === "failed") blockedAtStep = stepNumber;
     }
@@ -774,6 +814,8 @@ export async function runJourney(options: JourneyRunOptions): Promise<JourneyRun
     };
     return { result, screenshots: session.screenshots };
   } catch (error) {
+    // Cancelling closes the browser, so whatever failed next is part of the cancel.
+    if (error instanceof RunCancelledError || options.signal?.aborted) throw new RunCancelledError();
     if (error instanceof ScanFailedError) throw error;
     throw new ScanFailedError(`The journey "${options.journey.name}" stopped unexpectedly (${describeError(error)}).`);
   } finally {

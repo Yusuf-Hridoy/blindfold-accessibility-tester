@@ -2,6 +2,7 @@ import { createServer, type Server } from "node:http";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { resolveFileInsideFolder } from "../src/files/file-inside-folder.ts";
 
 export type DemoShopName = "buggy" | "accessible";
 
@@ -30,23 +31,10 @@ const CONTENT_TYPES: Record<string, string> = {
   ".md": "text/markdown; charset=utf-8",
 };
 
-/** Maps a URL path to a file inside the shop folder, or null if it points outside it. */
-function resolveFileInsideShop(shopFolder: string, urlPath: string): string | null {
-  let decodedPath: string;
-  try {
-    decodedPath = decodeURIComponent(urlPath);
-  } catch {
-    return null;
-  }
-  const relativePath = decodedPath.endsWith("/") ? `${decodedPath}index.html` : decodedPath;
-  const filePath = path.resolve(shopFolder, `.${relativePath}`);
-  return filePath.startsWith(shopFolder + path.sep) ? filePath : null;
-}
-
 function createShopServer(shopFolder: string): Server {
   return createServer(async (request, response) => {
     const urlPath = new URL(request.url ?? "/", "http://localhost").pathname;
-    const filePath = resolveFileInsideShop(shopFolder, urlPath);
+    const filePath = resolveFileInsideFolder(shopFolder, urlPath);
     if (filePath === null) {
       response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
       response.end("Bad request");

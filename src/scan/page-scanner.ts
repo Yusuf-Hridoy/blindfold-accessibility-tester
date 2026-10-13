@@ -12,8 +12,11 @@ import { checkMouseTargets, collectMousePassElements } from "../passes/mouse-pas
 import { findArrowKeyReachable } from "../passes/arrow-key-reachability.ts";
 import { findElementsBeforeTrap, walkWithKeyboard } from "../passes/keyboard-pass-walker.ts";
 import type { SessionState } from "../sessions/session-file-loader.ts";
+import { summarizeFinding } from "../rules/rule-catalog.ts";
 import { runRules } from "../rules/rule-engine.ts";
+import { RunCancelledError, throwIfCancelled } from "../runtime/run-cancellation.ts";
 import { TOOL_VERSION } from "../tool-version.ts";
+import type { ProgressListener } from "../types/progress-event-types.ts";
 import type { BoundingBox, Finding, FocusStop, ScanResult } from "../types/scan-result-types.ts";
 
 export interface ScanOptions {
@@ -27,6 +30,10 @@ export interface ScanOptions {
   viewport?: ViewportName;
   /** A saved login from `blindfold login`. */
   session?: SessionState;
+  /** Live progress for the web UI. Doesn't change the result. */
+  onProgress?: ProgressListener;
+  /** Cancels the scan (RunCancelledError). The caller should also close the browser, so a slow page load stops at once. */
+  signal?: AbortSignal;
 }
 
 export interface ScanOutcome {
@@ -178,6 +185,8 @@ function mightBecomeFocusFinding(stop: FocusStop): boolean {
 export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
   const startedAt = Date.now();
   const url = parseScanUrl(options.url).href;
+  const { onProgress, signal } = options;
+  throwIfCancelled(signal);
 
   let browser: Browser;
   try {
@@ -188,10 +197,13 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
   }
 
   const viewport = VIEWPORT_PRESETS[options.viewport ?? "desktop"];
+  onProgress?.({ type: "run-started", kind: "scan", subject: url, viewport: viewport.name });
   const context = await createScanContext(browser, { viewport: viewport.name, ...(options.session ? { session: options.session } : {}) });
   try {
     const page = await context.newPage();
     await loadPage(page, url, options.pageTimeoutSeconds);
+    throwIfCancelled(signal);
+    onProgress?.({ type: "page-loaded", url: page.url() });
     const { title: pageTitle, language: pageLanguage } = await readPageTitleAndLanguage(page);
 
     const mousePassCandidates = await collectMousePassElements(page);
@@ -206,7 +218,15 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     const walk = await walkWithKeyboard(page, {
       maxTabs: options.maxTabs,
       useScreenReader,
+      ...(signal ? { signal } : {}),
       onFocusStop: async (stop) => {
+        onProgress?.({
+          type: "focus-stop",
+          step: stop.step,
+          element: stop.description,
+          announcement: stop.announcement,
+          focusVisible: stop.focusVisible,
+        });
         if (!options.screenshots || !mightBecomeFocusFinding(stop) || focusTimeScreenshots.has(stop.elementId)) return;
         const focused = stop.selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, stop.selector) : page.locator(":focus").first();
         const image = await captureElementScreenshot(page, focused, false);
@@ -232,6 +252,10 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       elementIdsBeforeTrap,
       reachableWithArrowKeys,
     });
+    throwIfCancelled(signal);
+    for (const finding of findings) {
+      onProgress?.({ type: "finding", ruleId: finding.ruleId, element: finding.description, summary: summarizeFinding(finding) });
+    }
     const screenshots = options.screenshots
       ? await captureFindingScreenshots(page, findings, focusTimeScreenshots)
       : new Map<Finding, string>();
@@ -259,6 +283,8 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
     };
     return { result, screenshots };
   } catch (error) {
+    // Cancelling closes the browser, so whatever failed next is part of the cancel.
+    if (error instanceof RunCancelledError || signal?.aborted) throw new RunCancelledError();
     if (error instanceof ScanFailedError) throw error;
     const reason = error instanceof Error ? error.message.split("\n")[0] : String(error);
     throw new ScanFailedError(`The scan of ${url} stopped unexpectedly (${reason}).`);

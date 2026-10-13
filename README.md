@@ -45,7 +45,7 @@ Scan one page:
 
 ```console
 $ blindfold scan "http://localhost:4000/cart.html?no-cookie-banner=1"
-Blindfold 0.4.0 · scan · http://localhost:4000/cart.html?no-cookie-banner=1
+Blindfold 0.5.0 · scan · http://localhost:4000/cart.html?no-cookie-banner=1
 Engine: Guidepup virtual screen reader
 
   ✗ BF-001  Control can't be reached by keyboard       1 element
@@ -61,7 +61,7 @@ Run a journey (a user task written in YAML):
 
 ```console
 $ blindfold run example-journeys/buggy-shop-cart-journey.yaml --base-url http://localhost:4000
-Blindfold 0.4.0 · run · Cart, remove an item and check out
+Blindfold 0.5.0 · run · Cart, remove an item and check out
 Engine: Guidepup virtual screen reader
 
   ✓ step 1  reach "Remove Linen tote bag, button" + Enter    9 keys
@@ -85,6 +85,8 @@ These examples use the demo shops in this repository (see
 [Development](#development)). Open `report.html` for the details: each barrier
 with a screenshot, what the screen reader said around it, why it matters and
 how to fix it, plus the full keyboard transcript and an audio player.
+
+Prefer a browser to a terminal? Run `blindfold ui` (see [Web UI](#web-ui)).
 
 ## Commands
 
@@ -139,7 +141,7 @@ barrier.
 
 ```console
 $ blindfold compare before/report.json after/report.json
-Blindfold 0.4.0 · compare
+Blindfold 0.5.0 · compare
   ✓ 0 fixed    ✗ 6 new    • 0 still present
   ✗ new  BF-001  Control can't be reached by keyboard: div.checkout-button "Checkout"
   ✗ new  BF-002  Control has no accessible name: button.cart-button
@@ -169,6 +171,70 @@ blindfold scan https://example.com/account --session my-site.session.json
 
 **The session file contains your login. Don't commit or share it.** Name it
 `*.session.json` and add that pattern to your `.gitignore`.
+
+### `blindfold ui`
+
+Starts the [web UI](#web-ui) and opens it in your browser. Stop it with Ctrl+C.
+
+| Option | Default | What it does |
+|---|---|---|
+| `--port <number>` | `4321` | Port to listen on; if it's busy, a free port is used and printed. `0` picks one |
+| `--results <folder>` | `./blindfold-ui-results` | Where runs started from the UI write their reports |
+| `--journeys <folder>` | `./example-journeys` if it exists | Journey files (`*.yaml`) to offer |
+| `--no-open` | | Don't open the browser; just print the link |
+
+## Web UI
+
+For people who'd rather not use a terminal: QA testers, designers, or anyone
+doing an audit.
+
+```sh
+blindfold ui                       # or, from a clone: npm run blindfold -- ui
+```
+
+<!-- SCREENSHOT PLACEHOLDER (owner): add the real screenshot as docs/blindfold-ui.png
+     and replace this comment with:
+     ![Blindfold web UI after a scan of the buggy demo cart: the New scan form, the Progress panel listing focus stops and the barriers found, and the Result panel with 6 barriers, a link to the full report and the audio player.](docs/blindfold-ui.png)
+     Suggested shot: desktop width, light mode, just after a scan of
+     http://localhost:4000/cart.html?no-cookie-banner=1 finished. -->
+
+The page lets you:
+
+- **Scan** a URL at desktop or mobile size, with or without the audio replay.
+- Watch **live progress**: each focus stop (what was focused, what the screen
+  reader said, whether focus was visible) and each barrier as it's found. A
+  scan's barriers arrive together when the keyboard walk ends, because the
+  rules need the whole walk; a journey's arrive step by step.
+- See the **result**: barriers, rules failed, focus stops, a link to the full
+  report and the audio player.
+- **Cancel** a run. The browser closes at once and no report is written.
+- Browse the **history** of runs in the results folder, newest first, each
+  linking to its report.
+- **Compare** two runs of the same kind (the same as `blindfold compare`).
+- Run a **journey** from the journeys folder, with a base URL if its
+  `start_url` is a path.
+
+Runs use the CLI defaults (400 Tab presses, 120 s for a scan, 300 s for a
+journey, screenshots on). One run at a time. Each run writes to
+`<results>/<YYYY-MM-DD-HHmmss>-<site-or-journey>/`; comparisons go to
+`<results>/comparisons/`.
+
+**Security.** The UI is for your own computer only:
+
+- It listens on `127.0.0.1` only, never on your network.
+- Each start creates a random session token. The link printed in the terminal
+  contains it, and the page sends it with every request; without it the server
+  answers 403. This stops other websites open in the same browser from
+  starting scans or reading your results.
+- Requests for any host name other than `127.0.0.1` or `localhost` are refused
+  (this blocks DNS-rebinding attacks), it never sends CORS headers, and it
+  refuses POSTs from other origins.
+- It only serves files from inside the results folder, and only scans
+  `http:` and `https:` URLs.
+- Ctrl+C cancels a running scan, closes its browser and stops the server.
+
+Scripts can read the line `BLINDFOLD_UI_READY {"url":…,"port":…,"token":…}`
+that `blindfold ui` prints at start.
 
 ## Journey file format
 
@@ -403,6 +469,8 @@ even with `fail-on: never`.
   new. Journey reports don't record accessible names, so for journeys the
   fallback uses the description alone.
 - The GitHub Action supports Linux runners only.
+- The web UI runs one scan or journey at a time and has no `--session`
+  option; use the CLI for pages behind a login.
 - Blindfold uses exactly Playwright 1.64.0, so its Chromium must be installed
   with `npx playwright@1.64.0 install chromium`.
 
@@ -429,6 +497,7 @@ npm install
 npx playwright install chromium
 
 npm run blindfold -- scan <url>   # run from source (tsx)
+npm run blindfold -- ui           # the web UI, from source
 npm run demo:both                 # buggy shop on :4000, accessible shop on :4001
 npm run typecheck                 # TypeScript check
 npm test                          # all tests, including the exact benchmarks

@@ -1,32 +1,34 @@
 #!/usr/bin/env node
 // Command line entry point: `blindfold scan <url>`, `run <journey.yaml>`,
-// `compare <old> <new>` and `login <url> --save-session <file>`.
+// `compare <old> <new>`, `login <url> --save-session <file>` and `ui`.
 // Exit codes: 0 no findings · 1 findings (or journey blocked) · 2 Blindfold couldn't complete.
 
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { Command, CommanderError, InvalidArgumentError } from "commander";
-import type { Browser } from "playwright";
-import { AUDIO_FILE_NAME, writeAudioReplay, type AudioReplayResult } from "../audio/audio-replay-writer.ts";
-import { journeyToAudioSegments, scanToAudioSegments, type AudioSegment } from "../audio/transcript-to-audio.ts";
-import { launchBrowser } from "../browser/browser-launcher.ts";
-import { launchOrExplainMissingBrowser, MissingBrowserError } from "../browser/missing-browser-check.ts";
+import type { AudioReplayResult } from "../audio/audio-replay-writer.ts";
 import { buildComparisonHtml, buildComparisonJson } from "../compare/comparison-report-builder.ts";
-import { compareReports, ComparisonError, loadReportFile, type ReportComparison } from "../compare/report-comparison.ts";
+import { compareReports, loadReportFile, type ReportComparison } from "../compare/report-comparison.ts";
 import { describeViewport, isViewportName, VIEWPORT_NAMES, type ViewportName } from "../browser/viewport-presets.ts";
 import { loadJourneyFile } from "../journeys/journey-file-loader.ts";
-import { JourneyFileError } from "../journeys/journey-file-schema.ts";
-import { runJourney, type JourneyRunOutcome } from "../journeys/journey-runner.ts";
+import type { JourneyRunOutcome } from "../journeys/journey-runner.ts";
 import { neverReachedHint } from "../journeys/never-reached-messages.ts";
 import { groupFindings, summarizeFinding } from "../rules/rule-catalog.ts";
-import { buildHtmlReport, describeEngine, describeStopReason, pluralize } from "../reports/html-report-builder.ts";
-import { buildJsonReport } from "../reports/json-report-builder.ts";
-import { buildJourneyHtmlReport, describeEffort, journeyVerdict } from "../reports/journey-report-sections.ts";
-import { runWithTimeLimit, TimeLimitError } from "../runtime/time-limit.ts";
-import { describeError, parseScanUrl, ScanFailedError, scanPage, type ScanOutcome } from "../scan/page-scanner.ts";
+import { describeEngine, describeStopReason, pluralize } from "../reports/html-report-builder.ts";
+import { describeEffort, journeyVerdict } from "../reports/journey-report-sections.ts";
+import { describeRunFailure } from "../runtime/run-failure-message.ts";
+import {
+  JOURNEY_DEFAULTS,
+  prepareOutputFolder,
+  runJourneyWithReports,
+  runScanWithReports,
+  SCAN_DEFAULTS,
+} from "../runs/scan-and-journey-runs.ts";
+import { describeError, parseScanUrl, ScanFailedError, type ScanOutcome } from "../scan/page-scanner.ts";
 import { recordLoginSession } from "../sessions/login-session-recorder.ts";
-import { loadSessionFile, SESSION_FILE_SUFFIX, SessionFileError, type SessionState } from "../sessions/session-file-loader.ts";
+import { loadSessionFile, SESSION_FILE_SUFFIX, type SessionState } from "../sessions/session-file-loader.ts";
 import { TOOL_VERSION } from "../tool-version.ts";
+import { DEFAULT_UI_PORT, startUiCommand, type UiCommandOptions } from "../ui/ui-command.ts";
 
 const EXIT_NO_FINDINGS = 0;
 const EXIT_FINDINGS = 1;
@@ -86,6 +88,12 @@ function parsePositiveSeconds(optionExample: string) {
   };
 }
 
+function parsePortNumber(value: string): number {
+  const parsed = Number(value);
+  if (!/^\d+$/.test(value.trim()) || parsed > 65_535) throw new InvalidArgumentError("Use a port from 0 to 65535, e.g. --port 4321.");
+  return parsed;
+}
+
 function parseViewportName(value: string): ViewportName {
   if (!isViewportName(value)) throw new InvalidArgumentError(`Use ${VIEWPORT_NAMES.join(" or ")}, e.g. --viewport mobile.`);
   return value;
@@ -95,33 +103,6 @@ function parseViewportName(value: string): ViewportName {
 function displayPath(absolutePath: string): string {
   const relativePath = path.relative(process.cwd(), absolutePath);
   return relativePath.startsWith("..") || path.isAbsolute(relativePath) ? absolutePath : relativePath;
-}
-
-async function prepareOutputFolder(outputOption: string): Promise<string> {
-  const outputFolder = path.resolve(outputOption);
-  try {
-    await mkdir(outputFolder, { recursive: true });
-  } catch (error) {
-    throw new ScanFailedError(`Couldn't create the output folder ${outputFolder} (${describeError(error)}). Check the --output folder.`);
-  }
-  return outputFolder;
-}
-
-async function writeReports(outputFolder: string, json: string, html: string): Promise<string> {
-  try {
-    await writeFile(path.join(outputFolder, "report.json"), json);
-    await writeFile(path.join(outputFolder, "report.html"), html);
-  } catch (error) {
-    throw new ScanFailedError(`Couldn't write the reports to ${outputFolder} (${describeError(error)}). Check the --output folder.`);
-  }
-  return displayPath(path.join(outputFolder, "report.html"));
-}
-
-/** Writes the audio replay, unless --no-audio. A replay from an earlier run is removed so the report never links a stale file. */
-async function writeAudio(enabled: boolean, segments: () => AudioSegment[], outputFolder: string): Promise<AudioReplayResult | null> {
-  const audio = enabled ? await writeAudioReplay(segments(), outputFolder) : null;
-  if (audio?.status !== "written") await rm(path.join(outputFolder, AUDIO_FILE_NAME), { force: true }).catch(() => {});
-  return audio;
 }
 
 function printAudioLine(audio: AudioReplayResult | null): void {
@@ -140,25 +121,6 @@ async function loadSessionOption(sessionOption: string | undefined): Promise<Ses
 
 function printViewportLine(viewport: { width: number; height: number; name: ViewportName }): void {
   if (viewport.name !== "desktop") console.log(`Viewport: ${describeViewport(viewport)}`);
-}
-
-/**
- * Launches the browser and runs `work` within the time limit. On time-out the
- * browser is closed (so nothing keeps running) and TimeLimitError is thrown.
- */
-async function withBrowserAndTimeLimit<T>(seconds: number, work: (browser: Browser) => Promise<T>): Promise<T> {
-  let browser: Browser;
-  try {
-    browser = await launchOrExplainMissingBrowser(launchBrowser);
-  } catch (error) {
-    if (error instanceof MissingBrowserError) throw error;
-    throw new ScanFailedError(`Couldn't start Chromium (${describeError(error)}). Run "npx playwright install chromium" and try again.`);
-  }
-  try {
-    return await runWithTimeLimit(seconds, () => work(browser), () => browser.close());
-  } finally {
-    await browser.close().catch(() => {});
-  }
 }
 
 function printScanSummary(outcome: ScanOutcome, reportPath: string, audio: AudioReplayResult | null): void {
@@ -222,47 +184,37 @@ function printJourneySummary(outcome: JourneyRunOutcome, reportPath: string, aud
 
 async function runScanCommand(url: string, options: ScanCommandOptions): Promise<number> {
   const session = await loadSessionOption(options.session);
-  const outcome = await withBrowserAndTimeLimit(options.timeLimit, (browser) =>
-    scanPage({
-      url,
-      browser,
-      maxTabs: options.maxTabs,
-      pageTimeoutSeconds: options.pageTimeout,
-      screenshots: options.screenshots,
-      viewport: options.viewport,
-      ...(session ? { session } : {}),
-    }),
-  );
-  const outputFolder = await prepareOutputFolder(options.output);
-  const audio = await writeAudio(options.audio, () => scanToAudioSegments(outcome.result), outputFolder);
-  const reportPath = await writeReports(outputFolder, buildJsonReport(outcome.result), buildHtmlReport(outcome.result, outcome.screenshots, audio));
-  printScanSummary(outcome, reportPath, audio);
-  return outcome.result.findings.length > 0 ? EXIT_FINDINGS : EXIT_NO_FINDINGS;
+  const run = await runScanWithReports({
+    url,
+    outputFolder: options.output,
+    maxTabs: options.maxTabs,
+    pageTimeoutSeconds: options.pageTimeout,
+    timeLimitSeconds: options.timeLimit,
+    screenshots: options.screenshots,
+    audio: options.audio,
+    viewport: options.viewport,
+    ...(session ? { session } : {}),
+  });
+  printScanSummary(run.outcome, displayPath(run.reportPath), run.audio);
+  return run.outcome.result.findings.length > 0 ? EXIT_FINDINGS : EXIT_NO_FINDINGS;
 }
 
 async function runJourneyCommand(journeyFile: string, options: RunCommandOptions): Promise<number> {
   const journey = await loadJourneyFile(journeyFile, options.baseUrl);
   const session = await loadSessionOption(options.session);
-  const outcome = await withBrowserAndTimeLimit(options.timeLimit, (browser) =>
-    runJourney({
-      journey,
-      browser,
-      maxTabsPerStep: options.maxTabsPerStep,
-      pageTimeoutSeconds: options.pageTimeout,
-      screenshots: options.screenshots,
-      ...(options.viewport ? { viewport: options.viewport } : {}),
-      ...(session ? { session } : {}),
-    }),
-  );
-  const outputFolder = await prepareOutputFolder(options.output);
-  const audio = await writeAudio(options.audio, () => journeyToAudioSegments(outcome.result), outputFolder);
-  const reportPath = await writeReports(
-    outputFolder,
-    buildJsonReport(outcome.result),
-    buildJourneyHtmlReport(outcome.result, outcome.screenshots, audio),
-  );
-  printJourneySummary(outcome, reportPath, audio);
-  return outcome.result.outcome === "passed" ? EXIT_NO_FINDINGS : EXIT_FINDINGS;
+  const run = await runJourneyWithReports({
+    journey,
+    outputFolder: options.output,
+    maxTabsPerStep: options.maxTabsPerStep,
+    pageTimeoutSeconds: options.pageTimeout,
+    timeLimitSeconds: options.timeLimit,
+    screenshots: options.screenshots,
+    audio: options.audio,
+    ...(options.viewport ? { viewport: options.viewport } : {}),
+    ...(session ? { session } : {}),
+  });
+  printJourneySummary(run.outcome, displayPath(run.reportPath), run.audio);
+  return run.outcome.result.outcome === "passed" ? EXIT_NO_FINDINGS : EXIT_FINDINGS;
 }
 
 function formatRatio(ratio: number | null): string {
@@ -287,7 +239,7 @@ function printComparisonSummary(comparison: ReportComparison, htmlPath: string):
 
 async function runCompareCommand(oldFile: string, newFile: string, options: CompareCommandOptions): Promise<number> {
   const comparison = compareReports(await loadReportFile(oldFile), await loadReportFile(newFile), TOOL_VERSION);
-  const outputFolder = await prepareOutputFolder(options.output);
+  const { folder: outputFolder } = await prepareOutputFolder(options.output);
   try {
     await writeFile(path.join(outputFolder, "comparison.json"), buildComparisonJson(comparison));
     await writeFile(path.join(outputFolder, "comparison.html"), buildComparisonHtml(comparison));
@@ -324,9 +276,9 @@ function buildProgram(setExitCode: (code: number) => void): Command {
     .description("Scan one page and write report.html and report.json.")
     .argument("<url>", "the page to scan, e.g. http://localhost:4000/")
     .option("--output <folder>", "where to write the reports", "./blindfold-results")
-    .option("--max-tabs <number>", "stop the keyboard walk after this many Tab presses", parsePositiveWholeNumber("--max-tabs 400"), 400)
-    .option("--page-timeout <seconds>", "how long to wait for the page to load", parsePositiveSeconds("--page-timeout 30"), 30)
-    .option("--time-limit <seconds>", "stop the whole scan after this long", parsePositiveSeconds("--time-limit 120"), 120)
+    .option("--max-tabs <number>", "stop the keyboard walk after this many Tab presses", parsePositiveWholeNumber("--max-tabs 400"), SCAN_DEFAULTS.maxTabs)
+    .option("--page-timeout <seconds>", "how long to wait for the page to load", parsePositiveSeconds("--page-timeout 30"), SCAN_DEFAULTS.pageTimeoutSeconds)
+    .option("--time-limit <seconds>", "stop the whole scan after this long", parsePositiveSeconds("--time-limit 120"), SCAN_DEFAULTS.timeLimitSeconds)
     .option("--no-screenshots", "don't capture element screenshots")
     .option("--no-audio", "don't write the audio replay (blindfold-audio.wav)")
     .option("--viewport <name>", `screen size to test at: ${VIEWPORT_NAMES.join(" or ")}`, parseViewportName, "desktop")
@@ -346,10 +298,10 @@ function buildProgram(setExitCode: (code: number) => void): Command {
       "--max-tabs-per-step <number>",
       "give up reaching a step's target after this many Tab presses",
       parsePositiveWholeNumber("--max-tabs-per-step 100"),
-      100,
+      JOURNEY_DEFAULTS.maxTabsPerStep,
     )
-    .option("--page-timeout <seconds>", "how long to wait for each page to load", parsePositiveSeconds("--page-timeout 30"), 30)
-    .option("--time-limit <seconds>", "stop the whole journey after this long", parsePositiveSeconds("--time-limit 300"), 300)
+    .option("--page-timeout <seconds>", "how long to wait for each page to load", parsePositiveSeconds("--page-timeout 30"), JOURNEY_DEFAULTS.pageTimeoutSeconds)
+    .option("--time-limit <seconds>", "stop the whole journey after this long", parsePositiveSeconds("--time-limit 300"), JOURNEY_DEFAULTS.timeLimitSeconds)
     .option("--no-screenshots", "don't capture element screenshots")
     .option("--no-audio", "don't write the audio replay (blindfold-audio.wav)")
     .option("--viewport <name>", `screen size to test at: ${VIEWPORT_NAMES.join(" or ")} (overrides the journey file)`, parseViewportName)
@@ -380,12 +332,25 @@ function buildProgram(setExitCode: (code: number) => void): Command {
       setExitCode(await runLoginCommand(url, options));
     });
 
+  program
+    .command("ui")
+    .description("Start the web UI on this computer (127.0.0.1 only) and open it in your browser.")
+    .option("--port <number>", "port to listen on (a free port is used if it's busy; 0 picks one)", parsePortNumber, DEFAULT_UI_PORT)
+    .option("--results <folder>", "where runs started from the UI write their reports", "./blindfold-ui-results")
+    .option("--journeys <folder>", "folder of journey files to offer (default: ./example-journeys when it exists)")
+    .option("--no-open", "don't open the browser; just print the link")
+    .exitOverride()
+    .action(async (options: UiCommandOptions) => {
+      await startUiCommand(options);
+      setExitCode(EXIT_NO_FINDINGS);
+    });
+
   return program;
 }
 
 async function main(): Promise<void> {
   let exitCode = EXIT_NO_FINDINGS;
-  const commandNames: Record<string, string> = { run: "journey", login: "login", compare: "comparison" };
+  const commandNames: Record<string, string> = { run: "journey", login: "login", compare: "comparison", ui: "web UI" };
   const commandName = commandNames[process.argv[2] ?? ""] ?? "scan";
   try {
     await buildProgram((code) => {
@@ -396,20 +361,8 @@ async function main(): Promise<void> {
       // Commander has already printed its message. Help and version are not failures.
       const isInformational = error.code === "commander.helpDisplayed" || error.code === "commander.version";
       exitCode = isInformational ? EXIT_NO_FINDINGS : EXIT_TOOL_ERROR;
-    } else if (
-      error instanceof TimeLimitError ||
-      error instanceof JourneyFileError ||
-      error instanceof SessionFileError ||
-      error instanceof ComparisonError ||
-      error instanceof MissingBrowserError
-    ) {
-      console.error(error.message);
-      exitCode = EXIT_TOOL_ERROR;
-    } else if (error instanceof ScanFailedError) {
-      console.error(`Blindfold couldn't complete the ${commandName}. ${error.message}`);
-      exitCode = EXIT_TOOL_ERROR;
     } else {
-      console.error(`Blindfold stopped unexpectedly: ${describeError(error)}`);
+      console.error(describeRunFailure(error, commandName));
       exitCode = EXIT_TOOL_ERROR;
     }
   }

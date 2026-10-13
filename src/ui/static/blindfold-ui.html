@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blindfold</title>
+  <link rel="stylesheet" href="/blindfold-ui.css">
+  <script src="/blindfold-ui.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="page-header">
+    <div class="wrap">
+      <h1>Blindfold</h1>
+      <p>Finds where keyboard and screen reader users get stuck. Runs on this computer only.</p>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="columns">
+      <section class="panel" aria-labelledby="scan-heading">
+        <h2 id="scan-heading">New scan</h2>
+        <form id="scan-form" novalidate>
+          <div class="field">
+            <label for="scan-url">Page URL</label>
+            <p id="scan-url-hint" class="hint">A full address starting with http:// or https://</p>
+            <input id="scan-url" name="url" type="url" autocomplete="url" spellcheck="false" aria-describedby="scan-url-hint scan-url-error">
+            <p id="scan-url-error" class="field-error" hidden></p>
+          </div>
+          <fieldset>
+            <legend>Screen size</legend>
+            <label class="choice"><input type="radio" name="viewport" value="desktop" checked> Desktop (1280 × 800)</label>
+            <label class="choice"><input type="radio" name="viewport" value="mobile"> Mobile (390 × 844)</label>
+          </fieldset>
+          <label class="choice"><input type="checkbox" name="audio" checked> Make an audio replay</label>
+          <p id="scan-form-error" class="field-error" hidden></p>
+          <button id="scan-button" type="submit">Scan</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="journey-heading">
+        <h2 id="journey-heading">Run a journey</h2>
+        <p id="journey-folder-note" class="hint">Loading journey files…</p>
+        <form id="journey-form" novalidate hidden>
+          <div class="field">
+            <label for="journey-file">Journey file</label>
+            <select id="journey-file" name="file" aria-describedby="journey-file-error"></select>
+            <p id="journey-file-error" class="field-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="journey-base-url">Base URL</label>
+            <p id="journey-base-url-hint" class="hint">Only needed when the journey's start_url is a path, e.g. http://localhost:4000</p>
+            <input id="journey-base-url" name="baseUrl" type="url" autocomplete="url" spellcheck="false" aria-describedby="journey-base-url-hint journey-base-url-error">
+            <p id="journey-base-url-error" class="field-error" hidden></p>
+          </div>
+          <fieldset>
+            <legend>Screen size</legend>
+            <label class="choice"><input type="radio" name="viewport" value="" checked> As set in the journey file</label>
+            <label class="choice"><input type="radio" name="viewport" value="desktop"> Desktop (1280 × 800)</label>
+            <label class="choice"><input type="radio" name="viewport" value="mobile"> Mobile (390 × 844)</label>
+          </fieldset>
+          <label class="choice"><input type="checkbox" name="audio" checked> Make an audio replay</label>
+          <p id="journey-form-error" class="field-error" hidden></p>
+          <button id="journey-button" type="submit">Run journey</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="progress-heading">
+      <h2 id="progress-heading">Progress</h2>
+      <p id="run-status" class="run-status" role="status">No run in progress.</p>
+      <button id="cancel-button" type="button" hidden>Cancel run</button>
+      <div id="progress-details" hidden>
+        <h3 id="finding-heading">Barriers found</h3>
+        <ul id="finding-list" class="finding-list" aria-labelledby="finding-heading"></ul>
+        <p id="finding-empty" class="hint">None yet.</p>
+        <h3 id="transcript-heading">What the keyboard and screen reader did</h3>
+        <ol id="transcript-list" class="transcript" aria-labelledby="transcript-heading"></ol>
+      </div>
+    </section>
+
+    <section id="result-section" class="panel" aria-labelledby="result-heading" hidden>
+      <h2 id="result-heading" tabindex="-1">Result</h2>
+      <p id="result-verdict" class="verdict"></p>
+      <dl id="result-numbers" class="summary-numbers"></dl>
+      <p id="result-report" hidden><a id="result-report-link" href="/" target="_blank" rel="noopener">Open the full report (opens in a new tab)</a></p>
+      <div id="result-audio" hidden>
+        <p id="result-audio-label">Audio replay: what the screen reader said, with a tick for each key press.</p>
+        <audio id="result-audio-player" controls preload="none" aria-labelledby="result-audio-label"></audio>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="history-heading">
+      <h2 id="history-heading">History</h2>
+      <p id="history-empty" class="hint">No runs yet. Finished scans and journeys appear here, newest first.</p>
+      <div id="history-table" class="table-wrapper" role="region" aria-labelledby="history-caption" tabindex="0" hidden>
+        <table>
+          <caption id="history-caption">Past runs, newest first</caption>
+          <thead>
+            <tr><th scope="col">Date (opens the report)</th><th scope="col">Type</th><th scope="col">Page or journey</th><th scope="col">Screen size</th><th scope="col">Barriers</th></tr>
+          </thead>
+          <tbody id="history-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="compare-heading">
+      <h2 id="compare-heading">Compare two runs</h2>
+      <p id="compare-note" class="hint">Compare needs at least two runs in the history.</p>
+      <form id="compare-form" novalidate hidden>
+        <p class="hint">Pick two scans or two journeys: what was fixed, what is new, what is still there.</p>
+        <div class="field">
+          <label for="compare-old">Earlier run</label>
+          <select id="compare-old" name="oldRunId" aria-describedby="compare-old-error"></select>
+          <p id="compare-old-error" class="field-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="compare-new">Later run</label>
+          <select id="compare-new" name="newRunId" aria-describedby="compare-new-error"></select>
+          <p id="compare-new-error" class="field-error" hidden></p>
+        </div>
+        <button id="compare-button" type="submit">Compare</button>
+      </form>
+      <div id="compare-result" hidden>
+        <h3 id="compare-result-heading" tabindex="-1">Comparison</h3>
+        <p id="compare-verdict" class="verdict"></p>
+        <p id="compare-totals"></p>
+        <div id="compare-lists"></div>
+        <p><a id="compare-link" href="/" target="_blank" rel="noopener">Open the comparison (opens in a new tab)</a></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
