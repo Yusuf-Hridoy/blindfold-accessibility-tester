@@ -36,6 +36,8 @@ export interface CorpusPageResult {
   source: CorpusSource;
   category: string;
   status: "scanned" | "couldn't scan";
+  /** When this page was scanned (a partial run keeps other pages from earlier runs). Missing in older results. */
+  scannedAt?: string;
   /** Why the page couldn't be scanned (the message the CLI would print). */
   reason?: string;
   stoppedBecause?: WalkStopReason;
@@ -46,6 +48,7 @@ export interface CorpusPageResult {
 }
 
 export interface CorpusResults {
+  /** When the results file was last written (by a full or a partial run). */
   generatedAt: string;
   toolVersion: string;
   pages: CorpusPageResult[];
@@ -60,6 +63,12 @@ export interface TriageEntry {
   proposed?: boolean;
   /** The false-alarm or real-barrier class from corpus/TRIAGE-CLASSES.md, if any. */
   class?: string;
+  /**
+   * The finding's description and BF-002 reason, so the verdict still applies
+   * when the page changes the element's selector (e.g. a new article above it).
+   */
+  description?: string;
+  reason?: string;
 }
 
 /** Keyed by triageKey(finding): `url ruleId selector`. */

@@ -4,7 +4,17 @@
 
 import { describe, expect, it } from "vitest";
 import type { CorpusFinding, CorpusPageResult, CorpusResults, TriageVerdicts } from "../../scripts/corpus-result-types.ts";
-import { changesSinceLastRun, formatPrecision, precisionRows, sourceTotals, suspectedFalseAlarms, triageKey } from "../../scripts/corpus-report-maths.ts";
+import {
+  changesSinceLastRun,
+  findVerdict,
+  formatPrecision,
+  precisionRows,
+  recallRows,
+  sourceTotals,
+  suspectedFalseAlarms,
+  tidyVerdicts,
+  triageKey,
+} from "../../scripts/corpus-report-maths.ts";
 import { buildCorpusReport } from "../../scripts/corpus-report-markdown.ts";
 
 function finding(url: string, ruleId: CorpusFinding["ruleId"], selector: string, confidence: CorpusFinding["confidence"] = "certain"): CorpusFinding {
@@ -114,5 +124,73 @@ describe("changes since the last run", () => {
     ]);
     expect(changes.addedPages).toEqual(["https://added.example/"]);
     expect(changes.removedPages).toEqual(["https://removed.example/"]);
+  });
+});
+
+describe("verdicts that follow a finding when its selector changes", () => {
+  const NEWS = "https://news.example/";
+  const card = (selector: string, description: string): CorpusFinding => ({ ...finding(NEWS, "BF-004", selector), description });
+  const verdictsWithDescriptions: TriageVerdicts = {
+    [triageKey(card("#a > h3:nth-of-type(1) > a", "a.card \"Police use another model\""))]: {
+      verdict: "false-alarm",
+      note: "",
+      description: 'a.card "Police use another model"',
+    },
+    [triageKey(card("#gone", "a.card \"Yesterday's story\""))]: { verdict: "real", note: "", description: 'a.card "Yesterday\'s story"' },
+  };
+
+  it("matches by page, rule and description when the selector changed, and only when that's unambiguous", () => {
+    const moved = card("#a > h3:nth-of-type(2) > a", 'a.card "Police use another model"');
+    expect(findVerdict(verdictsWithDescriptions, moved)).toMatchObject({ carried: true, entry: { verdict: "false-alarm" } });
+    const twins: TriageVerdicts = {
+      [`${NEWS} BF-004 #x`]: { verdict: "real", note: "", description: "a" },
+      [`${NEWS} BF-004 #y`]: { verdict: "false-alarm", note: "", description: "a" },
+    };
+    expect(findVerdict(twins, card("#z", "a"))).toBeNull();
+  });
+
+  it("tidying moves carried verdicts to the new selector and removes stale ones, keeping pages not scanned this run", () => {
+    const moved = card("#a > h3:nth-of-type(2) > a", 'a.card "Police use another model"');
+    const notScanned: TriageVerdicts = { "https://blocked.example/ BF-001 #x": { verdict: "real", note: "" } };
+    const latest = results([page(NEWS, "real-site", [moved]), page("https://blocked.example/", "real-site", [], "couldn't scan")]);
+    const tidied = tidyVerdicts(latest, { ...verdictsWithDescriptions, ...notScanned });
+    expect(Object.keys(tidied).sort()).toEqual([triageKey(moved), "https://blocked.example/ BF-001 #x"].sort());
+    expect(tidied[triageKey(moved)]?.verdict).toBe("false-alarm");
+  });
+});
+
+describe("recall on the BAD before pages", () => {
+  it("counts planted barriers found with the same page, rule and selector, and lists the missed ones", () => {
+    const BEFORE = "https://bad.example/before/home.html";
+    const latest = results([
+      page(BEFORE, "bad-before", [finding(BEFORE, "BF-001", "#nav-1"), finding(BEFORE, "BF-002", "#search")]),
+      page("https://bad.example/before/news.html", "bad-before", [], "couldn't scan"),
+    ]);
+    const rows = recallRows(latest, {
+      generatedAt: "2026-10-14T08:00:00.000Z",
+      note: "",
+      pages: [
+        {
+          url: BEFORE,
+          afterUrl: BEFORE.replace("/before/", "/after/"),
+          afterCounts: { F55: 0, F65: 0, F68: 0 },
+          expected: [
+            { ruleId: "BF-001", failure: "F55", selector: "#nav-1", description: "a#nav-1" },
+            { ruleId: "BF-001", failure: "F55", selector: "#nav-2", description: "a#nav-2" },
+            { ruleId: "BF-002", failure: "F68", selector: "#search", description: "input#search" },
+          ],
+        },
+        {
+          url: "https://bad.example/before/news.html",
+          afterUrl: "",
+          afterCounts: { F55: 0, F65: 0, F68: 0 },
+          expected: [{ ruleId: "BF-002", failure: "F68", selector: "#x", description: "input#x" }],
+        },
+      ],
+    });
+    expect(rows.map((row) => [row.group, row.expected, row.found, row.missed.map((item) => item.barrier.selector)])).toEqual([
+      ["BF-001 (F55)", 2, 1, ["#nav-2"]],
+      ["BF-002 (F68)", 1, 1, []],
+    ]);
   });
 });

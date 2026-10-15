@@ -80,7 +80,8 @@ a { color: var(--link); }
 .page-header h1 { margin: 0; }
 .page-header p { margin: 0.25rem 0 0; color: var(--muted); }
 
-main { padding-top: 1.5rem; padding-bottom: 3rem; }
+/* .wrap sets the side padding; this keeps the space below the header. */
+main.wrap { padding-top: 1.5rem; padding-bottom: 3rem; }
 
 h1, h2, h3 { line-height: 1.25; }
 h2 { margin-top: 0; }
@@ -160,6 +161,10 @@ button:focus-visible { outline-offset: 3px; }
   font-weight: 600;
 }
 
+.run-status[data-state="running"] { border-left: 4px solid var(--link); }
+.run-status[data-state="passed"] { border-left: 4px solid var(--pass); }
+.run-status[data-state="failed"] { border-left: 4px solid var(--fail); }
+
 .run-status {
   padding: 0.75rem 1rem;
   background: var(--surface);
@@ -196,6 +201,9 @@ button:focus-visible { outline-offset: 3px; }
 .summary-numbers dt { color: var(--muted); }
 .summary-numbers dd { margin: 0; font-size: 1.5rem; font-weight: 700; }
 
+.transcript { list-style: none; }
+.transcript .stop-step { display: inline-block; min-width: 4.5rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
 .transcript, .finding-list {
   max-height: 24rem;
   overflow-y: auto;
@@ -203,7 +211,7 @@ button:focus-visible { outline-offset: 3px; }
 }
 
 .transcript li, .finding-list li { margin: 0.2rem 0; }
-.transcript .note { color: var(--muted); font-style: italic; list-style: none; margin-left: -1.5rem; }
+.transcript .note { color: var(--muted); font-style: italic; }
 .focus-no { color: var(--fail); font-weight: 700; }
 
 code {
@@ -235,3 +243,29 @@ th, td {
 th { background: var(--surface); }
 
 audio { width: 100%; max-width: 32rem; }
+
+/* The report link looks like a secondary button: it's the main next step after a run. */
+.button-link {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--link);
+  border: 2px solid var(--link);
+  border-radius: 6px;
+}
+
+.button-link:hover { text-decoration: underline; }
+
+.confidence-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; margin: 0.5rem 0; list-style: none; }
+.confidence-chips li {
+  padding: 0.1rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.confidence-chips .certain { color: var(--fail); }
+.confidence-chips .check-by-hand { color: var(--muted); border-style: dashed; }
+
+.count-zero { color: var(--pass); font-weight: 700; }
+.count-some { color: var(--fail); font-weight: 700; }

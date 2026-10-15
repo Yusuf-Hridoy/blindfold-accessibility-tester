@@ -120,10 +120,16 @@ function reasonFor(stop: FocusStop): Bf002Reason | null {
   return screenReaderSpokeAName(stop) ? null : "missing-name";
 }
 
-/** BF-002: focus stops a screen reader can't name, because the name is empty or the control is hidden. */
+/**
+ * BF-002: focus stops a screen reader can't name, because the name is empty or
+ * the control is hidden. Also the other radios of a reached radio group (Tab
+ * skips them, arrow keys reach them): only Engine B sees those, so their
+ * confidence stays "likely".
+ */
 export function findUnnamedControls(data: CollectedScanData): RuleFinding[] {
   const findings: RuleFinding[] = [];
   const reportedElementIds = new Set<number>();
+  const radiosReachedByArrowKeys = new Set(data.reachableWithArrowKeys?.nativeRadioGroup ?? []);
   for (const stop of data.focusStops) {
     const reason = reasonFor(stop);
     if (reason === null || reportedElementIds.has(stop.elementId)) continue;
@@ -135,6 +141,20 @@ export function findUnnamedControls(data: CollectedScanData): RuleFinding[] {
       selector: stop.selector,
       description: stop.description,
       step: stop.step,
+    });
+  }
+  // After the focus stops, so a group's reached radio comes first.
+  for (const element of data.mousePassElements) {
+    if (!radiosReachedByArrowKeys.has(element.elementId) || element.role !== "radio" || element.accessibleName.trim() !== "") continue;
+    if (reportedElementIds.has(element.elementId)) continue;
+    reportedElementIds.add(element.elementId);
+    findings.push({
+      ruleId: "BF-002",
+      reason: "missing-name",
+      elementId: element.elementId,
+      selector: element.selector,
+      description: element.description,
+      step: null,
     });
   }
   return findings;

@@ -3,7 +3,7 @@
 // Every fix is a general rule about how the web works, never about a site.
 
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import type { ScanOutcome } from "../../src/scan/page-scanner.ts";
+import { scanPage, type ScanOutcome } from "../../src/scan/page-scanner.ts";
 import { findingSelectors, startSnippetScanner, type SnippetScanner } from "../helpers/scan-html-snippet.ts";
 
 let scanner: SnippetScanner;
@@ -156,6 +156,13 @@ describe("FA-7: mouse-only parts of a keyboard-operable widget", () => {
     );
   });
 
+  it("still fires for a mouse-only control with its own text next to a widget (it isn't a part of the widget)", async () => {
+    const outcome = await scanner.scan(`
+      <div><input type="range" aria-label="Volume"><div id="reset" style="cursor: pointer">Reset</div></div>
+      <script>document.getElementById("reset").addEventListener("click", () => {});</script>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["#reset"]);
+  });
+
   it("still fires for a mouse-only control next to a widget when the container holds other controls", async () => {
     const outcome = await scanner.scan(`
       <form>
@@ -209,6 +216,14 @@ describe("FA-10: a modal backdrop that closes on click", () => {
       </div>
       ${BACKDROP_LISTENER}`);
     expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+  });
+
+  it("still fires for a full-viewport clickable banner with a picture and nothing drawn over it", async () => {
+    const outcome = await scanner.scan(`
+      <button>Menu</button>
+      <div id="hero" style="position: absolute; inset: 0; background: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22/%3E') rgb(200, 30, 30); cursor: pointer"></div>
+      <script>document.getElementById("hero").addEventListener("click", () => {});</script>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["#hero"]);
   });
 
   it("nor an overlay of its own (BF-008)", async () => {
@@ -310,5 +325,108 @@ describe("FA-3, FA-4, FA-5: BF-004 needs both the style check and the pixels to 
       <input id="email" aria-label="Email">
       <button>After</button>`);
     expect(findingSelectors(outcome, "BF-004")).toEqual(["#plain", "#email"]);
+  });
+});
+
+describe("the BF-004 pixel check in journeys and live progress", () => {
+  const OUTLINE_REMOVED = `<style>a { outline: none; }</style><a href="#target">Target</a> <a href="#other">Other</a>`;
+
+  it("a journey that ends with focus still on an element with invisible focus still reports BF-004", async () => {
+    const outcome = await scanner.runJourney(OUTLINE_REMOVED, [{ reach: "Target, link" }]);
+    expect(outcome.result.findings.map((finding) => `${finding.ruleId} step ${finding.journeyStep}`)).toEqual(["BF-004 step 1"]);
+    expect(outcome.result.steps[0]?.status).toBe("passed-with-barriers");
+    expect(outcome.result.effort.keyboardPresses).toBe(1);
+  });
+
+  it("a BF-004 decided during the next step belongs to the step where the element was reached", async () => {
+    const outcome = await scanner.runJourney(OUTLINE_REMOVED, [{ reach: "Target, link" }, { reach: "Other, link" }]);
+    expect(outcome.result.findings.filter((finding) => finding.ruleId === "BF-004").map((finding) => `${finding.selector} step ${finding.journeyStep}`)).toEqual([
+      "body > a:nth-of-type(1) step 1",
+      "body > a:nth-of-type(2) step 2",
+    ]);
+    expect(outcome.result.steps.map((step) => step.status)).toEqual(["passed-with-barriers", "passed-with-barriers"]);
+  });
+
+  it("live focus-stop events carry the final focus visibility (after the pixel check)", async () => {
+    const events: { focusVisible: unknown }[] = [];
+    const url = scanner.pageUrl(`<style>button { outline: none; } button:focus span { outline: 3px solid blue; }</style><button><span>Card</span></button> <a href="#after">After</a>`);
+    const { result } = await scanPage({ url, maxTabs: 20, pageTimeoutSeconds: 10, screenshots: false, onProgress: (event) => { if (event.type === "focus-stop") events.push(event); } });
+    expect(events.map((event) => event.focusVisible)).toEqual(result.focusStops.map((stop) => stop.focusVisible));
+    expect(events[0]?.focusVisible).toBe(true);
+  });
+});
+
+describe("inside open shadow roots (web components)", () => {
+  const COMPONENT = (inner: string) => `
+    <button>Start</button>
+    <x-card></x-card>
+    <script>
+      customElements.define("x-card", class extends HTMLElement {
+        constructor() {
+          super();
+          const root = this.attachShadow({ mode: "open" });
+          root.innerHTML = ${JSON.stringify(inner)};
+          root.getElementById("buy")?.addEventListener("click", () => {});
+        }
+      });
+    </script>`;
+
+  it("a mouse-only control inside a shadow root is BF-001", async () => {
+    const outcome = await scanner.scan(COMPONENT(`<a href="#info">Info</a> <div id="buy" style="cursor: pointer">Buy now</div>`));
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["body > x-card #buy"]);
+  });
+
+  it("focus visibility is checked inside a shadow root: removed outline is BF-004, a visible one isn't", async () => {
+    const outcome = await scanner.scan(COMPONENT(`<style>.plain { outline: none; }</style><a class="plain" href="#a">Plain</a> <a href="#b">Default</a>`));
+    expect(findingSelectors(outcome, "BF-004")).toEqual(["body > x-card a:nth-of-type(1)"]);
+  });
+});
+
+describe("recall gaps found on the BAD before pages", () => {
+  it("a link that throws focus away (onfocus blur) is BF-001 even when another link goes to the same page", async () => {
+    const outcome = await scanner.scan(`
+      <a href="/news.html">News</a>
+      <a id="teaser" href="/news.html" onfocus="this.blur()">Heat wave linked to temperatures</a>
+      <a href="#end">End</a>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual(["#teaser"]);
+  });
+
+  it("radios of a reached group that Tab skips still need a name (BF-002, likely)", async () => {
+    const outcome = await scanner.scan(`
+      <fieldset><legend>Text alignment</legend>
+        <input type="radio" name="align" id="left"> <input type="radio" name="align" id="right">
+      </fieldset>
+      <fieldset><legend>Size</legend>
+        <label><input type="radio" name="size" id="small"> Small</label> <label><input type="radio" name="size" id="large"> Large</label>
+      </fieldset>`);
+    expect(findingSelectors(outcome, "BF-002")).toEqual(["#left", "#right"]);
+    expect(outcome.result.findings.find((finding) => finding.selector === "#right")?.confidence).toBe("likely");
+  });
+});
+
+describe("regressions found by the corpus re-run", () => {
+  it("a custom element whose real button is inside its shadow root isn't BF-001 itself", async () => {
+    const outcome = await scanner.scan(`
+      <x-button id="login" style="cursor: pointer">Log in</x-button>
+      <script>
+        customElements.define("x-button", class extends HTMLElement {
+          constructor() { super(); this.attachShadow({ mode: "open" }).innerHTML = "<button><slot></slot></button>"; }
+        });
+        document.getElementById("login").addEventListener("click", () => {});
+      </script>`);
+    expect(findingSelectors(outcome, "BF-001")).toEqual([]);
+  });
+
+  it("a dropdown animating open next to a link is waited for, so a link with no focus style is still BF-004", async () => {
+    const outcome = await scanner.scan(`
+      <style>
+        a { outline: none; }
+        .menu { position: relative; display: inline-block; }
+        .drop { position: absolute; top: 100%; left: 0; opacity: 0; transition: opacity 0.4s; }
+        .menu:focus-within .drop { opacity: 1; }
+      </style>
+      <div class="menu"><a id="demos" href="#demos">Demos</a><div class="drop"><a id="item" href="#item">Grid demo</a></div></div>
+      <p><button>After</button></p>`);
+    expect(findingSelectors(outcome, "BF-004")).toContain("#demos");
   });
 });

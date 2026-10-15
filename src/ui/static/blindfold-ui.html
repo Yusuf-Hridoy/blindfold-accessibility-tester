@@ -75,7 +75,7 @@
         <ul id="finding-list" class="finding-list" aria-labelledby="finding-heading"></ul>
         <p id="finding-empty" class="hint">None yet.</p>
         <h3 id="transcript-heading">What the keyboard and screen reader did</h3>
-        <ol id="transcript-list" class="transcript" aria-labelledby="transcript-heading"></ol>
+        <ul id="transcript-list" class="transcript" aria-labelledby="transcript-heading"></ul>
       </div>
     </section>
 
@@ -83,9 +83,9 @@
       <h2 id="result-heading" tabindex="-1">Result</h2>
       <p id="result-verdict" class="verdict"></p>
       <p id="result-warning" class="warning" hidden></p>
-      <p id="result-confidence" hidden></p>
+      <ul id="result-confidence" class="confidence-chips" aria-label="Confidence" hidden></ul>
       <dl id="result-numbers" class="summary-numbers"></dl>
-      <p id="result-report" hidden><a id="result-report-link" href="/" target="_blank" rel="noopener">Open the full report (opens in a new tab)</a></p>
+      <p id="result-report" hidden><a id="result-report-link" class="button-link" href="/" target="_blank" rel="noopener">Open the full report (opens in a new tab)</a></p>
       <div id="result-audio" hidden>
         <p id="result-audio-label">Audio replay: what the screen reader said, with a tick for each key press.</p>
         <audio id="result-audio-player" controls preload="none" aria-labelledby="result-audio-label"></audio>

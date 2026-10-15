@@ -16,12 +16,22 @@ change behaviour).
   checked by hand). Shown in the terminal, the HTML report (with a legend),
   report.json, the web UI and the Action's job summary. Reports written before
   0.6.0 load with "unknown". Exit codes don't change.
+- Polished web UI and reports: the reports start with an "At a glance"
+  table (each failed rule with its confidence levels, linking to its
+  section) and fold each finding's transcript excerpt; the web UI shows
+  confidence as badges, a status line coloured by state, an unnumbered
+  keyboard transcript, the report link as a button, coloured barrier counts in
+  History, and Compare starts with two runs of the same kind.
 - A real-world corpus to measure precision: the W3C ARIA Authoring Practices
   examples (expected: no findings), the W3C Before-and-After Demonstration and
   about 20 real sites. `npm run corpus` scans it one page at a time;
   `npm run corpus:report` writes `corpus/CORPUS-REPORT.md` with precision per
-  rule and per confidence level from the owner's verdicts. A monthly workflow
-  runs it; it never runs with `npm test`.
+  rule and per confidence level from the owner's verdicts, and recall on the
+  BAD "before" pages (`npm run corpus:expected-bad` lists the planted barriers
+  Blindfold's rules cover). Verdicts follow a finding when its selector
+  changes, and `npm run corpus:report -- --tidy-verdicts` moves or removes
+  them. Partial runs (`--only`) keep the last full run as "previous". A
+  monthly workflow runs it; it never runs with `npm test`.
 - `blindfold ui`: a local web UI for people who don't use a terminal. Scan a
   URL (desktop or mobile, audio on or off) or run a journey from the journeys
   folder, watch live progress (each focus stop, what the screen reader said,
@@ -68,6 +78,32 @@ change behaviour).
     control covering the whole overlay (an app's canvas) is its surface.
   - BF-001 on an element with only a click listener (no pointer cursor, no
     role) is "check by hand".
+- Review fixes:
+  - Journeys no longer lose a BF-004 when a step ends with focus still on the
+    element: the check settles in a later step or, after the last step, with
+    one extra Tab that isn't counted; step statuses are worked out at the end.
+  - Live progress (web UI) reports a focus stop once its focus visibility is
+    final, so it no longer says "focus not visible" for focus that is.
+  - The pixel check only waits for animations on the element, its ancestors
+    and its descendants, so animations elsewhere don't slow scans down.
+  - A mouse-only control next to a slider, spinbutton or combobox is only
+    treated as part of it when it's tied to it (tabindex="-1", no text of its
+    own, or the same aria-controls); a "Reset" button with text is BF-001.
+  - A full-screen click area only counts as a backdrop when it has no picture
+    and something (the dialog) is drawn over it; a full-screen banner link is
+    BF-001.
+  - The duplicate-link exemption only covers links with a negative tabindex;
+    a tabbable link that throws focus away is BF-001 even when another link
+    goes to the same page.
+  - The other radios of a reached radio group are checked for a name too
+    (BF-002, "likely": only Engine B sees them).
+  - Open shadow roots are covered: the mouse pass and focus-visibility check
+    look inside them, so web components get BF-001 and BF-004 like the page.
+    A custom element whose real control is inside its shadow root (e.g. a
+    `<button>` wrapped by `<x-button>`) isn't a mouse target of its own.
+  - The pixel check also waits for animations on anything drawn over the
+    photographed area (e.g. a dropdown opening next to a link).
+  - The corpus runner tries a page once more after a network error.
 - A scan whose last stop is a third-party frame no longer runs to the Tab
   limit when Chromium alternates between the page body and the frame.
 - Journeys wait for the new tab (up to 3 s) whenever the action is on a link

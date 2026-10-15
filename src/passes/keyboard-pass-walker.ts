@@ -26,6 +26,8 @@ export interface KeyboardWalkOptions {
   useScreenReader: boolean;
   /** Called right after each stop is recorded, while the element still has focus. */
   onFocusStop?: (stop: FocusStop) => Promise<void>;
+  /** Called once a stop's focus visibility is final (after BF-004's pixel check, which may wait for the next Tab). */
+  onFocusStopSettled?: (stop: FocusStop) => void;
   /** Cancels the walk before the next key press (RunCancelledError). */
   signal?: AbortSignal;
 }
@@ -184,7 +186,11 @@ function trapStartedInside(focusStops: FocusStop[]): FocusTrap {
 }
 
 export async function walkWithKeyboard(page: Page, options: KeyboardWalkOptions): Promise<KeyboardWalkResult> {
-  const pixelCheck = new FocusPixelCheck(page, (stop) => locatorForSelector(page, stop.selector));
+  const pixelCheck = new FocusPixelCheck(
+    page,
+    (stop) => locatorForSelector(page, stop.selector),
+    (stop) => options.onFocusStopSettled?.(stop),
+  );
   try {
     return await walk(page, options, pixelCheck);
   } finally {

@@ -14,6 +14,13 @@ export interface PageElementHelpers {
   selectorFor(element: Element): string;
   /** The focused element, following focus into open shadow roots (document.activeElement stops at the host). */
   deepActiveElement(): Element | null;
+  /**
+   * Every element under `root`, including inside open shadow roots, in the
+   * order they're rendered: an element, then its shadow tree, then its children.
+   */
+  deepElements(root: Element | Document | ShadowRoot): Element[];
+  /** Every open shadow root under `root` (for observers). */
+  deepShadowRoots(root: Element | Document | ShadowRoot): ShadowRoot[];
   describe(element: Element): string;
   identify(element: Element): PageElementIdentity;
   isVisible(element: Element): boolean;
@@ -40,18 +47,23 @@ export function installPageElementHelpers(): void {
     return elementId;
   }
 
+  /** Unique in its own document or shadow root (a selector part is matched within that root). */
   function hasUniqueId(element: Element): boolean {
-    return element.id !== "" && document.querySelectorAll(`#${CSS.escape(element.id)}`).length === 1;
+    const root = element.getRootNode() as Document | ShadowRoot;
+    return element.id !== "" && root.querySelectorAll(`#${CSS.escape(element.id)}`).length === 1;
   }
 
   function selectorFor(element: Element): string {
-    if (hasUniqueId(element)) return `#${CSS.escape(element.id)}`;
+    const root = element.getRootNode();
+    // Inside an open shadow root: Playwright's CSS selectors pierce it from the host.
+    const hostPrefix = root instanceof ShadowRoot ? `${selectorFor(root.host)} ` : "";
+    if (hasUniqueId(element)) return `${hostPrefix}#${CSS.escape(element.id)}`;
     const parts: string[] = [];
     let current: Element | null = element;
     while (current && current !== document.documentElement) {
       if (current !== element && hasUniqueId(current)) {
         parts.unshift(`#${CSS.escape(current.id)}`);
-        break;
+        return `${hostPrefix}${parts.join(" > ")}`;
       }
       let part = CSS.escape(current.localName);
       const parent: Element | null = current.parentElement;
@@ -62,8 +74,7 @@ export function installPageElementHelpers(): void {
         if (sameTagSiblings.length > 1) part += `:nth-of-type(${sameTagSiblings.indexOf(current) + 1})`;
       }
       parts.unshift(part);
-      // Inside an open shadow root: Playwright's CSS selectors pierce it from the host.
-      if (shadowRoot) return `${selectorFor(shadowRoot.host)} ${parts.join(" > ")}`;
+      if (shadowRoot) return `${hostPrefix}${parts.join(" > ")}`;
       current = parent;
     }
     return parts.join(" > ");
@@ -85,6 +96,23 @@ export function installPageElementHelpers(): void {
     return box.width > 0 && box.height > 0;
   }
 
+  function deepElements(root: Element | Document | ShadowRoot): Element[] {
+    const elements: Element[] = [];
+    const visit = (parent: Element | Document | ShadowRoot): void => {
+      for (const child of Array.from(parent.children)) {
+        elements.push(child);
+        if (child.shadowRoot) visit(child.shadowRoot);
+        visit(child);
+      }
+    };
+    visit(root);
+    return elements;
+  }
+
+  function deepShadowRoots(root: Element | Document | ShadowRoot): ShadowRoot[] {
+    return deepElements(root).flatMap((element) => (element.shadowRoot ? [element.shadowRoot] : []));
+  }
+
   function deepActiveElement(): Element | null {
     let focused = document.activeElement;
     while (focused?.shadowRoot?.activeElement) focused = focused.shadowRoot.activeElement;
@@ -93,6 +121,8 @@ export function installPageElementHelpers(): void {
 
   window.__blindfoldElements = {
     deepActiveElement,
+    deepElements,
+    deepShadowRoots,
     idFor,
     elementForId: (elementId) => elementsById.get(elementId),
     selectorFor,

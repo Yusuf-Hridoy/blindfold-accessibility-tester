@@ -431,24 +431,37 @@ should give no findings), the W3C Before-and-After Demonstration (the
 "before" pages have planted barriers, the "after" pages fix them) and about 20
 public sites (shops, news, government, documentation, apps, two non-English).
 `npm run corpus` scans them one at a time; `npm run corpus:report` writes
-`corpus/CORPUS-REPORT.md`. It needs the network, so it never runs with
-`npm test`; a workflow runs it monthly.
+`corpus/CORPUS-REPORT.md` with precision (from the owner's verdicts in
+`corpus/triage-verdicts.json`) and recall on the BAD "before" pages (the
+planted barriers Blindfold's rules cover, listed by
+`npm run corpus:expected-bad`). Verdicts follow a finding when a site changes
+its selector; `npm run corpus:report -- --tidy-verdicts` re-keys or removes
+them. It all needs the network, so it never runs with `npm test`; a workflow
+runs it monthly.
 
-Latest run (2026-10-13, Blindfold 0.6.0): **0 findings on all 69 APG pages
-and on all 5 BAD "after" pages.** Precision counts only findings the owner
-has confirmed as a real barrier or a false alarm:
+Latest run (2026-10-14/15, Blindfold 0.6.0): **0 findings on all APG pages
+scanned (68 of 69; one didn't load in time) and on all 5 BAD "after"
+pages**, and **all 49 planted barriers found** on the BAD "before" pages:
+
+| Recall on BAD "before" (WCAG failure) | Expected | Found | Recall |
+|---|---|---|---|
+| BF-001, script removes focus (F55) | 32 | 32 | 100% |
+| BF-002, unlabelled field (F68) | 17 | 17 | 100% |
+
+Precision counts only findings the owner has confirmed as a real barrier or a
+false alarm:
 
 | Rule | Findings | Real | False alarm | Awaiting a verdict | Precision |
 |---|---|---|---|---|---|
-| BF-001 Control can't be reached by keyboard | 54 | 39 | 2 | 13 | 95% |
-| BF-002 Control has no accessible name | 100 | 26 | 0 | 74 | 100% |
-| BF-004 Keyboard focus is not visible | 15 | 3 | 9 | 3 | 25% |
+| BF-001 Control can't be reached by keyboard | 61 | 39 | 2 | 20 | 95% |
+| BF-002 Control has no accessible name | 101 | 22 | 0 | 79 | 100% |
+| BF-004 Keyboard focus is not visible | 19 | 2 | 4 | 13 | 33% |
 
 | Confidence | Findings | Real | False alarm | Awaiting a verdict | Precision |
 |---|---|---|---|---|---|
-| certain | 109 | 25 | 9 | 75 | 74% |
-| likely | 33 | 26 | 0 | 7 | 100% |
-| check by hand | 28 | 17 | 2 | 9 | 89% |
+| certain | 108 | 20 | 4 | 84 | 83% |
+| likely | 47 | 26 | 0 | 21 | 100% |
+| check by hand | 27 | 17 | 2 | 8 | 89% |
 
 BF-003 had one finding (unsure); BF-005 to BF-008 had none, since the corpus
 runs scans, not journeys. The remaining BF-004 false alarms are focus
@@ -485,10 +498,11 @@ findings with 18% precision.
   page and stops after one full cycle. If more than half of the clickable
   elements still end up as BF-001, the report warns that the walk may have
   been incomplete; check those results by hand.
-- A link removed from the Tab order isn't BF-001 when a link the keyboard
-  reaches goes to the same address (ignoring the `#fragment` for other pages).
-  It's listed under "Not tested". Blindfold doesn't check that the reachable
-  link is as easy to find.
+- A link removed from the Tab order (a negative `tabindex`) isn't BF-001
+  when a link the keyboard reaches goes to the same address (ignoring the
+  `#fragment` for other pages). It's listed under "Not tested". Blindfold
+  doesn't check that the reachable link is as easy to find. A tabbable link
+  the keyboard still can't use (e.g. one that throws focus away) is BF-001.
 - After a focus trap, unreached controls *before* the trap (in document order)
   are reported as BF-001, because Tab passed their position. Controls after it
   are listed as "not tested".
@@ -499,12 +513,11 @@ findings with 18% precision.
   are reachable by browser design, and ARIA widget items are listed under
   "Not tested" as "assumed reachable with arrow keys, not verified".
 - Chromium only. Two viewports: desktop 1280×800 and mobile 390×844 (no touch).
-- Focus inside open shadow roots is followed (the focused element, not its
-  host, is recorded), but the mouse pass and focus-style baselines don't look
-  inside shadow roots: no BF-001 there, and focus visibility is `unknown`.
-  The mouse pass doesn't look inside iframes either, so BF-001 can't fire for
-  controls inside a frame (BF-002, BF-003 and BF-004 can). Nothing inside
-  third-party iframes is tested.
+- Open shadow roots (web components) are tested like the page: focus inside
+  them is followed and the mouse pass and focus check look inside. Closed
+  shadow roots can't be seen. The mouse pass doesn't look inside iframes, so
+  BF-001 can't fire for controls inside a frame (BF-002, BF-003 and BF-004
+  can). Nothing inside third-party iframes is tested.
 - BF-004 needs two checks to agree. First the styles of the element, its
   `::before`/`::after`, its parent and grandparent are compared with and
   without focus. If nothing changed, the element's area (its box plus 8 px)
@@ -523,9 +536,18 @@ findings with 18% precision.
   has none. (For value fields such as a `<select>`, the value Guidepup reads
   isn't a name.)
 - Mouse-only parts of a slider, spinbutton or combobox (a track, +/- buttons,
-  an open button) aren't BF-001 when the widget itself is reached; they're
-  listed under "Not tested". Labels of reached controls, and empty
-  full-screen backdrops behind dialogs, aren't counted as controls.
+  an open button) aren't BF-001 when the widget itself is reached and the
+  part is tied to it (`tabindex="-1"`, no text of its own, or the same
+  `aria-controls`); they're listed under "Not tested". Labels of reached
+  controls, and empty full-screen backdrops with a dialog drawn over them,
+  aren't counted as controls.
+- The other radios of a reached radio group aren't focus stops, so their
+  name comes from Chromium's snapshot only; a missing one is BF-002 marked
+  "likely".
+- Journeys: BF-004's pixel check needs focus to leave the element. When the
+  journey ends with focus still there, Blindfold presses Tab once more (not
+  counted as effort). When the step's action loads a new page, the check
+  can't finish and no BF-004 is reported for that element.
 - Focus visibility is `unknown` (never reported) for an element that receives
   focus before Blindfold could record its unfocused styles, e.g. one inserted
   and focused by a script in the same moment, or one focused on page load.

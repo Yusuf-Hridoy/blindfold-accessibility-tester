@@ -2,2277 +2,2840 @@
   "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-002 #sc1": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (non-control role, name not required).",
-    "class": "FA-12"
+    "class": "FA-12",
+    "description": "code#sc1 \"<section id=\"myCarousel\" class=\"carouse…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-004 #myCarousel > div > div:nth-of-type(1) > button:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.rotation"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-004 #myCarousel > div > div:nth-of-type(1) > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.previous"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/ BF-004 #myCarousel > div > div:nth-of-type(1) > button:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.next"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ BF-002 #sc1": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (non-control role, name not required).",
-    "class": "FA-12"
+    "class": "FA-12",
+    "description": "code#sc1 \"<section id=\"myCarousel\" class=\"carouse…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/ BF-004 #myCarousel > div > div:nth-of-type(1) > button": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.rotation"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/ BF-001 #cb1-button": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button#cb1-button"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/ BF-001 #cb1-button": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button#cb1-button"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/ BF-001 #cb1-button": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button#cb1-button"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/ BF-001 #myDatepicker > div:nth-of-type(2) > button": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button.arrow"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/ BF-001 #combo1-label": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (clickable label of a reachable control).",
-    "class": "FA-9"
+    "class": "FA-9",
+    "description": "div#combo1-label \"Favorite Fruit\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ BF-004 #toggle-folk-futures": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "button#toggle-folk-futures \"Details\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/ BF-004 #toggle-playful-dissonance": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "button#toggle-playful-dissonance \"Details\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"Experimental content! Do not use except…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-001 #ex1 > div > svg > g:nth-of-type(1) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-004 #ex1 > div > svg > g:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "g.minimum \"$100\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/ BF-004 #ex1 > div > svg > g:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "g.maximum \"$250\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-001 #ex1 > div > div:nth-of-type(2) > svg > rect:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.rail"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-001 #ex1 > div > div:nth-of-type(4) > svg > rect:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.rail"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-001 #ex1 > div > div:nth-of-type(6) > svg > rect:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.rail"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(1) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(1) > text:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"1\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(2) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(2) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"2\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(3) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(3) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"3\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(4) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(4) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"4\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(5) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(5) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"5\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(6) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(6) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"6\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(7) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(7) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"7\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(8) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(8) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"8\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(9) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(9) > text": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"9\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(10) > rect": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "rect.target"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-001 #id-rating > svg > g:nth-of-type(10) > text:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "text.label \"10\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/ BF-004 #id-rating": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "div#id-rating \"1 Extremely Unsatisfied 2 3 4 5 6 7 8 9…\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(3) > button:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button.decrease"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(3) > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button.increase"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(4) > button:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button.decrease"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(4) > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button.increase"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(5) > button:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button.decrease"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-001 #example-group > div:nth-of-type(5) > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button.increase"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-001 #example > div > fieldset > div > div:nth-of-type(1) > div > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button \"+\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-001 #example > div > fieldset > div > div:nth-of-type(2) > div > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button \"+\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-001 #example > div > fieldset > div > div:nth-of-type(3) > div > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (mouse-only part of a keyboard widget).",
-    "class": "FA-7"
+    "class": "FA-7",
+    "description": "button \"+\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-004 #adults": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "input#adults"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-004 #kids": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "input#kids"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/ BF-004 #animals": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "input#animals"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"Experimental content! Do not use except…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-001 #ex1 > div > div:nth-of-type(2) > button:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (nested arrow-key widget).",
-    "class": "FA-8"
+    "class": "FA-8",
+    "description": "button.item \"Text Align Left\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-001 #ex1 > div > div:nth-of-type(2) > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (nested arrow-key widget).",
-    "class": "FA-8"
+    "class": "FA-8",
+    "description": "button.item \"Text Align Center\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-001 #ex1 > div > div:nth-of-type(2) > button:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (nested arrow-key widget).",
-    "class": "FA-8"
+    "class": "FA-8",
+    "description": "button.item \"Text Align Right\""
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/ BF-002 #support-notice > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"The code in this example is not intende…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #home > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #news > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #tickets > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #survey > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > p:nth-of-type(2) > span > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a \"Click here\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > p:nth-of-type(2) > span > a:nth-of-type(2)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a \"Click here\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"changelog\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Shadi Abou-Zahra\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Education and Outreach Working Group (E…\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-TIES\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-AGE\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Acknowledgements\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI Site Map\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Help with WAI Website\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Search\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Contacting WAI\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai-eo-editors@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"liability\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"trademark\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"document use\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"software licensing\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"public\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Member\""
   },
   "https://www.w3.org/WAI/demos/bad/before/home.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "select \"QUICKMENU ----> Broadcasting Education …\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #home > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #news > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #tickets > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #survey > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #main > div:nth-of-type(2) > div:nth-of-type(2) > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"trombone forgery debacle\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #main > div:nth-of-type(3) > div:nth-of-type(1) > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"the way that air conditioning works\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"changelog\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Shadi Abou-Zahra\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Education and Outreach Working Group (E…\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-TIES\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-AGE\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Acknowledgements\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI Site Map\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Help with WAI Website\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Search\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Contacting WAI\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai-eo-editors@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"liability\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"trademark\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"document use\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"software licensing\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"public\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Member\""
   },
   "https://www.w3.org/WAI/demos/bad/before/news.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "select \"QUICKMENU ----> Broadcasting Education …\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #home > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #news > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #tickets > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #survey > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"changelog\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Shadi Abou-Zahra\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Education and Outreach Working Group (E…\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-TIES\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-AGE\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Acknowledgements\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI Site Map\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Help with WAI Website\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Search\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Contacting WAI\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai-eo-editors@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"liability\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"trademark\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"document use\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"software licensing\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"public\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Member\""
   },
   "https://www.w3.org/WAI/demos/bad/before/tickets.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "select \"QUICKMENU ----> Broadcasting Education …\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #home > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #news > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #tickets > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #survey > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input.align"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > span > input": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input.align"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input.align"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input.align"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > input": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input.align"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input.align"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(2) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > span > select": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "select \"select a city -----> Afghanistan, Kabul…\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #em": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input#em"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #n": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input#n"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #ev": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input#ev"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #submit": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "input#submit"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"changelog\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Shadi Abou-Zahra\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Education and Outreach Working Group (E…\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-TIES\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-AGE\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Acknowledgements\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI Site Map\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Help with WAI Website\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Search\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Contacting WAI\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai-eo-editors@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"liability\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"trademark\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"document use\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"software licensing\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"public\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Member\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "select \"QUICKMENU ----> Broadcasting Education …\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #home > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #news > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #tickets > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #survey > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a"
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(4) > td > table > tbody > tr > td > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a \"Read more...\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(9) > td > table > tbody > tr > td > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-1"
+    "class": "R-1",
+    "description": "a \"Read more...\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(3) > tbody > tr > td > font > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"changelog\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Shadi Abou-Zahra\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Education and Outreach Working Group (E…\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-TIES\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI-AGE\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(1) > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Acknowledgements\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"WAI Site Map\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Help with WAI Website\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Search\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Contacting WAI\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > strong > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai-eo-editors@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > p:nth-of-type(2) > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"wai@w3.org\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Copyright\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"MIT\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"ERCIM\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Keio\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"liability\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(7)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"trademark\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(8)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"document use\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(9)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"software licensing\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(10)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"public\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-001 #meta-footer > div > p > a:nth-of-type(11)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (walk ended at <body> after a self-blurring link).",
-    "class": "FA-6"
+    "class": "FA-6",
+    "description": "a \"Member\""
   },
   "https://www.w3.org/WAI/demos/bad/before/template.html BF-002 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "select \"QUICKMENU ----> Broadcasting Education …\"",
+    "reason": "missing-name"
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col00 > div > div > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"UI for jQuery demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col01 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"Blazor demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col02 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"ASP.NET Core demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col03 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"ASP.NET MVC demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C329_Col04 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"ASP.NET AJAX demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C337_Col01 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"WinUI demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C337_Col03 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"WPF demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C348_Col00 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"Reporting demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C348_Col01 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"Report Server demo\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C348_Col02 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"Document Processing demos\""
   },
   "https://www.telerik.com/support/demos BF-001 #ContentPlaceholder1_C326_Col00 > div > div > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-4"
+    "class": "R-4",
+    "description": "a.u-c-white \"Sign up now\""
   },
   "https://www.telerik.com/support/demos BF-002 #ContentPlaceholder1_C337_Col02 > a:nth-of-type(2)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.u-db",
+    "reason": "missing-name"
   },
   "https://www.telerik.com/support/demos BF-002 #ContentPlaceholder1_C337_Col03 > a:nth-of-type(2)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.u-db",
+    "reason": "missing-name"
   },
   "https://www.telerik.com/support/demos BF-004 #js-tlrk-skip-link": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "a#js-tlrk-skip-link \"skip navigation\""
   },
   "https://www.telerik.com/support/demos BF-004 #js-tlrk-nav > section > div > figure > a:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "a.TK-TLRK-Logo"
   },
   "https://www.telerik.com/support/demos BF-004 #js-tlrk-nav-drawer > ul:nth-of-type(1) > li:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-6"
+    "class": "R-6",
+    "description": "a.TK-Menu-Item-Link \"Demos\""
   },
   "https://www.telerik.com/support/demos BF-004 #js-tlrk-nav-drawer > ul:nth-of-type(2) > li:nth-of-type(6) > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "a.TK-Button \"Get A Free Trial\""
   },
   "https://www.telerik.com/support/demos BF-004 #ContentPlaceholder1_C335_Col00 > div > div:nth-of-type(3) > a:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-3"
+    "class": "FA-3",
+    "description": "a.Btn \"See Plans & Pricing\""
   },
   "https://www.allbirds.com/ BF-001 #shopify-section-sections--16476870967376__geofencing > div > div > div > div:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (modal backdrop).",
-    "class": "FA-10"
+    "class": "FA-10",
+    "description": "div.bg-opacity-90"
   },
   "https://www.allbirds.com/ BF-002 #shopify-section-sections--16476871000144__global-banner > div > div > button:nth-of-type(1)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "button.swiper-prev-button",
+    "reason": "missing-name"
   },
   "https://www.allbirds.com/ BF-002 #shopify-section-sections--16476871000144__global-banner > div > div > button:nth-of-type(2)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "button.swiper-next-button",
+    "reason": "missing-name"
   },
   "https://www.allbirds.com/ BF-002 #shopify-section-sections--16476870967376__geofencing > div > div > div > div:nth-of-type(2) > div > div > div > div > select": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "select.w-full \"United StatesAustraliaAustriaBelgiumCan…\"",
+    "reason": "missing-name"
   },
   "https://www.allbirds.com/ BF-008 #vue-cart-drawer-app-sections--16476871000144__cart_drawer_section_4VCgQr > div > div:nth-of-type(1)": {
     "verdict": "unsure",
     "note": "Owner: unsure. BF-008 must require a visible overlay that passes the hit test.",
-    "class": "U-4"
+    "class": "U-4",
+    "description": "div.z-takeover"
   },
   "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-7"
+    "class": "R-7",
+    "description": "a.tracking-wider \"WOMENS\"",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-7"
+    "class": "R-7",
+    "description": "a.tracking-wider \"MENS\"",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(3) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-7"
+    "class": "R-7",
+    "description": "a.tracking-wider \"ACCESSORIES\"",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(4) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-7"
+    "class": "R-7",
+    "description": "a.tracking-wider \"CLIMATE+\"",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(5) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-7"
+    "class": "R-7",
+    "description": "a.tracking-wider \"IMPACT\"",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(4) > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.hidden",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (focus inside a shadow root attributed to its host).",
-    "class": "FA-2"
+    "class": "FA-2",
+    "description": "product-info",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-003 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (focus inside a shadow root attributed to its host).",
-    "class": "FA-2"
+    "class": "FA-2",
+    "description": "product-info"
   },
   "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_top_center_0 >>> #aw0": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_top_center_0",
+    "reason": "missing-name"
   },
   "https://techcrunch.com/ BF-002 #wp--skip-link--target > div:nth-of-type(1) > figure > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_top_right_0 >>> #aw0": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_top_right_0",
+    "reason": "missing-name"
   },
   "https://techcrunch.com/ BF-002 #wp--skip-link--target > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > figure > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_1_0 >>> #aw0": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_1_0",
+    "reason": "missing-name"
   },
   "https://www.usa.gov/ BF-001 #usagov-banner > div > div:nth-of-type(1) > div > div:nth-of-type(1) > img": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: listener-only elements without pointer cursor or role become check-by-hand.",
-    "class": "FA-11"
+    "class": "FA-11",
+    "description": "img.usa-banner__header-flag"
   },
   "https://www.usa.gov/ BF-001 #block-usagov-content > div > div:nth-of-type(6) > div > img": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: listener-only elements without pointer cursor or role become check-by-hand.",
-    "class": "FA-11"
+    "class": "FA-11",
+    "description": "img"
   },
   "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(2) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-1"
+    "class": "U-1",
+    "description": "button.hds-button \"Solutions\""
   },
   "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(3) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-1"
+    "class": "U-1",
+    "description": "button.hds-button \"Developers\""
   },
   "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(4) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-1"
+    "class": "U-1",
+    "description": "button.hds-button \"Resources\""
   },
   "https://stripe.com/ BF-001 #customer-Hertz > div:nth-of-type(1) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-1"
+    "class": "U-1",
+    "description": "button.customer-stories__customer-button \"Hertz unifies commerce with Stripe.\""
   },
   "https://stripe.com/ BF-001 #customer-URBN > div:nth-of-type(1) > div:nth-of-type(2) > a": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-1"
+    "class": "U-1",
+    "description": "a.hds-button \"Read the story\""
   },
   "https://stripe.com/ BF-001 #customer-Instacart > div:nth-of-type(1) > div:nth-of-type(2) > a": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-1"
+    "class": "U-1",
+    "description": "a.hds-button \"Read the story\""
   },
   "https://stripe.com/ BF-001 #customer-LeMonde > div:nth-of-type(1) > div:nth-of-type(2) > a": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-1"
+    "class": "U-1",
+    "description": "a.hds-button \"Read the story\""
   },
   "https://stripe.com/ BF-002 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "button.platform-graphic__replay-button",
+    "reason": "missing-name"
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(1)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.modular-solutions-bento-card \"Accept and optimize payments globally—o…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(2)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.modular-solutions-bento-card \"Enable any billing modelPro PlanBilled …\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(3)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.modular-solutions-bento-card \"Monetize through agentic commerceI’m re…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(4)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.modular-solutions-bento-card \"Create a card issuing program\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(5)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.modular-solutions-bento-card \"Access borderless money movement with s…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div > button:nth-of-type(6)": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "button.modular-solutions-bento-card \"Embed payments in your platformJackson …\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(1) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"Lovable grows into a vibe-coding jugger…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(2) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"Gamma expands to $100M ARR and 70 milli…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(3) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"Runway protects developer time with no-…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(4) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"Supabase delivers its backend-as-a-serv…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(5) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"Linear partners with Stripe to handle b…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(6) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"ElevenLabs grows into a $3B AI audio le…\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(7) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"Browserbase offers usage-based billing …\""
   },
   "https://stripe.com/ BF-004 #main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(2) > section > div:nth-of-type(2) > ul > li:nth-of-type(8) > div > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-4"
+    "class": "FA-4",
+    "description": "a.case-study-card \"Decagon decreases support costs by 65% …\""
   },
   "https://www.atlassian.com/ BF-002 #strategy > div > div > div > div > div:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-3"
+    "class": "R-3",
+    "description": "a._4bfu1r31 \"Explore Strategy Collection\"",
+    "reason": "hidden-from-screen-readers"
   },
   "https://www.atlassian.com/ BF-002 #service > div > div > div > div > div:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-3"
+    "class": "R-3",
+    "description": "a._4bfu1r31 \"Explore Service Collection\"",
+    "reason": "hidden-from-screen-readers"
   },
   "https://www.atlassian.com/ BF-002 #software > div > div > div > div > div:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-3"
+    "class": "R-3",
+    "description": "a._4bfu1r31 \"Explore Software Collection\"",
+    "reason": "hidden-from-screen-readers"
   },
   "https://www.atlassian.com/ BF-002 #product > div > div > div > div > div:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-3"
+    "class": "R-3",
+    "description": "a._4bfu1r31 \"Explore Product Collection\"",
+    "reason": "hidden-from-screen-readers"
   },
   "https://www.atlassian.com/ BF-004 #language-dropdown": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "input#language-dropdown"
   },
   "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 body > div:nth-of-type(1) > mdn-placement-top": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (focus inside a shadow root attributed to its host).",
-    "class": "FA-2"
+    "class": "FA-2",
+    "description": "mdn-placement-top",
+    "reason": "missing-name"
   },
   "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #content > div:nth-of-type(2) > section:nth-of-type(8) > div > mdn-content-feedback": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (focus inside a shadow root attributed to its host).",
-    "class": "FA-2"
+    "class": "FA-2",
+    "description": "mdn-content-feedback",
+    "reason": "missing-name"
   },
   "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #main-sidebar > nav > div:nth-of-type(1) > mdn-sidebar-filter": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (focus inside a shadow root attributed to its host).",
-    "class": "FA-2"
+    "class": "FA-2",
+    "description": "mdn-sidebar-filter",
+    "reason": "missing-name"
   },
   "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #main-sidebar > nav > div:nth-of-type(2) > ol > li:nth-of-type(14) > details > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"Attributes by element\"",
+    "reason": "missing-name"
   },
   "https://developer.mozilla.org/en-US/docs/Web/HTML BF-002 #main-sidebar > nav > div:nth-of-type(2) > ol > li:nth-of-type(15) > details > summary": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: BF-002 only when both engines find no name.",
-    "class": "FA-1"
+    "class": "FA-1",
+    "description": "summary \"Attribute values\"",
+    "reason": "missing-name"
   },
   "https://docs.python.org/3/ BF-001 #sidebarbutton": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-5"
+    "class": "R-5",
+    "description": "div#sidebarbutton \"«\""
   },
   "https://docs.python.org/3/ BF-002 body > div:nth-of-type(2) > ul > li:nth-of-type(8) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://docs.python.org/3/ BF-002 body > div:nth-of-type(4) > ul > li:nth-of-type(8) > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.ikea.com/gb/en/ BF-002 #hnf-carousel__hnf-inpage-nav": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (non-control role, name not required).",
-    "class": "FA-12"
+    "class": "FA-12",
+    "description": "div#hnf-carousel__hnf-inpage-nav \"OffersChristmas ShopStorage furnitureHo…\"",
+    "reason": "missing-name"
   },
   "https://www.ikea.com/gb/en/ BF-002 #listing-carousel__product-carousel-c64bda": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (non-control role, name not required).",
-    "class": "FA-12"
+    "class": "FA-12",
+    "description": "div#listing-carousel__product-carousel-c64bda \"New lower priceKALLAX Shelving unit, wh…\"",
+    "reason": "missing-name"
   },
   "https://www.ikea.com/gb/en/ BF-002 #listing-carousel__product-rec-carousel-d02a3": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (non-control role, name not required).",
-    "class": "FA-12"
+    "class": "FA-12",
+    "description": "div#listing-carousel__product-rec-carousel-d02a3 \"NewSTRANDMON Wing chair, Talliden beige…\"",
+    "reason": "missing-name"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.welcome-screen-menu-item \"OpenCmd+O\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(2)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.welcome-screen-menu-item \"Help?\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(3)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.welcome-screen-menu-item \"Live collaboration...\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "a.welcome-screen-menu-item \"Sign up\""
   },
   "https://excalidraw.com/ BF-001 #radix-\\:r2\\:": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button#radix-:r2:"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(1)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(2)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(3)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"V\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(4)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"R\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(5)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"D\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(6)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"O\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(7)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"A\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(8)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"L\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(9)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"P\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(10)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"T\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(11)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"N\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > section > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > button:nth-of-type(12)": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon \"E\""
   },
   "https://excalidraw.com/ BF-001 #radix-\\:r0\\:": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button#radix-:r0:"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > div > a": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "a.plus-banner \"Try Excalidraw+14-day free trial\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > div > button": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.excalidraw-button"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(2) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.sidebar-trigger__label-element"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(1) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon_type_button"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(2) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon_type_button \"100%\""
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(1) > div > section > div:nth-of-type(1) > div > div:nth-of-type(3) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.ToolIcon_type_button"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(2) > div > a": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "a.encrypted-icon"
   },
   "https://excalidraw.com/ BF-001 #root > div > div > div:nth-of-type(1) > footer > div:nth-of-type(3) > div > div:nth-of-type(2) > button": {
     "verdict": "unsure",
     "note": "Owner: unsure. Check whether Escape releases focus; report as one BF-003.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "button.help-icon"
   },
   "https://excalidraw.com/ BF-002 #root > div > div": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-3"
+    "class": "U-3",
+    "description": "div.excalidraw \"Your drawings are saved in your browser…\"",
+    "reason": "missing-name"
   },
   "https://excalidraw.com/ BF-008 #root > div > div > canvas": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm (app canvas is not an overlay).",
-    "class": "FA-13"
+    "class": "FA-13",
+    "description": "canvas.excalidraw__canvas \"Drawing canvas\""
   },
   "https://react.dev/ BF-001 #__next > div:nth-of-type(3) > main > div > div > footer > div > div:nth-of-type(1) > div:nth-of-type(3)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-5"
+    "class": "R-5",
+    "description": "div.uwu-hidden \"uwu?\""
   },
   "https://react.dev/ BF-004 #\\:R1sq8q6\\:": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-2"
+    "class": "U-2",
+    "description": "input#:R1sq8q6:"
   },
   "https://react.dev/ BF-004 #\\:R6sqaq6\\:": {
     "verdict": "unsure",
     "note": "Owner: unsure.",
-    "class": "U-2"
+    "class": "U-2",
+    "description": "input#:R6sqaq6:"
   },
   "https://www.lemonde.fr/ BF-001 #js-body > div:nth-of-type(5) > div > div > div:nth-of-type(2) > p > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-5"
+    "class": "R-5",
+    "description": "a \"advertising partners\""
   },
   "https://www.lemonde.fr/ BF-001 #js-body > div:nth-of-type(5) > div > div > div:nth-of-type(3) > p > a": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-5"
+    "class": "R-5",
+    "description": "a \"cookie settings tool\""
   },
   "https://www.lemonde.fr/ BF-002 #js-body > header > div:nth-of-type(2) > div:nth-of-type(2) > div > a:nth-of-type(3)": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.ds-link \"Sign in Sign in Sign in\"",
+    "reason": "missing-name"
   },
   "https://www.lemonde.fr/ BF-004 #ds-burger-trigger__nav": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-6"
+    "class": "R-6",
+    "description": "button#ds-burger-trigger__nav \"Menu\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52425 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"After ban of one stun grenade, French p…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 50782 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"What actions are French police allowed …\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 50479 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"French high school protests: What we kn…\""
   },
   "https://www.lemonde.fr/ BF-004 #habillagepub > section > ul:nth-of-type(1) > li:nth-of-type(2) > div > div > div:nth-of-type(2) > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Greta Thunberg joins French students am…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52821 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Trump's plan to import Russian diesel a…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52496 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Why the Trump-Putin fuel agreement bene…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52755 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"NATO's top commander says 'alliance is …\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52227 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Ukraine and Europe seek to keep pressur…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 53118 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"French navy boards Russian 'shadow flee…\""
   },
   "https://www.lemonde.fr/ BF-004 #habillagepub > section > ul:nth-of-type(1) > li:nth-of-type(4) > div > div > div:nth-of-type(2) > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"A disastrous day for French supermarket…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 53121 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Oxfam sues French state over tax inequa…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52822 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"French middle schooler opens fire on pr…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 51404 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Why Ceuta and Melilla remain a point of…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52854 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Local authorities authorize killing of …\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 53122 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"UK PM Burnham levels sweeping accusatio…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 53129 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Hungary removes anti-LGBTQ provisions f…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52887 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Cairo residents outraged over felling o…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52497 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Economics Nobel Prize awarded to Americ…\""
   },
   "https://www.lemonde.fr/ BF-004 #habillagepub > section > ul:nth-of-type(2) > li:nth-of-type(6) > div > div > div:nth-of-type(2) > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"911 calls reveal emergency help for Chr…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52722 > h2 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Pope Leo XIV to be hospitalized in Rome…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 51831 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"From farms to high schools, France is a…\""
   },
   "https://www.lemonde.fr/ BF-004 #habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(2) > div > div > div:nth-of-type(2) > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Glucksmann won the center-left primary.…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 50495 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"How the French left wants to reclaim th…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 45001 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"'A Man of His Time': Swann Arlaud as a …\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52229 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Dorothée Gilbert, étoile at the Paris O…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 51732 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Triathletes swim in Versailles grand ca…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 50813 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"How Jeffrey Epstein used Woody Allen to…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 37817 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Heatwaves killed over 8,000 people in F…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 12694 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Tiananmen Square massacre: Le Monde rev…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 51041 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"OpenAI's latest blow to mathematicians:…\""
   },
   "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(2) > div > div > div > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"911 calls reveal emergency help for Chr…\""
   },
   "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(3) > div > div > div > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"A disastrous day for French supermarket…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52458 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"French supermarket chains say cyberatta…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52431 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Middle school principal and teacher sho…\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52326 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"French high school protests: Exhausted …\""
   },
   "https://www.lemonde.fr/ BF-004 #\\31 52434 > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Paris's historic Marché des Enfants-Rou…\""
   },
   "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(8) > div > div > div > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Greta Thunberg joins French students am…\""
   },
   "https://www.lemonde.fr/ BF-004 #ds-area__list--ds-area--most-read > li:nth-of-type(9) > div > div > div > h3 > a": {
     "verdict": "false-alarm",
     "note": "Owner: false alarm. Fix: pixel confirmation for BF-004.",
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"French presidential election: Glucksman…\""
   },
   "https://www.lemonde.fr/ BF-004 #js-body > div:nth-of-type(5) > div > footer > button": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-6"
+    "class": "R-6",
+    "description": "button.gdpr-lmd-button \"Accept\""
   },
   "https://en.wikipedia.org/wiki/Web_accessibility BF-002 #mwAss": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a#mwAss \"2\"",
+    "reason": "missing-name"
   },
   "https://en.wikipedia.org/wiki/Web_accessibility BF-002 #mwA0I": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a#mwA0I \"2\"",
+    "reason": "missing-name"
   },
   "https://en.wikipedia.org/wiki/Web_accessibility BF-002 #mwA2s": {
     "verdict": "real",
     "note": "Owner: real.",
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a#mwA2s \"2\"",
+    "reason": "missing-name"
   },
   "https://demowebshop.tricentis.com/ BF-001 #nivo-slider > div:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: mouse-only control (same pattern as R-5).",
     "proposed": true,
-    "class": "R-5"
+    "class": "R-5",
+    "description": "a.nivo-prevNav \"Prev\""
   },
   "https://demowebshop.tricentis.com/ BF-001 #nivo-slider > div:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "real",
     "note": "New after the fixes: mouse-only control (same pattern as R-5).",
     "proposed": true,
-    "class": "R-5"
+    "class": "R-5",
+    "description": "a.nivo-nextNav \"Next\""
   },
   "https://demowebshop.tricentis.com/ BF-001 body > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: mouse-only control (same pattern as R-5).",
     "proposed": true,
-    "class": "R-5"
+    "class": "R-5",
+    "description": "a.nivo-control \"1\""
   },
   "https://demowebshop.tricentis.com/ BF-001 body > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "real",
     "note": "New after the fixes: mouse-only control (same pattern as R-5).",
     "proposed": true,
-    "class": "R-5"
+    "class": "R-5",
+    "description": "a.nivo-control \"2\""
   },
   "https://demowebshop.tricentis.com/ BF-002 #small-searchterms": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "input#small-searchterms",
+    "reason": "missing-name"
   },
   "https://demowebshop.tricentis.com/ BF-002 #newsletter-email": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "input#newsletter-email",
+    "reason": "missing-name"
   },
   "https://demowebshop.tricentis.com/ BF-002 #nivo-slider > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.nivo-imageLink",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-001 #overlay > div:nth-of-type(2) > div > div > div:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: mouse-only control (same pattern as R-5).",
     "proposed": true,
-    "class": "R-5"
+    "class": "R-5",
+    "description": "div.absolute"
   },
   "https://www.tentree.com/ BF-002 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #womens-skyline-vest-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
@@ -2314,343 +2877,455 @@
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #womens-flint-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide01 > div > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide01 > div > div > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide02 > div > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide02 > div > div > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide03 > div > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide03 > div > div > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide04 > div > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide04 > div > div > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide05 > div > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide01-slide05 > div > div > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-heavy-weight-flannel-jacket-meteorite-black-black-olive > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-astir-polo-rosewood-fleck > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(12) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(13) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(14) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #colville-button-up > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(15) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #mens-juniper-cork-patch-t-shirt-blue-mirage-heather-cork-patch > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.inline-flex",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(2)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.inline-flex",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(3)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.inline-flex",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-004 #subscribe_email": {
     "verdict": "real",
     "note": "New after the fixes: outline removed, nothing changes on focus (same pattern as R-6).",
     "proposed": true,
-    "class": "R-6"
+    "class": "R-6",
+    "description": "input#subscribe_email"
   },
   "https://www.tentree.com/ BF-004 #subscribe_phone": {
     "verdict": "real",
     "note": "New after the fixes: outline removed, nothing changes on focus (same pattern as R-6).",
     "proposed": true,
-    "class": "R-6"
+    "class": "R-6",
+    "description": "input#subscribe_phone"
   },
   "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_3_1 >>> #aw0": {
     "verdict": "real",
@@ -2667,96 +3342,266 @@
   "https://excalidraw.com/ BF-003 #root > div > div": {
     "verdict": "unsure",
     "note": "Owner: unsure (R-8). Now reported as one BF-003; Escape, Shift+Tab and F6 do not release focus.",
-    "class": "R-8"
+    "class": "R-8",
+    "description": "div.excalidraw \"Your drawings are saved in your browser…\""
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "input.align",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #main > div > form > table:nth-of-type(2) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > span > select": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "select \"select a city -----> Afghanistan, Kabul…\"",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(1)": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "input",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #em": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "input#em",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #n": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "input#n",
+    "reason": "missing-name"
   },
   "https://www.w3.org/WAI/demos/bad/before/survey.html BF-002 #ev": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "input#ev",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://www.tentree.com/ BF-002 #splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
   },
   "https://stripe.com/ BF-001 #navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(6) > a": {
     "verdict": "unsure",
     "note": "New: Stripe control with tabindex=-1 (same pattern as U-1).",
     "proposed": true,
-    "class": "U-1"
+    "class": "U-1",
+    "description": "a.hds-button \"Guide me\""
   },
   "https://stripe.com/ BF-002 #main-content > section:nth-of-type(6) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button": {
     "verdict": "real",
     "note": "New after the fixes: control with no accessible name (same pattern as R-2).",
     "proposed": true,
-    "class": "R-2"
+    "class": "R-2",
+    "description": "button.platform-graphic__replay-button",
+    "reason": "missing-name"
   },
   "https://www.lemonde.fr/ BF-004 #\\31 34740 > h3 > a": {
     "verdict": "false-alarm",
     "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
     "proposed": true,
-    "class": "FA-5"
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Swann Arlaud did not want to talk polit…\""
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > div:nth-of-type(2) > div:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a \"Heat wave linked to temperatures\""
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > div:nth-of-type(2) > div:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a \"Man Gets Nine Months in Violin Case\""
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > div:nth-of-type(2) > div:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a \"Lack of brains hinders research\""
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > div:nth-of-type(4) > div:nth-of-type(1) > span > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > div:nth-of-type(4) > div:nth-of-type(2) > span > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #content > div:nth-of-type(4) > div:nth-of-type(3) > span > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a"
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(4) > td > table > tbody > tr > td > div > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a \"Read More...\""
+  },
+  "https://www.w3.org/WAI/demos/bad/before/home.html BF-001 #page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(9) > td > table > tbody > tr > td > a": {
+    "verdict": "real",
+    "note": "New after the recall fix: planted link that blurs itself on focus (WCAG F55).",
+    "proposed": true,
+    "class": "R-1",
+    "description": "a \"Read More...\""
+  },
+  "https://www.lemonde.fr/ BF-002 #habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > div > div:nth-of-type(1) > div > ul:nth-of-type(1) > li:nth-of-type(1) > button": {
+    "verdict": "real",
+    "note": "New: control with no accessible name (same pattern as R-2).",
+    "proposed": true,
+    "class": "R-2",
+    "description": "button.ds-btn \"Previous image\"",
+    "reason": "hidden-from-screen-readers"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 50259 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5",
+    "description": "a.ds-card__link \"What's in Le Pen's fiscal 'magic measur…\""
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53392 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Jean-Marc Jancovici: 'As long as there …\""
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53877 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Brazil's Congress approves shorter work…\""
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53389 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5",
+    "description": "a.ds-card__link \"'We want to propel the high school move…\""
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53283 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5",
+    "description": "a.ds-card__link \"Nvidia CEO Jensen Huang 'optimistic' on…\""
+  },
+  "https://www.lemonde.fr/ BF-004 #habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > div > div:nth-of-type(1) > div > ul:nth-of-type(1) > li:nth-of-type(1) > button": {
+    "verdict": "real",
+    "note": "New: nothing changes on focus and no transition (checked on the live page).",
+    "proposed": true,
+    "class": "R-6",
+    "description": "button.ds-btn \"Previous image\""
+  },
+  "https://www.lemonde.fr/ BF-004 #habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > div > div:nth-of-type(1) > div > ul:nth-of-type(1) > li:nth-of-type(2) > button": {
+    "verdict": "real",
+    "note": "New: nothing changes on focus and no transition (checked on the live page).",
+    "proposed": true,
+    "class": "R-6",
+    "description": "button.ds-btn \"Next image\""
+  },
+  "https://www.lemonde.fr/ BF-004 #ds-figcaption__text--153159-default-2 > button": {
+    "verdict": "real",
+    "note": "New: nothing changes on focus and no transition (checked on the live page).",
+    "proposed": true,
+    "class": "R-6",
+    "description": "button#153159 \"See more\""
+  },
+  "https://www.lemonde.fr/ BF-004 #ds-figcaption__text--153159-default-3 > button": {
+    "verdict": "real",
+    "note": "New: nothing changes on focus and no transition (checked on the live page).",
+    "proposed": true,
+    "class": "R-6",
+    "description": "button#153159 \"See more\""
+  },
+  "https://www.lemonde.fr/ BF-004 #habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(3) > div > div > div:nth-of-type(2) > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5",
+    "description": "a.ds-card__link \"A century after his birth, Michel Fouca…\""
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53021 > h3 > a": {
+    "verdict": "false-alarm",
+    "note": "New article card: focus indicator on an ancestor more than 8 px away (same pattern as FA-5).",
+    "proposed": true,
+    "class": "FA-5",
+    "description": "a.ds-card__link \"A star-studded cast offers a superficia…\""
   }
 }

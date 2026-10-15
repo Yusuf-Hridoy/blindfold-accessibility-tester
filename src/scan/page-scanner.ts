@@ -222,7 +222,7 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
       maxTabs: options.maxTabs,
       useScreenReader,
       ...(signal ? { signal } : {}),
-      onFocusStop: async (stop) => {
+      onFocusStopSettled: (stop) => {
         onProgress?.({
           type: "focus-stop",
           step: stop.step,
@@ -230,6 +230,8 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
           announcement: stop.announcement,
           focusVisible: stop.focusVisible,
         });
+      },
+      onFocusStop: async (stop) => {
         if (!options.screenshots || !mightBecomeFocusFinding(stop) || focusTimeScreenshots.has(stop.elementId)) return;
         const focused = stop.selector.includes(FRAME_PATH_SEPARATOR) ? locatorForSelector(page, stop.selector) : page.locator(":focus").last();
         const image = await captureElementScreenshot(page, focused, false);

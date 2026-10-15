@@ -15,13 +15,28 @@ const SETTLE_CAP_MILLISECONDS = 500;
 const AREA_PADDING = 8;
 const HIDE_RING_STYLE_ID = "blindfold-hide-current-focus-ring";
 
-/** Waits until running CSS transitions and animations end (infinite ones are ignored), at most 500 ms. */
-async function waitForStylesToSettle(page: Page): Promise<void> {
-  await page
-    .evaluate(async (capMilliseconds) => {
+/**
+ * Waits until running CSS transitions and animations end on the element, its
+ * ancestors and descendants (including their ::before/::after), and anything
+ * drawn over the photographed area (e.g. a dropdown opening next to it), at
+ * most 500 ms. Infinite animations and animations elsewhere on the page (a
+ * carousel further down) are ignored, so they don't slow every check down.
+ */
+async function waitForStylesToSettle(locator: Locator): Promise<void> {
+  await locator
+    .evaluate(async (element, { capMilliseconds, padding }) => {
       // Reading a style makes the browser start the transitions the focus change triggered.
-      if (document.activeElement) getComputedStyle(document.activeElement).color;
+      getComputedStyle(element).color;
+      const area = element.getBoundingClientRect();
+      const overlapsArea = (target: Element): boolean => {
+        const box = target.getBoundingClientRect();
+        return box.right >= area.left - padding && box.left <= area.right + padding && box.bottom >= area.top - padding && box.top <= area.bottom + padding;
+      };
       const finishing = document.getAnimations().filter((animation) => {
+        const target = animation.effect instanceof KeyframeEffect ? animation.effect.target : null;
+        if (!target) return false;
+        const related = target === element || element.contains(target) || target.contains(element);
+        if (!related && !overlapsArea(target)) return false;
         const endTime = animation.effect?.getComputedTiming().endTime;
         return animation.playState === "running" && endTime !== undefined && Number.isFinite(Number(endTime));
       });
@@ -30,7 +45,7 @@ async function waitForStylesToSettle(page: Page): Promise<void> {
         Promise.allSettled(finishing.map((animation) => animation.finished)),
         new Promise((resolve) => setTimeout(resolve, capMilliseconds)),
       ]);
-    }, SETTLE_CAP_MILLISECONDS)
+    }, { capMilliseconds: SETTLE_CAP_MILLISECONDS, padding: AREA_PADDING })
     .catch(() => {});
 }
 
@@ -44,13 +59,18 @@ async function hideCurrentFocusRing(page: Page, ring: { outline: boolean; boxSha
   await page
     .evaluate(
       ({ styleId, hide }) => {
-        document.getElementById(styleId)?.remove();
+        for (const old of document.querySelectorAll(`#${styleId}`)) old.remove();
+        for (const shadowRoot of window.__blindfoldElements?.deepShadowRoots(document) ?? []) shadowRoot.getElementById(styleId)?.remove();
         if (!hide || (!hide.outline && !hide.boxShadow)) return;
         const style = document.createElement("style");
         style.id = styleId;
         const declarations = [hide.outline ? "outline: none !important;" : "", hide.boxShadow ? "box-shadow: none !important;" : ""].join(" ");
         style.textContent = `:focus, :focus-visible { ${declarations} }`;
-        document.head.append(style);
+        // Document styles don't reach into a shadow root: put it where the focused element lives.
+        const focused = window.__blindfoldElements?.deepActiveElement() ?? document.activeElement;
+        const root = focused?.getRootNode();
+        if (root instanceof ShadowRoot) root.append(style);
+        else document.head.append(style);
       },
       { styleId: HIDE_RING_STYLE_ID, hide: ring },
     )
@@ -92,16 +112,29 @@ interface PendingCheck {
 export class FocusPixelCheck {
   #pending: PendingCheck | null = null;
 
+  /**
+   * `onSettled` is called once per stop given to `focused`, when its focus
+   * visibility is final: at once when no check is needed, or when the check
+   * settles (live progress reports the stop then).
+   */
   constructor(
     private readonly page: Page,
     private readonly locatorFor: (stop: FocusStop) => Locator,
+    private readonly onSettled: (stop: FocusStop) => void = () => {},
   ) {}
 
-  /** The stop that has focus now. Returns the photo taken while focused (also usable as the finding's screenshot). */
-  async focused(stop: FocusStop): Promise<Buffer | null> {
-    if (stop.focusVisible !== false) return null;
+  /**
+   * The stop that has focus now. `check: false` skips the check (e.g. BF-004
+   * already reported for it). Returns the photo taken while focused (also
+   * usable as the finding's screenshot), or null when no check is waiting.
+   */
+  async focused(stop: FocusStop, check = true): Promise<Buffer | null> {
+    if (stop.focusVisible !== false || !check) {
+      this.onSettled(stop);
+      return null;
+    }
     const locator = this.locatorFor(stop);
-    await waitForStylesToSettle(this.page);
+    await waitForStylesToSettle(locator);
     const focusedImage = await photographArea(this.page, locator);
     if (!focusedImage) {
       this.#settle(stop, "not-checked");
@@ -124,7 +157,7 @@ export class FocusPixelCheck {
       this.#settle(pending.stop, "not-checked");
       return pending.stop;
     }
-    await waitForStylesToSettle(this.page);
+    await waitForStylesToSettle(pending.locator);
     // Only a ring that appeared with focus (its outline style changed, e.g. from
     // none) is hidden; an outline that's always there stays as it was.
     const changes = nowFocused?.focusStyleChanges ?? [];
@@ -142,9 +175,15 @@ export class FocusPixelCheck {
     this.#pending = null;
   }
 
+  /** A check is waiting for focus to leave its element. */
+  isWaiting(): boolean {
+    return this.#pending !== null;
+  }
+
   #settle(stop: FocusStop, result: NonNullable<FocusStop["focusPixelCheck"]>): void {
     stop.focusPixelCheck = result;
     if (result === "changed") stop.focusVisible = true;
     if (result === "not-checked") stop.focusVisible = "unknown";
+    this.onSettled(stop);
   }
 }

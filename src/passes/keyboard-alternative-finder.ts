@@ -38,12 +38,27 @@ export async function findKeyboardAlternatives(page: Page, candidateIds: number[
 
       const valueWidgets = reachedElements.filter((element) => widgetRoles.includes(roleOf(element)));
 
-      /** Inside the widget, or in its immediate container when that holds no other kind of reached control. */
+      /**
+       * Tied to the widget: taken out of the Tab order on purpose, a track or
+       * handle with no text of its own, or controlling the same thing.
+       */
+      function isTiedTo(candidate: Element, widget: Element): boolean {
+        const tabIndex = candidate.getAttribute("tabindex");
+        if (tabIndex !== null && Number.parseInt(tabIndex, 10) < 0) return true;
+        if ((candidate.textContent ?? "").trim() === "" && !candidate.getAttribute("aria-label")) return true;
+        const controls = candidate.getAttribute("aria-controls");
+        return controls !== null && (controls === widget.getAttribute("aria-controls") || controls === widget.id);
+      }
+
+      /**
+       * Inside the widget, or tied to it in its immediate container when that
+       * holds no other kind of reached control.
+       */
       function isPartOfWidget(candidate: Element): boolean {
         return valueWidgets.some((widget) => {
           if (widget.contains(candidate)) return true;
           const container = widget.parentElement;
-          if (!container || !container.contains(candidate)) return false;
+          if (!container || !container.contains(candidate) || !isTiedTo(candidate, widget)) return false;
           return reachedElements.every((other) => !container.contains(other) || widgetRoles.includes(roleOf(other)));
         });
       }

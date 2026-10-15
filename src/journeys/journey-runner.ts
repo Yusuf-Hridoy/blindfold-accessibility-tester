@@ -129,8 +129,10 @@ interface JourneySession {
   transcript: JourneyTranscriptEntry[];
   /** BF-004's pixel confirmation, for the current page (a followed tab gets a new one). */
   pixelCheck: FocusPixelCheck;
-  /** The step and focused photo of the stop the pixel check is waiting on. */
+  /** The step and focused photo of the stop the pixel check is waiting on (it may settle in a later step). */
   pendingFocusCheck: { stepNumber: number; image: Buffer } | null;
+  /** The step each passed stop belongs to, for live progress sent when it settles. */
+  stepOfStop: Map<FocusStop, number>;
 }
 
 interface StepProgress {
@@ -221,16 +223,27 @@ function focusedLocatorFor(page: Page, selector: string): Locator {
 }
 
 /** A focus stop the step passed: kept for the step result and sent as live progress. */
+/** A focus stop the step passed. Its live progress event goes out once its focus visibility is final. */
 function addPassedStop(session: JourneySession, progress: StepProgress, stop: FocusStop): void {
   progress.focusStops.push(stop);
-  session.options.onProgress?.({
-    type: "focus-stop",
-    step: stop.step,
-    element: stop.description,
-    announcement: stop.announcement,
-    focusVisible: stop.focusVisible,
-    journeyStep: progress.stepNumber,
-  });
+  session.stepOfStop.set(stop, progress.stepNumber);
+}
+
+/** The pixel check for a page; each stop's live progress event goes out when it settles. */
+function newPixelCheck(page: Page, onProgress: ProgressListener | undefined, stepOfStop: Map<FocusStop, number>): FocusPixelCheck {
+  return new FocusPixelCheck(
+    page,
+    (stop) => locatorForSelector(page, stop.selector),
+    (stop) =>
+      onProgress?.({
+        type: "focus-stop",
+        step: stop.step,
+        element: stop.description,
+        announcement: stop.announcement,
+        focusVisible: stop.focusVisible,
+        ...(stepOfStop.has(stop) ? { journeyStep: stepOfStop.get(stop) } : {}),
+      }),
+  );
 }
 
 function singleStopData(stop: FocusStop): CollectedScanData {
@@ -252,16 +265,33 @@ function notReportedYet(session: JourneySession, findings: RuleFinding[]): RuleF
  * which settles when focus moves on (settleFocusCheck).
  */
 async function checkPassedStop(session: JourneySession, progress: StepProgress, stop: FocusStop): Promise<void> {
-  if (stop.focusVisible === false && !session.reportedKeys.has(`BF-004 ${stop.selector}`)) {
-    const image = await session.pixelCheck.focused(stop);
-    if (image) session.pendingFocusCheck = { stepNumber: progress.stepNumber, image };
-  }
+  const focusedPhoto = await session.pixelCheck.focused(stop, !session.reportedKeys.has(`BF-004 ${stop.selector}`));
+  if (focusedPhoto) session.pendingFocusCheck = { stepNumber: progress.stepNumber, image: focusedPhoto };
   const fresh = notReportedYet(session, findUnnamedControls(singleStopData(stop)));
   if (fresh.length === 0) return;
   const image = session.options.screenshots
     ? ((await captureElementScreenshot(session.page, focusedLocatorFor(session.page, stop.selector), false)) ?? undefined)
     : undefined;
   await addFindings(session, progress.stepNumber, fresh, image, { focusStops: [stop] });
+}
+
+/**
+ * After the last step: a pixel check still waiting (the journey ended with
+ * focus on that element) is settled with one more Tab, which isn't part of the
+ * journey or its effort. BF-004 found this way, or in a later step, belongs to
+ * an earlier step, so step statuses are worked out again.
+ */
+async function settleLastFocusCheck(session: JourneySession, steps: JourneyStepResult[]): Promise<void> {
+  if (session.pixelCheck.isWaiting()) {
+    await session.page.keyboard.press("Tab").catch(() => {});
+    await settleFocusCheck(session, await currentFocus(session.page));
+  }
+  session.pixelCheck.abandon();
+  for (const step of steps) {
+    if (step.status !== "passed" && step.status !== "passed-with-barriers") continue;
+    const hasBarriers = step.expectationFailures.length > 0 || session.findings.some((finding) => finding.journeyStep === step.stepNumber);
+    step.status = hasBarriers ? "passed-with-barriers" : "passed";
+  }
 }
 
 /** After a key press: BF-004 for the stop the pixel check was waiting on, if focus left and nothing changed. */
@@ -561,7 +591,7 @@ async function handleNewTabs(
   session.pixelCheck.abandon();
   session.pendingFocusCheck = null;
   session.page = firstTab;
-  session.pixelCheck = new FocusPixelCheck(firstTab, (stop) => locatorForSelector(firstTab, stop.selector));
+  session.pixelCheck = newPixelCheck(firstTab, session.options.onProgress, session.stepOfStop);
   session.navigation = trackNavigation(firstTab);
   await firstTab.bringToFront();
   await preparePage(session, progress.stepNumber, "new-tab");
@@ -741,10 +771,6 @@ async function runStep(session: JourneySession, step: JourneyStep, stepNumber: n
   const focusBefore = (await identifyFocusedElement(pageBefore))?.description ?? null;
   const urlBefore = pageBefore.url();
   const finish = async (fields: Partial<JourneyStepResult>): Promise<JourneyStepResult> => {
-    // A check still waiting at the end of the step can't be settled any more (focus never left).
-    await settleFocusCheck(session, await currentFocus(session.page));
-    session.pixelCheck.abandon();
-    session.pendingFocusCheck = null;
     const { page } = session;
     const hasBarriers = progress.expectationFailures.length > 0 || session.findings.some((finding) => finding.journeyStep === stepNumber);
     return {
@@ -804,6 +830,7 @@ export async function runJourney(options: JourneyRunOptions): Promise<JourneyRun
   options.onProgress?.({ type: "run-started", kind: "journey", subject: options.journey.name, viewport: viewport.name });
   const context = await createScanContext(options.browser, { viewport: viewport.name, ...(options.session ? { session: options.session } : {}) });
   const page = await context.newPage();
+  const stepOfStop = new Map<FocusStop, number>();
   const session: JourneySession = {
     page,
     options,
@@ -817,8 +844,9 @@ export async function runJourney(options: JourneyRunOptions): Promise<JourneyRun
     reportedKeys: new Set(),
     reachedOnThisPage: new Set(),
     transcript: [],
-    pixelCheck: new FocusPixelCheck(page, (stop) => locatorForSelector(page, stop.selector)),
+    pixelCheck: newPixelCheck(page, options.onProgress, stepOfStop),
     pendingFocusCheck: null,
+    stepOfStop,
   };
   try {
     await loadPage(page, options.journey.startUrl, options.pageTimeoutSeconds);
@@ -858,6 +886,7 @@ export async function runJourney(options: JourneyRunOptions): Promise<JourneyRun
       steps.push(result);
       if (result.status === "failed") blockedAtStep = stepNumber;
     }
+    await settleLastFocusCheck(session, steps);
 
     const effort = calculateEffort(
       steps.map((step, index) => {

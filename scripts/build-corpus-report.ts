@@ -1,10 +1,16 @@
 // `npm run corpus:report`: writes corpus/CORPUS-REPORT.md from
 // corpus/latest-results.json, corpus/previous-results.json (if any) and
 // corpus/triage-verdicts.json. Offline; reads nothing from the network.
+//
+//   npm run corpus:report -- --tidy-verdicts   also rewrites triage-verdicts.json:
+//     verdicts whose finding moved to a new selector follow it, and verdicts
+//     matching nothing on the pages scanned in the latest run are removed.
 
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import type { ExpectedBarrierFile } from "./build-bad-expected-barriers.ts";
 import type { CorpusResults, TriageVerdicts } from "./corpus-result-types.ts";
+import { tidyVerdicts } from "./corpus-report-maths.ts";
 import { buildCorpusReport } from "./corpus-report-markdown.ts";
 
 const CORPUS_FOLDER = path.join(import.meta.dirname, "..", "corpus");
@@ -25,8 +31,15 @@ try {
     process.exitCode = 2;
   } else {
     const previous = await readJson<CorpusResults>("previous-results.json");
-    const verdicts = (await readJson<TriageVerdicts>("triage-verdicts.json")) ?? {};
-    await writeFile(path.join(CORPUS_FOLDER, "CORPUS-REPORT.md"), buildCorpusReport(latest, previous, verdicts));
+    let verdicts = (await readJson<TriageVerdicts>("triage-verdicts.json")) ?? {};
+    if (process.argv.includes("--tidy-verdicts")) {
+      const before = Object.keys(verdicts).length;
+      verdicts = tidyVerdicts(latest, verdicts);
+      await writeFile(path.join(CORPUS_FOLDER, "triage-verdicts.json"), `${JSON.stringify(verdicts, null, 2)}\n`);
+      console.log(`Tidied corpus/triage-verdicts.json: ${before} -> ${Object.keys(verdicts).length} verdicts.`);
+    }
+    const expected = await readJson<ExpectedBarrierFile>("bad-expected-barriers.json");
+    await writeFile(path.join(CORPUS_FOLDER, "CORPUS-REPORT.md"), buildCorpusReport(latest, previous, verdicts, expected));
     console.log("Wrote corpus/CORPUS-REPORT.md");
   }
 } catch (error) {

@@ -1,0 +1,355 @@
+{
+  "generatedAt": "2026-10-14T13:10:07.174Z",
+  "note": "Barriers planted on the W3C BAD 'before' pages that Blindfold's rules cover (WCAG failures F55, F65 in links, F68). Built by npm run corpus:expected-bad.",
+  "pages": [
+    {
+      "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
+      "afterUrl": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "expected": [
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#home > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#news > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#tickets > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#survey > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > div:nth-of-type(2) > div:nth-of-type(1) > a",
+          "description": "a \"Heat wave linked to temperatures\""
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > div:nth-of-type(2) > div:nth-of-type(2) > a",
+          "description": "a \"Man Gets Nine Months in Violin Case\""
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > div:nth-of-type(2) > div:nth-of-type(3) > a",
+          "description": "a \"Lack of brains hinders research\""
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > div:nth-of-type(4) > div:nth-of-type(1) > span > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > div:nth-of-type(4) > div:nth-of-type(2) > span > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > div:nth-of-type(4) > div:nth-of-type(3) > span > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > p:nth-of-type(2) > span > a:nth-of-type(1)",
+          "description": "a \"Click here\""
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#content > p:nth-of-type(2) > span > a:nth-of-type(2)",
+          "description": "a \"Click here\""
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(4) > td > table > tbody > tr > td > div > a",
+          "description": "a \"Read More...\""
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(9) > td > table > tbody > tr > td > a",
+          "description": "a \"Read More...\""
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
+          "description": "select \"QUICKMENU ----> Broadcasting Education …\""
+        }
+      ],
+      "afterCounts": {
+        "F55": 0,
+        "F65": 0,
+        "F68": 0
+      }
+    },
+    {
+      "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "afterUrl": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "expected": [
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#home > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#news > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#tickets > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#survey > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
+          "description": "select \"QUICKMENU ----> Broadcasting Education …\""
+        }
+      ],
+      "afterCounts": {
+        "F55": 0,
+        "F65": 0,
+        "F68": 0
+      }
+    },
+    {
+      "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
+      "afterUrl": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "expected": [
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#home > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#news > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#tickets > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#survey > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
+          "description": "select \"QUICKMENU ----> Broadcasting Education …\""
+        }
+      ],
+      "afterCounts": {
+        "F55": 0,
+        "F65": 0,
+        "F68": 0
+      }
+    },
+    {
+      "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+      "afterUrl": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "expected": [
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#home > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#news > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#tickets > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#survey > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
+          "description": "select \"QUICKMENU ----> Broadcasting Education …\""
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input",
+          "description": "input.align"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > span > input",
+          "description": "input.align"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input",
+          "description": "input.align"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > input",
+          "description": "input.align"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > input",
+          "description": "input.align"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(1) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(3) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(1) > input",
+          "description": "input.align"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(2) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > span > select",
+          "description": "select \"select a city -----> Afghanistan, Kabul…\""
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(1)",
+          "description": "input"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#main > div > form > table:nth-of-type(3) > tbody > tr > td > table > tbody > tr > td:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > nobr > input:nth-of-type(2)",
+          "description": "input"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#em",
+          "description": "input#em"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#n",
+          "description": "input#n"
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#ev",
+          "description": "input#ev"
+        }
+      ],
+      "afterCounts": {
+        "F55": 0,
+        "F65": 0,
+        "F68": 0
+      }
+    },
+    {
+      "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
+      "afterUrl": "https://www.w3.org/WAI/demos/bad/after/template.html",
+      "expected": [
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#home > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#news > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#tickets > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#survey > a",
+          "description": "a"
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(4) > td > table > tbody > tr > td > div > a",
+          "description": "a \"Read more...\""
+        },
+        {
+          "ruleId": "BF-001",
+          "failure": "F55",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(2) > tbody > tr > td:nth-of-type(5) > table > tbody > tr:nth-of-type(9) > td > table > tbody > tr > td > a",
+          "description": "a \"Read more...\""
+        },
+        {
+          "ruleId": "BF-002",
+          "failure": "F68",
+          "selector": "#page > table > tbody > tr > td > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > table:nth-of-type(1) > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > select",
+          "description": "select \"QUICKMENU ----> Broadcasting Education …\""
+        }
+      ],
+      "afterCounts": {
+        "F55": 0,
+        "F65": 0,
+        "F68": 0
+      }
+    }
+  ]
+}

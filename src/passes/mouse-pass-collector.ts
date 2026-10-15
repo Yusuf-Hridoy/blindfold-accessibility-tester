@@ -53,14 +53,24 @@ export async function collectMousePassElements(
         return false;
       }
 
-      // An empty layer over (almost) the whole viewport, e.g. a modal's
-      // backdrop that closes it on click: a surface, not a control.
+      // A modal's backdrop that closes it on click: an empty layer over
+      // (almost) the whole viewport, with no picture of its own and something
+      // (the dialog) drawn over it. A surface, not a control.
       function isBackdrop(element: Element): boolean {
-        const position = getComputedStyle(element).position;
-        if (position !== "fixed" && position !== "absolute") return false;
+        const style = getComputedStyle(element);
+        if (style.position !== "fixed" && style.position !== "absolute") return false;
+        if (style.backgroundImage !== "none") return false;
         if ((element.textContent ?? "").trim() !== "" || element.querySelector("img, svg, video, canvas, input, button, a")) return false;
         const box = element.getBoundingClientRect();
-        return box.width >= window.innerWidth * 0.9 && box.height >= window.innerHeight * 0.9;
+        if (box.width < window.innerWidth * 0.9 || box.height < window.innerHeight * 0.9) return false;
+        // Drawn over it: a sibling (the dialog panel) that's visible at its own centre.
+        return Array.from(element.parentElement?.children ?? []).some((sibling) => {
+          if (sibling === element) return false;
+          const siblingBox = sibling.getBoundingClientRect();
+          if (siblingBox.width === 0 || siblingBox.height === 0) return false;
+          const hit = document.elementFromPoint(siblingBox.left + siblingBox.width / 2, siblingBox.top + siblingBox.height / 2);
+          return hit !== null && (hit === sibling || sibling.contains(hit));
+        });
       }
 
       function whyInteractive(element: Element): InteractiveBecause | null {
@@ -71,6 +81,9 @@ export async function collectMousePassElements(
         // (part of it) and those containing one (event delegation containers).
         if (element.parentElement?.closest(interactiveSelector) || hasIncludedAncestor(element)) return null;
         if (element.querySelector(interactiveSelector)) return null;
+        // A custom element whose real control is inside its shadow root (e.g. a
+        // <button> wrapped by <x-button>): the inner control is the target.
+        if (element.shadowRoot && helpers.deepElements(element.shadowRoot).some((inner) => inner.matches(interactiveSelector))) return null;
         if (window.__blindfoldHasClickListener(element)) {
           return hasOwnMouseTargetDescendant(element) ? null : "click-listener";
         }
@@ -82,7 +95,8 @@ export async function collectMousePassElements(
         return element.matches(":disabled") || element.getAttribute("aria-disabled") === "true";
       }
 
-      for (const element of document.querySelectorAll("body *")) {
+      // Includes open shadow roots, so mouse-only controls inside web components count.
+      for (const element of helpers.deepElements(document.body)) {
         const interactiveBecause = whyInteractive(element);
         if (!interactiveBecause || !helpers.isVisible(element) || isDisabled(element)) continue;
         included.add(element);

@@ -146,7 +146,10 @@ export async function recordFocusStyleBaselines(target: Page | Frame): Promise<v
         baselines.set(element, readFullFocusStyles(element));
       }
 
-      for (const element of document.querySelectorAll(focusableSelector)) recordBaselineWhenClean(element);
+      // Open shadow roots too, so focus inside web components can be checked.
+      const helpers = window.__blindfoldElements;
+      const focusableNow = helpers ? helpers.deepElements(document).filter((element) => element.matches(focusableSelector)) : Array.from(document.querySelectorAll(focusableSelector));
+      for (const element of focusableNow) recordBaselineWhenClean(element);
 
       // New elements get the same full baseline when inserted.
       const observer = new MutationObserver((mutations) => {
@@ -160,6 +163,8 @@ export async function recordFocusStyleBaselines(target: Page | Frame): Promise<v
         }
       });
       observer.observe(document.documentElement, { childList: true, subtree: true });
+      // A document observer doesn't see inside shadow roots; watch the ones that exist now.
+      for (const shadowRoot of helpers?.deepShadowRoots(document) ?? []) observer.observe(shadowRoot, { childList: true, subtree: true });
 
       window.addEventListener(
         "focusin",

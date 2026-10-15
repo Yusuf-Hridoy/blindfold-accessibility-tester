@@ -10,6 +10,7 @@ import type { JourneyResult, JourneyStepResult } from "../types/journey-result-t
 import type { Finding } from "../types/scan-result-types.ts";
 import {
   buildAudioSection,
+  buildFindingsOverview,
   buildFindingsSection,
   buildScrollableTable,
   buildSummaryNumbers,
@@ -81,6 +82,7 @@ function buildEffortSection(result: JourneyResult): string {
     ["Mouse clicks", effort.mouseClicks],
     ["Effort ratio", effort.ratio === null ? "—" : `${effort.ratio}×`],
   ])}
+    ${buildFindingsOverview(result.findings)}
     <p>A keyboard user needed ${escapeHtml(describeEffort(effort))}.</p>
     <p>The ratio counts Tab navigation. Screen reader users can also jump by headings and landmarks, so their real effort can be lower; it's still a strong signal of how hard the page is to use by keyboard.</p>
     <div class="table-wrapper"><table>

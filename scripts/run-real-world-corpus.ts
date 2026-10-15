@@ -6,7 +6,8 @@
 // only a crash of this script itself exits non-zero (2).
 //
 //   npm run corpus                 every page
-//   npm run corpus -- --only apg   one source: apg, bad or real (other sources keep their last results)
+//   npm run corpus -- --only apg   one source: apg, bad or real (other sources keep their last
+//                                  results, and previous-results.json stays the last full run)
 
 import { readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -19,6 +20,9 @@ const CORPUS_FOLDER = path.join(import.meta.dirname, "..", "corpus");
 const LATEST_FILE = path.join(CORPUS_FOLDER, "latest-results.json");
 const PREVIOUS_FILE = path.join(CORPUS_FOLDER, "previous-results.json");
 const PAUSE_BETWEEN_PAGES_MILLISECONDS = 2_000;
+/** A page that fails with a network error (not a slow or broken site) is tried once more after this pause. */
+const NETWORK_RETRY_PAUSE_MILLISECONDS = 10_000;
+const NETWORK_ERROR = /net::ERR_(INTERNET_DISCONNECTED|NETWORK_CHANGED|NAME_NOT_RESOLVED|CONNECTION_RESET|TIMED_OUT)/;
 
 type SourceOption = "apg" | "bad" | "real";
 
@@ -49,7 +53,7 @@ function folderNameFor(url: string): string {
 
 async function scanCorpusPage(page: CorpusPage, source: CorpusSource): Promise<CorpusPageResult> {
   const startedAt = Date.now();
-  const base = { url: page.url, source, category: page.category };
+  const base = { url: page.url, source, category: page.category, scannedAt: new Date(startedAt).toISOString() };
   try {
     const run = await runScanWithReports({
       url: page.url,
@@ -102,16 +106,21 @@ async function main(): Promise<void> {
   const results: CorpusPageResult[] = [];
   for (const [index, { page, source }] of pages.entries()) {
     if (index > 0) await new Promise((resolve) => setTimeout(resolve, PAUSE_BETWEEN_PAGES_MILLISECONDS));
-    const result = await scanCorpusPage(page, source);
+    let result = await scanCorpusPage(page, source);
+    if (result.status === "couldn't scan" && NETWORK_ERROR.test(result.reason ?? "")) {
+      await new Promise((resolve) => setTimeout(resolve, NETWORK_RETRY_PAUSE_MILLISECONDS));
+      result = await scanCorpusPage(page, source);
+    }
     results.push(result);
     const outcome = result.status === "scanned" ? `${result.findings.length} findings` : `couldn't scan: ${result.reason}`;
     console.log(`[${index + 1}/${pages.length}] ${source.padEnd(10)} ${page.url}  ${outcome} (${(result.durationMilliseconds / 1000).toFixed(1)} s)`);
   }
 
-  // A partial run (--only) keeps the other sources' last results.
+  // A partial run (--only) keeps the other sources' last results, and leaves
+  // previous-results.json alone: "previous" always means the last full run.
   const sourcesRun = new Set(lists.flatMap((list) => list.sources));
   const kept = (previous?.pages ?? []).filter((page) => !sourcesRun.has(page.source));
-  if (previous) await rename(LATEST_FILE, PREVIOUS_FILE);
+  if (previous && only === null) await rename(LATEST_FILE, PREVIOUS_FILE);
   const latest: CorpusResults = { generatedAt: new Date().toISOString(), toolVersion: TOOL_VERSION, pages: [...kept, ...results] };
   await writeFile(LATEST_FILE, `${JSON.stringify(latest, null, 2)}\n`);
 

@@ -193,6 +193,13 @@
     }
     .confidence-certain .confidence-label, .confidence-label.confidence-certain { color: var(--fail); }
     .confidence-legend ul { margin-top: 0.25rem; }
+    .confidence-likely .confidence-label, .confidence-label.confidence-likely { color: var(--text); }
+    .confidence-check-by-hand .confidence-label, .confidence-label.confidence-check-by-hand { color: var(--muted); border-style: dashed; }
+
+    .excerpt { margin-top: 0.75rem; }
+    .excerpt > summary { cursor: pointer; font-weight: 700; }
+    .excerpt > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .excerpt[open] > summary { margin-bottom: 0.5rem; }
 
     .confidence-note {
       font-style: italic;

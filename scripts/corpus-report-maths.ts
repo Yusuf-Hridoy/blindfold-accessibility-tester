@@ -4,6 +4,7 @@
 
 import { matchFindings, type ComparedFinding } from "../src/compare/report-comparison.ts";
 import { RULE_CATALOG } from "../src/rules/rule-catalog.ts";
+import type { ExpectedBarrier, ExpectedBarrierFile } from "./build-bad-expected-barriers.ts";
 import type { CorpusFinding, CorpusPageResult, CorpusResults, CorpusSource, TriageEntry, TriageVerdicts } from "./corpus-result-types.ts";
 import { CORPUS_SOURCES } from "./corpus-result-types.ts";
 
@@ -11,10 +12,93 @@ export function triageKey(finding: Pick<CorpusFinding, "url" | "ruleId" | "selec
   return `${finding.url} ${finding.ruleId} ${finding.selector}`;
 }
 
+function descriptionKeyOf(url: string, ruleId: string, reason: string | undefined, description: string): string {
+  return [url, ruleId, reason ?? "", description].join("\u0000");
+}
+
+/** Verdict keys by page, rule, reason and description; only entries that recorded a description. */
+const descriptionIndexes = new WeakMap<TriageVerdicts, Map<string, string[]>>();
+
+function descriptionIndex(verdicts: TriageVerdicts): Map<string, string[]> {
+  let index = descriptionIndexes.get(verdicts);
+  if (!index) {
+    index = new Map();
+    for (const [key, entry] of Object.entries(verdicts)) {
+      if (entry.description === undefined) continue;
+      const [url = "", ruleId = ""] = key.split(" ");
+      const descriptionKey = descriptionKeyOf(url, ruleId, entry.reason, entry.description);
+      index.set(descriptionKey, [...(index.get(descriptionKey) ?? []), key]);
+    }
+    descriptionIndexes.set(verdicts, index);
+  }
+  return index;
+}
+
+export interface VerdictMatch {
+  key: string;
+  entry: TriageEntry;
+  /** Matched by description because the selector changed since the verdict was given. */
+  carried: boolean;
+}
+
+/**
+ * The verdict for a finding: by page, rule and selector, or else by page,
+ * rule, reason and description when exactly one verdict has them (the
+ * selector changed, e.g. a new article above it). Like `blindfold compare`.
+ */
+export function findVerdict(verdicts: TriageVerdicts, finding: CorpusFinding): VerdictMatch | null {
+  const key = triageKey(finding);
+  const exact = verdicts[key];
+  if (exact) return { key, entry: exact, carried: false };
+  const candidates = descriptionIndex(verdicts).get(descriptionKeyOf(finding.url, finding.ruleId, finding.reason, finding.description)) ?? [];
+  const [onlyKey] = candidates;
+  const entry = onlyKey === undefined ? undefined : verdicts[onlyKey];
+  return candidates.length === 1 && onlyKey !== undefined && entry ? { key: onlyKey, entry, carried: true } : null;
+}
+
 /** The owner's verdict, or null when there's none yet (no entry, or only a proposal). */
 export function confirmedVerdict(verdicts: TriageVerdicts, finding: CorpusFinding): TriageEntry | null {
-  const entry = verdicts[triageKey(finding)];
+  const entry = findVerdict(verdicts, finding)?.entry;
   return entry && !entry.proposed ? entry : null;
+}
+
+export interface VerdictUpkeep {
+  /** Current findings that took an earlier verdict by description. */
+  carried: { from: string; to: string }[];
+  /** Verdict keys for pages scanned in this run that match no current finding. */
+  stale: string[];
+}
+
+/** Which verdicts moved to a new selector, and which no longer match anything on pages scanned this run. */
+export function verdictUpkeep(results: CorpusResults, verdicts: TriageVerdicts): VerdictUpkeep {
+  const used = new Set<string>();
+  const carried: { from: string; to: string }[] = [];
+  for (const finding of allFindings(results)) {
+    const match = findVerdict(verdicts, finding);
+    if (!match) continue;
+    used.add(match.key);
+    if (match.carried) carried.push({ from: match.key, to: triageKey(finding) });
+  }
+  const scannedUrls = new Set(results.pages.filter((page) => page.status === "scanned").map((page) => page.url));
+  const stale = Object.keys(verdicts).filter((key) => !used.has(key) && scannedUrls.has(key.split(" ")[0] ?? ""));
+  return { carried, stale };
+}
+
+/**
+ * The verdict file after upkeep: carried verdicts re-keyed to the current
+ * selector, stale ones removed. Verdicts for pages not scanned this run stay.
+ */
+export function tidyVerdicts(results: CorpusResults, verdicts: TriageVerdicts): TriageVerdicts {
+  const { carried, stale } = verdictUpkeep(results, verdicts);
+  const tidied: TriageVerdicts = { ...verdicts };
+  for (const key of stale) delete tidied[key];
+  for (const { from, to } of carried) {
+    const entry = verdicts[from];
+    if (!entry) continue;
+    delete tidied[from];
+    tidied[to] = entry;
+  }
+  return tidied;
 }
 
 export interface PrecisionRow {
@@ -39,7 +123,7 @@ export function precisionRows(findings: CorpusFinding[], verdicts: TriageVerdict
     const row = rows.get(group) ?? { group, findings: 0, real: 0, falseAlarm: 0, unsure: 0, proposed: 0, untriaged: 0, precision: null };
     rows.set(group, row);
     row.findings++;
-    const entry = verdicts[triageKey(finding)];
+    const entry = findVerdict(verdicts, finding)?.entry;
     if (!entry) row.untriaged++;
     else if (entry.proposed) row.proposed++;
     else if (entry.verdict === "real") row.real++;
@@ -135,4 +219,35 @@ export function changesSinceLastRun(previous: CorpusResults, latest: CorpusResul
 
 export function formatPrecision(precision: number | null): string {
   return precision === null ? "—" : `${Math.round(precision * 100)}%`;
+}
+
+export interface RecallRow {
+  /** e.g. "BF-001 (F55)". */
+  group: string;
+  expected: number;
+  found: number;
+  missed: { url: string; barrier: ExpectedBarrier }[];
+}
+
+/**
+ * Recall on the BAD "before" pages: of the barriers planted there that
+ * Blindfold's rules cover, how many it found (same page, rule and selector).
+ * Pages that weren't scanned in this run are left out.
+ */
+export function recallRows(results: CorpusResults, expected: ExpectedBarrierFile): RecallRow[] {
+  const findingKeys = new Set(allFindings(results).map(triageKey));
+  const scanned = new Set(results.pages.filter((page) => page.status === "scanned").map((page) => page.url));
+  const rows = new Map<string, RecallRow>();
+  for (const page of expected.pages) {
+    if (!scanned.has(page.url)) continue;
+    for (const barrier of page.expected) {
+      const group = `${barrier.ruleId} (${barrier.failure})`;
+      const row = rows.get(group) ?? { group, expected: 0, found: 0, missed: [] };
+      rows.set(group, row);
+      row.expected++;
+      if (findingKeys.has(triageKey({ url: page.url, ruleId: barrier.ruleId, selector: barrier.selector }))) row.found++;
+      else row.missed.push({ url: page.url, barrier });
+    }
+  }
+  return [...rows.values()].sort((a, b) => a.group.localeCompare(b.group));
 }

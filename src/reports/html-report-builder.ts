@@ -6,7 +6,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { AudioReplayResult } from "../audio/audio-replay-writer.ts";
 import { describeViewport } from "../browser/viewport-presets.ts";
-import { CONFIDENCE_LABELS, CONFIDENCE_LEGEND } from "../rules/finding-confidence.ts";
+import { CONFIDENCE_LABELS, CONFIDENCE_LEGEND, countByConfidence } from "../rules/finding-confidence.ts";
 import { groupFindings } from "../rules/rule-catalog.ts";
 import type {
   Finding,
@@ -84,6 +84,24 @@ export function buildSummaryNumbers(numbers: [string, number | string][]): strin
   return `<dl class="summary-numbers">${items}</dl>`;
 }
 
+/** One row per failed rule (or BF-002 reason): how many elements, how sure, and a link to its section. */
+export function buildFindingsOverview(findings: Finding[]): string {
+  const groups = groupFindings(findings);
+  if (groups.length === 0) return "";
+  const levels = ["certain", "likely", "check-by-hand"] as const;
+  const rows = groups
+    .map((group) => {
+      const counts = countByConfidence(group.findings);
+      const badges = levels
+        .filter((level) => counts[level] > 0)
+        .map((level) => `<span class="confidence-label confidence-${level}">${counts[level]} ${escapeHtml(CONFIDENCE_LABELS[level])}</span>`)
+        .join(" ");
+      return `<tr><th scope="row"><a href="#rule-${group.key}">${escapeHtml(group.ruleId)}</a></th><td>${escapeHtml(group.title)}</td><td>${group.findings.length}</td><td>${badges || "—"}</td></tr>`;
+    })
+    .join("");
+  return buildScrollableTable("overview-caption", "At a glance", ["Rule", "Barrier", "Elements", "Confidence"], rows);
+}
+
 function buildTranscriptExcerpt(lines: TranscriptLine[], highlightStep: number | null, caption: string): string {
   if (lines.length === 0) return "";
   const rows = lines
@@ -92,10 +110,11 @@ function buildTranscriptExcerpt(lines: TranscriptLine[], highlightStep: number |
       return `<tr${rowClass}><th scope="row">${line.step}</th><td>${escapeHtml(line.description)}</td><td>${escapeHtml(line.announcement)}</td></tr>`;
     })
     .join("");
-  return `<div class="table-wrapper"><table>
+  // Folded: it's the evidence behind the finding, not the first thing to read.
+  return `<details class="excerpt"><summary>${escapeHtml(caption)}</summary><div class="table-wrapper"><table>
     <caption>${escapeHtml(caption)}</caption>
     <thead><tr><th scope="col">Step</th><th scope="col">Element or key</th><th scope="col">Screen reader said</th></tr></thead>
-    <tbody>${rows}</tbody></table></div>`;
+    <tbody>${rows}</tbody></table></div></details>`;
 }
 
 function buildFinding(finding: Finding, screenshot: string | undefined): string {
@@ -228,7 +247,9 @@ function buildScanSummary(result: ScanResult): string {
       ["Barriers", result.findings.length],
       ["Rules failed", rulesFailed],
       ["Focus stops", result.focusStops.length],
-    ]) + stopNote
+    ]) +
+    stopNote +
+    buildFindingsOverview(result.findings)
   );
 }
 

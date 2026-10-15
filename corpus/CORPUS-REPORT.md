@@ -1,6 +1,6 @@
 # Blindfold real-world corpus report
 
-Run: 2026-10-13T12:43:56.927Z · Blindfold 0.6.0 · desktop, no audio, no screenshots.
+Pages scanned between 2026-10-14T13:14:56.385Z and 2026-10-15T06:04:57.332Z · Blindfold 0.6.0 · desktop, no audio, no screenshots.
 
 Precision = real ÷ (real + false alarm), counting only verdicts the owner confirmed
 (`corpus/triage-verdicts.json` entries without `"proposed": true`).
@@ -9,19 +9,19 @@ Precision = real ÷ (real + false alarm), counting only verdicts the owner confi
 
 | Source | Pages | Scanned | Couldn't scan | Pages with findings | Findings |
 |---|---|---|---|---|---|
-| APG examples (expected: 0 findings) | 69 | 69 | 0 | 0 | 0 |
-| BAD demo, before (expected: findings) | 5 | 5 | 0 | 5 | 35 |
+| APG examples (expected: 0 findings) | 69 | 68 | 1 | 0 | 0 |
+| BAD demo, before (expected: findings) | 5 | 5 | 0 | 5 | 49 |
 | BAD demo, after (expected: no false alarms) | 5 | 5 | 0 | 0 | 0 |
-| Real sites | 21 | 20 | 1 | 13 | 135 |
+| Real sites | 21 | 18 | 3 | 12 | 133 |
 
 ## Precision per rule
 
 | Rule | Findings | Real | False alarm | Unsure | Proposed | Untriaged | Precision |
 |---|---|---|---|---|---|---|---|
-| BF-001 Control can't be reached by keyboard | 54 | 39 | 2 | 7 | 6 | 0 | 95% |
-| BF-002 Control has no accessible name | 100 | 26 | 0 | 1 | 73 | 0 | 100% |
+| BF-001 Control can't be reached by keyboard | 61 | 39 | 2 | 7 | 13 | 0 | 95% |
+| BF-002 Control has no accessible name | 101 | 22 | 0 | 1 | 78 | 0 | 100% |
 | BF-003 Keyboard focus gets trapped | 1 | 0 | 0 | 1 | 0 | 0 | — |
-| BF-004 Keyboard focus is not visible | 15 | 3 | 9 | 0 | 3 | 0 | 25% |
+| BF-004 Keyboard focus is not visible | 19 | 2 | 4 | 0 | 13 | 0 | 33% |
 | BF-005 Update is shown but not announced | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | BF-006 Focus is lost after an action | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | BF-007 Dialog opens without moving focus into it | 0 | 0 | 0 | 0 | 0 | 0 | — |
@@ -33,18 +33,40 @@ The goal: `certain` close to 100%.
 
 | Confidence | Findings | Real | False alarm | Unsure | Proposed | Untriaged | Precision |
 |---|---|---|---|---|---|---|---|
-| certain | 109 | 25 | 9 | 1 | 74 | 0 | 74% |
-| likely | 33 | 26 | 0 | 1 | 6 | 0 | 100% |
-| check by hand | 28 | 17 | 2 | 7 | 2 | 0 | 89% |
+| certain | 108 | 20 | 4 | 1 | 83 | 0 | 83% |
+| likely | 47 | 26 | 0 | 1 | 20 | 0 | 100% |
+| check by hand | 27 | 17 | 2 | 7 | 1 | 0 | 89% |
+
+
+## Recall on the BAD "before" pages
+
+Barriers the W3C planted that Blindfold's rules cover (WCAG failures F55 script removes focus, F65 image link
+without alt, F68 unlabelled field; `corpus/bad-expected-barriers.json`), and how many were found.
+
+| Rule (failure) | Expected | Found | Recall |
+|---|---|---|---|
+| BF-001 (F55) | 32 | 32 | 100% |
+| BF-002 (F68) | 17 | 17 | 100% |
+| **All** | 49 | 49 | 100% |
 
 ## Suspected false alarms (APG examples and BAD "after" pages)
 
 None.
 
+## Verdict upkeep
+
+- 6 findings took an earlier verdict by description (their selector changed).
+- 367 verdicts match no finding on the pages scanned in this run (fixed, or the content is gone).
+
+`npm run corpus:report -- --tidy-verdicts` moves the carried verdicts to the new selectors and removes the stale ones.
+
 ## Pages that couldn't be scanned
 
 | Page | Reason |
 |---|---|
+| https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ | Blindfold couldn't complete the scan. https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout. |
+| https://wordpress.org/news/ | Blindfold couldn't complete the scan. https://wordpress.org/news/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout. |
+| https://techcrunch.com/ | Blindfold couldn't complete the scan. https://techcrunch.com/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout. |
 | https://www.rakuten.co.jp/ | Blindfold stopped after 120 s (time limit). Raise --time-limit for very large pages. |
 
 ## Changed since last run
@@ -213,11 +235,7 @@ Compared with the run of 2026-10-13T11:18:07.067Z.
   - gone: BF-002 summary "The code in this example is not intende…"
 - https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/: 1 gone
   - gone: BF-002 summary "The code in this example is not intende…"
-- https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/: 4 gone
-  - gone: BF-001 button.item "Text Align Left"
-  - gone: BF-001 button.item "Text Align Center"
-  - gone: BF-001 button.item "Text Align Right"
-  - gone: BF-002 summary "The code in this example is not intende…"
+- https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/: scanned → couldn't scan
 - https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/: 1 gone
   - gone: BF-002 summary "The code in this example is not intende…"
 - https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/: 1 gone
@@ -226,7 +244,15 @@ Compared with the run of 2026-10-13T11:18:07.067Z.
   - gone: BF-002 summary "The code in this example is not intende…"
 - https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/: 1 gone
   - gone: BF-002 summary "The code in this example is not intende…"
-- https://www.w3.org/WAI/demos/bad/before/home.html: 26 gone
+- https://www.w3.org/WAI/demos/bad/before/home.html: 26 gone, 8 new
+  - new: BF-001 a "Heat wave linked to temperatures"
+  - new: BF-001 a "Man Gets Nine Months in Violin Case"
+  - new: BF-001 a "Lack of brains hinders research"
+  - new: BF-001 a
+  - new: BF-001 a
+  - new: BF-001 a
+  - new: BF-001 a "Read More..."
+  - new: BF-001 a "Read More..."
   - gone: BF-001 a "Copyright"
   - gone: BF-001 a "MIT"
   - gone: BF-001 a "ERCIM"
@@ -289,13 +315,19 @@ Compared with the run of 2026-10-13T11:18:07.067Z.
   - gone: BF-001 a "MIT"
   - gone: BF-001 a "ERCIM"
   - gone: BF-001 a "Keio"
-- https://www.w3.org/WAI/demos/bad/before/survey.html: 39 gone, 6 new
+- https://www.w3.org/WAI/demos/bad/before/survey.html: 39 gone, 12 new
   - new: BF-002 input.align
   - new: BF-002 select "select a city -----&gt; Afghanistan, Kabul…"
   - new: BF-002 input
   - new: BF-002 input\#em
   - new: BF-002 input\#n
   - new: BF-002 input\#ev
+  - new: BF-002 input.align
+  - new: BF-002 input.align
+  - new: BF-002 input.align
+  - new: BF-002 input.align
+  - new: BF-002 input.align
+  - new: BF-002 input
   - gone: BF-001 input.align
   - gone: BF-001 input.align
   - gone: BF-001 input.align
@@ -346,7 +378,7 @@ Compared with the run of 2026-10-13T11:18:07.067Z.
 - https://www.allbirds.com/: 2 gone
   - gone: BF-001 div.bg-opacity-90
   - gone: BF-008 div.z-takeover
-- https://www.tentree.com/: 7 gone, 66 new
+- https://www.tentree.com/: 7 gone, 65 new
   - new: BF-001 div.absolute
   - new: BF-002 a.color-swatch-link
   - new: BF-002 a.color-swatch-link
@@ -374,8 +406,9 @@ Compared with the run of 2026-10-13T11:18:07.067Z.
   - gone: BF-002 a.tracking-wider "IMPACT"
   - gone: BF-002 product-info
   - gone: BF-003 product-info
-- https://stripe.com/: 14 gone, 1 new
-  - new: BF-001 a.hds-button "Guide me"
+- https://wordpress.org/news/: scanned → couldn't scan
+- https://techcrunch.com/: scanned → couldn't scan
+- https://stripe.com/: 14 gone
   - gone: BF-004 button.modular-solutions-bento-card "Accept and optimize payments globally—o…"
   - gone: BF-004 button.modular-solutions-bento-card "Enable any billing modelPro PlanBilled …"
   - gone: BF-004 button.modular-solutions-bento-card "Monetize through agentic commerceI’m re…"
@@ -425,8 +458,20 @@ Compared with the run of 2026-10-13T11:18:07.067Z.
 - https://react.dev/: 2 gone
   - gone: BF-004 input\#:R1sq8q6:
   - gone: BF-004 input\#:R6sqaq6:
-- https://www.lemonde.fr/: 30 gone, 1 new
-  - new: BF-004 a.ds-card\_\_link "Swann Arlaud did not want to talk polit…"
+- https://www.lemonde.fr/: 36 gone, 12 new
+  - new: BF-002 button.ds-btn "Previous image"
+  - new: BF-004 a.ds-card\_\_link "What's in Le Pen's fiscal 'magic measur…"
+  - new: BF-004 a.ds-card\_\_link "Jean-Marc Jancovici: 'As long as there …"
+  - new: BF-004 a.ds-card\_\_link "Brazil's Congress approves shorter work…"
+  - new: BF-004 a.ds-card\_\_link "'We want to propel the high school move…"
+  - new: BF-004 a.ds-card\_\_link "Nvidia CEO Jensen Huang 'optimistic' on…"
+  - new: BF-004 button.ds-btn "Previous image"
+  - new: BF-004 button.ds-btn "Next image"
+  - new: BF-004 button\#153159 "See more"
+  - new: BF-004 button\#153159 "See more"
+  - new: BF-004 a.ds-card\_\_link "A century after his birth, Michel Fouca…"
+  - new: BF-004 a.ds-card\_\_link "A star-studded cast offers a superficia…"
+  - gone: BF-004 button\#ds-burger-trigger\_\_nav "Menu"
   - gone: BF-004 a.ds-card\_\_link "After ban of one stun grenade, French p…"
   - gone: BF-004 a.ds-card\_\_link "What actions are French police allowed …"
   - gone: BF-004 a.ds-card\_\_link "French high school protests: What we kn…"
@@ -434,16 +479,15 @@ Compared with the run of 2026-10-13T11:18:07.067Z.
   - gone: BF-004 a.ds-card\_\_link "Trump's plan to import Russian diesel a…"
   - gone: BF-004 a.ds-card\_\_link "Why the Trump-Putin fuel agreement bene…"
   - gone: BF-004 a.ds-card\_\_link "NATO's top commander says 'alliance is …"
+  - gone: BF-004 a.ds-card\_\_link "Ukraine and Europe seek to keep pressur…"
+  - gone: BF-004 a.ds-card\_\_link "French navy boards Russian 'shadow flee…"
   - gone: BF-004 a.ds-card\_\_link "A disastrous day for French supermarket…"
   - gone: BF-004 a.ds-card\_\_link "Oxfam sues French state over tax inequa…"
   - gone: BF-004 a.ds-card\_\_link "French middle schooler opens fire on pr…"
   - gone: BF-004 a.ds-card\_\_link "Why Ceuta and Melilla remain a point of…"
   - gone: BF-004 a.ds-card\_\_link "Local authorities authorize killing of …"
+  - gone: BF-004 a.ds-card\_\_link "UK PM Burnham levels sweeping accusatio…"
   - gone: BF-004 a.ds-card\_\_link "Hungary removes anti-LGBTQ provisions f…"
+  - gone: BF-004 a.ds-card\_\_link "Cairo residents outraged over felling o…"
   - gone: BF-004 a.ds-card\_\_link "Economics Nobel Prize awarded to Americ…"
   - gone: BF-004 a.ds-card\_\_link "911 calls reveal emergency help for Chr…"
-  - gone: BF-004 a.ds-card\_\_link "Pope Leo XIV to be hospitalized in Rome…"
-  - gone: BF-004 a.ds-card\_\_link "From farms to high schools, France is a…"
-  - gone: BF-004 a.ds-card\_\_link "Glucksmann won the center-left primary.…"
-  - gone: BF-004 a.ds-card\_\_link "How the French left wants to reclaim th…"
-  - gone: BF-004 a.ds-card\_\_link "'A Man of His Time': Swann Arlaud as a …"

@@ -26,9 +26,17 @@ export async function findDuplicateLinks(page: Page, candidateIds: number[], rea
       }
 
       const reachableDestinations = new Set(reached.map((id) => destinationOf(helpers.elementForId(id))).filter((url) => url !== null));
+      // Only links taken out of the Tab order on purpose (a negative tabindex).
+      // A tabbable link the keyboard still can't use (e.g. one that throws focus
+      // away when it gets it) is a barrier even if another link goes there.
+      const removedFromTabOrder = (element: Element | undefined): boolean => {
+        const tabIndex = element?.getAttribute("tabindex");
+        return tabIndex !== null && tabIndex !== undefined && Number.parseInt(tabIndex, 10) < 0;
+      };
       return candidates.filter((id) => {
-        const destination = destinationOf(helpers.elementForId(id));
-        return destination !== null && reachableDestinations.has(destination);
+        const element = helpers.elementForId(id);
+        const destination = destinationOf(element);
+        return removedFromTabOrder(element) && destination !== null && reachableDestinations.has(destination);
       });
     },
     { candidates: candidateIds, reached: reachedIds },

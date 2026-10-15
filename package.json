@@ -42,6 +42,7 @@
     "spike:announcer": "tsx spikes/announcer-spike.ts",
     "corpus": "tsx scripts/run-real-world-corpus.ts",
     "corpus:report": "tsx scripts/build-corpus-report.ts",
+    "corpus:expected-bad": "tsx scripts/build-bad-expected-barriers.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "prepublishOnly": "npm run typecheck && npm test && npm run build"

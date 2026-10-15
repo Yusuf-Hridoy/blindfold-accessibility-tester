@@ -50,9 +50,14 @@
     return Number.isNaN(date.getTime()) ? isoDate : date.toLocaleString();
   }
 
-  function announce(text) {
-    byId("run-status").textContent = text;
+  /** `state` colours the status line: running, passed, failed or idle. */
+  function announce(text, state) {
+    const status = byId("run-status");
+    status.textContent = text;
+    if (state) status.dataset.state = state;
   }
+
+  const VIEWPORT_LABELS = { desktop: "Desktop", mobile: "Mobile" };
 
   function listItem(text, className) {
     const item = document.createElement("li");
@@ -118,7 +123,7 @@
     currentRunId = runId;
     resetProgress();
     setRunning(true);
-    announce(`${kindLabel(kind)} starting…`);
+    announce(`${kindLabel(kind)} starting…`, "running");
     const url = `/api/runs/${encodeURIComponent(runId)}/events?token=${encodeURIComponent(token)}`;
     eventSource = new EventSource(url);
     eventSource.onmessage = (message) => handleEvent(JSON.parse(message.data));
@@ -146,27 +151,29 @@
     }, FINDING_ANNOUNCE_DELAY_MILLISECONDS);
   }
 
-  function describeFocusStop(event) {
+  function focusStopItem(event) {
+    const item = document.createElement("li");
+    const step = document.createElement("span");
+    step.className = "stop-step";
+    step.textContent = event.journeyStep !== undefined ? `${event.journeyStep}.${event.step}` : `Tab ${event.step}`;
     const visible = event.focusVisible === false ? " · focus not visible" : "";
-    const step = event.journeyStep !== undefined ? `Journey step ${event.journeyStep}, Tab ${event.step}` : `Tab ${event.step}`;
-    return `${step}: ${event.element} — heard “${event.announcement}”${visible}`;
+    item.append(step, `${event.element} — heard “${event.announcement}”${visible}`);
+    if (event.focusVisible === false) item.classList.add("focus-no");
+    return item;
   }
 
   function handleEvent(event) {
     const transcript = byId("transcript-list");
     switch (event.type) {
       case "run-started":
-        announce(`${kindLabel(event.kind)} started: ${event.subject}`);
+        announce(`${kindLabel(event.kind)} started: ${event.subject}`, "running");
         break;
       case "page-loaded":
         transcript.append(listItem(`Page loaded: ${event.url}`, "note"));
         break;
-      case "focus-stop": {
-        const item = listItem(describeFocusStop(event));
-        if (event.focusVisible === false) item.classList.add("focus-no");
-        transcript.append(item);
+      case "focus-stop":
+        transcript.append(focusStopItem(event));
         break;
-      }
       case "step-started":
         transcript.append(listItem(`Journey step ${event.stepNumber}: ${event.action}`, "note"));
         break;
@@ -184,18 +191,21 @@
       }
       case "run-finished":
         stopListening();
-        announce(`${kindLabel(currentKind)} finished: ${event.summary.verdict}.`);
+        announce(
+          `${kindLabel(currentKind)} finished: ${event.summary.verdict}.`,
+          event.summary.barrierCount === 0 && event.summary.outcome !== "blocked" ? "passed" : "failed",
+        );
         showFinishedRun(event);
         loadHistory();
         break;
       case "run-failed":
         stopListening();
-        announce(`${kindLabel(currentKind)} failed.`);
+        announce(`${kindLabel(currentKind)} failed.`, "failed");
         showResult({ heading: `${kindLabel(currentKind)} failed`, verdict: event.message, passed: false });
         break;
       case "run-cancelled":
         stopListening();
-        announce(`${kindLabel(currentKind)} cancelled. No report was written.`);
+        announce(`${kindLabel(currentKind)} cancelled. No report was written.`, "idle");
         showResult({ heading: `${kindLabel(currentKind)} cancelled`, verdict: "No report was written.", passed: null });
         break;
     }
@@ -203,15 +213,14 @@
 
   // ---- Result panel ----
 
-  /** e.g. "Confidence: 2 certain, 1 likely" (empty when there are no findings). */
-  function describeConfidenceCounts(counts) {
-    const parts = Object.keys(CONFIDENCE_LABELS)
+  /** One chip per confidence level that has findings, e.g. "2 certain". */
+  function confidenceChips(counts) {
+    return Object.keys(CONFIDENCE_LABELS)
       .filter((level) => (counts?.[level] ?? 0) > 0)
-      .map((level) => `${counts[level]} ${CONFIDENCE_LABELS[level]}`);
-    return parts.length > 0 ? `Confidence: ${parts.join(", ")}` : "";
+      .map((level) => listItem(`${counts[level]} ${CONFIDENCE_LABELS[level]}`, level));
   }
 
-  function showResult({ heading, verdict, passed, warnings = [], confidenceText = "", numbers = [], reportUrl = null, audioUrl = null }) {
+  function showResult({ heading, verdict, passed, warnings = [], confidenceCounts = null, numbers = [], reportUrl = null, audioUrl = null }) {
     byId("result-heading").textContent = heading;
     const verdictElement = byId("result-verdict");
     verdictElement.textContent = verdict;
@@ -220,8 +229,9 @@
     warning.textContent = warnings.map((text) => `Warning: ${text}`).join(" ");
     warning.hidden = warnings.length === 0;
     const confidence = byId("result-confidence");
-    confidence.textContent = confidenceText;
-    confidence.hidden = confidenceText === "";
+    const chips = confidenceChips(confidenceCounts);
+    confidence.replaceChildren(...chips);
+    confidence.hidden = chips.length === 0;
 
     const numberList = byId("result-numbers");
     numberList.replaceChildren(
@@ -255,7 +265,7 @@
       verdict: summary.verdict,
       passed: summary.barrierCount === 0 && summary.outcome !== "blocked",
       warnings: summary.warnings ?? [],
-      confidenceText: describeConfidenceCounts(summary.confidenceCounts),
+      confidenceCounts: summary.confidenceCounts,
       numbers: [
         ["Barriers", summary.barrierCount],
         ["Rules failed", summary.rulesFailed],
@@ -359,11 +369,15 @@
     link.textContent = readableDate(run.scannedAt);
     dateCell.append(link);
     row.append(dateCell);
-    for (const text of [kindLabel(run.kind), run.subject, run.viewport, String(run.barrierCount)]) {
+    for (const text of [kindLabel(run.kind), run.subject, VIEWPORT_LABELS[run.viewport] ?? run.viewport]) {
       const cell = document.createElement("td");
       cell.textContent = text;
       row.append(cell);
     }
+    const count = document.createElement("td");
+    count.textContent = String(run.barrierCount);
+    count.className = run.barrierCount === 0 ? "count-zero" : "count-some";
+    row.append(count);
     return row;
   }
 
@@ -372,6 +386,20 @@
     option.value = run.id;
     option.textContent = `${readableDate(run.scannedAt)} · ${kindLabel(run.kind)} · ${run.subject} · ${plural(run.barrierCount, "barrier", "barriers")}`;
     return option;
+  }
+
+  /**
+   * The pair Compare starts with: the newest run that has an earlier run of the
+   * same kind (scans and journeys can't be compared), preferring an earlier
+   * run of the same page or journey. Runs are newest first.
+   */
+  function defaultComparison(runs) {
+    for (const [index, later] of runs.entries()) {
+      const sameKind = runs.slice(index + 1).filter((run) => run.kind === later.kind);
+      const earlier = sameKind.find((run) => run.subject === later.subject) ?? sameKind[0];
+      if (earlier) return [earlier, later];
+    }
+    return [runs[1], runs[0]];
   }
 
   async function loadHistory() {
@@ -391,12 +419,11 @@
     if (!enoughToCompare) return;
     const oldSelect = byId("compare-old");
     const newSelect = byId("compare-new");
-    const [previousOld, previousNew] = [oldSelect.value, newSelect.value];
     oldSelect.replaceChildren(...runs.map(runOption));
     newSelect.replaceChildren(...runs.map(runOption));
-    // Default: the newest run against the one before it.
-    oldSelect.value = runs.some((run) => run.id === previousOld) ? previousOld : runs[1].id;
-    newSelect.value = runs.some((run) => run.id === previousNew) ? previousNew : runs[0].id;
+    const [earlier, later] = defaultComparison(runs);
+    oldSelect.value = earlier.id;
+    newSelect.value = later.id;
   }
 
   function findingListBlock(title, items) {
