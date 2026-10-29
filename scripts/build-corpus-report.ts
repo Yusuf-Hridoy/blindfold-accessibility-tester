@@ -1,4 +1,5 @@
-// `npm run corpus:report`: writes corpus/CORPUS-REPORT.md from
+// `npm run corpus:report`: writes corpus/CORPUS-REPORT.md (and
+// corpus/PROPOSALS-TO-CONFIRM.md, the proposed verdicts by class) from
 // corpus/latest-results.json, corpus/previous-results.json (if any) and
 // corpus/triage-verdicts.json. Offline; reads nothing from the network.
 //
@@ -10,6 +11,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { ExpectedBarrierFile } from "./build-bad-expected-barriers.ts";
 import type { CorpusResults, TriageVerdicts } from "./corpus-result-types.ts";
+import { buildProposalsReport, parseClassTitles } from "./corpus-proposals-markdown.ts";
 import { tidyVerdicts } from "./corpus-report-maths.ts";
 import { buildCorpusReport } from "./corpus-report-markdown.ts";
 
@@ -40,7 +42,9 @@ try {
     }
     const expected = await readJson<ExpectedBarrierFile>("bad-expected-barriers.json");
     await writeFile(path.join(CORPUS_FOLDER, "CORPUS-REPORT.md"), buildCorpusReport(latest, previous, verdicts, expected));
-    console.log("Wrote corpus/CORPUS-REPORT.md");
+    const triageClasses = await readFile(path.join(CORPUS_FOLDER, "TRIAGE-CLASSES.md"), "utf8").catch(() => "");
+    await writeFile(path.join(CORPUS_FOLDER, "PROPOSALS-TO-CONFIRM.md"), buildProposalsReport(latest, verdicts, parseClassTitles(triageClasses)));
+    console.log("Wrote corpus/CORPUS-REPORT.md and corpus/PROPOSALS-TO-CONFIRM.md");
   }
 } catch (error) {
   console.error(error instanceof Error ? error.message : String(error));

@@ -1,4 +1,6 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { findUnnamedControls } from "../../../src/rules/bf002-unnamed-control.ts";
+import type { CollectedScanData, FocusStop } from "../../../src/types/scan-result-types.ts";
 import { findingSelectors, startSnippetScanner, type SnippetScanner } from "../../helpers/scan-html-snippet.ts";
 
 describe("BF-002 unnamed control", () => {
@@ -58,5 +60,40 @@ describe("BF-002 unnamed control", () => {
       <label for="name">Name</label><input id="name" type="text">`);
     expect(outcome.result.focusStops).toHaveLength(4);
     expect(findingSelectors(outcome, "BF-002")).toEqual([]);
+  });
+});
+
+describe("BF-002 name authority (pure)", () => {
+  const stop = (overrides: Partial<FocusStop>): FocusStop => ({
+    elementId: 1,
+    selector: "#target",
+    description: "target",
+    step: 1,
+    announcement: "link",
+    role: "link",
+    accessibleName: "",
+    hiddenFromScreenReaders: false,
+    focusVisible: true,
+    focusStyleChanges: [],
+    ...overrides,
+  });
+  const reasons = (focusStop: FocusStop) =>
+    findUnnamedControls({ focusStops: [focusStop], mousePassElements: [] } as unknown as CollectedScanData).map((finding) => finding.reason);
+
+  it("trusts Chromium's native tree when it was read: no name there is BF-002 even if Guidepup read text", () => {
+    expect(reasons(stop({ announcement: "link, WOMENS", nativeRole: "link", nativeName: "" }))).toEqual(["missing-name"]);
+    expect(reasons(stop({ announcement: "link", nativeRole: "link", nativeName: "Sale" }))).toEqual([]);
+  });
+
+  it("maps Chromium's own role names: a <summary> (DisclosureTriangle) is named from its text, an empty one needs a name", () => {
+    expect(reasons(stop({ role: "generic", announcement: "Delivery details", nativeRole: "DisclosureTriangle", nativeName: "Delivery details" }))).toEqual([]);
+    expect(reasons(stop({ role: "generic", announcement: "", nativeRole: "DisclosureTriangle", nativeName: "" }))).toEqual(["missing-name"]);
+    expect(reasons(stop({ role: "generic", nativeRole: "generic", nativeName: "" }))).toEqual([]);
+  });
+
+  it("falls back to both engines when the native tree couldn't be read", () => {
+    expect(reasons(stop({ announcement: "link, WOMENS" }))).toEqual([]);
+    expect(reasons(stop({ announcement: "link" }))).toEqual(["missing-name"]);
+    expect(reasons(stop({ role: "unknown", announcement: "" }))).toEqual([]);
   });
 });

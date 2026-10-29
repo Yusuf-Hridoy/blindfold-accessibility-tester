@@ -12,7 +12,8 @@ import type { Locator, Page } from "playwright";
 import type { FocusStop } from "../types/scan-result-types.ts";
 
 const SETTLE_CAP_MILLISECONDS = 500;
-const AREA_PADDING = 8;
+/** Indicators are often drawn around the element (a card frame, an offset ring): photograph that much around it. */
+const AREA_PADDING = 32;
 const HIDE_RING_STYLE_ID = "blindfold-hide-current-focus-ring";
 
 /**

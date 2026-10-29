@@ -58,15 +58,19 @@ change behaviour).
 ### Fixed
 - False alarms found by the real-world corpus, each fixed with a general rule
   and an offline test (`tests/unit/corpus-false-alarm-classes.test.ts`):
-  - BF-002 only fires when both engines find no name (e.g. a `<summary>` is
-    named by its text), and only for roles that need a name (not a focusable
-    `list` or `code` scroll container).
+  - BF-002 takes the name from Chromium's native accessibility tree (through
+    the DevTools protocol), what screen readers get: a `<summary>` is named by
+    its text, and a link whose text sits inside a `<nav>` has no name. When
+    the native tree can't be read, BF-002 fires only when both engines find no
+    name. Only roles that need a name count (not a focusable `list` or `code`
+    scroll container).
   - Focus inside an open shadow root is recorded on the focused element, not
     its host (no false BF-002 or BF-003 on custom elements).
-  - BF-004 needs a pixel check to agree: the element's area is photographed
-    while focused and after focus left (after transitions settle, at most
-    500 ms). Indicators drawn on a child, an ancestor or through a CSS
-    transition are no longer reported.
+  - BF-004 needs a pixel check to agree: the element's area plus 32 px is
+    photographed while focused and after focus left (after transitions
+    settle, at most 500 ms). Indicators drawn on a child, an ancestor, around
+    the element or through a CSS transition are no longer reported. BF-004 is
+    never "certain", at most "likely".
   - A link that blurs itself on focus no longer ends the scan's keyboard walk.
   - A trap that includes the walk's first stop (e.g. an app container
     focused at load that keeps Tab) is one BF-003, not BF-001 for everything

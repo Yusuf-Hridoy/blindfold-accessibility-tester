@@ -20,7 +20,7 @@ function ruleIds(outcome: ScanOutcome): string[] {
   return [...new Set(outcome.result.findings.map((finding) => finding.ruleId))];
 }
 
-describe("FA-1: BF-002 only when both engines find no name", () => {
+describe("FA-1 and R-7: BF-002 follows the name in Chromium's native accessibility tree", () => {
   it("a <summary> is named by its text (Guidepup speaks it), so no BF-002", async () => {
     const outcome = await scanner.scan(`<details><summary>Delivery details</summary><p>Two to four days.</p></details>`);
     expect(findingSelectors(outcome, "BF-002")).toEqual([]);
@@ -31,6 +31,14 @@ describe("FA-1: BF-002 only when both engines find no name", () => {
       <button id="icon"><svg width="16" height="16" aria-hidden="true"></svg></button>
       <select id="country"><option>Narnia</option><option>Gondor</option></select>`);
     expect(findingSelectors(outcome, "BF-002")).toEqual(["#icon", "#country"]);
+  });
+
+  it("R-7: a link whose text sits inside a <nav> has no name in Chromium, so BF-002 even though Guidepup reads the text", async () => {
+    const outcome = await scanner.scan(`
+      <a id="womens" href="#womens"><nav>WOMENS</nav></a>
+      <a id="sale" href="#sale">Sale</a>`);
+    expect(findingSelectors(outcome, "BF-002")).toEqual(["#womens"]);
+    expect(outcome.result.focusStops.find((stop) => stop.selector === "#womens")).toMatchObject({ nativeRole: "link", nativeName: "" });
   });
 });
 
@@ -315,6 +323,19 @@ describe("FA-3, FA-4, FA-5: BF-004 needs both the style check and the pixels to 
         .card:focus-within::after { content: ""; position: absolute; inset: 0; outline: 3px solid rgb(1, 110, 211); }
       </style>
       <div class="card"><h2><span><a id="story" href="#story">After the ban, police use another model</a></span></h2></div>`);
+    expect(findingSelectors(outcome, "BF-004")).toEqual([]);
+  });
+
+  it("FA-5: an indicator drawn 20 px outside the element (a sibling ring) is visible", async () => {
+    const outcome = await scanner.scan(`
+      <style>
+        a { outline: none; }
+        .tile { position: relative; display: inline-block; margin: 40px; }
+        .ring { display: none; position: absolute; inset: -20px; border: 3px solid rgb(1, 110, 211); pointer-events: none; }
+        a:focus + .ring { display: block; }
+      </style>
+      <div class="tile"><a id="tile" href="#tile">Weekend reads</a><span class="ring"></span></div>
+      <p><button>After</button></p>`);
     expect(findingSelectors(outcome, "BF-004")).toEqual([]);
   });
 

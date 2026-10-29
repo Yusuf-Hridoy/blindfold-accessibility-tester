@@ -1,843 +1,845 @@
 {
-  "generatedAt": "2026-10-15T06:05:15.126Z",
+  "generatedAt": "2026-10-15T10:01:51.177Z",
   "toolVersion": "0.6.0",
   "pages": [
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/",
       "source": "apg",
       "category": "accordion",
-      "scannedAt": "2026-10-14T13:14:56.385Z",
+      "scannedAt": "2026-10-15T09:43:12.960Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 8704,
+      "durationMilliseconds": 5490,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/",
       "source": "apg",
       "category": "alert",
-      "scannedAt": "2026-10-14T13:15:07.091Z",
+      "scannedAt": "2026-10-15T09:43:20.452Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 9408,
+      "durationMilliseconds": 4393,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/",
       "source": "apg",
       "category": "alertdialog",
-      "scannedAt": "2026-10-14T13:15:18.501Z",
+      "scannedAt": "2026-10-15T09:43:26.846Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 4141,
+      "durationMilliseconds": 3658,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/",
       "source": "apg",
       "category": "breadcrumb",
-      "scannedAt": "2026-10-14T13:15:24.645Z",
+      "scannedAt": "2026-10-15T09:43:32.506Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 50,
       "warnings": [],
-      "durationMilliseconds": 3266,
+      "durationMilliseconds": 2896,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/",
       "source": "apg",
       "category": "button",
-      "scannedAt": "2026-10-14T13:15:29.914Z",
+      "scannedAt": "2026-10-15T09:43:37.403Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 6998,
+      "durationMilliseconds": 5490,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/",
       "source": "apg",
       "category": "button",
-      "scannedAt": "2026-10-14T13:15:38.915Z",
+      "scannedAt": "2026-10-15T09:43:44.893Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 51,
       "warnings": [],
-      "durationMilliseconds": 3819,
+      "durationMilliseconds": 3053,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
       "source": "apg",
       "category": "carousel",
-      "scannedAt": "2026-10-14T13:15:44.736Z",
+      "scannedAt": "2026-10-15T09:43:49.947Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 4907,
+      "durationMilliseconds": 4558,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/",
       "source": "apg",
       "category": "carousel",
-      "scannedAt": "2026-10-14T13:15:51.648Z",
+      "scannedAt": "2026-10-15T09:43:56.506Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 60,
       "warnings": [],
-      "durationMilliseconds": 4982,
+      "durationMilliseconds": 4882,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/",
       "source": "apg",
       "category": "checkbox",
-      "scannedAt": "2026-10-14T13:15:58.630Z",
+      "scannedAt": "2026-10-15T09:44:03.389Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 3116,
+      "durationMilliseconds": 3770,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/",
       "source": "apg",
       "category": "checkbox",
-      "scannedAt": "2026-10-14T13:16:03.748Z",
+      "scannedAt": "2026-10-15T09:44:09.160Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 3993,
+      "durationMilliseconds": 3509,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/",
       "source": "apg",
       "category": "combobox",
-      "scannedAt": "2026-10-14T13:16:09.742Z",
+      "scannedAt": "2026-10-15T09:44:14.670Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 6078,
+      "durationMilliseconds": 3895,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
       "source": "apg",
       "category": "combobox",
-      "scannedAt": "2026-10-14T13:16:17.823Z",
+      "scannedAt": "2026-10-15T09:44:20.566Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 4271,
+      "durationMilliseconds": 4158,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/",
       "source": "apg",
       "category": "combobox",
-      "scannedAt": "2026-10-14T13:16:24.101Z",
+      "scannedAt": "2026-10-15T09:44:26.726Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 3929,
+      "durationMilliseconds": 3302,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/",
       "source": "apg",
       "category": "combobox",
-      "scannedAt": "2026-10-14T13:16:30.032Z",
+      "scannedAt": "2026-10-15T09:44:32.028Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 60,
       "warnings": [],
-      "durationMilliseconds": 8713,
+      "durationMilliseconds": 4675,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
       "source": "apg",
       "category": "combobox",
-      "scannedAt": "2026-10-14T13:16:40.746Z",
+      "scannedAt": "2026-10-15T09:44:38.703Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 4100,
+      "durationMilliseconds": 3423,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/",
       "source": "apg",
       "category": "combobox",
-      "scannedAt": "2026-10-14T13:16:46.847Z",
+      "scannedAt": "2026-10-15T09:44:44.127Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3160,
+      "durationMilliseconds": 3427,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
       "source": "apg",
       "category": "dialog-modal",
-      "scannedAt": "2026-10-14T13:16:52.008Z",
+      "scannedAt": "2026-10-15T09:44:49.555Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 6072,
+      "durationMilliseconds": 4491,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/",
       "source": "apg",
       "category": "dialog-modal",
-      "scannedAt": "2026-10-14T13:17:00.082Z",
+      "scannedAt": "2026-10-15T09:44:56.047Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 54,
       "warnings": [],
-      "durationMilliseconds": 9267,
+      "durationMilliseconds": 4981,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/",
       "source": "apg",
       "category": "disclosure",
-      "scannedAt": "2026-10-14T13:17:11.350Z",
+      "scannedAt": "2026-10-15T09:45:03.030Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 60,
       "warnings": [],
-      "durationMilliseconds": 4599,
+      "durationMilliseconds": 4071,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/",
       "source": "apg",
       "category": "disclosure",
-      "scannedAt": "2026-10-14T13:17:17.951Z",
+      "scannedAt": "2026-10-15T09:45:09.102Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 4651,
+      "durationMilliseconds": 4518,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/",
       "source": "apg",
       "category": "disclosure",
-      "scannedAt": "2026-10-14T13:17:24.604Z",
+      "scannedAt": "2026-10-15T09:45:15.620Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 3541,
+      "durationMilliseconds": 3881,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/",
       "source": "apg",
       "category": "disclosure",
-      "scannedAt": "2026-10-14T13:17:30.147Z",
+      "scannedAt": "2026-10-15T09:45:21.502Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 62,
       "warnings": [],
-      "durationMilliseconds": 3566,
+      "durationMilliseconds": 3578,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
       "source": "apg",
       "category": "disclosure",
-      "scannedAt": "2026-10-14T13:17:35.715Z",
+      "scannedAt": "2026-10-15T09:45:27.081Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 62,
       "warnings": [],
-      "durationMilliseconds": 13438,
+      "durationMilliseconds": 4609,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/",
       "source": "apg",
       "category": "feed",
-      "scannedAt": "2026-10-14T13:17:51.155Z",
+      "scannedAt": "2026-10-15T09:45:33.692Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 68,
+      "focusStops": 70,
       "warnings": [],
-      "durationMilliseconds": 3491,
+      "durationMilliseconds": 4031,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/",
       "source": "apg",
       "category": "grid",
-      "scannedAt": "2026-10-14T13:17:56.647Z",
+      "scannedAt": "2026-10-15T09:45:39.724Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 61,
       "warnings": [],
-      "durationMilliseconds": 5315,
+      "durationMilliseconds": 6722,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/",
       "source": "apg",
       "category": "grid",
-      "scannedAt": "2026-10-14T13:18:03.963Z",
+      "scannedAt": "2026-10-15T09:45:48.447Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 69,
       "warnings": [],
-      "durationMilliseconds": 4634,
+      "durationMilliseconds": 5385,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:10.598Z",
+      "scannedAt": "2026-10-15T09:45:55.833Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 2129,
+      "durationMilliseconds": 1906,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:14.729Z",
+      "scannedAt": "2026-10-15T09:45:59.741Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1637,
+      "durationMilliseconds": 1557,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/contentinfo.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:18.368Z",
+      "scannedAt": "2026-10-15T09:46:03.300Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 2623,
+      "durationMilliseconds": 1587,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/form.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:22.992Z",
+      "scannedAt": "2026-10-15T09:46:06.889Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 34,
       "warnings": [],
-      "durationMilliseconds": 2393,
+      "durationMilliseconds": 1666,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:27.386Z",
+      "scannedAt": "2026-10-15T09:46:10.557Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 2218,
+      "durationMilliseconds": 1629,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:31.605Z",
+      "scannedAt": "2026-10-15T09:46:14.188Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 1986,
+      "durationMilliseconds": 1509,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:35.591Z",
+      "scannedAt": "2026-10-15T09:46:17.699Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 27,
       "warnings": [],
-      "durationMilliseconds": 2060,
+      "durationMilliseconds": 1547,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/search.html",
       "source": "apg",
       "category": "landmarks",
-      "scannedAt": "2026-10-14T13:18:39.653Z",
+      "scannedAt": "2026-10-15T09:46:21.248Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 29,
       "warnings": [],
-      "durationMilliseconds": 1986,
+      "durationMilliseconds": 1464,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/",
       "source": "apg",
       "category": "link",
-      "scannedAt": "2026-10-14T13:18:43.640Z",
+      "scannedAt": "2026-10-15T09:46:24.714Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 8804,
+      "durationMilliseconds": 4789,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-actions/",
       "source": "apg",
       "category": "listbox",
-      "scannedAt": "2026-10-14T13:18:54.444Z",
+      "scannedAt": "2026-10-15T09:46:31.504Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 61,
       "warnings": [],
-      "durationMilliseconds": 7930,
+      "durationMilliseconds": 3799,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/",
       "source": "apg",
       "category": "listbox",
-      "scannedAt": "2026-10-14T13:19:04.375Z",
+      "scannedAt": "2026-10-15T09:46:37.306Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 5694,
+      "durationMilliseconds": 3598,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/",
       "source": "apg",
       "category": "listbox",
-      "scannedAt": "2026-10-14T13:19:12.141Z",
+      "scannedAt": "2026-10-15T09:46:42.905Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 7880,
+      "durationMilliseconds": 3450,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/",
       "source": "apg",
       "category": "listbox",
-      "scannedAt": "2026-10-14T13:19:22.028Z",
+      "scannedAt": "2026-10-15T09:46:48.357Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 67,
       "warnings": [],
-      "durationMilliseconds": 8072,
+      "durationMilliseconds": 4266,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/",
       "source": "apg",
       "category": "listbox",
-      "scannedAt": "2026-10-14T13:19:32.104Z",
+      "scannedAt": "2026-10-15T09:46:54.624Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 6257,
+      "durationMilliseconds": 3400,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/",
       "source": "apg",
       "category": "menu-button",
-      "scannedAt": "2026-10-14T13:19:40.363Z",
+      "scannedAt": "2026-10-15T09:47:00.026Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 6545,
+      "durationMilliseconds": 5181,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/",
       "source": "apg",
       "category": "menu-button",
-      "scannedAt": "2026-10-14T13:19:48.910Z",
+      "scannedAt": "2026-10-15T09:47:07.209Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 5964,
+      "durationMilliseconds": 4703,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/",
       "source": "apg",
       "category": "menu-button",
-      "scannedAt": "2026-10-14T13:19:56.876Z",
+      "scannedAt": "2026-10-15T09:47:13.914Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 5775,
+      "durationMilliseconds": 4760,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/",
       "source": "apg",
       "category": "menubar",
-      "scannedAt": "2026-10-14T13:20:04.653Z",
+      "scannedAt": "2026-10-15T09:47:20.676Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 4447,
+      "durationMilliseconds": 4096,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/",
       "source": "apg",
       "category": "menubar",
-      "scannedAt": "2026-10-14T13:20:11.101Z",
+      "scannedAt": "2026-10-15T09:47:26.774Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 5349,
+      "durationMilliseconds": 4228,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/",
       "source": "apg",
       "category": "meter",
-      "scannedAt": "2026-10-14T13:20:18.450Z",
+      "scannedAt": "2026-10-15T09:47:33.003Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 47,
       "warnings": [],
-      "durationMilliseconds": 9310,
+      "durationMilliseconds": 2944,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/",
       "source": "apg",
       "category": "radio",
-      "scannedAt": "2026-10-14T13:20:29.762Z",
+      "scannedAt": "2026-10-15T09:47:37.948Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 7489,
+      "durationMilliseconds": 6485,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/",
       "source": "apg",
       "category": "radio",
-      "scannedAt": "2026-10-14T13:20:39.252Z",
+      "scannedAt": "2026-10-15T09:47:46.490Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 3183,
+      "durationMilliseconds": 5244,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/",
       "source": "apg",
       "category": "radio",
-      "scannedAt": "2026-10-14T13:20:44.435Z",
+      "scannedAt": "2026-10-15T09:47:53.735Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 5026,
+      "durationMilliseconds": 5598,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
       "source": "apg",
       "category": "slider-multithumb",
-      "scannedAt": "2026-10-14T13:20:51.461Z",
+      "scannedAt": "2026-10-15T09:48:01.334Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 3760,
+      "durationMilliseconds": 3930,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
       "source": "apg",
       "category": "slider",
-      "scannedAt": "2026-10-14T13:20:57.222Z",
+      "scannedAt": "2026-10-15T09:48:07.265Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 7088,
+      "durationMilliseconds": 5246,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
       "source": "apg",
       "category": "slider",
-      "scannedAt": "2026-10-14T13:21:06.312Z",
+      "scannedAt": "2026-10-15T09:48:14.513Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 4456,
+      "durationMilliseconds": 4358,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/",
       "source": "apg",
       "category": "slider",
-      "scannedAt": "2026-10-14T13:21:12.768Z",
+      "scannedAt": "2026-10-15T09:48:20.872Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 7515,
+      "durationMilliseconds": 5352,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/",
       "source": "apg",
       "category": "slider",
-      "scannedAt": "2026-10-14T13:21:22.285Z",
+      "scannedAt": "2026-10-15T09:48:28.225Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 5390,
+      "durationMilliseconds": 4661,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
       "source": "apg",
       "category": "spinbutton",
-      "scannedAt": "2026-10-14T13:21:29.676Z",
+      "scannedAt": "2026-10-15T09:48:34.887Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 4998,
+      "durationMilliseconds": 12105,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
       "source": "apg",
       "category": "spinbutton",
-      "scannedAt": "2026-10-14T13:21:36.675Z",
+      "scannedAt": "2026-10-15T09:48:48.994Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 6579,
+      "durationMilliseconds": 3975,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/",
       "source": "apg",
       "category": "switch",
-      "scannedAt": "2026-10-14T13:21:45.255Z",
+      "scannedAt": "2026-10-15T09:48:54.969Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 54,
       "warnings": [],
-      "durationMilliseconds": 7437,
+      "durationMilliseconds": 4798,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/",
       "source": "apg",
       "category": "switch",
-      "scannedAt": "2026-10-14T13:21:54.692Z",
+      "scannedAt": "2026-10-15T09:49:01.769Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 51,
       "warnings": [],
-      "durationMilliseconds": 3221,
+      "durationMilliseconds": 3451,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/",
       "source": "apg",
       "category": "switch",
-      "scannedAt": "2026-10-14T13:21:59.915Z",
+      "scannedAt": "2026-10-15T09:49:07.222Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 53,
       "warnings": [],
-      "durationMilliseconds": 7931,
+      "durationMilliseconds": 4932,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/",
       "source": "apg",
       "category": "table",
-      "scannedAt": "2026-10-14T13:22:09.847Z",
+      "scannedAt": "2026-10-15T09:49:14.156Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 3261,
+      "durationMilliseconds": 3517,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/",
       "source": "apg",
       "category": "table",
-      "scannedAt": "2026-10-14T13:22:15.110Z",
+      "scannedAt": "2026-10-15T09:49:19.675Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 47,
       "warnings": [],
-      "durationMilliseconds": 2965,
+      "durationMilliseconds": 3704,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/",
       "source": "apg",
       "category": "tabs",
-      "scannedAt": "2026-10-14T13:22:20.075Z",
+      "scannedAt": "2026-10-15T09:49:25.382Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 3939,
+      "durationMilliseconds": 4882,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/",
       "source": "apg",
       "category": "tabs",
-      "scannedAt": "2026-10-14T13:22:26.016Z",
+      "scannedAt": "2026-10-15T09:49:32.268Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 3108,
+      "durationMilliseconds": 3841,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/",
       "source": "apg",
       "category": "tabs",
-      "scannedAt": "2026-10-14T13:22:31.126Z",
+      "scannedAt": "2026-10-15T09:49:38.111Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 13624,
+      "durationMilliseconds": 5331,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
       "source": "apg",
       "category": "toolbar",
-      "scannedAt": "2026-10-14T13:22:46.752Z",
-      "status": "couldn't scan",
-      "reason": "Blindfold couldn't complete the scan. https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout.",
-      "durationMilliseconds": 30271,
+      "scannedAt": "2026-10-15T09:49:45.443Z",
+      "status": "scanned",
+      "stoppedBecause": "end-of-page",
+      "focusStops": 78,
+      "warnings": [],
+      "durationMilliseconds": 6340,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/",
       "source": "apg",
       "category": "treegrid",
-      "scannedAt": "2026-10-14T13:23:19.024Z",
+      "scannedAt": "2026-10-15T09:49:53.784Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 23406,
+      "durationMilliseconds": 3782,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/",
       "source": "apg",
       "category": "treeview",
-      "scannedAt": "2026-10-14T13:23:44.431Z",
+      "scannedAt": "2026-10-15T09:49:59.568Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 5110,
+      "durationMilliseconds": 5082,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/",
       "source": "apg",
       "category": "treeview",
-      "scannedAt": "2026-10-14T13:23:51.542Z",
+      "scannedAt": "2026-10-15T09:50:06.652Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 58,
       "warnings": [],
-      "durationMilliseconds": 6115,
+      "durationMilliseconds": 5811,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/",
       "source": "apg",
       "category": "treeview",
-      "scannedAt": "2026-10-14T13:23:59.657Z",
+      "scannedAt": "2026-10-15T09:50:14.465Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 59,
       "warnings": [],
-      "durationMilliseconds": 4596,
+      "durationMilliseconds": 6725,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
       "source": "bad-before",
       "category": "before",
-      "scannedAt": "2026-10-14T13:24:06.254Z",
+      "scannedAt": "2026-10-15T09:50:23.192Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 42,
       "warnings": [],
-      "durationMilliseconds": 2382,
+      "durationMilliseconds": 3938,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/home.html",
@@ -951,24 +953,24 @@
       "url": "https://www.w3.org/WAI/demos/bad/after/home.html",
       "source": "bad-after",
       "category": "after",
-      "scannedAt": "2026-10-14T13:24:10.637Z",
+      "scannedAt": "2026-10-15T09:50:29.132Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 57,
       "warnings": [],
-      "durationMilliseconds": 1497,
+      "durationMilliseconds": 2805,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "source": "bad-before",
       "category": "before",
-      "scannedAt": "2026-10-14T13:24:14.135Z",
+      "scannedAt": "2026-10-15T09:50:33.953Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 45,
       "warnings": [],
-      "durationMilliseconds": 1954,
+      "durationMilliseconds": 3766,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/news.html",
@@ -1012,24 +1014,24 @@
       "url": "https://www.w3.org/WAI/demos/bad/after/news.html",
       "source": "bad-after",
       "category": "after",
-      "scannedAt": "2026-10-14T13:24:18.090Z",
+      "scannedAt": "2026-10-15T09:50:39.721Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 52,
       "warnings": [],
-      "durationMilliseconds": 1390,
+      "durationMilliseconds": 2272,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
       "source": "bad-before",
       "category": "before",
-      "scannedAt": "2026-10-14T13:24:21.481Z",
+      "scannedAt": "2026-10-15T09:50:43.995Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 42,
       "warnings": [],
-      "durationMilliseconds": 1992,
+      "durationMilliseconds": 2772,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/tickets.html",
@@ -1073,24 +1075,24 @@
       "url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
       "source": "bad-after",
       "category": "after",
-      "scannedAt": "2026-10-14T13:24:25.474Z",
+      "scannedAt": "2026-10-15T09:50:48.768Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 48,
       "warnings": [],
-      "durationMilliseconds": 1820,
+      "durationMilliseconds": 2169,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "source": "bad-before",
       "category": "before",
-      "scannedAt": "2026-10-14T13:24:29.295Z",
+      "scannedAt": "2026-10-15T09:50:52.938Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 49,
       "warnings": [],
-      "durationMilliseconds": 2733,
+      "durationMilliseconds": 4251,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
@@ -1230,24 +1232,24 @@
       "url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
       "source": "bad-after",
       "category": "after",
-      "scannedAt": "2026-10-14T13:24:34.028Z",
+      "scannedAt": "2026-10-15T09:50:59.190Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 55,
       "warnings": [],
-      "durationMilliseconds": 1791,
+      "durationMilliseconds": 3631,
       "findings": []
     },
     {
       "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
       "source": "bad-before",
       "category": "before",
-      "scannedAt": "2026-10-14T13:24:37.820Z",
+      "scannedAt": "2026-10-15T09:51:04.823Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 42,
       "warnings": [],
-      "durationMilliseconds": 1929,
+      "durationMilliseconds": 5369,
       "findings": [
         {
           "url": "https://www.w3.org/WAI/demos/bad/before/template.html",
@@ -1305,24 +1307,24 @@
       "url": "https://www.w3.org/WAI/demos/bad/after/template.html",
       "source": "bad-after",
       "category": "after",
-      "scannedAt": "2026-10-14T13:24:41.751Z",
+      "scannedAt": "2026-10-15T09:51:12.194Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 50,
       "warnings": [],
-      "durationMilliseconds": 1365,
+      "durationMilliseconds": 2449,
       "findings": []
     },
     {
       "url": "https://demowebshop.tricentis.com/",
       "source": "real-site",
       "category": "e-commerce demo",
-      "scannedAt": "2026-10-15T05:56:42.400Z",
+      "scannedAt": "2026-10-15T09:51:16.644Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 84,
       "warnings": [],
-      "durationMilliseconds": 6002,
+      "durationMilliseconds": 7694,
       "findings": [
         {
           "url": "https://demowebshop.tricentis.com/",
@@ -1382,12 +1384,12 @@
       "url": "https://www.telerik.com/support/demos",
       "source": "real-site",
       "category": "SaaS, cookie banner",
-      "scannedAt": "2026-10-15T05:56:50.405Z",
+      "scannedAt": "2026-10-15T09:51:26.339Z",
       "status": "scanned",
       "stoppedBecause": "cycle-complete",
       "focusStops": 144,
       "warnings": [],
-      "durationMilliseconds": 9023,
+      "durationMilliseconds": 9804,
       "findings": [
         {
           "url": "https://www.telerik.com/support/demos",
@@ -1481,13 +1483,6 @@
           "selector": "#ContentPlaceholder1_C337_Col03 > a:nth-of-type(2)",
           "description": "a.u-db",
           "confidence": "certain"
-        },
-        {
-          "url": "https://www.telerik.com/support/demos",
-          "ruleId": "BF-004",
-          "selector": "#js-tlrk-nav-drawer > ul:nth-of-type(1) > li:nth-of-type(1) > a",
-          "description": "a.TK-Menu-Item-Link \"Demos\"",
-          "confidence": "certain"
         }
       ]
     },
@@ -1495,24 +1490,24 @@
       "url": "https://github.com/",
       "source": "real-site",
       "category": "SaaS marketing",
-      "scannedAt": "2026-10-15T05:57:01.430Z",
+      "scannedAt": "2026-10-15T09:51:38.144Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 105,
       "warnings": [],
-      "durationMilliseconds": 8513,
+      "durationMilliseconds": 18685,
       "findings": []
     },
     {
       "url": "https://www.allbirds.com/",
       "source": "real-site",
       "category": "Shopify shop",
-      "scannedAt": "2026-10-15T05:57:11.945Z",
+      "scannedAt": "2026-10-15T09:51:58.830Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 101,
       "warnings": [],
-      "durationMilliseconds": 9374,
+      "durationMilliseconds": 13847,
       "findings": [
         {
           "url": "https://www.allbirds.com/",
@@ -1544,12 +1539,12 @@
       "url": "https://www.tentree.com/",
       "source": "real-site",
       "category": "Shopify shop",
-      "scannedAt": "2026-10-15T05:57:23.321Z",
+      "scannedAt": "2026-10-15T09:52:14.678Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 264,
       "warnings": [],
-      "durationMilliseconds": 68681,
+      "durationMilliseconds": 79587,
       "findings": [
         {
           "url": "https://www.tentree.com/",
@@ -1557,6 +1552,46 @@
           "selector": "#overlay > div:nth-of-type(2) > div > div > div:nth-of-type(1)",
           "description": "div.absolute",
           "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(1) > a",
+          "description": "a.tracking-wider \"WOMENS\"",
+          "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(2) > a",
+          "description": "a.tracking-wider \"MENS\"",
+          "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(3) > a",
+          "description": "a.tracking-wider \"ACCESSORIES\"",
+          "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(4) > a",
+          "description": "a.tracking-wider \"CLIMATE+\"",
+          "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#shopify-section-layout-header > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul > li:nth-of-type(5) > a",
+          "description": "a.tracking-wider \"IMPACT\"",
+          "confidence": "check-by-hand"
         },
         {
           "url": "https://www.tentree.com/",
@@ -1586,7 +1621,7 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "selector": "#splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
           "description": "a.color-swatch-link",
           "confidence": "certain"
         },
@@ -1594,7 +1629,7 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "selector": "#splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
           "description": "a.color-swatch-link",
           "confidence": "certain"
         },
@@ -1602,7 +1637,7 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "selector": "#splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
           "description": "a.color-swatch-link",
           "confidence": "certain"
         },
@@ -1610,7 +1645,7 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "selector": "#splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
           "description": "a.color-swatch-link",
           "confidence": "certain"
         },
@@ -1618,7 +1653,7 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "selector": "#splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
           "description": "a.color-swatch-link",
           "confidence": "certain"
         },
@@ -1626,7 +1661,7 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#splide04-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "selector": "#splide03-slide02 > div > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
           "description": "a.color-swatch-link",
           "confidence": "certain"
         },
@@ -1667,6 +1702,286 @@
           "ruleId": "BF-002",
           "reason": "missing-name",
           "selector": "#womens-whitney-mockneck-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-breton-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-breton-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-stretch-west-end-shirt-vintage-white-bowen-stripe > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-dakota-longsleeve-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-dakota-longsleeve-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#womens-dakota-longsleeve-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
           "description": "a.color-swatch-link",
           "confidence": "certain"
         },
@@ -2042,6 +2357,478 @@
           "url": "https://www.tentree.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#men-twill-latitude-short > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#men-twill-latitude-short > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#men-twill-latitude-short > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-mancos-shirt-midnight-blue-bike-around-sunray > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-mancos-shirt-midnight-blue-bike-around-sunray > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-mancos-shirt-midnight-blue-bike-around-sunray > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-atlas-sweatpant > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-mountain-scenic-t-shirt-meteorite-black > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-mountain-scenic-t-shirt-meteorite-black > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-mountain-scenic-t-shirt-meteorite-black > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(12) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(13) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(14) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(15) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(16) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(17) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(18) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(19) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(20) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a",
+          "description": "a.color-swatch-link",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://www.tentree.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
           "selector": "#footer_submenu_container_4 > div > div:nth-of-type(2) > a:nth-of-type(1)",
           "description": "a.inline-flex",
           "confidence": "certain"
@@ -2065,13 +2852,6 @@
         {
           "url": "https://www.tentree.com/",
           "ruleId": "BF-004",
-          "selector": "#subscribe_email",
-          "description": "input#subscribe_email",
-          "confidence": "likely"
-        },
-        {
-          "url": "https://www.tentree.com/",
-          "ruleId": "BF-004",
           "selector": "#subscribe_phone",
           "description": "input#subscribe_phone",
           "confidence": "likely"
@@ -2082,56 +2862,125 @@
       "url": "https://wordpress.org/news/",
       "source": "real-site",
       "category": "WordPress",
-      "scannedAt": "2026-10-15T05:58:34.004Z",
-      "status": "couldn't scan",
-      "reason": "Blindfold couldn't complete the scan. https://wordpress.org/news/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout.",
-      "durationMilliseconds": 30195,
+      "scannedAt": "2026-10-15T09:53:36.266Z",
+      "status": "scanned",
+      "stoppedBecause": "end-of-page",
+      "focusStops": 75,
+      "warnings": [],
+      "durationMilliseconds": 5466,
       "findings": []
     },
     {
       "url": "https://techcrunch.com/",
       "source": "real-site",
       "category": "news, WordPress",
-      "scannedAt": "2026-10-15T05:59:06.201Z",
-      "status": "couldn't scan",
-      "reason": "Blindfold couldn't complete the scan. https://techcrunch.com/ didn't finish loading within 30 seconds. Check the site is responding, or raise --page-timeout.",
-      "durationMilliseconds": 30275,
-      "findings": []
+      "scannedAt": "2026-10-15T09:53:43.733Z",
+      "status": "scanned",
+      "stoppedBecause": "end-of-page",
+      "focusStops": 275,
+      "warnings": [],
+      "durationMilliseconds": 28199,
+      "findings": [
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_top_center_0 >>> #aw0",
+          "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_top_center_0",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#wp--skip-link--target > div:nth-of-type(1) > figure > a",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_top_right_0 >>> #aw0",
+          "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_top_right_0",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#wp--skip-link--target > div:nth-of-type(1) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > figure > a",
+          "description": "a",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_1_0 >>> #aw0",
+          "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_1_0",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_8_0 >>> #aw0",
+          "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_8_0",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_9_0 >>> #aw0",
+          "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_9_0",
+          "confidence": "certain"
+        },
+        {
+          "url": "https://techcrunch.com/",
+          "ruleId": "BF-002",
+          "reason": "missing-name",
+          "selector": "#google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_10_0 >>> #aw0",
+          "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_10_0",
+          "confidence": "certain"
+        }
+      ]
     },
     {
       "url": "https://www.bbc.com/news",
       "source": "real-site",
       "category": "news",
-      "scannedAt": "2026-10-15T05:59:38.478Z",
+      "scannedAt": "2026-10-15T09:54:13.933Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 116,
+      "focusStops": 114,
       "warnings": [],
-      "durationMilliseconds": 5751,
+      "durationMilliseconds": 7805,
       "findings": []
     },
     {
       "url": "https://www.gov.uk/",
       "source": "real-site",
       "category": "government",
-      "scannedAt": "2026-10-15T05:59:46.231Z",
+      "scannedAt": "2026-10-15T09:54:23.739Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 88,
       "warnings": [],
-      "durationMilliseconds": 3034,
+      "durationMilliseconds": 2853,
       "findings": []
     },
     {
       "url": "https://www.usa.gov/",
       "source": "real-site",
       "category": "government",
-      "scannedAt": "2026-10-15T05:59:51.267Z",
+      "scannedAt": "2026-10-15T09:54:28.593Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 54,
+      "focusStops": 56,
       "warnings": [],
-      "durationMilliseconds": 5647,
+      "durationMilliseconds": 6637,
       "findings": [
         {
           "url": "https://www.usa.gov/",
@@ -2153,12 +3002,12 @@
       "url": "https://stripe.com/",
       "source": "real-site",
       "category": "SaaS marketing",
-      "scannedAt": "2026-10-15T05:59:58.917Z",
+      "scannedAt": "2026-10-15T09:54:37.232Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 170,
+      "focusStops": 173,
       "warnings": [],
-      "durationMilliseconds": 34205,
+      "durationMilliseconds": 50547,
       "findings": [
         {
           "url": "https://stripe.com/",
@@ -2179,6 +3028,13 @@
           "ruleId": "BF-001",
           "selector": "#navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(4) > button",
           "description": "button.hds-button \"Resources\"",
+          "confidence": "check-by-hand"
+        },
+        {
+          "url": "https://stripe.com/",
+          "ruleId": "BF-001",
+          "selector": "#navigation-menu > div:nth-of-type(1) > ul > li:nth-of-type(6) > a",
+          "description": "a.hds-button \"Guide me\"",
           "confidence": "check-by-hand"
         },
         {
@@ -2213,7 +3069,7 @@
           "url": "https://stripe.com/",
           "ruleId": "BF-002",
           "reason": "missing-name",
-          "selector": "#main-content > section:nth-of-type(5) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button",
+          "selector": "#main-content > section:nth-of-type(6) > div > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2) > button",
           "description": "button.platform-graphic__replay-button",
           "confidence": "certain"
         }
@@ -2223,12 +3079,12 @@
       "url": "https://www.atlassian.com/",
       "source": "real-site",
       "category": "SaaS marketing",
-      "scannedAt": "2026-10-15T06:00:35.125Z",
+      "scannedAt": "2026-10-15T09:55:29.781Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 82,
       "warnings": [],
-      "durationMilliseconds": 35404,
+      "durationMilliseconds": 40692,
       "findings": [
         {
           "url": "https://www.atlassian.com/",
@@ -2261,13 +3117,6 @@
           "selector": "#product > div > div > div > div > div:nth-of-type(2) > a",
           "description": "a._4bfu1r31 \"Explore Product Collection\"",
           "confidence": "certain"
-        },
-        {
-          "url": "https://www.atlassian.com/",
-          "ruleId": "BF-004",
-          "selector": "#language-dropdown",
-          "description": "input#language-dropdown",
-          "confidence": "certain"
         }
       ]
     },
@@ -2275,24 +3124,24 @@
       "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
       "source": "real-site",
       "category": "documentation",
-      "scannedAt": "2026-10-15T06:01:12.531Z",
+      "scannedAt": "2026-10-15T09:56:12.475Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 151,
       "warnings": [],
-      "durationMilliseconds": 8285,
+      "durationMilliseconds": 10551,
       "findings": []
     },
     {
       "url": "https://docs.python.org/3/",
       "source": "real-site",
       "category": "documentation",
-      "scannedAt": "2026-10-15T06:01:22.818Z",
+      "scannedAt": "2026-10-15T09:56:25.028Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 80,
       "warnings": [],
-      "durationMilliseconds": 2484,
+      "durationMilliseconds": 3010,
       "findings": [
         {
           "url": "https://docs.python.org/3/",
@@ -2323,45 +3172,35 @@
       "url": "https://www.ikea.com/gb/en/",
       "source": "real-site",
       "category": "e-commerce, cookie banner",
-      "scannedAt": "2026-10-15T06:01:27.303Z",
-      "status": "scanned",
-      "stoppedBecause": "max-tabs",
-      "focusStops": 400,
-      "warnings": [],
-      "durationMilliseconds": 55973,
+      "scannedAt": "2026-10-15T09:56:30.039Z",
+      "status": "couldn't scan",
+      "reason": "Blindfold stopped after 120 s (time limit). Raise --time-limit for very large pages.",
+      "durationMilliseconds": 120161,
       "findings": []
     },
     {
       "url": "https://www.samsung.com/uk/",
       "source": "real-site",
       "category": "carousel",
-      "scannedAt": "2026-10-15T06:02:25.278Z",
+      "scannedAt": "2026-10-15T09:58:32.201Z",
       "status": "scanned",
       "stoppedBecause": "cycle-complete",
       "focusStops": 5,
       "warnings": [],
-      "durationMilliseconds": 3371,
+      "durationMilliseconds": 4738,
       "findings": []
     },
     {
       "url": "https://excalidraw.com/",
       "source": "real-site",
       "category": "single-page app",
-      "scannedAt": "2026-10-15T06:02:30.651Z",
+      "scannedAt": "2026-10-15T09:58:38.940Z",
       "status": "scanned",
       "stoppedBecause": "focus-trap",
       "focusStops": 1,
       "warnings": [],
-      "durationMilliseconds": 2293,
+      "durationMilliseconds": 2771,
       "findings": [
-        {
-          "url": "https://excalidraw.com/",
-          "ruleId": "BF-002",
-          "reason": "missing-name",
-          "selector": "#root > div > div",
-          "description": "div.excalidraw \"Your drawings are saved in your browser…\"",
-          "confidence": "likely"
-        },
         {
           "url": "https://excalidraw.com/",
           "ruleId": "BF-003",
@@ -2375,12 +3214,12 @@
       "url": "https://react.dev/",
       "source": "real-site",
       "category": "single-page app, documentation",
-      "scannedAt": "2026-10-15T06:02:34.946Z",
+      "scannedAt": "2026-10-15T09:58:43.712Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
       "focusStops": 105,
       "warnings": [],
-      "durationMilliseconds": 4541,
+      "durationMilliseconds": 7657,
       "findings": [
         {
           "url": "https://react.dev/",
@@ -2395,12 +3234,12 @@
       "url": "https://www.lemonde.fr/",
       "source": "real-site",
       "category": "non-English news (French)",
-      "scannedAt": "2026-10-15T06:02:41.489Z",
+      "scannedAt": "2026-10-15T09:58:53.371Z",
       "status": "scanned",
       "stoppedBecause": "end-of-page",
-      "focusStops": 110,
+      "focusStops": 115,
       "warnings": [],
-      "durationMilliseconds": 11612,
+      "durationMilliseconds": 17939,
       "findings": [
         {
           "url": "https://www.lemonde.fr/",
@@ -2437,105 +3276,98 @@
           "ruleId": "BF-004",
           "selector": "#\\31 50259 > h3 > a",
           "description": "a.ds-card__link \"What's in Le Pen's fiscal 'magic measur…\"",
-          "confidence": "certain"
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#\\31 53392 > h2 > a",
-          "description": "a.ds-card__link \"Jean-Marc Jancovici: 'As long as there …\"",
-          "confidence": "certain"
+          "selector": "#\\31 52496 > h3 > a",
+          "description": "a.ds-card__link \"Why the Trump-Putin fuel agreement bene…\"",
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#\\31 53877 > h2 > a",
-          "description": "a.ds-card__link \"Brazil's Congress approves shorter work…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 53389 > h2 > a",
+          "selector": "#habillagepub > section > ul:nth-of-type(2) > li:nth-of-type(2) > div:nth-of-type(1) > div > div:nth-of-type(2) > h2 > a",
           "description": "a.ds-card__link \"'We want to propel the high school move…\"",
-          "confidence": "certain"
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#\\31 53283 > h2 > a",
-          "description": "a.ds-card__link \"Nvidia CEO Jensen Huang 'optimistic' on…\"",
-          "confidence": "certain"
+          "selector": "#\\31 53811 > h2 > a",
+          "description": "a.ds-card__link \"Netanyahu hails gains as Colombia opens…\"",
+          "confidence": "likely"
+        },
+        {
+          "url": "https://www.lemonde.fr/",
+          "ruleId": "BF-004",
+          "selector": "#\\31 53140 > h2 > a",
+          "description": "a.ds-card__link \"French high school protests: How many p…\"",
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
           "selector": "#habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > div > div:nth-of-type(1) > div > ul:nth-of-type(1) > li:nth-of-type(1) > button",
           "description": "button.ds-btn \"Previous image\"",
-          "confidence": "certain"
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
           "selector": "#habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(1) > div > div > div:nth-of-type(1) > div > ul:nth-of-type(1) > li:nth-of-type(2) > button",
           "description": "button.ds-btn \"Next image\"",
-          "confidence": "certain"
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
           "selector": "#ds-figcaption__text--153159-default-2 > button",
           "description": "button#153159 \"See more\"",
-          "confidence": "certain"
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
           "selector": "#ds-figcaption__text--153159-default-3 > button",
           "description": "button#153159 \"See more\"",
-          "confidence": "certain"
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(3) > div > div > div:nth-of-type(2) > h3 > a",
-          "description": "a.ds-card__link \"A century after his birth, Michel Fouca…\"",
-          "confidence": "certain"
+          "selector": "#habillagepub > div > div:nth-of-type(1) > ul > li:nth-of-type(2) > div > div > div:nth-of-type(2) > h3 > a",
+          "description": "a.ds-card__link \"A new generation of activists is leadin…\"",
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
-          "selector": "#\\31 53021 > h3 > a",
-          "description": "a.ds-card__link \"A star-studded cast offers a superficia…\"",
-          "confidence": "certain"
+          "selector": "#\\31 51831 > h3 > a",
+          "description": "a.ds-card__link \"From farms to high schools, France is a…\"",
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
           "selector": "#\\31 37817 > h3 > a",
           "description": "a.ds-card__link \"Heatwaves killed over 8,000 people in F…\"",
-          "confidence": "certain"
-        },
-        {
-          "url": "https://www.lemonde.fr/",
-          "ruleId": "BF-004",
-          "selector": "#\\31 12694 > h3 > a",
-          "description": "a.ds-card__link \"Tiananmen Square massacre: Le Monde rev…\"",
-          "confidence": "certain"
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
           "selector": "#ds-area__list--ds-area--most-read > li:nth-of-type(8) > div > div > div > h3 > a",
-          "description": "a.ds-card__link \"Marine Le Pen ready for tussle with EU …\"",
-          "confidence": "certain"
+          "description": "a.ds-card__link \"'We want to propel the high school move…\"",
+          "confidence": "likely"
         },
         {
           "url": "https://www.lemonde.fr/",
           "ruleId": "BF-004",
           "selector": "#js-body > div:nth-of-type(5) > div > footer > button",
           "description": "button.gdpr-lmd-button \"Accept\"",
-          "confidence": "certain"
+          "confidence": "likely"
         }
       ]
     },
@@ -2543,22 +3375,22 @@
       "url": "https://www.rakuten.co.jp/",
       "source": "real-site",
       "category": "non-English e-commerce (Japanese)",
-      "scannedAt": "2026-10-15T06:02:55.102Z",
+      "scannedAt": "2026-10-15T09:59:13.309Z",
       "status": "couldn't scan",
       "reason": "Blindfold stopped after 120 s (time limit). Raise --time-limit for very large pages.",
-      "durationMilliseconds": 120228,
+      "durationMilliseconds": 120402,
       "findings": []
     },
     {
       "url": "https://en.wikipedia.org/wiki/Web_accessibility",
       "source": "real-site",
       "category": "content",
-      "scannedAt": "2026-10-15T06:04:57.332Z",
+      "scannedAt": "2026-10-15T10:01:15.713Z",
       "status": "scanned",
       "stoppedBecause": "max-tabs",
       "focusStops": 400,
       "warnings": [],
-      "durationMilliseconds": 17793,
+      "durationMilliseconds": 35462,
       "findings": [
         {
           "url": "https://en.wikipedia.org/wiki/Web_accessibility",

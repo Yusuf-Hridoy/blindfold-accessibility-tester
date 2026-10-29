@@ -37,7 +37,7 @@ function precisionTable(firstHeader: string, rows: PrecisionRow[], label: (group
 }
 
 /** "Run: <time>", or the range when pages come from different (partial) runs. */
-function describeRunTimes(results: CorpusResults): string {
+export function describeRunTimes(results: CorpusResults): string {
   const times = results.pages.map((page) => page.scannedAt ?? results.generatedAt).sort();
   const first = times[0] ?? results.generatedAt;
   const last = times.at(-1) ?? results.generatedAt;

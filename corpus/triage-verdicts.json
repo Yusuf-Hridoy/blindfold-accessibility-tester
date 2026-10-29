@@ -3603,5 +3603,795 @@
     "proposed": true,
     "class": "FA-5",
     "description": "a.ds-card__link \"A star-studded cast offers a superficia…\""
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #women-bluffs-cropped-crew-agave-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-breton-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-breton-pant-ashwood > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-stretch-west-end-shirt-vintage-white-bowen-stripe > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treewaffle-turtleneck-longsleeve > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-long-rain-jacket-olive-night-green > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-dakota-longsleeve-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-dakota-longsleeve-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #womens-dakota-longsleeve-cotton-white > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #w-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-hoodie > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #men-twill-latitude-short > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #men-twill-latitude-short > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #men-twill-latitude-short > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-mancos-shirt-midnight-blue-bike-around-sunray > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-mancos-shirt-midnight-blue-bike-around-sunray > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-mancos-shirt-midnight-blue-bike-around-sunray > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-atlas-sweatpant > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #m-juniper-t > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-mountain-scenic-t-shirt-meteorite-black > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-mountain-scenic-t-shirt-meteorite-black > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-mountain-scenic-t-shirt-meteorite-black > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(12) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(13) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(14) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(15) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(16) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(17) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(18) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(19) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #mens-basic-tee > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(20) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(1) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(2) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(3) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(4) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(5) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(6) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(7) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(8) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(9) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(10) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://www.tentree.com/ BF-002 #treefleece-classic-crew > div > div:nth-of-type(2) > product-info div > div:nth-of-type(1) > color-swatch div > span:nth-of-type(11) > a": {
+    "verdict": "real",
+    "note": "Round 3: colour swatch link with no text, only a background colour (checked live: <a href=\"javascript:void(0)\"> with no content); same pattern as R-2.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a.color-swatch-link",
+    "reason": "missing-name"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_8_0 >>> #aw0": {
+    "verdict": "real",
+    "note": "Round 3: ad image link with no name inside a same-origin ad frame; same as the owner-confirmed R-2 ad links on this page.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_8_0",
+    "reason": "missing-name"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_9_0 >>> #aw0": {
+    "verdict": "real",
+    "note": "Round 3: ad image link with no name inside a same-origin ad frame; same as the owner-confirmed R-2 ad links on this page.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_9_0",
+    "reason": "missing-name"
+  },
+  "https://techcrunch.com/ BF-002 #google_ads_iframe_\\/23293943471\\/us\\/tc\\/main\\/dt\\/us_tc_main_dt_mid_right_10_0 >>> #aw0": {
+    "verdict": "real",
+    "note": "Round 3: ad image link with no name inside a same-origin ad frame; same as the owner-confirmed R-2 ad links on this page.",
+    "class": "R-2",
+    "proposed": true,
+    "description": "a#aw0 in iframe#google_ads_iframe_/23293943471/us/tc/main/dt/us_tc_main_dt_mid_right_10_0",
+    "reason": "missing-name"
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53811 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "Round 3: new article card; the focus outline is drawn on the card's click area, more than 32 px from the link (same pattern as FA-5).",
+    "class": "FA-5",
+    "proposed": true,
+    "description": "a.ds-card__link \"Netanyahu hails gains as Colombia opens…\""
+  },
+  "https://www.lemonde.fr/ BF-004 #\\31 53140 > h2 > a": {
+    "verdict": "false-alarm",
+    "note": "Round 3: new article card; the focus outline is drawn on the card's click area, more than 32 px from the link (same pattern as FA-5).",
+    "class": "FA-5",
+    "proposed": true,
+    "description": "a.ds-card__link \"French high school protests: How many p…\""
   }
 }

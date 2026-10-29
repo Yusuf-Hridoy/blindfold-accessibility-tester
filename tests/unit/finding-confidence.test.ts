@@ -83,10 +83,10 @@ describe("findingConfidence (pure)", () => {
     expect(screenReaderSpokeAName(focusStop({ announcement: "(focused when the page loaded) button, Menu" }))).toBe(true);
   });
 
-  it("BF-004: certain when the outline is removed and nothing else changes, likely otherwise", () => {
+  it("BF-004: never certain (the corpus found too many indicators drawn elsewhere), at most likely", () => {
     const bf004 = ruleFinding("BF-004");
     const level = (stop: Partial<FocusStop>) => findingConfidence(bf004, { focusStops: [focusStop({ focusVisible: false, ...stop })] });
-    expect(level({ outlineRemovedOnFocus: true, weakFocusStyleChanges: [] })).toBe("certain");
+    expect(level({ outlineRemovedOnFocus: true, weakFocusStyleChanges: [] })).toBe("likely");
     expect(level({ outlineRemovedOnFocus: true, weakFocusStyleChanges: ["color"] })).toBe("likely");
     expect(level({ outlineRemovedOnFocus: false, weakFocusStyleChanges: [] })).toBe("likely");
   });
@@ -133,14 +133,14 @@ describe("confidence on real scans", () => {
     expect(levels(outcome, "BF-001")).toEqual({ "#pay": "certain", "#custom": "likely", "#removed": "check-by-hand" });
   });
 
-  it("BF-004 is certain for outline:none with no other change, likely when an always-on outline just doesn't change", async () => {
+  it("BF-004 is likely, both for outline:none with no other change and for an always-on outline that doesn't change", async () => {
     // (A font-weight or colour change on focus is visible in the pixels, so it isn't BF-004 at all.)
     const outcome = await scanner.scan(`
       <style>a:focus { outline: none; } #boxed, #boxed:focus { outline: 2px solid rgb(120, 120, 120); outline-offset: 0; }</style>
       <a id="plain" href="#a">Plain</a>
       <a id="boxed" href="#b">Boxed</a>
       <button>After</button>`);
-    expect(levels(outcome, "BF-004")).toEqual({ "#plain": "certain", "#boxed": "likely" });
+    expect(levels(outcome, "BF-004")).toEqual({ "#plain": "likely", "#boxed": "likely" });
   });
 
   it("BF-002 is certain for a nameless button", async () => {

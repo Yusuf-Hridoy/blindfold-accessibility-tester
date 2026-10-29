@@ -65,6 +65,8 @@ export interface MousePassElement extends ElementIdentity {
   roleAttribute: string | null;
   /** Inside a widget whose items arrow keys reach (tablist, menu, listbox…). */
   insideArrowKeyWidget: boolean;
+  /** Name in Chromium's native accessibility tree; read only for radios reached with arrow keys (BF-002). */
+  nativeName?: string;
   /**
    * Hit-test after the keyboard walk, for elements the keyboard never reached:
    * false when no test point lands on the element (clipped or covered), so a
@@ -81,6 +83,12 @@ export interface FocusStop extends ElementIdentity {
   /** Structured role and accessible name from Engine B (Playwright ARIA snapshot). */
   role: string;
   accessibleName: string;
+  /**
+   * Role and name in Chromium's native accessibility tree (what screen readers
+   * get), the authority for BF-002. Absent when it couldn't be read.
+   */
+  nativeRole?: string;
+  nativeName?: string;
   /** aria-hidden (or an honoured role none/presentation) and Chromium exposes nothing. */
   hiddenFromScreenReaders: boolean;
   focusVisible: FocusVisibility;

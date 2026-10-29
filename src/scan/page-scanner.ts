@@ -4,6 +4,7 @@
 import type { Browser, Locator, Page } from "playwright";
 import { createScanContext, launchBrowser } from "../browser/browser-launcher.ts";
 import { VIEWPORT_PRESETS, type ViewportName } from "../browser/viewport-presets.ts";
+import { readNativeRoleAndName } from "../announcer/native-accessibility-tree.ts";
 import { startScreenReaderAnnouncer } from "../announcer/screen-reader-announcer.ts";
 import { recordFocusStyleBaselines } from "../focus/focus-style-baseline.ts";
 import { FRAME_PATH_SEPARATOR, locatorForSelector, mainFrameElementIdFor, prepareSameOriginFrames } from "../frames/frame-focus-follower.ts";
@@ -20,7 +21,7 @@ import { runRules } from "../rules/rule-engine.ts";
 import { RunCancelledError, throwIfCancelled } from "../runtime/run-cancellation.ts";
 import { TOOL_VERSION } from "../tool-version.ts";
 import type { ProgressListener } from "../types/progress-event-types.ts";
-import type { BoundingBox, Finding, FocusStop, ScanResult } from "../types/scan-result-types.ts";
+import type { BoundingBox, Finding, FocusStop, MousePassElement, ScanResult } from "../types/scan-result-types.ts";
 
 export interface ScanOptions {
   url: string;
@@ -181,6 +182,20 @@ async function captureFindingScreenshots(
 }
 
 /** Stops that may become BF-002 or BF-004 findings; screenshot them while focused. */
+/**
+ * Chromium's native name for the radios arrow keys reach: Tab skips them, so
+ * the walk never read it, and BF-002 trusts it over Engine B's.
+ */
+async function withNativeRadioNames(page: Page, elements: MousePassElement[], radioIds: number[]): Promise<MousePassElement[]> {
+  const radios = new Set(radioIds);
+  const named: MousePassElement[] = [];
+  for (const element of elements) {
+    const native = radios.has(element.elementId) && element.role === "radio" ? await readNativeRoleAndName(page, locatorForSelector(page, element.selector)) : null;
+    named.push(native ? { ...element, nativeName: native.name } : element);
+  }
+  return named;
+}
+
 function mightBecomeFocusFinding(stop: FocusStop): boolean {
   return stop.accessibleName.trim() === "" || stop.focusVisible === false;
 }
@@ -241,9 +256,10 @@ export async function scanPage(options: ScanOptions): Promise<ScanOutcome> {
 
     // After the walk, so scrolling for the hit-test can't affect the keyboard pass.
     const reachedElementIds = new Set(walk.focusStops.map((stop) => stop.elementId));
-    const mousePassElements = await checkMouseTargets(page, mousePassCandidates, reachedElementIds);
-    const unreachedIds = mousePassElements.filter((element) => !reachedElementIds.has(element.elementId)).map((element) => element.elementId);
+    const hitTestedElements = await checkMouseTargets(page, mousePassCandidates, reachedElementIds);
+    const unreachedIds = hitTestedElements.filter((element) => !reachedElementIds.has(element.elementId)).map((element) => element.elementId);
     const reachableWithArrowKeys = await findArrowKeyReachable(page, unreachedIds, [...reachedElementIds]);
+    const mousePassElements = await withNativeRadioNames(page, hitTestedElements, reachableWithArrowKeys.nativeRadioGroup);
     const arrowKeyIds = new Set([...reachableWithArrowKeys.nativeRadioGroup, ...reachableWithArrowKeys.assumedInCompositeWidget]);
     const duplicateLinkIds = await findDuplicateLinks(
       page,

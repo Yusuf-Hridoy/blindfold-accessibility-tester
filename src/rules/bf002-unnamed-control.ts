@@ -1,3 +1,4 @@
+import { ariaRoleForNativeRole } from "../announcer/native-accessibility-tree.ts";
 import { FOCUSED_ON_LOAD_PREFIX } from "../passes/keyboard-pass-walker.ts";
 import type { Bf002Reason, CollectedScanData, FocusStop, RuleFinding } from "../types/scan-result-types.ts";
 
@@ -109,14 +110,24 @@ export function screenReaderSpokeAName(stop: Pick<FocusStop, "announcement" | "r
   return (isValueRole(stop.role) ? spoken.slice(1) : spoken).length > 0;
 }
 
+/** The stop's ARIA role: Chromium's native role when it maps to one, else Engine B's. */
+export function effectiveRole(stop: Pick<FocusStop, "role" | "nativeRole">): string {
+  return (stop.nativeRole === undefined ? null : ariaRoleForNativeRole(stop.nativeRole)) ?? stop.role;
+}
+
 function reasonFor(stop: FocusStop): Bf002Reason | null {
-  // "unknown" means the snapshot couldn't be read, which says nothing about the name.
-  if (stop.role === "unknown") return null;
+  const native = stop.nativeName !== undefined && stop.nativeRole !== undefined;
+  // "unknown" means neither tree could be read, which says nothing about the name.
+  if (stop.role === "unknown" && !native) return null;
   // Hidden wins: adding a label wouldn't help while the screen reader can't see the control.
   if (stop.hiddenFromScreenReaders) return "hidden-from-screen-readers";
-  if (stop.accessibleName.trim() !== "" || !NAME_REQUIRED_ROLES.has(stop.role)) return null;
-  // Both engines must find no name: Engine B's snapshot misses some names
-  // the browser and Guidepup do have (e.g. a <summary>'s text).
+  if (!NAME_REQUIRED_ROLES.has(effectiveRole(stop))) return null;
+  // Chromium's native tree is what screen readers get: it names a <summary>
+  // from its text (Engine B doesn't), and gives no name to a link whose text
+  // is inside a <nav> (Guidepup reads it anyway).
+  if (native) return stop.nativeName?.trim() === "" ? "missing-name" : null;
+  // Without it, both engines must find no name.
+  if (stop.accessibleName.trim() !== "") return null;
   return screenReaderSpokeAName(stop) ? null : "missing-name";
 }
 
@@ -145,7 +156,8 @@ export function findUnnamedControls(data: CollectedScanData): RuleFinding[] {
   }
   // After the focus stops, so a group's reached radio comes first.
   for (const element of data.mousePassElements) {
-    if (!radiosReachedByArrowKeys.has(element.elementId) || element.role !== "radio" || element.accessibleName.trim() !== "") continue;
+    const name = element.nativeName ?? element.accessibleName;
+    if (!radiosReachedByArrowKeys.has(element.elementId) || element.role !== "radio" || name.trim() !== "") continue;
     if (reportedElementIds.has(element.elementId)) continue;
     reportedElementIds.add(element.elementId);
     findings.push({

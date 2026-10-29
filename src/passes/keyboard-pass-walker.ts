@@ -3,6 +3,7 @@
 
 import type { Page } from "playwright";
 import { formatAsAnnouncement, readRoleAndName, type RoleAndName } from "../announcer/accessibility-snapshot-fallback.ts";
+import { readNativeRoleAndName } from "../announcer/native-accessibility-tree.ts";
 import { clearAnnouncements, readAnnouncement, screenReaderRunsIn } from "../announcer/screen-reader-announcer.ts";
 import { checkFocusVisibility } from "../focus/focus-style-baseline.ts";
 import { detectFocusTrap } from "../focus/focus-trap-detector.ts";
@@ -62,6 +63,7 @@ export async function recordFocusStop(
   announcement: string | null,
 ): Promise<FocusStop> {
   const roleAndName = await readRoleAndName(focusedElementLocator(focused));
+  const native = await readNativeRoleAndName(focused.frame.page(), focusedElementLocator(focused));
   const visibility = await checkFocusVisibility(focused.frame);
   return {
     elementId: focused.elementId,
@@ -71,6 +73,7 @@ export async function recordFocusStop(
     announcement: announcement ?? formatAsAnnouncement(roleAndName),
     role: roleAndName.role,
     accessibleName: roleAndName.name,
+    ...(native ? { nativeRole: native.role, nativeName: native.name } : {}),
     hiddenFromScreenReaders: isHiddenFromScreenReaders(focused, roleAndName),
     focusVisible: visibility.focusVisible,
     focusStyleChanges: visibility.focusStyleChanges,

@@ -16,6 +16,7 @@ import {
   triageKey,
 } from "../../scripts/corpus-report-maths.ts";
 import { buildCorpusReport } from "../../scripts/corpus-report-markdown.ts";
+import { buildProposalsReport, parseClassTitles } from "../../scripts/corpus-proposals-markdown.ts";
 
 function finding(url: string, ruleId: CorpusFinding["ruleId"], selector: string, confidence: CorpusFinding["confidence"] = "certain"): CorpusFinding {
   return { url, ruleId, selector, description: `element ${selector}`, confidence };
@@ -192,5 +193,41 @@ describe("recall on the BAD before pages", () => {
       ["BF-001 (F55)", 2, 1, ["#nav-2"]],
       ["BF-002 (F68)", 1, 1, []],
     ]);
+  });
+});
+
+describe("PROPOSALS-TO-CONFIRM.md", () => {
+  const latest = results([
+    page(SHOP, "real-site", [finding(SHOP, "BF-001", "#a"), finding(SHOP, "BF-001", "#b", "likely"), finding(SHOP, "BF-004", "#c"), finding(SHOP, "BF-002", "#d")]),
+    page("https://news.example/", "real-site", [finding("https://news.example/", "BF-004", "#card")]),
+  ]);
+  const verdicts: TriageVerdicts = {
+    [`${SHOP} BF-001 #a`]: { verdict: "real", note: "Mouse-only slider arrow.", proposed: true, class: "R-5" },
+    [`${SHOP} BF-001 #b`]: { verdict: "real", note: "Same pattern.", proposed: true, class: "R-5" },
+    [`${SHOP} BF-004 #c`]: { verdict: "false-alarm", note: "Ring drawn on the card.", proposed: true, class: "FA-5" },
+    ["https://news.example/ BF-004 #card"]: { verdict: "false-alarm", note: "Card frame.", proposed: true, class: "FA-5" },
+    [`${SHOP} BF-002 #d`]: { verdict: "real", note: "Confirmed by the owner." },
+    [`${SHOP} BF-001 #gone`]: { verdict: "real", note: "Fixed since.", proposed: true, class: "R-5" },
+  };
+  const classTitles = parseClassTitles(["| Class | Pattern |", "|---|---|", "| FA-5 | Indicator on a distant ancestor | BF-004 |", "| R-5 | Mouse-only control | BF-001 |"].join("\n"));
+
+  it("reads class titles from the TRIAGE-CLASSES summary table", () => {
+    expect(classTitles).toEqual({ "FA-5": "Indicator on a distant ancestor", "R-5": "Mouse-only control" });
+  });
+
+  it("groups only proposed verdicts of current findings by class, false alarms first, with count, pages and one example", () => {
+    const report = buildProposalsReport(latest, verdicts, classTitles);
+    expect(report).toContain("**4 findings** in the latest run");
+    expect(report).toContain("| FA-5 | Indicator on a distant ancestor | BF-004 | false-alarm | 2 | 2 |");
+    expect(report).toContain("| R-5 | Mouse-only control | BF-001 | real | 2 | 1 |");
+    expect(report.indexOf("## FA-5")).toBeLessThan(report.indexOf("## R-5"));
+    expect(report).toContain("- **Example:** https://shop.example/: BF-001 [certain] `element #a` (`#a`)");
+    expect(report).toContain("- **Note:** Mouse-only slider arrow.");
+    expect(report).not.toContain("#d");
+    expect(report).toContain("1 more proposed verdicts match no finding in this run");
+  });
+
+  it("says so when there's nothing to confirm", () => {
+    expect(buildProposalsReport(latest, {})).toContain("Nothing to confirm.");
   });
 });

@@ -50,7 +50,7 @@ Engine: Guidepup virtual screen reader
 
   ✗ BF-001  Control can't be reached by keyboard       1 element (1 certain)
   ✗ BF-002  Control has no accessible name             1 element (1 certain)
-  ✗ BF-004  Keyboard focus is not visible              4 elements (4 certain)
+  ✗ BF-004  Keyboard focus is not visible              4 elements (4 likely)
 
   3 rules failed · 6 elements · 9 focus stops · 1.1s
   Report: blindfold-results/report.html
@@ -65,10 +65,10 @@ Blindfold 0.6.0 · run · Cart, remove an item and check out
 Engine: Guidepup virtual screen reader
 
   ✓ step 1  reach "Remove Linen tote bag, button" + Enter    9 keys
-  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Shop"
-  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Tote bag"
-  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Cart"
-  ✗ step 1  BF-004 [certain] Keyboard focus is not visible: a.nav-link "Checkout"
+  ✗ step 1  BF-004 [likely] Keyboard focus is not visible: a.nav-link "Shop"
+  ✗ step 1  BF-004 [likely] Keyboard focus is not visible: a.nav-link "Tote bag"
+  ✗ step 1  BF-004 [likely] Keyboard focus is not visible: a.nav-link "Cart"
+  ✗ step 1  BF-004 [likely] Keyboard focus is not visible: a.nav-link "Checkout"
   ✗ step 1  BF-002 [certain] Control has no accessible name: button.cart-button
   ✗ step 1  BF-006 [likely] focus fell back to the page after Enter on button.remove-button "Remove Linen tote bag"
   ✗ step 2  reach "Checkout, button" + Enter                 10 keys
@@ -439,9 +439,9 @@ its selector; `npm run corpus:report -- --tidy-verdicts` re-keys or removes
 them. It all needs the network, so it never runs with `npm test`; a workflow
 runs it monthly.
 
-Latest run (2026-10-14/15, Blindfold 0.6.0): **0 findings on all APG pages
-scanned (68 of 69; one didn't load in time) and on all 5 BAD "after"
-pages**, and **all 49 planted barriers found** on the BAD "before" pages:
+Latest run (2026-10-15, Blindfold 0.6.0): **0 findings on all 69 APG pages
+and all 5 BAD "after" pages**, and **all 49 planted barriers found** on the
+BAD "before" pages:
 
 | Recall on BAD "before" (WCAG failure) | Expected | Found | Recall |
 |---|---|---|---|
@@ -453,30 +453,33 @@ false alarm:
 
 | Rule | Findings | Real | False alarm | Awaiting a verdict | Precision |
 |---|---|---|---|---|---|
-| BF-001 Control can't be reached by keyboard | 61 | 39 | 2 | 20 | 95% |
-| BF-002 Control has no accessible name | 101 | 22 | 0 | 79 | 100% |
-| BF-004 Keyboard focus is not visible | 19 | 2 | 4 | 13 | 33% |
+| BF-001 Control can't be reached by keyboard | 62 | 39 | 2 | 21 | 95% |
+| BF-002 Control has no accessible name | 207 | 31 | 0 | 176 | 100% |
+| BF-004 Keyboard focus is not visible | 15 | 1 | 5 | 9 | 17% |
 
 | Confidence | Findings | Real | False alarm | Awaiting a verdict | Precision |
 |---|---|---|---|---|---|
-| certain | 108 | 20 | 4 | 84 | 83% |
-| likely | 47 | 26 | 0 | 21 | 100% |
-| check by hand | 27 | 17 | 2 | 8 | 89% |
+| certain | 193 | 22 | 0 | 171 | 100% |
+| likely | 59 | 27 | 5 | 27 | 84% |
+| check by hand | 33 | 22 | 2 | 9 | 92% |
 
 BF-003 had one finding (unsure); BF-005 to BF-008 had none, since the corpus
-runs scans, not journeys. The remaining BF-004 false alarms are focus
-indicators drawn more than 8 px away from the element (see Known
-limitations). Before the corpus-driven fixes, the same pages gave 443
-findings with 18% precision.
+runs scans, not journeys. Most BF-002 findings are 143 colour-swatch links on
+one shop page, each an empty link showing only a colour. BF-004 is the weak
+rule: the remaining false alarms are focus indicators drawn more than 32 px
+away from the element, and a neighbour's own focus style inside that area can
+hide a real one (see Known limitations). Before the corpus-driven fixes, the
+same pages gave 443 findings with 18% precision.
 
 **Confidence levels.** Every finding has one:
 
 - **certain**: the evidence leaves no doubt (e.g. a `<div>` with a click
-  listener and no tabindex; a button with no name in either engine; an
-  outline removed with nothing changing on screen).
+  listener and no tabindex; a button with no name in Chromium's
+  accessibility tree).
 - **likely**: probably a barrier, but a legitimate pattern can look the same
   (e.g. a custom `role` without tabindex; an element that is clickable only
-  because of its pointer cursor).
+  because of its pointer cursor). Every BF-004 is at most "likely": a focus
+  indicator can be drawn further away than Blindfold looks.
 - **check by hand**: the page did something on purpose or the evidence is
   thin (e.g. a link with `tabindex="-1"`, an element with only a click
   listener and no pointer cursor, a field whose value Guidepup reads instead
@@ -520,20 +523,27 @@ findings with 18% precision.
   can). Nothing inside third-party iframes is tested.
 - BF-004 needs two checks to agree. First the styles of the element, its
   `::before`/`::after`, its parent and grandparent are compared with and
-  without focus. If nothing changed, the element's area (its box plus 8 px)
+  without focus. If nothing changed, the element's area (its box plus 32 px,
+  clipped to the viewport)
   is photographed while focused and again after focus has moved on, each time
   once CSS transitions and animations have finished (at most 500 ms). BF-004
   is reported only when the pixels are identical too. Content that moves on
   its own (a carousel, a video) near the element makes the area look changed,
-  so a real BF-004 there is missed; that's preferred over a false alarm. An
-  indicator drawn more than 8 px away from the element isn't seen. While
+  so a real BF-004 there is missed; that's preferred over a false alarm. The
+  same happens when the next element's own focus style (other than an outline
+  or box-shadow, e.g. an underline) is drawn inside the area. An
+  indicator drawn more than 32 px away from the element isn't seen, which is
+  why BF-004 is never "certain". While
   taking the second photo, the newly focused element's own focus ring is
   hidden for a moment when it appeared with focus, so it can't spill into the
   area.
 - BF-002 fires only for roles that need a name (buttons, links, form fields,
-  tabs, dialogs, images…) and only when both engines find no name: if
-  Guidepup speaks a name, there's no BF-002 even when Chromium's snapshot
-  has none. (For value fields such as a `<select>`, the value Guidepup reads
+  tabs, dialogs, images…), and the name comes from Chromium's native
+  accessibility tree (read through the DevTools protocol), which is what
+  screen readers get. So a `<summary>` is named by its text, and a link whose
+  text sits inside a `<nav>` has no name even though Guidepup reads the text.
+  If the native tree can't be read, BF-002 fires only when both engines find
+  no name. (For value fields such as a `<select>`, the value Guidepup reads
   isn't a name.)
 - Mouse-only parts of a slider, spinbutton or combobox (a track, +/- buttons,
   an open button) aren't BF-001 when the widget itself is reached and the
@@ -541,9 +551,9 @@ findings with 18% precision.
   `aria-controls`); they're listed under "Not tested". Labels of reached
   controls, and empty full-screen backdrops with a dialog drawn over them,
   aren't counted as controls.
-- The other radios of a reached radio group aren't focus stops, so their
-  name comes from Chromium's snapshot only; a missing one is BF-002 marked
-  "likely".
+- The other radios of a reached radio group aren't focus stops, so Guidepup
+  never reads them; their name comes from Chromium's native tree only, and a
+  missing one is BF-002 marked "likely".
 - Journeys: BF-004's pixel check needs focus to leave the element. When the
   journey ends with focus still there, Blindfold presses Tab once more (not
   counted as effort). When the step's action loads a new page, the check

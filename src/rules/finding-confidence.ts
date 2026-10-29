@@ -6,7 +6,7 @@
 // A pure function of the finding and the data collected for its page.
 
 import type { FindingConfidence, FocusStop, MousePassElement, RuleFinding } from "../types/scan-result-types.ts";
-import { spokenTextBesidesRole } from "./bf002-unnamed-control.ts";
+import { effectiveRole, spokenTextBesidesRole } from "./bf002-unnamed-control.ts";
 
 export interface ConfidenceEvidence {
   mousePassElements?: MousePassElement[];
@@ -72,12 +72,16 @@ function bf002Confidence(finding: RuleFinding, stop: FocusStop | undefined): Fin
   // BF-002 only fires when Guidepup spoke no name. For a value control it may
   // still have read the value, which a user could take for a label.
   if (spokenTextBesidesRole(stop).length > 0) return "check-by-hand";
-  return CONTROL_ROLES.has(stop.role) ? "certain" : "likely";
+  return CONTROL_ROLES.has(effectiveRole(stop)) ? "certain" : "likely";
 }
 
-function bf004Confidence(stop: FocusStop | undefined): FindingConfidence {
-  if (!stop) return "likely";
-  return stop.outlineRemovedOnFocus === true && (stop.weakFocusStyleChanges ?? []).length === 0 ? "certain" : "likely";
+/**
+ * Never "certain": the corpus found indicators drawn far from the element
+ * (a card's frame, a distant ancestor's ::after) that neither the style check
+ * nor the photographed area can see, so "nothing changed" can still be wrong.
+ */
+function bf004Confidence(): FindingConfidence {
+  return "likely";
 }
 
 export function findingConfidence(finding: RuleFinding, evidence: ConfidenceEvidence = {}): FindingConfidence {
@@ -90,7 +94,7 @@ export function findingConfidence(finding: RuleFinding, evidence: ConfidenceEvid
     case "BF-003":
       return "certain";
     case "BF-004":
-      return bf004Confidence(stop);
+      return bf004Confidence();
     case "BF-005":
       return finding.confidenceNote ? "check-by-hand" : "certain";
     case "BF-006":

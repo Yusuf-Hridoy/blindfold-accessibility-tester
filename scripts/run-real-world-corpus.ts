@@ -20,6 +20,8 @@ const CORPUS_FOLDER = path.join(import.meta.dirname, "..", "corpus");
 const LATEST_FILE = path.join(CORPUS_FOLDER, "latest-results.json");
 const PREVIOUS_FILE = path.join(CORPUS_FOLDER, "previous-results.json");
 const PAUSE_BETWEEN_PAGES_MILLISECONDS = 2_000;
+/** Heavy real sites can take longer than a person's 30 s default to load; the scan time limit stays the same. */
+const PAGE_TIMEOUT_SECONDS = 60;
 /** A page that fails with a network error (not a slow or broken site) is tried once more after this pause. */
 const NETWORK_RETRY_PAUSE_MILLISECONDS = 10_000;
 const NETWORK_ERROR = /net::ERR_(INTERNET_DISCONNECTED|NETWORK_CHANGED|NAME_NOT_RESOLVED|CONNECTION_RESET|TIMED_OUT)/;
@@ -59,6 +61,7 @@ async function scanCorpusPage(page: CorpusPage, source: CorpusSource): Promise<C
       url: page.url,
       outputFolder: path.join(CORPUS_FOLDER, "raw", source, folderNameFor(page.url)),
       ...SCAN_DEFAULTS,
+      pageTimeoutSeconds: PAGE_TIMEOUT_SECONDS,
       viewport: "desktop",
       screenshots: false,
       audio: false,
